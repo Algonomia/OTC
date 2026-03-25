@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>action / panel / column enlarge</title>
+    <g id="action-/-panel-/-column-enlarge" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15.504,25.736 L15.504,9.864 L14.928,9.864 L14.928,25.736 L15.504,25.736 Z M21.072,25.736 L21.072,9.864 L20.496,9.864 L20.496,25.736 L21.072,25.736 Z M25.128,21.04 L27.944,17.96 C28.04,17.864 28.04,17.736 27.944,17.64 L25.128,14.56 C25,14.464 24.808,14.56 24.808,14.72 L24.808,20.88 C24.808,21.04 25,21.136 25.128,21.04 Z M11.192,20.88 L11.192,14.72 C11.192,14.56 11,14.464 10.872,14.56 L8.056,17.64 C7.96,17.736 7.96,17.864 8.056,17.96 L10.872,21.04 C11,21.136 11.192,21.04 11.192,20.88 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

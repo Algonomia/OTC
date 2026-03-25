@@ -1,0 +1,9 @@
+@if (formControl) {
+    <app-percentage-form-control [formControls]="formControl"
+                                 [min]="formControl.algoValidator.meta.min ?? 0"
+                                 [max]="formControl.algoValidator.meta.max ?? 100"
+                                 [label]="formControl.algoValidator.meta.label"
+                                 [required]="formControl.algoValidator.meta.required"
+                                 [placeholder]="formControl.algoValidator.meta.placeholder">
+    </app-percentage-form-control>
+}

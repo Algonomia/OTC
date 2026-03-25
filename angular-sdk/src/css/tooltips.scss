@@ -1,0 +1,17 @@
+.algo-text-tooltip {
+    --p-tooltip-padding: 8px 14px;
+    --p-tooltip-background: var(--main-6);
+    --p-tooltip-color: var(--grey-0);
+    --p-tooltip-border-radius: 8px;
+    font-family: 'Integral UI Regular' !important;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: var(--grey-0);
+    text-align: center;
+    opacity: 0.9 !important;
+    line-height: 1.25rem;
+
+    .p-tooltip-text {
+        font-family: inherit;
+    }
+}

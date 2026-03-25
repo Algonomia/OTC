@@ -1,0 +1,86 @@
+{{- if .Values.otcLlm.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otc-llm
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.otcLlm.replicaCount }}
+  selector:
+    matchLabels:
+      run: otc-llm
+  template:
+    metadata:
+      labels:
+        run: otc-llm
+    spec:
+      containers:
+        - name: otc-llm
+          image: "{{ .Values.otcLlm.image.repository }}:{{ .Values.otcLlm.image.tag }}"
+          imagePullPolicy: {{ .Values.otcLlm.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.otcLlm.service.targetPort }}
+          env:
+            - name: LLM_BASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.otcLlm.env.llm.secretName }}
+                  key: {{ .Values.otcLlm.env.llm.keywords.baseUrl }}
+            - name: LLM_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.otcLlm.env.llm.secretName }}
+                  key: {{ .Values.otcLlm.env.llm.keywords.apiKey }}
+            - name: LLM_MODEL_ID
+              value: "{{ .Values.otcLlm.env.llmModelId }}"
+            - name: OTC_MODEL_KEY
+              value: "{{ .Values.otcLlm.env.otcModelKey }}"
+            - name: OTC_LABELING_MODEL_KEY
+              value: "{{ .Values.otcLlm.env.otcLabelingModelKey }}"
+            - name: OTC_ENABLE_MLFLOW
+              value: "{{ .Values.otcLlmMlflow.enabled }}"
+            - name: MLFLOW_TRACKING_URI
+              {{- if .Values.otcLlmMlflow.enabled }}
+              value: "http://{{ .Values.otcLlmMlflow.service.name }}:{{ .Values.otcLlmMlflow.service.port }}"
+              {{- else }}
+              value: "file:/app/mlruns"
+              {{- end }}
+            - name: MLFLOW_EXPERIMENT_NAME
+              value: "{{ .Values.otcLlm.env.mlflowExperimentName }}"
+
+          {{- if or .Values.otcLlm.persistentVolumeClaim.data.enabled .Values.otcLlm.persistentVolumeClaim.logs.enabled }}
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: logs
+              mountPath: /app/logs
+          {{- end }}
+
+          {{- if .Values.otcLlm.probe.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.otcLlm.probe.livenessProbe.path }}
+              port: {{ .Values.otcLlm.service.targetPort }}
+            initialDelaySeconds: {{ .Values.otcLlm.probe.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.otcLlm.probe.livenessProbe.periodSeconds }}
+          {{- end }}
+
+      {{- if .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml .Values.global.imagePullSecrets | nindent 8 }}
+      {{- end }}
+
+      {{- if or .Values.otcLlm.persistentVolumeClaim.data.enabled .Values.otcLlm.persistentVolumeClaim.logs.enabled }}
+      volumes:
+        {{- if .Values.otcLlm.persistentVolumeClaim.data.enabled }}
+        - name: data
+          persistentVolumeClaim:
+            claimName: otc-llm-data-pvc
+        {{- end }}
+        {{- if .Values.otcLlm.persistentVolumeClaim.logs.enabled }}
+        - name: logs
+          persistentVolumeClaim:
+            claimName: otc-llm-logs-pvc
+        {{- end }}
+      {{- end }}
+{{- end }}

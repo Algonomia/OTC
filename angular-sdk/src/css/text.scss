@@ -1,0 +1,217 @@
+@use "media";
+
+* {
+    font-family: "Integral UI Light";
+}
+
+a {
+    text-decoration: none;
+}
+
+.cell-bold {
+    font-family: "Integral UI Semibold";
+    color: var(--main-4);
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    line-height: 24px;
+}
+
+.cell-medium {
+    font-family: "Integral UI Medium";
+    color: var(--main-4);
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    line-height: 24px;
+}
+
+.cell-light {
+    font-family: "Integral UI Light";
+    color: var(--main-4);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.text-title {
+    font-family: "Integral UI Light";
+    color: var(--main-4);
+    letter-spacing: 0.8px;
+    padding-bottom: 1px;
+
+    @include media.media('tabletL') {
+        font-size: 0.875rem;
+    }
+}
+
+.modal-title {
+        font-size: 1.125rem;
+        color: var(--main-4);
+        font-family: "Integral UI Regular", sans-serif;
+        padding-bottom: 1px;
+}
+
+.card-section {
+    font-family: "Integral UI Light";
+    color: var(--main-4);
+    font-size: 0.875rem;
+    letter-spacing: 0.9px;
+
+    @include media.media('tabletL') {
+        font-size: 0.75rem;
+    }
+}
+
+.card-value {
+    font-family: "Integral UI Regular";
+    color: var(--main-4);
+    font-size: 0.875rem;
+    letter-spacing: 0.3px;
+    line-height: 1.25rem;
+
+    @include media.media('tabletL') {
+        font-size: 0.75rem;
+    }
+}
+
+.box-main-1 {
+    border: 1px solid var(--main-1);
+    border-radius: 3px;
+    padding: 0.3rem 0.5rem 0.4rem;
+    word-break: break-word;
+}
+
+.text-action {
+    font-family: "Integral UI Light";
+    color: var(--main-4);
+    font-size: 14px;
+    letter-spacing: 0.65px;
+}
+
+.text-wrap-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-about {
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+    line-height: 3.5rem;
+}
+
+.text-intro {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 0.03rem;
+    line-height: 3.75rem;
+    font-family: "Integral UI ExtraLight", sans-serif;
+    font-weight: 100;
+
+    @include media.media('desktop') {
+        font-size: 2.5rem;
+        line-height: 3.75rem;
+    }
+
+    @include media.media('laptopL') {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    @include media.media('laptop') {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+
+    @include media.media('tabletL') {
+        font-size: 1.25rem;
+        font-family: "Integral UI Light", sans-serif;
+        line-height: 2rem;
+        letter-spacing: initial;
+    }
+}
+
+.text-about {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+    line-height: 3.5rem;
+    font-family: "Integral UI ExtraLight", sans-serif;
+
+    @include media.media('desktop') {
+        font-size: 1.5rem;
+        line-height: 2.25rem;
+    }
+
+    @include media.media('laptopL') {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+    }
+
+    @include media.media('laptop') {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    @include media.media('tabletL') {
+        font-size: 0.9rem;
+        font-family: "Integral UI Light", sans-serif;
+        line-height: 1.5rem;
+        letter-spacing: initial;
+    }
+}
+
+.connection-button-text {
+    font-size: 1.125rem;
+    font-family: "Integral UI Regular", sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.link {
+    font-family: "Integral UI Medium", sans-serif;
+    color: var(--main-4);
+}
+
+.algonomia-title {
+    font-family: "Integral UI Medium", sans-serif;
+    color: var(--main-5);
+}
+
+p {
+    margin: 0;
+    font-size: 0.875rem;
+    letter-spacing: 0.8px;
+    line-height: 1.5rem;
+    color: var(--main-3);
+}
+
+h3 {
+    margin: 0;
+    font-family: "Integral UI Light", sans-serif;
+    letter-spacing: 0.8px;
+    font-size: 1.5rem;
+    font-weight: initial;
+
+    span {
+        font-family: "Integral UI Semibold", sans-serif;
+        margin: 0 10px;
+    }
+
+    @include media.media('tabletL') {
+        font-family: "Integral UI Regular", sans-serif;
+        font-size: 0.875rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-family: "Integral UI Semibold", sans-serif;
+
+    @include media.media('desktop') {
+        font-size: 1.125rem;
+    }
+}
+
+.space-nowrap {
+    white-space: nowrap;
+}

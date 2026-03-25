@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon / waiting for scrapping@1x</title>
+    <g id="V4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10" transform="translate(0.500000, 0.500000)" stroke="#4191F0">
+            <circle id="Oval" opacity="0.299446469" cx="9" cy="9" r="9"></circle>
+            <path d="M9,0 C4.02943725,0 0,4.02943725 0,9" id="Oval" stroke-linecap="round"></path>
+            <path d="M5.72067368,10.8809909 C4.90689123,10.5193485 4.5,9.89235153 4.5,9 C4.5,8 5.23954755,7 6.38854423,7 C6.52034434,7 6.65904021,7 6.80463185,7 C6.90007123,6.99773605 6.98064389,6.92838062 7,6.8348487 C7,6.68034638 7,6.49702301 7,6.28487859 C7,5.54381802 7.59841594,4.35435702 9,4.35435702" id="Path-15" stroke-width="0.9"></path>
+            <path d="M10.2206737,10.8809909 C9.40689123,10.5193485 9,9.89235153 9,9 C9,8 9.73954755,7 10.8885442,7 C11.0256962,7 11.1628481,7 11.3,7 C11.4104569,7 11.5,6.91045695 11.5,6.8 C11.5,6.62829286 11.5,6.45658573 11.5,6.28487859 C11.5,5.54381802 12.0984159,4.35435702 13.5,4.35435702" id="Path-15" stroke-width="0.9" transform="translate(11.250000, 7.617674) scale(-1, 1) translate(-11.250000, -7.617674) "></path>
+            <path d="M10.5,10.3971087 L10.5,13.0971087 C10.5,13.2627942 10.3656854,13.3971087 10.2,13.3971087 L7.5,13.3971087 L7.5,13.3971087" id="Rectangle" stroke-width="0.9" transform="translate(9.000000, 11.897109) rotate(45.000000) translate(-9.000000, -11.897109) "></path>
+            <line x1="9" y1="13.6863961" x2="9" y2="9" id="Path-16" stroke-width="0.9"></line>
+        </g>
+    </g>
+</svg>

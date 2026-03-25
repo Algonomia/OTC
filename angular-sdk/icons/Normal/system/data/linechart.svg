@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> system / data / linechart</title>
+    <g id="-system-/-data-/-linechart" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M26.544,24.648 L26.544,23.784 L11.088,23.784 C10.96,23.784 10.864,23.688 10.864,23.56 L10.864,9.832 L10,9.832 L10,23.56 C10,24.168 10.48,24.648 11.088,24.648 L26.544,24.648 Z M14.256,19.656 L17.712,16.2 C17.808,16.104 18,16.104 18.096,16.2 L20.272,18.376 C20.72,18.824 21.456,18.824 21.904,18.376 L26.288,14.024 L25.648,13.384 L21.296,17.768 C21.168,17.896 21.008,17.896 20.88,17.768 L18.704,15.592 C18.256,15.144 17.52,15.144 17.104,15.592 L13.616,19.048 L14.256,19.656 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

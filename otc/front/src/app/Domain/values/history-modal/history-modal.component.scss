@@ -1,0 +1,13 @@
+.rated-by {
+    text-transform: capitalize;
+    font-family: "Integral UI Medium", sans-serif;
+}
+
+.line-msg, .no-rate-msg {
+    font-size: 0.875rem;
+    color: var(--main-3);
+}
+
+.no-rate-msg {
+    padding-top: 0;
+}

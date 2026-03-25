@@ -1,0 +1,18 @@
+model ValueRate {
+    id                           BigInt                 @id @default(autoincrement())
+    Rate                         Int                    @map("rate")
+    Comment                      String?                @map("comment")
+
+    UserId                       String                 @map("user_id")
+    User                         AuthUser               @relation(fields: [UserId], references: [id], onDelete: Restrict)
+
+    UserValueId                  BigInt?                @map("user_value_id")
+    UserValue                    OtcUserValue?          @relation(fields: [UserValueId], references: [id], onDelete: Restrict)
+
+    LLMValueId                   BigInt?                @map("llm_value_id")
+    LLMValue                     OtcLLMValue?           @relation(fields: [LLMValueId], references: [id], onDelete: Restrict)
+
+    RatedAt                      DateTime               @map("rated_at") @default(now())
+
+    @@map("value_rate")
+}

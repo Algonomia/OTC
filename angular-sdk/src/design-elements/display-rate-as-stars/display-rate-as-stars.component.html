@@ -1,0 +1,13 @@
+@if (value || clickable) {
+    <div class="flex" [class.gap-2px]="size === 'small'" [class.gap-5px]="size === 'regular'">
+        @for(rate of __rateArr; track rate) {
+            <app-algo-icon (click)="onClickValue(rate)"
+                           [class.icon-medium]="size === 'regular'"
+                           [class.icon-normal]="size === 'small'"
+                           [class.cursor-pointer]="clickable"
+                           [name]="value >= rate ? 'People/User/FavoriteSelect' : 'People/User/FavoriteEmpty'">
+            </app-algo-icon>
+        }
+    </div>
+}
+

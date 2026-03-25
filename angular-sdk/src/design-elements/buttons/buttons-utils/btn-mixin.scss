@@ -1,0 +1,60 @@
+@use "sass:list";
+@use "sass:map";
+@use "../../../css/colors";
+@mixin btn-theme($theme-map) {
+    @if map.has-key($theme-map, color) {
+        color: map.get($theme-map, color);
+    }
+
+    @if map.has-key($theme-map, outline-color) {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px map.get($theme-map, outline-color);
+    }
+
+    @if map.has-key($theme-map, background) {
+        background-color: map.get($theme-map, background);
+    }
+
+    @if map.has-key($theme-map, background-linear) {
+        $colors: map.get($theme-map, background-linear);
+        background: linear-gradient(
+                to left bottom,
+                list.nth($colors, 1),
+                list.nth($colors, 2)
+        );
+    }
+
+    @if map.has-key($theme-map, box-shadow-color) {
+        $shadows: map.get($theme-map, box-shadow-color);
+        box-shadow: inset -1px 1px 3px list.nth($shadows, 1), inset 1px -1px 3px list.nth($shadows, 2), -3px 3px 4px var(--shadow-10);
+    }
+
+    &:hover:not([disabled]) {
+        @if map.has-key($theme-map, color-hover) {
+            color: map.get($theme-map, color-hover);
+        }
+
+        @if map.has-key($theme-map, background-hover) {
+            background-color: map.get($theme-map, background-hover);
+            opacity: 0.9;
+        }
+
+        @if map.has-key($theme-map, box-shadow-color-hover) {
+            $hover-shadows: map.get($theme-map, box-shadow-color-hover);
+            box-shadow: inset -1px 1px 2px list.nth($hover-shadows, 1), inset 1px -1px 2px list.nth($hover-shadows, 2), -2px 2px 4px var(--shadow-10);
+            opacity: 0.9;
+        }
+
+        @if map.has-key($theme-map, outline-color-hover) {
+            box-shadow: inset 0 0 0 1.5px map.get($theme-map, outline-color-hover);
+        }
+    }
+}
+
+@mixin generate-btn-class($map) {
+    @each $key, $value in $map {
+        &.#{$key} {
+            @include btn-theme($value);
+        }
+    }
+}

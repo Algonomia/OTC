@@ -1,0 +1,9 @@
+{
+    "AngularSdk": {
+        "FileForm": {
+            "File": "Upload the file",
+            "Placeholder": "Click to upload the file",
+            "MaxSize": "(Max size is {{maxSize}} {{maxSizeUnit}})"
+        }
+    }
+}

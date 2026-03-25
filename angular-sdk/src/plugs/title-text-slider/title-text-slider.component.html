@@ -1,0 +1,18 @@
+<div class="flex flex-column justify-between height-100">
+    <div class="list">
+        <ul #slider>
+            @for (item of list; track i; let i = $index) {
+                <li #sliderItem class="pad-2">
+                    <ng-template [ngTemplateOutlet]="dataContent"
+                                 [ngTemplateOutletContext]="{ data: item }">
+                    </ng-template>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="std-aligned justify-between pad-1">
+        <app-button-slider (click)="previous()" type="prev"></app-button-slider>
+        <app-button-slider (click)="next()" type="next"></app-button-slider>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+{
+    "OTCFront": {
+        "ContributionView": {
+            "columns": {
+                "key": {
+                    "text": "Indicateur"
+                },
+                "value": {
+                    "text": "Valeur"
+                },
+                "notes": {
+                    "text": "Notes"
+                },
+                "reference": {
+                    "text": "Réferences"
+                },
+                "version": {
+                    "text": "Version"
+                },
+                "judge_llm_score": {
+                    "text": "Score LLM"
+                },
+                "proposed_by": {
+                    "text": "Proposé par"
+                },
+                "status": {
+                    "text": "Statut"
+                },
+                "admin_comment": {
+                    "text": "Commentaire admin"
+                },
+                "actions": {
+                    "text": "Actions"
+                }
+            }
+        },
+        "HistoryView": {
+            "modal_title": "Historique des valeurs",
+            "noRateMessage": "Pas de note proposée pour cette valeur",
+            "columns": {
+                "version": {
+                    "text": "Version"
+                },
+                "judge_llm_score": {
+                    "text": "LLM score"
+                },
+                "proposed_by": {
+                    "text": "Proposé par"
+                },
+                "average_rate": {
+                    "text": "Note moyenne"
+                },
+                "current_rate": {
+                    "text": "Votre note"
+                },
+                "current_user_comment": {
+                    "text": "Votre commentaire"
+                }
+            }
+        },
+        "ObligationDueDate": {
+            "actions": {
+                "SuggestValue": "Suggérer une valeur",
+                "ShowHistory": "Montrer l'historique",
+                "RateThisValue": "Noter cette valeur"
+            },
+            "columns": {
+                "Jurisdiction": {
+                    "text": "Juridiction",
+                    "info": ""
+                },
+                "ObligationType": {
+                    "text": "Type d'obligation",
+                    "info": ""
+                },
+                "ScopeOfObligation": {
+                    "text": "Portée de l'obligation",
+                    "info": ""
+                },
+                "FilingResponsibility": {
+                    "text": "Responsabilité du dépôt",
+                    "info": ""
+                },
+                "ParentFilingExemption": {
+                    "text": "Exonération de dépôt pour la société mère",
+                    "info": ""
+                },
+                "ApplicableEntityTypes": {
+                    "text": "Types d'entités concernés",
+                    "info": ""
+                },
+                "EntityTypeDetails": {
+                    "text": "Détails du type d'entité",
+                    "info": ""
+                },
+                "Source": {
+                    "text": "Source",
+                    "info": ""
+                },
+                "SourceName": {
+                    "text": "Nom de la source",
+                    "info": ""
+                },
+                "OrganizationType": {
+                    "text": "Type d'organization",
+                    "info": ""
+                },
+                "SourceURL": {
+                    "text": "URL de la source",
+                    "info": ""
+                },
+                "DateOfPublication": {
+                    "text": "Date de publication",
+                    "info": ""
+                },
+                "DateOfUpdate": {
+                    "text": "Date de mise à jour",
+                    "info": ""
+                },
+                "IsObligationInPlace": {
+                    "text": "Obligation en place",
+                    "info": ""
+                },
+                "SubmissionMethod": {
+                    "text": "Méthode de soumission",
+                    "info": ""
+                },
+                "SubmissionMethodDetails": {
+                    "text": "Détails de la méthode de soumission",
+                    "info": ""
+                },
+                "SubmissionURL": {
+                    "text": "URL de soumission",
+                    "info": ""
+                },
+                "LocalLanguage": {
+                    "text": "Langue locale",
+                    "info": ""
+                },
+                "EnglishAccepted": {
+                    "text": "Anglais accepté",
+                    "info": ""
+                },
+                "LanguageDetails": {
+                    "text": "Détails linguistiques",
+                    "info": ""
+                },
+                "LanguageReference": {
+                    "text": "Référence linguistique",
+                    "info": ""
+                },
+                "BaseDeadlineDescription": {
+                    "text": "Description de l'échéance de base",
+                    "info": ""
+                },
+                "ExtensionDeadlineDescription": {
+                    "text": "Description de la prolongation de l'échéance",
+                    "info": ""
+                },
+                "ThresholdDescription": {
+                    "text": "Description du seuil",
+                    "info": ""
+                },
+                "PenaltyDescription": {
+                    "text": "Description des pénalités",
+                    "info": ""
+                },
+                "OtherInformation": {
+                    "text": "Autres informations",
+                    "info": ""
+                },
+                "OtherInformationReference": {
+                    "text": "Référence des autres informations",
+                    "info": ""
+                }
+            }
+        }
+    }
+}

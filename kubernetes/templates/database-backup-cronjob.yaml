@@ -1,0 +1,129 @@
+{{- if and .Values.database.enabled .Values.database.backup.enabled }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: database-backup
+  namespace: {{ .Release.Namespace }}
+spec:
+  schedule: {{ .Values.database.backup.schedule | quote }}
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 86400
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: database-backup
+              image: postgres:{{ .Values.database.image.tag }}
+              imagePullPolicy: {{ .Values.database.image.pullPolicy }}
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  set -e
+
+                  # Install AWS CLI
+                  apt-get update && apt-get install -y awscli --no-install-recommends
+
+                  # Set timestamp for backup file
+                  TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+                  BACKUP_FILE="/tmp/backup_${TIMESTAMP}.sql.gz"
+
+                  # Create backup using pg_dump
+                  echo "Starting database backup..."
+                  PGPASSWORD="${POSTGRES_PASSWORD}" pg_dump \
+                    -h "${POSTGRES_HOST}" \
+                    -p "${POSTGRES_PORT}" \
+                    -U "${POSTGRES_USER}" \
+                    -d "${POSTGRES_DB}" \
+                    --no-owner \
+                    --no-acl \
+                    | gzip > "${BACKUP_FILE}"
+
+                  echo "Backup created: ${BACKUP_FILE}"
+
+                  # Configure AWS CLI for S3
+                  export AWS_ACCESS_KEY_ID="${S3_ACCESS_KEY}"
+                  export AWS_SECRET_ACCESS_KEY="${S3_SECRET_KEY}"
+                  export AWS_DEFAULT_REGION="${S3_REGION}"
+
+                  # Upload to S3
+                  echo "Uploading backup to S3..."
+                  aws --endpoint-url "${S3_ENDPOINT}" s3 cp "${BACKUP_FILE}" "s3://${S3_BUCKET}/backups/backup_${TIMESTAMP}.sql.gz"
+
+                  echo "Backup uploaded successfully"
+
+                  # Clean up old backups (keep last N days based on rotationHistoryLimit)
+                  echo "Cleaning up old backups..."
+                  CUTOFF_DATE=$(date -d "-{{ .Values.database.backup.rotationHistoryLimit }} days" +%Y%m%d)
+
+                  aws --endpoint-url "${S3_ENDPOINT}" s3 ls "s3://${S3_BUCKET}/backups/" | while read -r line; do
+                    FILENAME=$(echo "$line" | awk '{print $4}')
+                    if [[ "$FILENAME" =~ ^backup_([0-9]{8})_ ]]; then
+                      FILE_DATE="${BASH_REMATCH[1]}"
+                      if [[ "$FILE_DATE" < "$CUTOFF_DATE" ]]; then
+                        echo "Deleting old backup: $FILENAME"
+                        aws --endpoint-url "${S3_ENDPOINT}" s3 rm "s3://${S3_BUCKET}/backups/${FILENAME}"
+                      fi
+                    fi
+                  done
+
+                  # Cleanup local file
+                  rm -f "${BACKUP_FILE}"
+
+                  echo "Backup process completed successfully"
+              env:
+                - name: POSTGRES_HOST
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.env.postgres.secretName }}
+                      key: {{ .Values.database.env.postgres.keywords.host }}
+                - name: POSTGRES_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.env.postgres.secretName }}
+                      key: {{ .Values.database.env.postgres.keywords.user }}
+                - name: POSTGRES_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.env.postgres.secretName }}
+                      key: {{ .Values.database.env.postgres.keywords.password }}
+                - name: POSTGRES_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.env.postgres.secretName }}
+                      key: {{ .Values.database.env.postgres.keywords.port }}
+                - name: POSTGRES_DB
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.env.postgres.secretName }}
+                      key: {{ .Values.database.env.postgres.keywords.db }}
+                - name: S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.backup.secretName }}
+                      key: {{ .Values.database.backup.keywords.bucketName }}
+                - name: S3_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.backup.secretName }}
+                      key: {{ .Values.database.backup.keywords.access_key }}
+                - name: S3_SECRET_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.backup.secretName }}
+                      key: {{ .Values.database.backup.keywords.secret_key }}
+                - name: S3_ENDPOINT
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.backup.secretName }}
+                      key: {{ .Values.database.backup.keywords.endpoint }}
+                - name: S3_REGION
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.database.backup.secretName }}
+                      key: {{ .Values.database.backup.keywords.region }}
+{{- end }}

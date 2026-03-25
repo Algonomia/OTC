@@ -1,0 +1,30 @@
+{
+    "Shared": {
+        "DayCountType": {
+            "Default": "Par défaut",
+            "CalendarDays": "Jours calendaires",
+            "WeekDays": "Jours de la semaine",
+            "BusinessDays": "Jours ouvrés"
+        },
+        "Months": {
+            "January": "Janvier",
+            "February": "Février",
+            "March": "Mars",
+            "April": "Avril",
+            "May": "Mai",
+            "June": "Juin",
+            "July": "Juillet",
+            "August": "Août",
+            "September": "Septembre",
+            "October": "Octobre",
+            "November": "Novembre",
+            "December": "Décembre"
+        },
+        "PeriodUnit": {
+            "Days": "Jours",
+            "Weeks": "Semaines",
+            "Months": "Mois",
+            "Years": "Années"
+        }
+    }
+}

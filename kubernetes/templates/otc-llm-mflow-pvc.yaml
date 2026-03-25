@@ -1,0 +1,21 @@
+{{- if and .Values.otcLlm.enabled .Values.otcLlmMlflow.enabled .Values.otcLlmMlflow.persistentVolumeClaim.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: otc-llm-mlruns-pvc
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  {{- if .Values.otcLlm.persistentVolumeClaim.storageClassName }}
+  storageClassName: {{ .Values.otcLlm.persistentVolumeClaim.storageClassName }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.otcLlmMlflow.persistentVolumeClaim.storage }}
+{{- end }}

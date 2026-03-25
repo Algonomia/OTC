@@ -1,0 +1,37 @@
+@use "btn-main";
+
+@use '../btn-theme' as theme;
+@use '../btn-mixin';
+
+$map-btn-3d: (
+    btn-grey-2-3d: theme.$btn-grey-2-3d,
+    btn-grey-7-3d: theme.$btn-grey-7-3d,
+    btn-grey-3d: theme.$btn-grey-3d,
+);
+
+$map-btn-base: (
+    btn-grey-0: theme.$btn-grey-0,
+    btn-grey-1: theme.$btn-grey-1,
+    btn-grey-2: theme.$btn-grey-2,
+    btn-grey-3: theme.$btn-grey-3,
+    btn-grey-4: theme.$btn-grey-4,
+    btn-grey-5: theme.$btn-grey-5,
+    btn-grey-6: theme.$btn-grey-6,
+    btn-grey-7: theme.$btn-grey-7,
+    btn-grey-8: theme.$btn-grey-8,
+    btn-grey-9: theme.$btn-grey-9,
+    btn-grey-10: theme.$btn-grey-10,
+);
+
+$map-btn-outline: (
+    btn-grey-0-outline: theme.$btn-grey-0-outline,
+    btn-grey-5-outline: theme.$btn-grey-5-outline,
+    btn-grey-7-outline: theme.$btn-grey-7-outline,
+    btn-grey-10-outline: theme.$btn-grey-10-outline,
+);
+
+.algo-btn {
+    @include btn-mixin.generate-btn-class(btn-main.$map-btn-3d);
+    @include btn-mixin.generate-btn-class(btn-main.$map-btn-base);
+    @include btn-mixin.generate-btn-class(btn-main.$map-btn-outline);
+}

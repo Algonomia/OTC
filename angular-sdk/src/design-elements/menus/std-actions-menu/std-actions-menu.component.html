@@ -1,0 +1,7 @@
+<ul class="menu-custom">
+    @for (action of actions; track action) {
+        @if (action | checkActionCondition:action_inputs) {
+            <li (click)="__callAction(action)" class="cursor-pointer">{{ action.title | translate }}</li>
+        }
+    }
+</ul>

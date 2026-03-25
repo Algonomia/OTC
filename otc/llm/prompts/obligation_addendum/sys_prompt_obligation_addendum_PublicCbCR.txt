@@ -1,0 +1,8 @@
+OBLIGATION CONTEXT ADDENDUM — PublicCbCR
+
+Definition
+- Public CbCR: public disclosure/lodgment of specified CbCR-type data where required (e.g., EU public CbCR rules implemented locally).
+
+Sub-filings
+- No sub-filings are defined for this obligation in the current mapping.
+- Unless the user prompt explicitly requests a sub-filing, leave additional_values empty.

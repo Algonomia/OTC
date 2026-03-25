@@ -1,0 +1,16 @@
+@use "../../../../../../css/media";
+
+.normal {
+    @include media.media('mobileXL') {
+        display: none;
+    }
+}
+
+
+.small {
+    display: none;
+
+    @include media.media('mobileXL') {
+        display: block;
+    }
+}

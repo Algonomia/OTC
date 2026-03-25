@@ -1,0 +1,8 @@
+OBLIGATION CONTEXT ADDENDUM — CbCRNotification (main obligation)
+
+Definition
+- CbCR notification / reporting-entity designation: procedural notice identifying the CbCR reporting entity and/or where the CbCR will be filed.
+
+Sub-filings
+- No sub-filings are defined for this obligation in the current mapping.
+- Unless the user prompt explicitly requests a sub-filing, leave additional_values empty.

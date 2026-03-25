@@ -1,0 +1,10 @@
+<div class="std-aligned gap-1">
+    <div class="std-aligned gap-1">
+        @if (__iso2) {
+            <app-country-flag [iso2]="__iso2" [size_rem]="2"></app-country-flag>
+        }
+        <p class="jurisdiction">{{ __title }}</p>
+    </div>
+
+    <app-label-info [text]="__iso2"></app-label-info>
+</div>

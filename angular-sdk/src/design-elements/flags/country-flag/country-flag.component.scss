@@ -1,0 +1,24 @@
+@use "../../../css/media";
+
+.rounded {
+    border-radius: 50%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+}
+
+.flag {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    padding-bottom: 1px;
+}
+
+.hide-mobile {
+    @include media.media('tablet') {
+        display: none;
+    }
+}

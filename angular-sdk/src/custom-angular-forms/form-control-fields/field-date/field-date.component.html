@@ -1,0 +1,12 @@
+@if (formControl) {
+    <app-date-form-control
+        [formControl]="formControl"
+        [minDate]="formControl.algoValidator.meta.minDate"
+        [maxDate]="formControl.algoValidator.meta.maxDate"
+        [withTime]="formControl.algoValidator.meta.with_time ?? false"
+        [label]="formControl.algoValidator.meta.label"
+        [placeholder]="formControl.algoValidator.meta.placeholder"
+        [required]="formControl.algoValidator.meta.required"
+    >
+    </app-date-form-control>
+}

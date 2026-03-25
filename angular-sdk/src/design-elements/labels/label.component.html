@@ -1,0 +1,98 @@
+<div class="algo-label" [ngClass]="[color_theme, weight_font_theme, border_theme]"
+     [class.cursor-pointer]="cursor_pointer"
+     appIconHover [algoIconHandler]="algoIconHandler" [cd]="__cd"
+     [ngStyle]="{ 'height': height_px, 'min-width': height_px, 'border-radius': radius }">
+    <ng-content></ng-content>
+</div>
+
+<ng-template #Text let-text="text">
+    <div class="label-element text-container" [class.text-display-on-hover]="text_display_on_hover" [class.set-open-label-element]="set_open_label_element">
+        <div class="text-wrapper">
+            <div class="text text-wrap-ellipsis"
+                 [style.font-family]="font_family"
+                 [class.text-hover]="font_hover"
+                 [class.margin-on-hover]="all_icon_display_on_hover && !set_open_label_element">
+                {{ text | translate }}
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #Counter let-counter="counter" let-prefix="prefix">
+    <div class="label-element" [class.set-open-label-element]="set_open_label_element">
+        <div class="counter-wrapper">
+            <div class="flex counter" [style.font-family]="font_family">
+                @if (!!prefix) {
+                    <div class="prefix" [style.font-family]="font_family">{{prefix}}</div>
+                }
+                <div [style.font-family]="font_family">{{ counter | translate  }}</div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #CounterHoverable let-counter="counter" let-prefix="prefix">
+    <div class="label-element" [class.set-open-label-element]="set_open_label_element">
+        <div class="counter-wrapper">
+            <div class="flex counter hoverable" [style.font-family]="font_family">
+                @if (!!prefix) {
+                    <div class="prefix" [style.font-family]="font_family">{{prefix}}</div>
+                }
+                <div [style.font-family]="font_family">{{ counter | translate  }}</div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #Id let-id="id">
+    <div class="label-element">
+        <div class="counter-wrapper">
+            <div class="flex" [style.font-family]="font_family">
+                <div class="">#</div>{{ id | translate  }}
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #Dot let-tooltip="tooltip">
+    <div class="label-element">
+        <div class="dot" [pTooltip]="tooltip | translate" [tooltipPosition]="'bottom'" tooltipStyleClass="algo-text-tooltip"></div>
+    </div>
+</ng-template>
+
+<ng-template #AlgoIcon let-path="path" let-icon_class="icon_class" let-tooltip="tooltip"
+             let-callback="callback" let-affect_text_on_hover="affect_text_on_hover">
+    <div class="label-element"
+         [pTooltip]="tooltip | translate" [tooltipPosition]="'bottom'" tooltipStyleClass="algo-text-tooltip"
+         [class.text-display-on-hover]="affect_text_on_hover && text_display_on_hover"
+         [class.all-icon-display-on-hover]="all_icon_display_on_hover"
+         [class.set-open-label-element]="set_open_label_element"
+         [class.icon-display-on-hover]="text_display_on_hover"
+         [class.cursor-pointer]="!!callback">
+        <app-algo-icon [weight]="algoIconHandler ? algoIconHandler.activeWeight : weight_font_theme"
+                       [name]="path"
+                       [ngClass]="icon_class"
+                       (click)="launchCallback($event, callback)">
+        </app-algo-icon>
+    </div>
+</ng-template>
+
+<ng-template #Image let-path="path" let-alt="alt" let-icon_class="icon_class">
+    <div class="label-element">
+        <img [src]="path" [alt]="alt ?? path" class="label-image" [ngClass]="icon_class"
+             [ngStyle]="{ height: height_px, width: height_px }"/>
+    </div>
+</ng-template>
+
+<ng-template #Symbol let-symbol="symbol">
+    <div class="label-element symbol-container" [class.text-display-on-hover]="text_display_on_hover" [class.set-open-label-element]="set_open_label_element"
+         [ngStyle]="{ 'height': height_px, 'min-width': height_px }">
+        <div class="text-wrapper">
+            <div class="text text-wrap-ellipsis"
+                 [class.text-hover]="font_hover"
+                 [class.margin-on-hover]="all_icon_display_on_hover && !set_open_label_element">
+                {{ symbol }}
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,11 @@
+@if (formControl) {
+    <app-text-form-control
+        [formControl]="formControl"
+        [minLength]="formControl.algoValidator.meta.minLength"
+        [maxLength]="formControl.algoValidator.meta.maxLength"
+        [label]="formControl.algoValidator.meta.label"
+        [required]="formControl.algoValidator.meta.required"
+        [placeholder]="formControl.algoValidator.meta.placeholder"
+    >
+    </app-text-form-control>
+}

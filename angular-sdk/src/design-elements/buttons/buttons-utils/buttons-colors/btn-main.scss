@@ -1,0 +1,29 @@
+@use '../btn-theme' as theme;
+@use '../btn-mixin';
+
+$map-btn-3d: (
+    btn-main-4-3d: theme.$btn-main-4-3d,
+);
+
+$map-btn-base: (
+    btn-main-0: theme.$btn-main-0,
+    btn-main-1: theme.$btn-main-1,
+    btn-main-2: theme.$btn-main-2,
+    btn-main-3: theme.$btn-main-3,
+    btn-main-4: theme.$btn-main-4,
+    btn-main-5: theme.$btn-main-5,
+);
+
+$map-btn-outline: (
+    btn-main-1-outline: theme.$btn-main-1-outline,
+    btn-main-3-outline: theme.$btn-main-3-outline,
+    btn-main-4-outline: theme.$btn-main-4-outline,
+    btn-main-5-outline: theme.$btn-main-5-outline,
+);
+
+
+.algo-btn {
+    @include btn-mixin.generate-btn-class($map-btn-3d);
+    @include btn-mixin.generate-btn-class($map-btn-base);
+    @include btn-mixin.generate-btn-class($map-btn-outline);
+}

@@ -1,0 +1,16 @@
+.list-items-handler {
+    height: 100%;
+
+    .ref {
+        height: max-content;
+    }
+}
+
+.list-tmp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+}

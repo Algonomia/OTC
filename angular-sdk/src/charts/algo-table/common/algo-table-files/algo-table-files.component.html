@@ -1,0 +1,16 @@
+@if (__files.length > 0) {
+    <div class="flex">
+        <div class="wrapper std-aligned cursor-pointer" appIconHover (click)="download()">
+            <app-algo-icon name="System/Class/File" class="icon" [weight]="algoIconHandler.activeWeight"></app-algo-icon>
+            <span class="text text-wrap-ellipsis" [pTooltip]="__concatName" [tooltipPosition]="'bottom'" tooltipStyleClass="algo-text-tooltip">
+                @if (__files.length === 1) {
+                    {{ __files[0].name }}
+                } @else if (__files.length > 1) {
+                    {{'AngularSdk.CoreCommon.__n__files' | translate:{n: __files.length} }}
+                }
+            </span>
+            <app-algo-icon style="margin-left: auto;" name="System/Storage/CloudExport" class="icon external-link" [weight]="algoIconHandler.activeWeight"></app-algo-icon>
+        </div>
+    </div>
+}
+

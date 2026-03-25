@@ -1,0 +1,62 @@
+<div class="modal-container">
+    <div class="modal-header">
+        <div class="search-container std-aligned gap-5px">
+            <app-algo-icon name="Action/Navigation/Search" class="icon-head"></app-algo-icon>
+
+            <input type="text" class="search-bar" [formControl]="__searchControl"
+                   [placeholder]="'AngularSdk.CoreCommon.Search' | translate"
+            />
+
+            <app-algo-icon name="Action/Formatting/Erase"
+                           class="icon-head cursor-pointer"
+                           (click)="eraseSearchControl()"
+                           [class.hide-erase]="!__searchControl.value">
+            </app-algo-icon>
+        </div>
+
+        <div class="toggle-container std-aligned justify-end">
+            <app-toggle [enabled]="!!(__showOnlySelected$ | async)"
+                        (enabledChange)="__showOnlySelected$.next($event)"
+                        [blockedWhenNotEnabled]="(selectHandler | selectedState | async) === SelectionState.EMPTY"
+                        text="AngularSdk.CoreCommon.ShowOnlySelected">
+            </app-toggle>
+        </div>
+    </div>
+
+    @if (!selectHandler.isSingleSelection && selectAll) {
+        <div class="line-container">
+            <div class="std-flex cursor-pointer text-wrap-ellipsis line select-all-line" (click)="selectHandler.switchAll()">
+                <app-select-all-checkbox [selectHandler]="selectHandler"></app-select-all-checkbox>
+
+                @let allSelected = (selectHandler | selectedState | async) === SelectionState.ALL;
+                <div class="font-light text-wrap-ellipsis" [class.font-regular]="allSelected">
+                    {{'AngularSdk.CoreCommon.All' | translate }}
+                </div>
+            </div>
+        </div>
+    }
+
+    <div style="margin-top: -1px">
+        <app-virtual-scroll-handler [lineHeightPx]="line_height"
+                                    [maxHeight]="virtual_scroll_max_height"
+                                    [line_values]="(__filteredList$ | async) || []"
+                                    [menuLineTemplate]="lineTpl">
+        </app-virtual-scroll-handler>
+    </div>
+
+    <ng-template #lineTpl let-line_value="line_value">
+        @let selected = selectHandler | selected:line_value | async;
+        @let font = selected ? 'font-regular' : 'font-light';
+        <div class="line-container" [style]="{ width: modal_width, maxWidth: '100%' }">
+            <div class="std-flex cursor-pointer line gap-10px" (click)="selectHandler.switch(line_value)">
+                <app-single-select-box [selectHandler]="selectHandler" [item]="line_value"></app-single-select-box>
+
+                <div class="line-content">
+                    <app-text-cropped-tooltip [textClass]="font"
+                                              [text]="(selectHandler | selectDisplayValue:line_value | async) ?? ''">
+                    </app-text-cropped-tooltip>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

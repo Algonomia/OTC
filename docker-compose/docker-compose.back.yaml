@@ -1,0 +1,113 @@
+services:
+    server:
+        container_name: back
+        image: tax-calendar-back:latest
+        tty: true
+        environment:
+            DATABASE_URL: postgresql://postgres:postgres@database:5432/postgres?schema=public
+            FILE_SERVICE_URL: http://astorage:3001
+            AI_ENDPOINT_URL: https://otc-microservice:8100/llm
+        ports:
+            - "127.0.0.1:3000:3000"
+        restart: always
+        depends_on:
+            - database
+            - astorage
+
+    database:
+        image: postgres:17
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: postgres
+            POSTGRES_PORT: 5432
+        ports:
+            - "127.0.0.1:6543:5432"
+        volumes:
+            - "./volume:/var/lib/postgresql/data"
+        restart: unless-stopped
+
+    astorage:
+        container_name: astorage
+        image: astorage:latest
+        environment:
+            CORS_ORIGIN: http://localhost:3000
+            HOST: astorage:3001
+            FILE_STORAGE_PATH: /dynamic/media
+            SQLITE_FILE_PATH: /sqlite/sqlite.db
+            LARGE_FILE_THRESHOLD: 50 # 50 MB
+        volumes:
+            - "./data/media:/dynamic/media"
+            - "./data/sqlite:/sqlite"
+        ports:
+            - "127.0.0.1:3001:3001"
+        restart: unless-stopped
+
+    ascraper:
+        image: registry.algonomia.com/platform-back/ascraper:latest
+        environment:
+            APP_NAME: ascraper
+            LOG_LEVEL: INFO
+            PORT: "${PORT:-8020}"
+            TIMEOUT_CONNECT_S: 5
+            TIMEOUT_READ_S: 12
+            MAX_REDIRECTS: 3
+            MAX_BYTES: 50000000
+            ALLOWED_SCHEMES: http,https
+            ALLOWED_CONTENT_TYPES: text/html,text/plain,application/xhtml+xml,application/pdf
+            DEFAULT_UA: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+        ports:
+            - "127.0.0.1:8020:8020"
+        healthcheck:
+            test: ["CMD", "wget", "-qO-", "http://localhost:8020/healthz"]
+            interval: 20s
+            timeout: 3s
+            retries: 10
+        restart: unless-stopped
+
+    meilisearch:
+        image: getmeili/meilisearch:v1.10
+        container_name: ax_meilisearch
+        environment:
+            MEILI_ENV: "development"
+            MEILI_MASTER_KEY: masterKeymasterKey
+        ports:
+            - "127.0.0.1:7700:7700"
+        volumes:
+            - ./data/meili_data:/meili_data
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:7700/health"]
+            interval: 20s
+            timeout: 3s
+            retries: 10
+        restart: unless-stopped
+
+    axtractor:
+        image: registry.algonomia.com/platform-back/axtractor:latest
+        environment:
+            PORT: "${PORT:-8010}"
+            MEILI_URL: "http://meilisearch:7700"
+            MEILI_API_KEY: masterKeymasterKey
+            MEILI_INDEX: files
+            SQLITE_PATH: ./data/axtractor/axtractor.db
+            APP_NAME: unstructured-extractor
+            LOG_LEVEL: INFO
+            MAX_UPLOAD_MB: 25
+            OCR_LANG: eng+fra
+            ALLOWED_EXTENSIONS: ".pdf,.docx,.doc,.pptx,.ppt,.odp,.txt,.rtf,.html,.htm,.md,.png,.jpg,.jpeg,.tif,.tiff,.bmp,.gif,.webp,.xls,.xlsx,.xlsm,.ods,.csv,.tsv"
+            ALLOWED_MIME_PREFIXES: "application/pdf,application/vnd,text/,application/msword,application/rtf,text/html,application/octet-stream,image/"
+            ENABLE_PATH_ENDPOINT: false
+            READABLE_ROOTS: "/data,/mnt/share"
+        depends_on:
+            meilisearch:
+                condition: service_healthy
+        ports:
+            - "127.0.0.1:8010:8010"
+        volumes:
+            - ./data/axtractor:/app/data
+        healthcheck:
+            test: ["CMD", "wget", "-qO-", "http://localhost:8010/healthz"]
+            interval: 20s
+            timeout: 3s
+            retries: 10
+        restart: unless-stopped

@@ -1,0 +1,34 @@
+<button class="std-aligned algo-btn {{ btnCssClass }}"
+        [class.rounded]="rounded"
+        [class.full-width]="full_width"
+        [disabled]="disabled"
+        [ngStyle]="{ height: __height_px, minWidth: __height_px, fontSize: font_size_rem + 'rem' }"
+        appIconHover
+        [algoIconHandler]="algoIconHandler"
+        [cd]="cd">
+
+    @if (singleIcon) {
+        <app-algo-icon class="icon icon-single" [name]="singleIcon" [label]="label"
+                       [weight]="algoIconHandler.activeWeight"
+                       [ngStyle]="{ height: __height_px, width: __height_px }">
+        </app-algo-icon>
+    }
+
+    @if(leftIcon) {
+        <app-algo-icon class="icon icon-left" [name]="leftIcon" [label]="label"
+                       [weight]="algoIconHandler.activeWeight"
+                       [ngStyle]="{ height: __height_px, width: __height_px }">
+        </app-algo-icon>
+    }
+
+    @if(!!text) {
+        <span class="text text-wrap-ellipsis" [style.color]="textColor">{{ text | translate }}</span>
+    }
+
+    @if(rightIcon) {
+        <app-algo-icon class="icon icon-right" [name]="rightIcon" [label]="label"
+                       [weight]="algoIconHandler.activeWeight"
+                       [ngStyle]="{ height: __height_px, width: __height_px }">
+        </app-algo-icon>
+    }
+</button>

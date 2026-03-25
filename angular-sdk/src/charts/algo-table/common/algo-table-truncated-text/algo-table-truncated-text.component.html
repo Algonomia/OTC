@@ -1,0 +1,16 @@
+@if (displayValue) {
+    <div class="std-aligned text-cropped-container">
+        <div class="text-cropped" appMiddleEllipsis [originalText]="displayValue" (isCropped)="onTruncationChange($event)"></div>
+
+        @if (__isTruncated) {
+            <app-algo-icon class="cursor-pointer info-icon" name="People/User/Info" (click)="openModal(); $event.stopPropagation()"></app-algo-icon>
+        }
+    </div>
+}
+
+<ng-template #displayModal>
+    <div class="flex flex-column pad-1 gap-1">
+        <p>{{ displayValue }}</p>
+        <app-button-close class="std-aligned justify-end" (click)="closeModal()"></app-button-close>
+    </div>
+</ng-template>

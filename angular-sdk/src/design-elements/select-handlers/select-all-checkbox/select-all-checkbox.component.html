@@ -1,0 +1,15 @@
+@if (selectHandler) {
+    <div [class.cursor-pointer]="!disabled" (click)="disabled ? null : selectHandler.switchAll(); $event.stopPropagation();">
+        @switch (selectHandler | selectedState | async) {
+            @case (SelectionState.EMPTY) {
+                <app-algo-icon [class.light-color]="colorTheme === 'light'" class="icon-light" weight="Light" [name]="'Action/Toggle/CheckboxEmpty'"></app-algo-icon>
+            }
+            @case (SelectionState.PARTIAL) {
+                <app-algo-icon [class.light-color]="colorTheme === 'light'" class="icon-light" weight="Regular" [name]="'Action/Toggle/CheckboxIndet'"></app-algo-icon>
+            }
+            @case (SelectionState.ALL) {
+                <app-algo-icon [class.light-color]="colorTheme === 'light'" class="icon-light" weight="Medium" [name]="'Action/Toggle/CheckboxSelect'"></app-algo-icon>
+            }
+        }
+    </div>
+}

@@ -1,0 +1,50 @@
+{
+    "ObligationDueDateDomain": {
+        "ObligationType": {
+            "CIT": {
+                "text": "Corporate income tax",
+                "info": ""
+            },
+            "MasterFile": {
+                "text": "Master file",
+                "info": "Group-level TP documentation."
+            },
+            "LocalFile": {
+                "text": "Local file",
+                "info": "Local entity TP documentation."
+            },
+            "AnnualTPForm": {
+                "text": "Annual TP form",
+                "info": "Annual TP statement."
+            },
+            "CbCR": {
+                "text": "CbCR",
+                "info": "Standard country-by-country reporting."
+            },
+            "PublicCbCR": {
+                "text": "Public CbCR",
+                "info": "Public country-by-country reporting."
+            },
+            "CbCRNotification": {
+                "text": "CbCR notification",
+                "info": ""
+            },
+            "RelatedPartyDisclosure": {
+                "text": "Related party disclosure",
+                "info": ""
+            },
+            "SimplifiedTPDocumentation": {
+                "text": "Simplified TP documentation",
+                "info": ""
+            },
+            "MasterFileNotification": {
+                "text": "Master file notification",
+                "info": ""
+            },
+            "SpecialItemFile": {
+                "text": "Special item file",
+                "info": ""
+            }
+        }
+    }
+}

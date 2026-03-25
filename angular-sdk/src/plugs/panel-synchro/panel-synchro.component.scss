@@ -1,0 +1,96 @@
+@use "../../css/media";
+@use "../../css/colors";
+
+.panel {
+    border: 1px solid var(--main-1);
+    border-radius: 3px;
+    background-color: var(--grey-0);
+    overflow: hidden;
+
+    &.block-relative {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        &.reverse_items {
+            flex-direction: column-reverse;
+
+            .wide-header {
+                border-top: 1px solid var(--main-1);
+            }
+        }
+    }
+
+    .wide-header {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .sub-header {
+        border-top: 1px solid var(--main-1);
+    }
+
+    .long-header {
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:not(.reverse_items) {
+        .content {
+            border-top: 1px solid var(--main-1);
+        }
+    }
+
+    .content {
+        width: 100%;
+        position: relative;
+    }
+
+    .shrink {
+        padding: 0 10px;
+        min-width: 36px;
+        height: 36px;
+        border-radius: 2px;
+        background-color: var(--main-0);
+        justify-content: center;
+
+        &:not(:hover) .shrink-text {
+            display: none;
+        }
+
+        @include media.media('tabletL') {
+            min-width: 30px;
+            height: 30px;
+        }
+    }
+
+    .vertical-text {
+        writing-mode: vertical-rl;
+    }
+}
+
+.horizontal-flex-container {
+    display: flex;
+    width: 100%;
+
+    > :first-child {
+        flex: 1 0 auto;
+    }
+
+    &.homogeneous-state {
+        > :nth-child(2) {
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+    }
+
+    &.non-homogeneous-state {
+        > :nth-child(2) {
+            flex: 0 1 50%;
+        }
+    }
+}

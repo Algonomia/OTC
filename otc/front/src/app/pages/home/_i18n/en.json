@@ -1,0 +1,21 @@
+{
+    "OTCFront": {
+        "Home": {
+            "MetaTitle": "Open Tax Calendar",
+            "MetaDescription": "Open source database for corporate Tax compliance deadlines",
+            "introMessage1": " We are building the ultimate open source database for corporate Tax compliance deadlines.",
+            "introMessage2": "Join the community and add your own brick to the adventure.",
+            "CtaDiscover": "Discover how we do that",
+            "CtaDiscoverShort": "Discover how",
+            "CtaConnect": "Connect and start participating",
+            "DiscoverData": "Discover data now",
+            "AccessContributions": "Access contributions",
+            "completion": {
+                "__title": "World database completion"
+            },
+            "sponsors": {
+                "__Initiative": "Like the initiative? Contact us at otc-contribution@opentaxcalendar.com to become a sponsor"
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<!-- With time: User picks "14:00" meaning 14:00 in their timezone.
+           The Date object already represents the correct UTC moment internally.
+           No conversion needed.
+
+Date only: User picks "Dec 23" meaning "Dec 23 in UTC" (not their local midnight).
+           We reinterpret the local date values as UTC to match this expectation.
+-->
+<p-datepicker
+    inputId="icondisplay"
+    dateFormat="dd/mm/yy"
+    appendTo="body"
+    [ngModel]="withTime ? utcDate : (utcDate | utcToLocal)"
+    (ngModelChange)="onDateSelect($event)"
+    [showIcon]="true"
+    [iconDisplay]="'input'"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    inputStyleClass="input-container"
+    [showTime]="withTime"
+    hourFormat="24"
+    [placeholder]="((placeholder ? placeholder : 'AngularSdk.DateSelector.SelectDate') | translate)">
+</p-datepicker>

@@ -1,0 +1,60 @@
+@use "../../../css/colors";
+.modal-stepper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.head {
+    position: relative;
+    flex: 0 0 auto;
+
+    .icon-back {
+        width: 32px;
+        height: 32px;
+    }
+
+    .icon-head {
+        width: 32px;
+        height: 32px;
+        background-color: var(--main-4);
+        border-radius: 50px;
+        color: var(--grey-0);
+    }
+
+    .icon-close {
+        position: absolute;
+        right: 5px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.sub-head {
+    background-color: var(--main-0);
+
+    .title {
+        font-size: 1.125rem;
+        color: var(--main-4);
+        font-family: "Integral UI Regular", sans-serif;
+    }
+}
+
+.content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.footer {
+    flex: 0 0 auto;
+    padding-top: 0;
+}
+
+::ng-deep .p-dialog-content, ::ng-deep .p-dialog-content > *, ::ng-deep app-modal-stepper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
+}

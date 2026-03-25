@@ -1,0 +1,7 @@
+<app-label #label [color_theme]="color_theme" [border_theme]="border_theme" [font_theme]="weight" [height]="height" [all_icon_display_on_hover]="false">
+    <ng-container *ngTemplateOutlet="label.AlgoIconTemplate; context: {icon_class: 'left-icon-light', path: 'Action/Navigation/Close' }"></ng-container>
+
+    @if (text) {
+        <ng-container *ngTemplateOutlet="label.TextTemplate; context: { text: 'AngularSdk.CoreCommon.Expired' }"></ng-container>
+    }
+</app-label>

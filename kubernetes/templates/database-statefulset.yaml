@@ -1,0 +1,57 @@
+{{- if .Values.database.enabled }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: database
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: database
+  serviceName: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+        - image: {{ .Values.database.image.repository }}:{{ .Values.database.image.tag }}
+          name: database
+          imagePullPolicy: {{ .Values.database.image.pullPolicy }}
+          env:
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.host }}
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.user }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.password }}
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.port }}
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.db }}
+          ports:
+            - containerPort: {{ .Values.database.service.port }}
+              name: database
+          volumeMounts:
+            - name: pgsql-persistent-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: pgsql-persistent-storage
+          persistentVolumeClaim:
+            claimName: database-pvc
+{{- end }}

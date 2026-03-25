@@ -1,0 +1,34 @@
+{
+    "ObligationDueDateDomain": {
+        "SubmissionMethod": {
+            "Electronic": {
+                "text": "Électronique",
+                "info": ""
+            },
+            "Paper": {
+                "text": "Papier",
+                "info": ""
+            },
+            "UponRequest": {
+                "text": "Sur demande",
+                "info": ""
+            },
+            "NoDirectFiling": {
+                "text": "Pas de dépôt direct",
+                "info": ""
+            },
+            "Mixed": {
+                "text": "Mixte",
+                "info": ""
+            },
+            "NotApplicable": {
+                "text": "N/A",
+                "info": ""
+            },
+            "Other": {
+                "text": "Autre",
+                "info": ""
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "AngularSdk": {
+        "ComplexValueEditor": {
+            "InsertHere": "Insert here",
+            "AddOrCopy": "Click to add or drag and drop to copy",
+            "DuplicateItem": "You can also drag & drop in this area to duplicate any item",
+            "DuplicateItemShort": "Drag & drop to duplicate",
+            "EditAValue": "Edit a value",
+            "HeadDescription" : "You can create or edit an existing value by defining a formula, using construction blocs available below",
+            "AddNewItem": "Add a new item"
+        }
+    }
+}

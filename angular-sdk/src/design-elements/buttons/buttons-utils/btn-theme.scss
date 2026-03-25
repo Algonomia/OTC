@@ -1,0 +1,383 @@
+@use "../../../css/colors";
+// --- Button MAIN ---
+
+$btn-main-4-3d: (
+    color: var(--grey-0),
+    background-linear: (var(--main-3), var(--main-4)),
+    box-shadow-color: (var(--main-2), var(--main-5)),
+    box-shadow-color-hover: (var(--main-1), var(--main-4)),
+);
+
+$btn-main-0: (
+    color: var(--main-4),
+    background: var(--main-0),
+    background-hover: var(--grey-0),
+);
+
+$btn-main-1: (
+    color: var(--grey-10),
+    background: var(--main-1),
+    background-hover: var(--grey-0),
+);
+
+$btn-main-2: (
+    color: var(--grey-0),
+    background: var(--main-2),
+    background-hover: var(--main-1),
+);
+
+$btn-main-3: (
+    color: var(--grey-0),
+    background: var(--main-3),
+    background-hover: var(--main-2),
+);
+
+$btn-main-4: (
+    color: var(--grey-0),
+    background: var(--main-4),
+    background-hover: var(--main-3),
+);
+
+$btn-main-5: (
+    color: var(--grey-0),
+    background: var(--main-5),
+    background-hover: var(--main-4),
+);
+
+$btn-main-1-outline: (
+    background: var(--grey-0),
+    color: var(--main-4),
+    color-hover: var(--main-3),
+    outline-color: var(--main-1),
+    outline-color-hover: var(--main-1)
+);
+
+$btn-main-3-outline: (
+    color: var(--main-3),
+    color-hover: var(--main-2),
+    background-hover: var(--white-20),
+    outline-color: var(--main-3),
+    outline-color-hover: var(--main-2)
+);
+
+$btn-main-4-outline: (
+    color: var(--main-4),
+    color-hover: var(--main-3),
+    background-hover: var(--white-20),
+    outline-color: var(--main-4),
+    outline-color-hover: var(--main-3)
+);
+
+$btn-main-5-outline: (
+    color: var(--main-5),
+    color-hover: var(--main-4),
+    background-hover: var(--white-20),
+    outline-color: var(--main-5),
+    outline-color-hover: var(--main-4)
+);
+
+// --- Button OK ---
+
+$btn-ok-4-3d: (
+    color: var(--grey-0),
+    background-linear: (var(--OK-3), var(--OK-4)),
+    box-shadow-color: (var(--OK-2), var(--OK-5)),
+    box-shadow-color-hover: (var(--OK-1), var(--OK-4)),
+);
+
+$btn-ok-0: (
+    color: var(--OK-5),
+    //color-hover: var(--OK-6),
+    background: var(--OK-0),
+    //background-hover: var(--grey-0),
+);
+
+$btn-ok-1: (
+    color: var(--grey-10),
+    background: var(--OK-1),
+    background-hover: var(--OK-0),
+);
+
+$btn-ok-2: (
+    color: var(--grey-10),
+    background: var(--OK-2),
+    background-hover: var(--OK-1),
+);
+
+$btn-ok-3: (
+    color: var(--grey-0),
+    background: var(--OK-3),
+    background-hover: var(--OK-2),
+);
+
+$btn-ok-4: (
+    color: var(--grey-0),
+    background: var(--OK-4),
+    background-hover: var(--OK-3),
+);
+
+$btn-ok-5: (
+    color: var(--OK-5),
+    background: var(--OK-0),
+);
+
+$btn-ok-3-outline: (
+    color: var(--OK-3),
+    color-hover: var(--OK-2),
+    background-hover: var(--white-20),
+    outline-color: var(--OK-3),
+    outline-color-hover: var(--OK-2)
+);
+
+$btn-ok-4-outline: (
+    color: var(--OK-4),
+    color-hover: var(--OK-3),
+    background-hover: var(--white-20),
+    outline-color: var(--OK-4),
+    outline-color-hover: var(--OK-3)
+);
+
+$btn-ok-5-outline: (
+    color: var(--OK-5),
+    color-hover: var(--OK-4),
+    background-hover: var(--white-20),
+    outline-color: var(--OK-5),
+    outline-color-hover: var(--OK-4)
+);
+
+// --- Button GREY ---
+
+$btn-grey-2-3d: (
+    color: var(--grey-10),
+    background-linear: (var(--grey-1), var(--grey-2)),
+    box-shadow-color: (var(--grey-1), var(--grey-3)),
+    box-shadow-color-hover: (var(--grey-0), var(--grey-2)),
+);
+
+$btn-grey-7-3d: (
+    color: var(--grey-0),
+    background-linear: (var(--grey-6), var(--grey-7)),
+    box-shadow-color: (var(--grey-4), var(--grey-8)),
+    box-shadow-color-hover: (var(--grey-3), var(--grey-7)),
+);
+
+$btn-grey-3d: (
+    color: var(--grey-0),
+    background-linear: (var(--grey-9), var(--grey-10)),
+    box-shadow-color: (var(--grey-7), var(--grey-10)),
+    box-shadow-color-hover: (var(--grey-6), var(--grey-9)),
+);
+
+$btn-grey-0: (
+    color: var(--grey-10),
+    background: var(--grey-0),
+    background-hover: var(--grey-1),
+);
+
+$btn-grey-1: (
+    color: var(--grey-7),
+    color-hover: var(--grey-8),
+    background: var(--grey-1),
+    background-hover: var(--grey-0),
+);
+
+$btn-grey-2: (
+    color: var(--grey-8),
+    color-hover: var(--grey-9),
+    background: var(--grey-2),
+    background-hover: var(--grey-1),
+);
+
+$btn-grey-3: (
+    color: var(--grey-10),
+    background: var(--grey-3),
+    background-hover: var(--grey-2),
+);
+
+$btn-grey-4: (
+    color: var(--grey-10),
+    background: var(--grey-4),
+    background-hover: var(--grey-3),
+);
+
+$btn-grey-5: (
+    color: var(--grey-10),
+    background: var(--grey-5),
+    background-hover: var(--grey-4),
+);
+
+$btn-grey-6: (
+    color: var(--grey-0),
+    background: var(--grey-6),
+    background-hover: var(--grey-5),
+);
+
+$btn-grey-7: (
+    color: var(--grey-0),
+    background: var(--grey-7),
+    background-hover: var(--grey-6),
+);
+
+$btn-grey-8: (
+    color: var(--grey-0),
+    background: var(--grey-8),
+    background-hover: var(--grey-7),
+);
+
+$btn-grey-9: (
+    color: var(--grey-0),
+    background: var(--grey-9),
+    background-hover: var(--grey-8),
+);
+
+$btn-grey-10: (
+    color: var(--grey-0),
+    background: var(--grey-10),
+    background-hover: var(--grey-9),
+);
+
+$btn-grey-0-outline: (
+    color: var(--grey-0),
+    background-hover: var(--white-20),
+    outline-color: var(--grey-0),
+    outline-color-hover: var(--grey-0)
+);
+
+$btn-grey-5-outline: (
+    color: var(--grey-5),
+    color-hover: var(--grey-4),
+    background-hover: var(--white-20),
+    outline-color: var(--grey-5),
+    outline-color-hover: var(--grey-4)
+);
+
+$btn-grey-7-outline: (
+    color: var(--grey-7),
+    color-hover: var(--grey-6),
+    background-hover: var(--white-20),
+    outline-color: var(--grey-7),
+    outline-color-hover: var(--grey-6)
+);
+
+$btn-grey-10-outline: (
+    color: var(--grey-10),
+    color-hover: var(--grey-9),
+    background-hover: var(--white-20),
+    outline-color: var(--grey-10),
+    outline-color-hover: var(--grey-9)
+);
+
+// --- Button KO ---
+
+$btn-ko-4-3d: (
+    color: var(--grey-0),
+    background-linear: (var(--KO-3), var(--KO-4)),
+    box-shadow-color: (var(--KO-2), var(--KO-5)),
+    box-shadow-color-hover: (var(--KO-1), var(--KO-4)),
+);
+
+$btn-ko-0: (
+    color: var(--KO-3),
+    background: var(--KO-0),
+    background-hover: var(--grey-0),
+);
+
+$btn-ko-1: (
+    color: var(--grey-10),
+    background: var(--KO-1),
+    background-hover: var(--KO-0),
+);
+
+$btn-ko-2: (
+    color: var(--grey-10),
+    background: var(--KO-2),
+    background-hover: var(--KO-1),
+);
+
+$btn-ko-3: (
+    color: var(--grey-0),
+    background: var(--KO-3),
+    background-hover: var(--KO-2),
+);
+
+$btn-ko-4: (
+    color: var(--grey-0),
+    background: var(--KO-4),
+    background-hover: var(--KO-3),
+);
+
+$btn-ko-5: (
+    color: var(--KO-5),
+    background: var(--KO-0),
+);
+
+$btn-ko-3-outline: (
+    color: var(--KO-3),
+    color-hover: var(--KO-2),
+    background-hover: var(--white-20),
+    outline-color: var(--KO-3),
+    outline-color-hover: var(--KO-2)
+);
+
+$btn-ko-4-outline: (
+    color: var(--KO-4),
+    color-hover: var(--KO-3),
+    background-hover: var(--white-20),
+    outline-color: var(--KO-4),
+    outline-color-hover: var(--KO-3)
+);
+
+$btn-ko-5-outline: (
+    color: var(--KO-5),
+    color-hover: var(--KO-4),
+    background-hover: var(--white-20),
+    outline-color: var(--KO-5),
+    outline-color-hover: var(--KO-4)
+);
+
+// --- Button YELLOW ---
+
+$btn-yellow-1: (
+    color: var(--KO-2),
+    background: var(--graph-yellow-1),
+    background-hover: var(--grey-0),
+);
+
+$btn-yellow-2: (
+    color: var(--grey-10),
+    background: var(--graph-yellow-2),
+    background-hover: var(--graph-yellow-1),
+);
+
+$btn-yellow-3: (
+    color: var(--grey-10),
+    background: var(--graph-yellow-3),
+    background-hover: var(--graph-yellow-2),
+);
+
+$btn-yellow-4: (
+    color: var(--grey-10),
+    background: var(--graph-yellow-4),
+    background-hover: var(--graph-yellow-3),
+);
+
+$btn-yellow-5: (
+    color: var(--grey-10),
+    background: var(--graph-yellow-5),
+    background-hover: var(--graph-yellow-4),
+);
+
+// --- Button LINK ---
+
+$btn-link-0: (
+    color: var(--link-3),
+    //color-hover: var(--link-6),
+    background: var(--link-0),
+    //background-hover: var(--grey-0),
+);
+
+$btn-link-4: (
+    color: var(--grey-0),
+    background: var(--link-4),
+    background-hover: var(--link-3),
+);

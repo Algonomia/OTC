@@ -1,0 +1,13 @@
+@if (formControl) {
+    <app-files-form-control
+        [formControl]="formControl"
+        [label]="formControl.algoValidator.meta.label"
+        [placeholder]="formControl.algoValidator.meta.placeholder"
+        [extensions]="formControl.algoValidator.meta.extensions"
+        [required]="formControl.algoValidator.meta.required"
+        [multiple]="formControl.algoValidator.meta.multiple"
+        [maxSize]="formControl.algoValidator.meta.maxSize"
+        [maxSizeUnit]="formControl.algoValidator.meta.maxSizeUnit"
+    >
+    </app-files-form-control>
+}

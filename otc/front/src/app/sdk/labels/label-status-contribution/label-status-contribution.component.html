@@ -1,0 +1,8 @@
+<app-label #label [color_theme]="color_theme"
+           [border_theme]="border_theme"
+           [font_theme]="weight"
+           [height]="height"
+           [all_icon_display_on_hover]="false">
+    <ng-container *ngTemplateOutlet="label.ImageTemplate; context: { icon_class: 'left-image-light', path: icon }"></ng-container>
+    <ng-container *ngTemplateOutlet="label.TextTemplate; context: { text: text }"></ng-container>
+</app-label>

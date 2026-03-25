@@ -1,0 +1,54 @@
+{
+    "ObligationDueDateDomain": {
+        "SourceStatus": {
+            "WaitForUrlSafeBrowsingCheck": {
+                "text": "En attente du check de navigation de l'URL",
+                "info": ""
+            },
+            "WaitForUrlMalwareScan": {
+                "text": "En attente du scan anti-virus de l'URL",
+                "info": ""
+            },
+            "RejectedUrl": {
+                "text": "URL rejetée",
+                "info": ""
+            },
+            "WaitForValidation": {
+                "text": "En attente de validation",
+                "info": ""
+            },
+            "RejectedByAdmin": {
+                "text": "Rejetée par un admin",
+                "info": ""
+            },
+            "WaitForScrapping": {
+                "text": "En attente du scrapping",
+                "info": ""
+            },
+            "UrlNotFound": {
+                "text": "URL non trouvée",
+                "info": ""
+            },
+            "ScanForMalware": {
+                "text": "Scan anti-malware",
+                "info": ""
+            },
+            "RejectedByMalwareScan": {
+                "text": "Rejetée par le scan anti-malware",
+                "info": ""
+            },
+            "WaitForOCR": {
+                "text": "En attente de l’OCR",
+                "info": ""
+            },
+            "WaitForAI": {
+                "text": "En attente de l’IA",
+                "info": ""
+            },
+            "FullyProcessed": {
+                "text": "Intégralement traitée",
+                "info": ""
+            }
+        }
+    }
+}

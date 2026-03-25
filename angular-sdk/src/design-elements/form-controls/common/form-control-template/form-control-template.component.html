@@ -1,0 +1,7 @@
+<div class="flex flex-column gap-8px">
+    <app-form-control-label [label]="label" [required]="required"></app-form-control-label>
+    <div>
+        <ng-template [ngTemplateOutlet]="inputTpl"></ng-template>
+        <app-form-control-errors [displayErrors]="displayErrors" [errors]="errors"></app-form-control-errors>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="flex flex-column">
+    @for (metaFormControl of metaFormControls; track metaFormControl; let i = $index) {
+        @if (metaFormControl.algoValidator.meta.required) {
+            <app-meta-form-control [class.pad-top-1]="i > 0" [metaFormControl]="metaFormControl"></app-meta-form-control>
+        } @else if (!hide_optionals) {
+            <app-meta-form-control [class.pad-top-1]="i > 0" [metaFormControl]="metaFormControl"></app-meta-form-control>
+        }
+    }
+</div>

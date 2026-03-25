@@ -1,0 +1,34 @@
+{
+    "Shared": {
+        "ValidatorErrors": {
+            "required": "Ce champ est obligatoire",
+            "minDateExceeded": "Valeur en-dessous de la date minimale",
+            "maxDateExceeded": "Valeur au-dessus de la date maximale",
+            "invalidSubDate": "Sous-date invalide",
+            "invalidPeriod": "Période invalide",
+            "notInList": "Valeur pas dans la liste elligible",
+            "forbiddenExtension": "Extensions autorisées : {{forbiddenExtension.allowedExtensions}}",
+            "maxSizeExceeded": "Taille maximum dépassée",
+            "minlength": "Doit contenir {{minlength}} charactères ou plus",
+            "maxlength": "Doit contenir {{maxlength}} charactères ou moins",
+            "min": "Valeur en-dessous de {{min}}",
+            "max": "Valeur au-dessus de {{max}}",
+            "wrongUrl": "L'URL est incorrect ou n'existe pas",
+            "invalidEmail": "Format de l'email invalide",
+            "invalidPhone": "Format de numéro de téléphone invalide",
+            "invalidFormat": "Format invalide",
+            "invalidObject": "Object invalide",
+            "notRespectedBound": "Doit être entre {{min}} et {{max}}",
+            "invalidValues": "Valeurs invalides",
+            "missingKeys": "Clés manquantes : {{missingKeys}}",
+            "unauthorizedKeys": "Clés non authorisées {{unauthorizedKeys}}",
+            "unknownOperator": "Opérateur inconnu",
+            "missingArgs": "{{nMissing}} arguments manquants",
+            "overflowingArgs": "{{nOverflowing}} arguments en surplus",
+            "wrongInputs": "Pas les bons inputs dans les positions {{positions}}",
+            "unexpectedOutput": "{{expected_output}} attendu au lieu de {{output}}",
+            "invalidNestedInputs": "Valeurs imbriquées invalides",
+            "default": "Le champ contient une erreur"
+        }
+    }
+}

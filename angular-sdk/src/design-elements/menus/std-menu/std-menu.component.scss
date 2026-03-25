@@ -1,0 +1,62 @@
+@use "../../../css/colors";
+.container {
+    .header {
+        border-bottom: 1px solid var(--main-1-60);
+        width: 100%;
+        position: relative;
+
+        .search-container {
+            color: var(--main-0);
+            border: 1px solid var(--main-1-30);
+            border-radius: 5px;
+
+            .icon-erase, .icon-search {
+                width: 35px;
+                height: 35px;
+            }
+
+            .search-bar {
+                border: none;
+                outline: none;
+                padding-bottom: 2px;
+                width: calc(100% - 55px);
+                background: transparent;
+                color: var(--main-0);
+                font-size: 0.85rem;
+                font-family: "Integral UI Medium", sans-serif;
+
+                &::placeholder {
+                    color: var(--main-0);
+                    font-family: "Integral UI ExtraLight", sans-serif;
+                }
+            }
+        }
+
+        .toggle-container {
+            width: 100%;
+            margin-top: 10px;
+
+            .show-selected {
+                font-size: 0.75rem;
+                letter-spacing: 0.3px;
+                color: var(--grey-0);
+            }
+        }
+    }
+
+    .line-container {
+        position: relative;
+        padding: 0 15px;
+    }
+
+    .line {
+        height: 45px;
+        min-width: 230px;
+        color: var(--main-0);
+        background-color: var(--main-4);
+        border-bottom: 1px solid var(--main-3);
+        padding: 4px 0;
+        font-size: 0.85rem;
+        letter-spacing: 0.6px;
+    }
+}

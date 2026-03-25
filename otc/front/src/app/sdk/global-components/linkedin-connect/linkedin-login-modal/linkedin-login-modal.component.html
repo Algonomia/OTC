@@ -1,0 +1,32 @@
+<div class="std-aligned pad-1 gap-1">
+    <app-algo-icon class="icon-linkedin" name="Brand/Mark/LinkedinConnect"></app-algo-icon>
+    <p class="connection-button-text">{{ 'OTCFront.Login.SignInLinkedin' | translate }}</p>
+</div>
+
+<hr style="margin: 0"/>
+
+<div class="flex flex-column pad-1 gap-1">
+    <app-button-continue [text]="'Log-in now' | translate" (click)="login()" size_theme="Large"></app-button-continue>
+</div>
+
+<hr style="margin: 0"/>
+
+<p class="pad-1">
+    {{ 'OTCFront.Login.ToContinue' | translate }}
+
+    <app-href-handler [link]="''" [template]="PrivacyPolicy">
+        <ng-template #PrivacyPolicy>
+            <span class="link">{{ 'OTCFront.Login.PrivacyPolicy' | translate }}</span>
+        </ng-template>
+    </app-href-handler>
+
+    {{ 'OTCFront.Login.And' | translate }}
+
+    <app-href-handler [link]="''" [template]="TermsOfService">
+        <ng-template #TermsOfService>
+            <span class="link">{{ 'OTCFront.Login.TermsOfService' | translate }}</span>
+        </ng-template>
+    </app-href-handler>
+
+    {{ 'OTCFront.Login.ForMore' | translate }}
+</p>

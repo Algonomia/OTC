@@ -1,0 +1,8 @@
+{
+    "AngularSdk": {
+        "panel": {
+            "ShrinkPanel": "Réduire le panneau",
+            "ExpandPanel": "Agrandir le panneau"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@if (!!label || !!required) {
+    <div class="label std-aligned gap-1">
+        @if (!!label) {
+            <label class="label-text">{{ label | translate }}</label>
+        }
+        @if (!required) {
+            <app-label-secondary-light text="AngularSdk.CoreCommon.Optional"></app-label-secondary-light>
+        }
+    </div>
+}

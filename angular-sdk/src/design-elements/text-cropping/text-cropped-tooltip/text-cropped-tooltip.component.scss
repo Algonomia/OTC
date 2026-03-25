@@ -1,0 +1,18 @@
+.text-cropped-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+
+    .text-cropped {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        line-height: 1.25rem;
+    }
+
+    .info-icon {
+        width: 25px;
+        height: 25px;
+    }
+}

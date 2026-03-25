@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>action / panel / line reduce</title>
+    <g id="action-/-panel-/-line-reduce" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18.16,11.712 L21.24,8.896 C21.336,8.768 21.24,8.576 21.08,8.576 L14.92,8.576 C14.76,8.576 14.664,8.768 14.76,8.896 L17.84,11.712 C17.936,11.808 18.064,11.808 18.16,11.712 Z M25.936,15.304 L25.936,14.728 L10.064,14.728 L10.064,15.304 L25.936,15.304 Z M25.936,20.872 L25.936,20.296 L10.064,20.296 L10.064,20.872 L25.936,20.872 Z M21.08,27.024 C21.24,27.024 21.336,26.832 21.24,26.704 L18.16,23.888 C18.064,23.792 17.936,23.792 17.84,23.888 L14.76,26.704 C14.664,26.832 14.76,27.024 14.92,27.024 L21.08,27.024 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

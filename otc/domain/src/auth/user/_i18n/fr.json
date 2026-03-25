@@ -1,0 +1,10 @@
+{
+    "ObligationDueDateDomain": {
+        "EditUser": {
+            "job": "Emploi",
+            "company": "Compagnie",
+            "pro_email": "Email professionnel",
+            "phone": "Téléphone"
+        }
+    }
+}

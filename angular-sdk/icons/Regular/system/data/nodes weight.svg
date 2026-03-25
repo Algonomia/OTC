@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> system / data / nodes weight</title>
+    <g id="-system-/-data-/-nodes-weight" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15.0466194,11.4 L15.0466194,12.6 L10,12.6 C8.6745166,12.6 7.6,13.6745166 7.6,15 L7.6,22 C7.6,23.3254834 8.6745166,24.4 10,24.4 L25,24.4 C26.3254834,24.4 27.4,23.3254834 27.4,22 L27.4,18 L28.6,18 L28.6,22 C28.6,23.9882251 26.9882251,25.6 25,25.6 L10,25.6 C8.0117749,25.6 6.4,23.9882251 6.4,22 L6.4,15 C6.4,13.0117749 8.0117749,11.4 10,11.4 L15.0466194,11.4 Z" id="Rectangle" fill="#142846" fill-rule="nonzero"></path>
+        <path d="M18,11.6257836 L30,11.6257836 L30,9.74788359 L18,9.74788359 L18,11.6257836 Z M18,8.35595399 L30,8.35595399 L30,7.2 L18,7.2 L18,8.35595399 Z M18,15.8461738 L30,15.8461738 L30,13.0427208 L18,13.0427208 L18,15.8461738 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

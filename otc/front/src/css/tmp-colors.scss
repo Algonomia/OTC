@@ -1,0 +1,15 @@
+// Algonomia color map waiting to be added to colors.css
+
+:root {
+    --main-1-05: #AFE1FF33;
+    --main-1-05-solid: #EFF9FF ; // originally #AFE1FF33. Used a trick to have the result without opacity (glitch in algo table, needed opaque color). Trick is to convert red color with opacity 0.2 to 0.2 * r + 255 * 0.8. Same with blue and green;
+    --main-1-30: #afe1ff4d;
+    --main-1-60: #afe1ff99;
+    --main-0: #E4F7FF;
+
+    --link-0-20: #d7f0ff33;
+
+    --graph-yellow-1-40: #f5f0be66;
+
+    --KO-0-10: #fffbf9;
+}

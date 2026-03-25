@@ -1,0 +1,95 @@
+<div class="max-w-100">
+    <app-edge-popover styleClass="menu-popover" [triggerIsOpenTpl]="!!triggerTpl ? triggerTpl : defaultTriggerTpl" [contentTpl]="contentTpl" (openClose)="changeOpen($event)"></app-edge-popover>
+</div>
+
+<ng-template #defaultTriggerTpl>
+    <app-label-menu [is_open]="__isOpen" [text]="__text" [symbol]="labelSymbol"></app-label-menu>
+</ng-template>
+
+<ng-template #contentTpl>
+    @if (__isOpen) {
+        @let flatTree = __flatTree | async;
+        @if (flatTree) {
+            <div class="container">
+                <div class="header pad-1">
+                    <div class="search-container std-aligned">
+                        <app-algo-icon name="Action/Navigation/Search" class="icon-search"></app-algo-icon>
+                        <input type="text" class="search-bar"
+                               [formControl]="__searchControl"
+                               [placeholder]="'AngularSdk.CoreCommon.Search' | translate"
+                        />
+
+                        @if (__searchControl.value) {
+                            <app-algo-icon name="Action/Formatting/Erase"
+                                           class="icon-erase cursor-pointer"
+                                           (click)="eraseSearchControl()">
+                            </app-algo-icon>
+                        }
+                    </div>
+                    <div class="toggle-container flex justify-end">
+                        <app-toggle [enabled]="!!(__showOnlySelected$ | async)"
+                                    (enabledChange)="__showOnlySelected$.next($event)"
+                                    [blockedWhenNotEnabled]="(__selectHandler | selectedState | async) === SelectionState.EMPTY"
+                                    text="AngularSdk.CoreCommon.ShowOnlySelected" colorTheme="light">
+                        </app-toggle>
+                    </div>
+                </div>
+
+                @if (__selectHandler.isMultiSelection && selectAll) {
+                    <div class="line-container pad-1">
+                        <div class="std-flex cursor-pointer text-wrap-ellipsis line" (click)="__selectHandler.switchAll()">
+                            <app-select-all-checkbox [colorTheme]="'light'" [selectHandler]="__selectHandler"></app-select-all-checkbox>
+                            @let allSelected = (__selectHandler | selectedState | async) === SelectionState.ALL;
+                            <div class="font-light text-wrap-ellipsis" [class.font-regular]="allSelected">{{'AngularSdk.CoreCommon.All' | translate}}</div>
+                        </div>
+                    </div>
+                }
+
+                <app-virtual-scroll-handler [lineHeightPx]="45"
+                                            [line_values]="flatTree"
+                                            [menuLineTemplate]="lineTpl">
+                </app-virtual-scroll-handler>
+
+                <ng-template #lineTpl let-line_value="line_value">
+                    @let itemDisplayItem = line_value;
+                    @let margin_left = (line_value.deepness - 1) * 18 + 'px';
+                    @switch (itemDisplayItem.type) {
+                        @case ('leaf') {
+                            @let value = itemDisplayItem.leaf;
+                            @let selected = __selectHandler | selected:value | async;
+                            @let font = selected ? 'font-regular' : 'font-light';
+                            <div class="line-container">
+                                <div class="std-flex cursor-pointer line" [style.margin-left]="margin_left" (click)="switch(value)">
+                                    <app-single-select-box [colorTheme]="'light'" [selectHandler]="__selectHandler" [item]="value"></app-single-select-box>
+                                    <div>
+                                        <app-text-cropped [textClass]="font" [text]="(__selectHandler | selectDisplayValue:value | async) ?? ''"></app-text-cropped>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @case ('node') {
+                            @let node = itemDisplayItem.node;
+                            @let open = itemDisplayItem.isOpen;
+                            @let someSelected = __selectHandler | someSelected:itemDisplayItem.subLeafs | async;
+                            @let weight = someSelected ? 'Medium' : 'Normal';
+                            @let font = someSelected ? 'font-regular' : 'font-light';
+                            <div class="line-container">
+                                <div class="std-flex cursor-pointer line" [style.margin-left]="margin_left" (click)="openNode(node)">
+                                    <app-algo-icon class="icon-light std-aligned-centered" style="color: var(--grey-0)"
+                                                   [name]="open ? 'Action/Charet/ChevronDown' : 'Action/Charet/ChevronRight'"
+                                                   [weight]="weight"
+                                    >
+                                    </app-algo-icon>
+
+                                    <div>
+                                        <app-text-cropped [textClass]="font" [text]="node.title ?? ''"></app-text-cropped>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </ng-template>
+            </div>
+        }
+    }
+</ng-template>

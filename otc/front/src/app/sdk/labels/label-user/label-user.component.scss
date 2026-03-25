@@ -1,0 +1,29 @@
+$size_icon: 40px;
+
+.label {
+    border: 1px solid var(--main-1);
+    border-radius: 25px;
+
+    .avatar {
+        width: $size_icon;
+        height: $size_icon;
+        border-radius: 50%;
+    }
+
+    .name {
+        font-family: "Integral UI Regular", sans-serif;
+        font-size: 1.123rem;
+    }
+
+    .post {
+        color: var(--main-3);
+    }
+
+    .flag {
+        width: $size_icon;
+        height: $size_icon;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+}

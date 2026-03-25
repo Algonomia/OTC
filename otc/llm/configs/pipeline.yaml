@@ -1,0 +1,46 @@
+pipeline:
+  name: "otc_poc_minimal"
+  rate_limit:
+    retry_after_seconds: 86400  # e.g. 86400 for 1 day, 3600 for 1 hour, null to disable
+  model_key: "qwen3-14b-awq"
+  model_key_env: "OTC_MODEL_KEY"    # optional override via environment
+  retries: 3
+  mlflow:
+    enabled: false
+    enabled_env: "OTC_ENABLE_MLFLOW"
+  schema_verification:
+    enabled: false
+    max_tries: 3
+    fail_on_warnings: false
+    retry_prompts_dir: "prompts/schema_fail_retry"
+  chunking:
+    context_window: 30000
+    chunk_size_tokens: null
+    chunk_size_ratio: 0.12
+    overlap_tokens: 350
+    trigger_ratio: 0.5
+    retrieval_top_n: 8
+    store_subdir: "chunk_metadata"
+    labeling_model_key: "qwen3-14b-awq"
+    labeling_model_key_env: "OTC_LABELING_MODEL_KEY"
+    labeling_base_url_env: null
+    labeling_api_key_env: null
+    tokenizer_name: null
+    token_count_model: null
+  evaluation:
+    enabled: true
+    source_text_mode: "active"   # "active" uses chunk-retrieved text; "full" uses full document text
+    model_key: "qwen3-14b-awq"
+    instructor_mode: "JSON"
+    attach_to_values: false
+    simplified:
+      enabled: true
+      schema_class: "otc.schemas.schema_simplified_evaluation:OTCSimplifiedEvaluationResult"
+      retries: 3
+      max_source_chars: null
+      max_extraction_context_chars: null
+      prompts:
+        overview: "prompts/evaluation/simplified/sys_prompt_overview_simplified_eval.txt"
+        deadline: "prompts/evaluation/simplified/sys_prompt_deadline_simplified_eval.txt"
+        threshold: "prompts/evaluation/simplified/sys_prompt_threshold_simplified_eval.txt"
+        penalty: "prompts/evaluation/simplified/sys_prompt_penalty_simplified_eval.txt"

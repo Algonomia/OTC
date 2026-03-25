@@ -1,0 +1,9 @@
+<app-button btnCssClass="btn-main-3"
+            [leftIcon]="left_icon && text ? 'Action/Formatting/Edit' : ''"
+            [singleIcon]="!text ? 'Action/Formatting/Edit' : ''"
+            [rightIcon]="!left_icon && text ? 'Action/Formatting/Edit' : ''"
+            [text]="text"
+            [disabled]="disabled_btn"
+            [size_theme]="size_theme"
+            [rounded]="rounded">
+</app-button>

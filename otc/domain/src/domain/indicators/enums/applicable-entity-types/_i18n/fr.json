@@ -1,0 +1,26 @@
+{
+    "ObligationDueDateDomain": {
+        "ApplicableEntityTypes": {
+            "Company": {
+                "text": "Société",
+                "info": "Sociétés classiques et sociétés à responsabilité limitée par actions (Inc., Ltd., SA, GmbH, AG), ainsi que les LLC, LLP, GP, LP lorsque la réglementation les traite de manière identique aux sociétés pour cette obligation."
+            },
+            "PE": {
+                "text": "Établissement stable",
+                "info": "Établissement stable, succursale étrangère ou chantier / EP de services imposé au niveau de la société mère."
+            },
+            "Partnership": {
+                "text": "Partenariat",
+                "info": "Partenariats fiscalement transparents / imposés au niveau des associés, auxquels la règle s'applique ou qui sont spécifiquement exemptés (GP, LP, LLP)."
+            },
+            "TrustFoundation": {
+                "text": "Fiducie/Fondation",
+                "info": "Fiducies, fondations, organisations caritatives si elles sont spécifiquement visées."
+            },
+            "Other": {
+                "text": "Autre",
+                "info": "Catégorie générale pour les formes rares ou propres à un pays, telles que coopératives, organismes publics, coentreprises ou autres formes spécifiquement mentionnées. À préciser dans 'Entity Type Details'."
+            }
+        }
+    }
+}

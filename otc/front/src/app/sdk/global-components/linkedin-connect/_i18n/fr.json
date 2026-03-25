@@ -1,0 +1,15 @@
+{
+    "OTCFront": {
+        "Login": {
+            "Connect": "Connexion",
+            "SignInLinkedin": "Connectez-vous à OTC en utilisant votre compte Linkedin",
+            "OrConnect": "Ou se connecter à l'aide d'un",
+            "AnotherAccount": "autre compte",
+            "ToContinue": "Pour continuer, Linkedin communiquera votre nom, votre entreprise, votre fonction et votre lieu de travail à Open Tax Calendar. Voir notre",
+            "PrivacyPolicy": "politique de confidentialité",
+            "And": "et",
+            "TermsOfService": "nos conditions de service",
+            "ForMore": "pour plus d'informations."
+        }
+    }
+}

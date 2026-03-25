@@ -1,0 +1,115 @@
+@use "media";
+
+.pad-1 {
+    padding: 1rem;
+
+    @include media.media('tabletL') {
+        padding: 0.75rem;
+    }
+
+    @include media.media('mobileXL') {
+        padding: 0.55rem;
+    }
+}
+
+.pad-top-1 {
+    padding-top: 1rem;
+
+    @include media.media('tabletL') {
+        padding-top: 0.75rem;
+    }
+
+    @include media.media('mobileXL') {
+        padding-top: 0.55rem;
+    }
+}
+
+.pad-2 {
+    padding: 1.25rem;
+
+    @include media.media('tabletL') {
+        padding: 1rem;
+    }
+
+    @include media.media('mobileXL') {
+        padding: 0.75rem;
+    }
+}
+
+:root {
+    --pad-3-1: 1.55rem;
+    --pad-3-2: 1.25rem;
+    --pad-3-3: 1rem;
+}
+
+.pad-3 {
+    padding: var(--pad-3-1);
+
+    @include media.media('tabletL') {
+        padding: var(--pad-3-2);
+    }
+
+    @include media.media('mobileXL') {
+        padding: var(--pad-3-3);
+    }
+}
+
+.pad-3-sides {
+    padding: 0 var(--pad-3-1);
+
+    @include media.media('tabletL') {
+        padding: 0 var(--pad-3-2);
+    }
+
+    @include media.media('mobileXL') {
+        padding: 0 var(--pad-3-3);
+    }
+}
+
+.pad-3-up {
+    padding-top: var(--pad-3-1);
+
+    @include media.media('tabletL') {
+        padding-top: var(--pad-3-2);
+    }
+
+    @include media.media('mobileXL') {
+        padding-top: var(--pad-3-3);
+    }
+}
+
+.pad-4 {
+    padding: 1.80rem;
+
+    @include media.media('tabletL') {
+        padding: 1.55rem;
+    }
+}
+
+.pad-x-1 {
+    padding: 0 1rem;
+
+    @include media.media('tabletL') {
+        padding: 0 0.75rem;
+    }
+
+    @include media.media('mobileXL') {
+        padding: 0 0.55rem;
+    }
+}
+
+.pad-x-10px {
+    padding: 0 10px;
+}
+
+.padding-20 {
+    padding: 20px;
+}
+
+.padding-bottom-20 {
+    padding-bottom: 20px;
+}
+
+.margin-0 {
+    margin: 0;
+}

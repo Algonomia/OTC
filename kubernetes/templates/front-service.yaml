@@ -1,0 +1,17 @@
+{{- if .Values.front.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.front.service.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    run: front
+spec:
+  ports:
+    - port: {{ .Values.front.service.port }}
+      targetPort: {{ .Values.front.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    run: front
+{{- end }}

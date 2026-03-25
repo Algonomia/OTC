@@ -1,0 +1,28 @@
+<div class="flex gap-5px">
+    @if(status === ESourceStatus.WaitForValidation) {
+        <app-button-validate (click)="openValidateModal()" [icon]="false" [size_theme]="'Small'"></app-button-validate>
+    }
+    @if(status !== ESourceStatus.RejectedByAdmin && status !== ESourceStatus.FullyProcessed && status !== ESourceStatus.RejectedByMalwareScan) {
+        <app-button-reject (click)="openRejectModal()" [icon]="false" [size_theme]="'Small'"></app-button-reject>
+    }
+</div>
+
+<ng-template #validateModal>
+    <div class="pad-1">
+        <app-text-form-control [formControl]="commentFormControl"></app-text-form-control>
+    </div>
+    <div class="std-aligned pad-1 gap-1 justify-between">
+        <app-button-cancel (click)="closeModal()"></app-button-cancel>
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.Validate" (click)="validate()"></app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #rejectModal>
+    <div class="pad-1">
+        <app-text-form-control [formControl]="commentFormControl"></app-text-form-control>
+    </div>
+    <div class="std-aligned pad-1 gap-1 justify-between">
+        <app-button-cancel (click)="closeModal()"></app-button-cancel>
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.Reject" (click)="reject()"></app-button-continue>
+    </div>
+</ng-template>

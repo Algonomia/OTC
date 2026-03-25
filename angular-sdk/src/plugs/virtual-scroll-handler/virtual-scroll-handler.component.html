@@ -1,0 +1,16 @@
+<div #resizableRef>
+    <p-virtualscroller [items]="__line_values"
+                       [itemSize]="__lineHeightPx"
+                       [scrollHeight]="__containerHeight"
+                       styleClass="border border-surface"
+                       [style]="{ width: __width}"
+                       #virtualScroller
+    >
+        <ng-template pTemplate="item" let-item let-options="options">
+            <div [style.height.px]="__lineHeightPx" #resizableRef #scrollElement>
+                <ng-template [ngTemplateOutletContext]="{ line_value: item, idx: options.index}" [ngTemplateOutlet]="menuLineTemplate"></ng-template>
+            </div>
+        </ng-template>
+    </p-virtualscroller>
+</div>
+

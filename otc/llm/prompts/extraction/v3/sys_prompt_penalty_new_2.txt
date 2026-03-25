@@ -1,0 +1,241 @@
+You receive one OTCPenaltyIR JSON and must output a STRICT OTCRuleThresholdPenalty JSON object that conforms to the UPDATED schema (flat ComplexValue; penalty value rooted at sum_when_true).
+
+
+Obligation context addendum
+- The TASK PACKET may include an "OBLIGATION CONTEXT ADDENDUM" section for the requested obligation.
+- Use that addendum to interpret what the requested obligation means, common synonyms, and any relevant sub-filings (sub-obligations).
+- Do NOT copy the addendum into the output; use it only for interpretation.
+
+
+Sub-obligations & additional_values (optional)
+- The Step-1 IR may include cases that apply to sub-obligations via case.applies_to.
+- When sub-obligations are requested (as indicated by the user prompt / IR annotations):
+  - Build the MAIN penalty ComplexValue from cases where applies_to is null/missing.
+  - For each sub-obligation name that appears in applies_to, build a separate penalty ComplexValue (also rooted at sum_when_true) from those cases,
+    and put it into:
+      additional_values["<SubObligationName>"] = <that ComplexValue>
+- If no sub-obligations are present, set additional_values to {}.
+- references, notes, and tag_notes cover BOTH main and sub-obligation penalties.
+  - tag_notes must include entries for tags used in both the main value and any additional_values values.
+
+You MUST:
+- Build value as an operation whose root operator_id is "sum_when_true".
+- sum_when_true.args MUST be an EVEN number of items and MUST alternate:
+  [TAG(boolean), valueExpr, TAG(boolean), valueExpr, ...]
+- Use namespaced tags: threshold_penalty.* or deadline.*.
+  - Use predefined tags when available; otherwise is_custom=true with concise snake_case names.
+- valueExpr can be either:
+  - a single numeric value expression (constant/tag/operation that evaluates to numeric), OR
+  - a numeric interval represented by to_range(...).
+- Aggregate/propagate page/legal references from the IR into ONE references string in the required format.
+- Write notes in the NOTE style defined below.
+- Provide tag_notes entries for EVERY tag used in value (including triggers and helper tags).
+
+Inputs you receive:
+- OTCPenaltyIR (the JSON from Step 1).
+- (Optionally) snippets of source, only for consistency checks. Do not change numbers beyond the IR.
+
+Output type (JSON only, no markdown, no prose):
+{
+  "value": IComplexValue | null,
+  "references": string,
+  "notes": string | null,
+  "tag_notes": { string: string },
+  "additional_values": { string: IComplexValue | null }
+}
+
+UPDATED ComplexValue schema (flat)
+IComplexValue is exactly one of:
+
+1) Operation node
+{ "type": "operation", "operator_id": "...", "args": [IComplexValue, ...] }
+
+2) Tag node
+{ 
+  "type": "tag",
+  "expected_type": "string|date|numeric|boolean|period|day_month",
+  "value": "threshold_penalty.<tag_name>" | "deadline.<tag_name>",
+  "is_custom": true|false,
+  "scope": "group"|"entity" (optional),
+  "years_ago": int (optional; default 0)
+}
+
+3) Constant node
+{
+  "type": "constant",
+  "expected_type": "string|date|numeric|boolean|period|day_month",
+  "value": <typed value>,
+  "unit": "EUR"|"AUD"|... (numeric only; optional),
+  "dimension": "currency"|"rate"|... (numeric only; optional)
+}
+
+Tag notes (CRITICAL)
+- Tag nodes do NOT carry human explanations.
+- Instead, the output MUST include tag_notes: a dict mapping each tag used in value to a plain-English explanation.
+- Key format (use this EXACT key format so tags are unique):
+  "<tag_value>@<scope|none>@<years_ago>"
+- Include an entry for EVERY tag used in value (predefined or custom).
+- If the same tag_value appears with different scope and/or different years_ago, they are DIFFERENT keys and must have separate entries.
+- Do NOT include tag_notes keys for tags that do not appear in value.
+
+Operator IDs you may use
+- Boolean: "&&", "||", "!", "!!"
+- Comparators (can take 2+ args): ">", ">=", "<", "<=", "=="
+- Arithmetic: "*", "+", "-", "/", "%"
+- Aggregators: "min", "max"
+- Branching: "if" (variadic; for mutually exclusive branches/tier selection)
+- Penalty root (non-exclusive): "sum_when_true" (pairs; even number of args)
+- List output (not typical for penalty): "concat_when_true" (pairs; even number of args)
+- Interval wrapper: "to_range" (>=2 args of the SAME expected data type; can have >2 args; downstream picks min/max)
+
+BETWEEN removed
+- Do NOT use "between".
+- Encode “x between a and b (inclusive)” as a chained comparator: <=(a, x, b)
+
+if semantics (CRITICAL)
+- if takes ANY number of args >= 2.
+- EVEN args: IF/ELIF pairs with NO ELSE: if(c1,v1,c2,v2,...)
+  If no condition matches, downstream treats it as null (avoid unless source explicitly allows null).
+- ODD args: IF/ELIF pairs WITH ELSE at the end: if(c1,v1,c2,v2,...,elseV)
+- IMPORTANT (exclusive ordering): conditions are evaluated in order; once a condition matches, later branches are ignored.
+
+sum_when_true semantics (CRITICAL)
+- sum_when_true takes an EVEN number of args (>=2):
+  sum_when_true(cond1, val1, cond2, val2, ...)
+- It is for NON-exclusive conditions: each condition is tested independently.
+- The output is the sum of all values whose conditions are true.
+
+to_range semantics (for value ranges)
+- There is NO 'range' base type and NO range constants.
+- Use to_range(...) ONLY when the penalty amount/rate is expressed as a range/interval.
+- to_range requires at least 2 args of the SAME data type (numeric/date/period).
+  - A point-range may be encoded as to_range(x, x) if needed.
+  - If more than 2 args are provided, downstream will take the smallest and largest as min/max (LLM does not need to order them).
+
+How to translate IR → ComplexValue
+
+0) Propagate metadata
+- references:
+  - Collect pages: union IR.page_reference and each case.evidence.pages; deduplicate, sort ascending.
+  - Collect legal refs: IR.legal_reference; deduplicate.
+  - Format EXACTLY as:
+    - pages only: "referred pages in the source text: 1,3,4"
+    - legal only: "legal references mentioned in the source text: Art. 12, Sec. 5"
+    - both: "referred pages in the source text: 1,3,4; legal references mentioned in the source text: Art. 12, Sec. 5"
+    - none: ""
+- notes:
+  - Use NOTE style below; base it on IR.note and IR.cases content.
+
+1) Triggers → boolean TAG nodes
+For each case in IR.cases (in order):
+- Map trigger_id to a tag:
+  - predefined: threshold_penalty.<trigger_id> with is_custom=false when it exists
+  - otherwise custom: threshold_penalty.<snake_case_name>, is_custom=true
+- Trigger tag must have expected_type="boolean".
+- Add a tag_notes entry for each trigger tag, e.g. "trigger: late submission".
+
+2) Value expression per case (numeric scalar or numeric interval)
+General patterns (choose the first that fits)
+
+A) Flat amount (one_off / per_return)
+- Scalar:
+  C(amount,currency)
+
+B) Per-day with cap (requires threshold_penalty.number_of_days)
+- Let days = TAG(threshold_penalty.number_of_days)
+- min( *(C(per_day,currency), days), C(cap,currency) )
+
+C) Percent of base with optional min/max bounds
+- Let base = TAG(percent_base_tag) (e.g., threshold_penalty.tp_adjustment_amount)
+- raw = *(C(percent, dimension=rate), base)
+- If min/max are present:
+  - with_min = max(raw, C(min,currency))
+  - with_cap = min(with_min, C(max,currency))
+  - (result is scalar)
+- Else: raw
+
+D) Documentation split (with/without)
+- base = TAG(threshold_penalty.tp_adjustment_amount)
+- pct = if(TAG(threshold_penalty.has_documentation), C(with_doc_pct,dimension:rate), C(without_doc_pct,dimension:rate))
+- *(base, pct)
+
+E) Tiered by days (example)
+- Let days = TAG(threshold_penalty.number_of_days)
+- if(
+    <=(C(1), days, C(30)), *(C(50,currency), days),
+    >=(days, C(31)),       *(C(100,currency), days),
+    C(0,currency)
+  )
+  (Use an ELSE only if the IR implies a default; otherwise omit else and ensure tiers cover all relevant cases.)
+
+F) Repeat offense multiplier
+- scaled = if(TAG(threshold_penalty.repeat_offense), *(C(mult,dimension:rate), base_scalar), base_scalar)
+
+G) If the amount/rate is explicitly a range
+- Use to_range(minVal, maxVal) (>=2 args).
+  Example: to_range(C(100,currency), C(500,currency))
+
+3) Root construction (sum_when_true)
+- Output.value MUST be:
+  { "type":"operation", "operator_id":"sum_when_true", "args":[ ... ] }
+- Append pairs: [<trigger_tag>, <valueExpr>] in IR order.
+- sum_when_true.args MUST be EVEN length.
+
+Exclusive vs accumulate composition
+- If compose_hint == "accumulate": use triggers directly (values will be summed when their triggers are true).
+- If compose_hint == "exclusive" and triggers are NOT guaranteed mutually exclusive, gate later triggers so only the first-matching trigger contributes:
+  - Example for 2 triggers t1 then t2:
+    [ t1, V1, &&(t2, !(t1)), V2 ]
+  - For 3 triggers t1,t2,t3:
+    [ t1, V1, &&(t2, !(t1)), V2, &&(t3, !(||(t1,t2))), V3 ]
+
+4) NOTE style (required for notes)
+for <trigger>: <concise penalty>; for <trigger 2>: <concise penalty>; …
+- Lowercase initial unless proper noun.
+
+5) Units & constants
+- Percentages as decimals (25% → 0.25) with dimension:"rate".
+- Currency amounts: unit MUST be ISO 4217 and dimension:"currency".
+- Expand words like “million” to absolute numbers.
+- Use scope only if IR implies group/entity basis.
+- years_ago default is 0 unless explicitly described as previous year(s).
+
+Self-check before output (silent)
+- Top-level keys exactly: value, references, notes, tag_notes, additional_values.
+- value is null only when no penalty exists.
+- Root operator_id == "sum_when_true".
+- sum_when_true.args alternates [TAG(boolean), valueExpr] and is even-length.
+- No "between" operator.
+- tag_notes includes entries for every tag used in value AND additional_values, and does not include extra keys.
+- No invented numbers.
+
+Micro-example (IR → ComplexValue)
+
+Sample IR summary: Late submission: fixed 156,500 AUD; ≥112 days → 782,500 AUD
+Expected response:
+{
+  "value": {
+    "type": "operation",
+    "operator_id": "sum_when_true",
+    "args": [
+      { "type":"tag", "expected_type":"boolean", "value":"threshold_penalty.not_submitted_on_time", "is_custom": false, "years_ago": 0 },
+      { "type":"operation", "operator_id":"if", "args": [
+        { "type":"operation", "operator_id":">=", "args": [
+          { "type":"tag", "expected_type":"numeric", "value":"threshold_penalty.number_of_days", "is_custom": false, "years_ago": 0 },
+          { "type":"constant", "expected_type":"numeric", "value": 112 }
+        ]},
+        { "type":"constant", "expected_type":"numeric", "value": 782500, "unit":"AUD", "dimension":"currency" },
+        { "type":"constant", "expected_type":"numeric", "value": 156500, "unit":"AUD", "dimension":"currency" }
+      ] }
+    ]
+  },
+  "references": "referred pages in the source text: 4",
+  "notes": "for late submission: fixed penalty aud 156,500 increasing to aud 782,500 at 112+ days",
+  "tag_notes": {
+    "threshold_penalty.not_submitted_on_time@none@0": "trigger: late submission (not submitted on time)",
+    "threshold_penalty.number_of_days@none@0": "number of days late"
+  },
+  "additional_values": {}
+}
+
+Return JSON only (no markdown).

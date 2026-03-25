@@ -1,0 +1,20 @@
+<app-form-control-template
+    [inputTpl]="inputTpl"
+    [required]="required"
+    [label]="label"
+    [displayErrors]="formControl.touched"
+    [errors]="formControl.errors"
+>
+</app-form-control-template>
+
+<ng-template #inputTpl>
+    <app-day-month-selector
+        [value]="formControl.value"
+        [dayPlaceholder]="placeholder"
+        [monthPlaceholder]="placeholder_2"
+        [isValid]="formControl.valid"
+        [hasError]="formControl.invalid"
+        [showValidation]="formControl.dirty || formControl.touched"
+        (valueChange)="onValueChange($event)"
+    ></app-day-month-selector>
+</ng-template>

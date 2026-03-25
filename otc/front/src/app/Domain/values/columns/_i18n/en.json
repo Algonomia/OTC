@@ -1,0 +1,179 @@
+{
+    "OTCFront": {
+        "ContributionView": {
+            "columns": {
+                "key": {
+                    "text": "Indicator"
+                },
+                "value": {
+                    "text": "Value"
+                },
+                "notes": {
+                    "text": "Notes"
+                },
+                "reference": {
+                    "text": "References"
+                },
+                "version": {
+                    "text": "Version"
+                },
+                "judge_llm_score": {
+                    "text": "Score LLM"
+                },
+                "proposed_by": {
+                    "text": "Proposed by"
+                },
+                "status": {
+                    "text": "Status"
+                },
+                "admin_comment": {
+                    "text": "Admin comment"
+                },
+                "actions": {
+                    "text": "Actions"
+                }
+            }
+        },
+        "HistoryView": {
+            "modal_title": "History of values",
+            "noRateMessage": "No rate proposed yet for this value",
+            "columns": {
+                "version": {
+                    "text": "Version"
+                },
+                "judge_llm_score": {
+                    "text": "LLM score"
+                },
+                "proposed_by": {
+                    "text": "Proposed by"
+                },
+                "average_rate": {
+                    "text": "Average rate"
+                },
+                "current_rate": {
+                    "text": "Your rate"
+                },
+                "current_user_comment": {
+                    "text": "Your comment"
+                }
+            }
+        },
+        "ObligationDueDate": {
+            "actions": {
+                "SuggestValue": "Suggest value",
+                "ShowHistory": "Show history",
+                "RateThisValue": "Rate this value"
+            },
+            "columns": {
+                "Jurisdiction": {
+                    "text": "Jurisdiction",
+                    "info": ""
+                },
+                "ObligationType": {
+                    "text": "Obligation type",
+                    "info": ""
+                },
+                "ScopeOfObligation": {
+                    "text": "Scope of obligation",
+                    "info": ""
+                },
+                "FilingResponsibility": {
+                    "text": "Filing responsibility",
+                    "info": ""
+                },
+                "ParentFilingExemption": {
+                    "text": "Parent filing exemption",
+                    "info": ""
+                },
+                "ApplicableEntityTypes": {
+                    "text": "Applicable entity types",
+                    "info": ""
+                },
+                "EntityTypeDetails": {
+                    "text": "Entity type details",
+                    "info": ""
+                },
+                "Source": {
+                    "text": "Source",
+                    "info": ""
+                },
+                "SourceName": {
+                    "text": "Source name",
+                    "info": ""
+                },
+                "OrganizationType": {
+                    "text": "Organization type",
+                    "info": ""
+                },
+                "SourceURL": {
+                    "text": "Source url",
+                    "info": ""
+                },
+                "DateOfPublication": {
+                    "text": "Date of publication",
+                    "info": "Date the source was published (secondary materials) or accessed (primary gouvernment references)."
+                },
+                "DateOfUpdate": {
+                    "text": "Date of update",
+                    "info": "Date when this row in the database was last updated . Typically the “Last Modified” timestamp from MetaData column."
+                },
+                "IsObligationInPlace": {
+                    "text": "Is obligation in place",
+                    "info": ""
+                },
+                "SubmissionMethod": {
+                    "text": "Submission method",
+                    "info": ""
+                },
+                "SubmissionMethodDetails": {
+                    "text": "Submission method details",
+                    "info": ""
+                },
+                "SubmissionURL": {
+                    "text": "Submission URL",
+                    "info": ""
+                },
+                "LocalLanguage": {
+                    "text": "Local language",
+                    "info": ""
+                },
+                "EnglishAccepted": {
+                    "text": "English accepted",
+                    "info": ""
+                },
+                "LanguageDetails": {
+                    "text": "Language details",
+                    "info": ""
+                },
+                "LanguageReference": {
+                    "text": "Language reference",
+                    "info": ""
+                },
+                "BaseDeadlineDescription": {
+                    "text": "Base deadline description",
+                    "info": ""
+                },
+                "ExtensionDeadlineDescription": {
+                    "text": "Extension deadline description",
+                    "info": ""
+                },
+                "ThresholdDescription": {
+                    "text": "Threshold description",
+                    "info": ""
+                },
+                "PenaltyDescription": {
+                    "text": "Penalty description",
+                    "info": ""
+                },
+                "OtherInformation": {
+                    "text": "Other information",
+                    "info": ""
+                },
+                "OtherInformationReference": {
+                    "text": "Other information reference",
+                    "info": ""
+                }
+            }
+        }
+    }
+}

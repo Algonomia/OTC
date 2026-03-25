@@ -1,0 +1,217 @@
+@use "../../../../css/media";
+@use "../../../../css/colors";
+
+$headerHeight: 54px;
+
+.complex-value-editor-header {
+    height: $headerHeight;
+}
+
+.complex-value-editor-content {
+    height: calc(100% - $headerHeight);
+    overflow: auto;
+}
+
+.card-children {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 40px;
+    position: relative;
+    width: 100%;
+
+    &.card-root {
+        min-width: max-content;
+    }
+
+    &:not(&.card-root) {
+        padding-left: 20px;
+        justify-content: center;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            border: 1px solid var(--main-4);
+            border-right: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+    }
+
+    .card {
+        border: 1px solid var(--main-1);
+        border-radius: 8px;
+        padding: 10px;
+        background-color: var(--main-0);
+        transition: all 0.2s ease;
+
+        &:hover {
+            border-color: var(--grey-6);
+            box-shadow: 0 2px 8px rgba(65, 90, 120, 0.15);
+        }
+
+        &.card-empty {
+            border-style: dashed;
+        }
+
+        &.card-mandatory {
+            border-color: var(--KO-2);
+            background-color: var(--KO-0-10);
+        }
+
+        &.card-optional {
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+                border-color: var(--main-2);
+            }
+        }
+
+        .duplicate-item {
+            font-size: 0.75rem;
+            color: var(--main-3);
+            letter-spacing: 0.6px;
+            line-height: 1rem;
+
+            &.laptop {
+                @include media.media('tabletL') {
+                    display: none;
+                }
+            }
+
+            &.mobile {
+                display: none;
+
+                @include media.media('tabletL') {
+                    display: block;
+                }
+
+                @include media.media('mobileL') {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+
+.drop-zone-between {
+    height: 8px;
+    margin: -4px 0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    position: relative;
+    opacity: 0;
+}
+
+.drop-zone-between:hover,
+.drop-zone-between.p-draggable-enter {
+    opacity: 1;
+    height: 40px;
+    background-color: var(--main-0);
+    border: 2px dashed var(--main-1);
+    margin: 4px 0;
+}
+
+.drop-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--main-3);
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.drop-zone-between.p-draggable-enter .drop-indicator {
+    opacity: 1;
+}
+
+.draggable-item {
+    cursor: move;
+    transition: opacity 0.2s ease;
+    border: 1px solid var(--main-1);
+    padding: 10px;
+    border-radius: 3px;
+    background-color: var(--grey-0);
+
+    &:hover {
+        background-color: var(--link-0-20);
+    }
+}
+
+.draggable-item.p-draggable-dragging {
+    opacity: 0.5;
+}
+
+.drag-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.drag-handle {
+    cursor: grab;
+    transition: all 0.2s ease;
+    width: 28px;
+    height: 28px;
+}
+
+.drag-handle:hover {
+    color: var(--grey-7);
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+    color: var(--grey-8);
+}
+
+.drop-zone {
+    transition: all 0.2s ease;
+}
+
+.drop-zone.p-draggable-enter {
+    border-color: var(--grey-7);
+    background-color: var(--grey-3);
+    transform: scale(1.02);
+}
+
+.remove-icon {
+    color: var(--KO-3);
+    width: 28px;
+    height: 28px;
+
+    &:hover {
+        color: var(--KO-2);
+    }
+}
+
+.actions {
+    align-items: start;
+}
+
+.mode-accordion {
+    .drag-wrapper {
+        flex-direction: column;
+
+        .drag-header {
+            flex-direction: row;
+        }
+
+        .actions {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
+
+.actions {
+    flex-direction: column;
+    flex: 1;
+}

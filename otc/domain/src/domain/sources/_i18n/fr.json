@@ -1,0 +1,27 @@
+{
+    "ObligationDueDateDomain": {
+        "SourcesSubInterfaces": {
+            "UrlSource": {
+                "Comment": "Commentaire (facultatif)",
+                "CommentPlaceholder": "Mon commentaire sur cette source"
+            },
+            "NameSource": {
+                "Name": "Ajoutez le nom de votre source",
+                "Placeholder": "Nom de la source"
+            },
+            "OrganizationSource": {
+                "Organization": "Ajoutez l'organisation",
+                "Placeholder": "Organisation"
+            },
+            "DateOfPublication": "Date of publication",
+            "SelectConcernedOrganizationType": "Sélectionner le type d'organisation concernée",
+            "SelectOrganizationType": "Sélectionner le type d'organisation",
+            "SelectConcernedObligation": "Sélectionner le type d'obligation concerné",
+            "SelectObligation": "Sélectionner le type d'obligation",
+            "SelectConcernedJurisdiction": "Sélectionner les juridictions concernées",
+            "SelectJurisdiction": "Sélectionner les juridictions",
+            "SelectIndicators": "Sélectionner les indicateurs",
+            "RecommendedIndicators": "Indicateurs à extraire"
+        }
+    }
+}

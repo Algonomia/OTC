@@ -1,0 +1,10 @@
+<app-button btnCssClass="btn-main-4"
+            [full_width]="true"
+            [leftIcon]="icon && left_icon ? 'Action/Arrow/ArrowRight' : ''"
+            [singleIcon]="icon && !text ? 'Action/Arrow/ArrowRight' : ''"
+            [rightIcon]="icon && text && !left_icon? 'Action/Arrow/ArrowRight' : ''"
+            [text]="text"
+            [disabled]="disabled_btn"
+            [size_theme]="size_theme"
+            [rounded]="rounded">
+</app-button>

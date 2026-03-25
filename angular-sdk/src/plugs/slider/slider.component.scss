@@ -1,0 +1,14 @@
+@use "../../css/media";
+
+.items {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @include media.media('tabletL') {
+        justify-content: space-around;
+    }
+}

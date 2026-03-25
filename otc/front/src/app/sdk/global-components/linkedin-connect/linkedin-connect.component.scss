@@ -1,0 +1,45 @@
+@use "css/media";
+
+.connect {
+    border: 1px solid var(--main-1);
+    background-color: var(--grey-0);
+    border-radius: 25px;
+    padding-left: 7px;
+
+    @include media.media('mobileXL') {
+        padding-left: 0;
+    }
+
+    &.no-picture {
+        padding: 7px;
+    }
+
+    .text {
+        padding: 0 5px 2px 5px;
+        text-transform: capitalize;
+
+        @include media.media('tabletL') {
+            font-size: 1rem;
+        }
+
+        &.username {
+            @include media.media('mobileXL') {
+                display: none;
+            }
+        }
+
+    }
+
+    .icon-linkedin {
+        width: 35px;
+        height: 35px;
+        color: var(--link-4);
+        border-radius: 50%;
+    }
+
+    &:hover {
+        box-shadow: 0 0 0 1px var(--main-1);
+    }
+}
+
+

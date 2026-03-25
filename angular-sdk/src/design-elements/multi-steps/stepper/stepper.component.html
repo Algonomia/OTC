@@ -1,0 +1,7 @@
+@if (stepsArray.length > 1) {
+    <div class="stepper flex items-center justify-center gap-2">
+        @for (step of stepsArray; track step) {
+            <div class="step-circle" [class.active]="step === currentStep"></div>
+        }
+    </div>
+}

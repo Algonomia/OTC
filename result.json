@@ -1,0 +1,1255 @@
+[
+{
+  "values": [
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The source text explicitly states that China has adopted BEPS Action 13 for TP documentation, including CbCR requirements, with specific thresholds and deadlines. The extracted value 'InPlace' accurately reflects the presence of the obligation as described in the text."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "LocalLanguage",
+      "value": [
+        "zh"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value ['zh'] correctly reflects the source text's requirement that transfer pricing documentation, including the Local File, must be submitted in the local language (Chinese) as mandated by Article 21 of Bulletin 42."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "DeadlineFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "next_md_after",
+        "args": [
+          {
+            "type": "tag",
+            "scope": "group",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "date",
+            "value": "deadline.fiscal_year_end"
+          },
+          {
+            "type": "constant",
+            "expected_type": "day_month",
+            "value": {
+              "day": 31,
+              "month": 5
+            }
+          }
+        ]
+      },
+      "notes": "CbCR must be filed by 31 May of the following year after the group's fiscal year end.",
+      "references": "referred pages in the source text: 1,3,4",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 30,
+      "llm_evaluation_reasoning": "The extraction incorrectly assumes the CbCR deadline is tied to the group's fiscal year end using 'next_md_after', but the source text explicitly states the deadline is 31 May without referencing fiscal year end. This introduces a hallucinated dependency not present in the source."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "ThresholdPreparation",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 5500000000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "CbCR report must be prepared and filed when the group's consolidated revenue in the previous year exceeds RMB5.5 billion.",
+      "references": "referred pages in the source text: ...; legal references mentioned in the source text: Article 8 of Bulletin 42",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 95,
+      "llm_evaluation_reasoning": "The extracted threshold value of 5.5 billion CNY for CbCR preparation aligns with the source text's filing threshold. However, the source text explicitly states 'exceeded' rather than 'greater than or equal to,' which may slightly misrepresent the condition. The currency and scope are correctly identified, though the preparation-specific requirement is not explicitly detailed in the source, relying on the defaulting rule."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "ThresholdFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 5500000000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "CbCR report must be filed when the group's consolidated revenue in the previous year exceeds RMB5.5 billion.",
+      "references": "referred pages in the source text: ...; legal references mentioned in the source text: Article 8 of Bulletin 42",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted threshold for CbCR filing in China is correct, accurately reflecting the revenue threshold of 5.5 billion RMB as specified in the source text."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "SimplifiedTPDocumentation",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 0,
+      "llm_evaluation_reasoning": "The source text does not mention any simplified transfer pricing documentation regime. The extracted value 'InPlace' is incorrect as there is no evidence of a simplified documentation requirement in the text."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "SimplifiedTPDocumentation",
+      "key": "LocalLanguage",
+      "value": [
+        "zh"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value ['zh'] correctly identifies Chinese as the required local language for transfer pricing documentation, as explicitly stated in the source text (Article 21 of Bulletin 42 mandates use of Chinese)."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The source text explicitly states that the Master File is required in China under BEPS Action 13, with specific thresholds and implementation details. The extraction of 'InPlace' aligns directly with the text's confirmation of the obligation's existence."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "LocalLanguage",
+      "value": [
+        "zh"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value ['zh'] correctly identifies Chinese as the local language requirement for the Master File obligation in China, as explicitly stated in the source text."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "DeadlineFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "next_md_after",
+        "args": [
+          {
+            "type": "tag",
+            "scope": "group",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "date",
+            "value": "deadline.fiscal_year_end"
+          },
+          {
+            "type": "constant",
+            "expected_type": "day_month",
+            "value": {
+              "day": 31,
+              "month": 12
+            }
+          }
+        ]
+      },
+      "notes": "Master File must be submitted by 31 December of the following fiscal year.",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 60,
+      "llm_evaluation_reasoning": "The extraction incorrectly assumes the use of 'deadline.fiscal_year_end' which is not explicitly defined in the source text. The source directly states the deadline as '31 December of the following fiscal year,' which should be represented as a constant date without relying on an undefined anchor tag."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "ThresholdPreparation",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.transaction_volume_amount"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 1000000000,
+                "unit": "RMB",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "Master File must be prepared when annual related-party transaction (RPT) volume exceeds RMB 1,000,000,000. The documentation is maintained annually and provided upon request or via prescribed filing mechanisms.",
+      "references": "referred pages in the source text: ...; legal references mentioned in the source text: ...",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 85,
+      "llm_evaluation_reasoning": "The extracted threshold correctly identifies the RMB1 billion transaction volume threshold for MasterFile preparation in China. However, the tag 'threshold_penalty.transaction_volume_amount' may not precisely match the source's reference to 'annual related-party transactions (RPTs) exceeding RMB1 billion', which could be better represented with a more specific tag."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "Penalty",
+      "value": {
+        "type": "operation",
+        "operator_id": "sum_when_true",
+        "args": [
+          {
+            "type": "tag",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.failure_to_submit"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.incomplete_documentation"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.failure_to_provide_upon_request"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.not_submitted_on_time"
+          },
+          {
+            "type": "operation",
+            "operator_id": "if",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 0.05,
+                "dimension": "rate"
+              },
+              {
+                "type": "tag",
+                "years_ago": 0,
+                "is_custom": true,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.underreported_tax"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "for failure to submit Master File: fines CNY10,000-CNY50,000; 5% interest surcharge for non-compliance; deemed profit assessment if documentation is incomplete/non-contemporaneous",
+      "references": "Articles 70, 96, 62, 60, 44, 115 of Tax Collection and Administration Law and CITL",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 75,
+      "llm_evaluation_reasoning": "The extracted penalties correctly identify the ranges for failure to submit, incomplete documentation, and failure to provide upon request. However, the 5% interest surcharge for non-compliance and specific penalties for CbCR/Master File are missing. The notes field could also include the 5% surcharge detail."
+    }
+  ]
+},
+{
+  "values": [
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value 'InPlace' correctly reflects that the CbCR obligation is in place as indicated by the source text mentioning requirements for CbCR filings, deadlines, and compliance rules."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "LocalLanguage",
+      "value": [
+        "en"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 0,
+      "llm_evaluation_reasoning": "The extracted value ['en'] is incorrect. The source text explicitly states that TP documentation in China must be submitted in the local language (Chinese, 'zh'), as mandated by Article 21 of Bulletin 42. The extraction contradicts the clear requirement in the source text."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "DeadlineFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "next_md_after",
+        "args": [
+          {
+            "type": "tag",
+            "scope": "group",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "date",
+            "value": "deadline.fiscal_year_end"
+          },
+          {
+            "type": "constant",
+            "expected_type": "day_month",
+            "value": {
+              "day": 31,
+              "month": 5
+            }
+          }
+        ]
+      },
+      "notes": "CbCR must be filed by 31 May of the following fiscal year.",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 60,
+      "llm_evaluation_reasoning": "The extracted deadline for CbCR filing uses a fixed May 31 date, but the source text specifies different deadlines based on the fiscal year end (December 31 for most cases, May 31 for groups with fiscal years ending between June-November). The extraction misses this conditional logic, leading to incomplete accuracy."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "ThresholdPreparation",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 5500000000,
+                "unit": "RMB",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "CbCR must be prepared and filed when the group's consolidated revenue in the previous year exceeds RMB5.5 billion. The report is filed by the ultimate parent entity.",
+      "references": "referred pages in the source text: ...; legal references mentioned in the source text: Bulletin 42",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted threshold preparation condition is correct, accurately reflecting the RMB 5.5 billion revenue threshold for CbCR in China."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "ThresholdFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 5500000000,
+                "unit": "RMB",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "CbCR must be filed when the group's consolidated revenue in the previous year exceeds RMB5.5 billion. The report is filed by the ultimate parent entity.",
+      "references": "referred pages in the source text: ...; legal references mentioned in the source text: Bulletin 42",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted threshold for CbCR filing in China correctly identifies the RMB 5.5 billion revenue threshold with proper currency, operator, and scope alignment to the source text's explicit requirement."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "SimplifiedTPDocumentation",
+      "key": "IsObligationInPlace",
+      "value": "NotExist",
+      "notes": "The source text does not mention a simplified transfer pricing documentation regime. It only describes standard documentation requirements under BEPS Action 13 (Master File and Local File), with no indication of a reduced-content or simplified version.",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value 'NotExist' is correct as the source text does not mention a simplified transfer pricing documentation regime. The text outlines standard documentation requirements without indicating a distinct simplified version."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The source text explicitly states that the jurisdiction requires a Master File, confirming the obligation is in place. The extraction correctly identifies 'InPlace' based on clear textual evidence."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "LocalLanguage",
+      "value": [
+        "zh"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value 'zh' correctly reflects the local language requirement for TP documentation in China, as explicitly stated in the source text (Article 21 of Bulletin 42 mandates use of Chinese). No conflicting information or omissions detected."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "DeadlineFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "next_md_after",
+        "args": [
+          {
+            "type": "tag",
+            "scope": "ultimate_parent_entity",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "date",
+            "value": "deadline.fiscal_year_end"
+          },
+          {
+            "type": "constant",
+            "expected_type": "day_month",
+            "value": {
+              "day": 31,
+              "month": 12
+            }
+          }
+        ]
+      },
+      "notes": "The Master File must be submitted by 31 December of the following year, which is 12 months after the fiscal year-end of the ultimate parent company.",
+      "references": "referred pages in the source text: 42,56",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 70,
+      "llm_evaluation_reasoning": "The extracted deadline uses 'next_md_after' with a fiscal year end tag and December 31, but the source text specifies the due date as '31 December of the following fiscal year', which may not align with the operator's logic. The 12-month period after the fiscal year-end is mentioned in the source, but the extraction does not reflect this explicitly."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "ThresholdPreparation",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": "||",
+            "args": [
+              {
+                "type": "operation",
+                "operator_id": "&&",
+                "args": [
+                  {
+                    "type": "tag",
+                    "scope": "group",
+                    "years_ago": 0,
+                    "is_custom": true,
+                    "expected_type": "boolean",
+                    "value": "threshold_penalty.cross_border_rpt"
+                  },
+                  {
+                    "type": "tag",
+                    "scope": "group",
+                    "years_ago": 0,
+                    "is_custom": true,
+                    "expected_type": "boolean",
+                    "value": "threshold_penalty.master_file_prepared"
+                  }
+                ]
+              },
+              {
+                "type": "operation",
+                "operator_id": ">=",
+                "args": [
+                  {
+                    "type": "tag",
+                    "scope": "group",
+                    "years_ago": 0,
+                    "is_custom": true,
+                    "expected_type": "numeric",
+                    "value": "threshold_penalty.annual_rpt_amount"
+                  },
+                  {
+                    "type": "constant",
+                    "expected_type": "numeric",
+                    "value": 1000000000,
+                    "unit": "CNY",
+                    "dimension": "currency"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "Master File must be prepared if (1) there are cross-border related-party transactions (RPTs) and the ultimate holding company has prepared a Master File, or (2) annual RPTs exceed RMB 1,000,000,000. It is not routinely filed but must be maintained.",
+      "references": "referred pages in the source text: ...",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 95,
+      "llm_evaluation_reasoning": "The extracted threshold_preparation includes both the revenue threshold and the penalty flag, but the threshold_filing is missing. The source text mentions the Master File must be filed when the threshold is met, so threshold_filing should be included with the same condition."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "Penalty",
+      "value": {
+        "type": "operation",
+        "operator_id": "sum_when_true",
+        "args": [
+          {
+            "type": "tag",
+            "scope": "entity",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.failure_to_submit"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "scope": "entity",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.incomplete_documentation"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "for failure to submit or incomplete MasterFile: fines between CNY10,000 and CNY50,000; 5% interest surcharge on underreported tax from TP adjustments; tax authorities may assess income based on comparable companies' profits if documentation is lacking",
+      "references": "Section 8. TP Penalties and Relief, subsections a and b in the source text",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 75,
+      "llm_evaluation_reasoning": "The extracted penalty amounts for failure to submit and incomplete documentation are correctly identified with the specified ranges. However, the 5% interest surcharge and deemed profit assessment mentioned in the source text are missing from the extraction, which are significant penalty components."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "AnnualTPForm",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 0,
+      "llm_evaluation_reasoning": "The extracted value 'InPlace' is incorrect. The source text does not explicitly confirm the existence of an AnnualTPForm obligation for China. While Master File and Local File requirements are mentioned, the specific AnnualTPForm (e.g., SIT-style filing) is not explicitly named or described as a required annual filing, which is critical for this obligation type."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "AnnualTPForm",
+      "key": "LocalLanguage",
+      "value": [
+        "zh"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value ['zh'] correctly reflects the source text's explicit requirement for Chinese (zh) as the local language for TP documentation under Article 21 of Bulletin 42."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "AnnualTPForm",
+      "key": "DeadlineFiling",
+      "value": {
+        "type": "tag",
+        "years_ago": 0,
+        "is_custom": false,
+        "expected_type": "date",
+        "value": "deadline.cit_return_due_date"
+      },
+      "notes": "AnnualTPForm must be submitted with the corporate income tax return, which is due by 31 May.",
+      "references": "referred pages in the source text: 5",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted deadline for AnnualTPForm filing is correctly identified as the CIT return due date (31 March), which aligns with the source text's explicit mention of this deadline for transfer pricing returns."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "AnnualTPForm",
+      "key": "Penalty",
+      "value": {
+        "type": "operation",
+        "operator_id": "sum_when_true",
+        "args": [
+          {
+            "type": "tag",
+            "scope": "entity",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.failure_to_submit"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "scope": "entity",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.incomplete_documentation"
+          },
+          {
+            "type": "operation",
+            "operator_id": "*",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "entity",
+                "years_ago": 0,
+                "is_custom": true,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.underreported_tax_amount"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 0.05,
+                "dimension": "rate"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "for failure to submit AnnualTPForm: fine between CNY10,000 and CNY50,000; for incomplete documentation: 5% interest surcharge on underreported tax",
+      "references": "Section 8. TP Penalties and Relief",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 95,
+      "llm_evaluation_reasoning": "The extracted penalty triggers and amounts are mostly accurate, with minor formatting issues in the tag_notes and some missing details in the notes section."
+    }
+  ]
+},
+{
+  "values": [
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The source text explicitly states that China requires country-by-country reporting (CbCR) under BEPS Action 13, confirming the obligation is in place."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "LocalLanguage",
+      "value": [
+        "zh"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value ['zh'] correctly identifies Chinese as the local language required for CbCR in China based on the source text."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "DeadlineFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "date_add",
+        "args": [
+          {
+            "type": "tag",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "date",
+            "value": "deadline.cit_return_due_date"
+          },
+          {
+            "type": "constant",
+            "expected_type": "period",
+            "value": {
+              "value": 0.0,
+              "unit": "Days",
+              "dayCountType": "Default"
+            }
+          }
+        ]
+      },
+      "notes": "File by 31 May of the following year.",
+      "references": "referred pages in the source text: 1,3,4",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 30,
+      "llm_evaluation_reasoning": "The extracted deadline incorrectly references 'deadline.cit_return_due_date' instead of the specified 31 May deadline for CbCR. The period of 0 days is also nonsensical in this context, indicating a failure to correctly parse the source text's explicit deadline."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "ThresholdPreparation",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 5500000000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "CbCR report must be prepared and filed when the group's consolidated revenue in the previous year exceeds RMB 5.5 billion.",
+      "references": "referred pages in the source text: ...; legal references mentioned in the source text: Article 8 of Bulletin 42",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted threshold of RMB 5.5 billion for CbCR preparation aligns exactly with the source text's requirement for consolidated revenue exceeding RMB5.5 billion. All currency, value, and scope details are correctly captured."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "CbCR",
+      "key": "ThresholdFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 5500000000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "CbCR report must be filed when the group's consolidated revenue in the previous year exceeds RMB 5.5 billion.",
+      "references": "referred pages in the source text: ...; legal references mentioned in the source text: Article 8 of Bulletin 42",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted threshold for CbCR filing is correct, matching the source text's RMB5.5 billion consolidated revenue threshold."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "IsObligationInPlace",
+      "value": "InPlace",
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The source text explicitly confirms the existence of the Master File requirement under BEPS Action 13, aligning with the extracted value 'InPlace'."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "LocalLanguage",
+      "value": [
+        "zh"
+      ],
+      "notes": "",
+      "references": "",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 100,
+      "llm_evaluation_reasoning": "The extracted value ['zh'] correctly identifies Chinese as the required local language for TP documentation, as explicitly stated in the source text (Article 21 of Bulletin 42). The ISO 639-1 code 'zh' is accurate and fully supported by the source."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "ThresholdPreparation",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 1000000000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "Master File must be prepared when the multinational enterprise group has cross-border RPTs and the ultimate holding company has prepared a Master File, or when the annual RPTs exceed RMB 1 billion.",
+      "references": "referred pages in the source text: 3,4,5; legal references mentioned in the source text: Bulletin 42, Article 12-(2), Article 12-(3), Article 12-(5)",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 40,
+      "llm_evaluation_reasoning": "The extracted threshold incorrectly uses 'revenue' instead of 'related-party transactions' (RPTs) as the metric, and omits the cross-border RPT condition from the source text. The source specifies the Master File threshold is based on annual RPTs exceeding RMB1 billion, not group revenue."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "ThresholdFiling",
+      "value": {
+        "type": "operation",
+        "operator_id": "if",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": ">=",
+            "args": [
+              {
+                "type": "tag",
+                "scope": "group",
+                "years_ago": 0,
+                "is_custom": false,
+                "expected_type": "numeric",
+                "value": "threshold_penalty.revenue"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 1000000000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "constant",
+            "expected_type": "string",
+            "value": "required"
+          }
+        ]
+      },
+      "notes": "Master File must be filed when the multinational enterprise group has cross-border RPTs and the ultimate holding company has prepared a Master File, or when the annual RPTs exceed RMB 1 billion.",
+      "references": "referred pages in the source text: 3,4,5; legal references mentioned in the source text: Bulletin 42, Article 12-(2), Article 12-(3), Article 12-(5)",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 30,
+      "llm_evaluation_reasoning": "The extracted threshold incorrectly references 'revenue' instead of 'related-party transactions (RPTs)' as specified in the source text. The source explicitly states the Master File threshold is based on annual RPTs exceeding RMB1 billion, not revenue."
+    },
+    {
+      "source_id": 123,
+      "jurisdiction": "CN",
+      "obligation_type_id": "MasterFile",
+      "key": "Penalty",
+      "value": {
+        "type": "operation",
+        "operator_id": "sum_when_true",
+        "args": [
+          {
+            "type": "tag",
+            "scope": "group",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.failure_to_submit"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "scope": "group",
+            "years_ago": 0,
+            "is_custom": false,
+            "expected_type": "boolean",
+            "value": "threshold_penalty.incomplete_documentation"
+          },
+          {
+            "type": "operation",
+            "operator_id": "to_range",
+            "args": [
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 10000,
+                "unit": "CNY",
+                "dimension": "currency"
+              },
+              {
+                "type": "constant",
+                "expected_type": "numeric",
+                "value": 50000,
+                "unit": "CNY",
+                "dimension": "currency"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "for failure to submit: fines between CNY10,000 to CNY50,000; for incomplete documentation: same fines; 5% interest surcharge applies if documentation not filed on time or incomplete",
+      "references": "8. TP Penalties and Relief; 8.a. Compliance penalties; 8.b. Penalties post TP audit",
+      "additional_value": null,
+      "tag_notes": null,
+      "llm_evaluation_score": 75,
+      "llm_evaluation_reasoning": "The extracted penalty triggers (failure to submit and incomplete documentation) and their corresponding CNY 10,000–50,000 range are correctly identified. However, the 5% interest surcharge and specific legal references (e.g., Tax Collection Law Articles 70, 96) are omitted, reducing completeness."
+    }
+  ]
+}
+]

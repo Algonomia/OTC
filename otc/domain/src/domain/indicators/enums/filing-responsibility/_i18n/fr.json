@@ -1,0 +1,22 @@
+{
+    "ObligationDueDateDomain": {
+        "FilingResponsibility": {
+            "LocalEntity": {
+                "text": "Local entity",
+                "info": ""
+            },
+            "HeadOfTaxGroup": {
+                "text": "Head of tax group",
+                "info": ""
+            },
+            "FilingConstituentEntity": {
+                "text": "Filing constituent entity",
+                "info": ""
+            },
+            "UltimateParentEntity": {
+                "text": "Ultimate parent entity",
+                "info": ""
+            }
+        }
+    }
+}

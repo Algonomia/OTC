@@ -1,0 +1,16 @@
+services:
+    astorage:
+        container_name: astorage
+        image: astorage:latest
+        environment:
+            CORS_ORIGIN: http://localhost:3000
+            HOST: astorage:3001
+            FILE_STORAGE_PATH: /dynamic/media
+            SQLITE_FILE_PATH: /sqlite/sqlite.db
+            LARGE_FILE_THRESHOLD: 50 # 50 MB
+        volumes:
+            - "./data/media:/dynamic/media"
+            - "./data/sqlite:/sqlite"
+        ports:
+            - "127.0.0.1:3001:3001"
+        restart: unless-stopped

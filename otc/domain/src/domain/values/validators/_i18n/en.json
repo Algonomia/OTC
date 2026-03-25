@@ -1,0 +1,23 @@
+{
+    "ObligationDueDateDomain": {
+        "ValuesValidators": {
+            "AdditionalValues": "Additional values",
+            "ChooseJurisdiction": {
+                "label": "Choose jurisdiction",
+                "placeholder": "Select jurisdiction"
+            },
+            "ChooseObligation": {
+                "label": "Choose obligation",
+                "placeholder": "Select obligation"
+            },
+            "ChooseIndicators": {
+                "label": "Choose indicators",
+                "placeholder": "Select indicators"
+            },
+            "ChooseSource": {
+                "label": "Choose source",
+                "placeholder": "Select source"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<div style="display: inline-flex; gap: 10px; align-items: center;">
+    @if (__scopeSelectHandler) {
+        @if (scopeListNotEmpty()) {
+            <app-std-menu [selectHandler]="__scopeSelectHandler" [placeholder]="'AngularSdk.EditTag.Scope' | translate"></app-std-menu>
+        }
+    }
+    <div> {{'AngularSdk.EditTag.RefYearNMin' | translate}} </div>
+    <input class="input-container"
+           type="number"
+           autocomplete="off"
+           [ngModel]="complexValue().years_ago ?? 0"
+           (blur)="changeYearsAgo($event)"
+    >
+</div>

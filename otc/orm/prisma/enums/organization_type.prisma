@@ -1,0 +1,9 @@
+enum OrganizationTypeId {
+    Legislation
+    TaxAdmin
+    Regulation
+    OtherPrimarySource
+    ConsultingFirm
+    InternationalOrg
+    OtherSecondarySource
+}

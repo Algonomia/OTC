@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>system / data / display on</title>
+    <g id="system-/-data-/-display-on" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(11.000000, 10.000000)" stroke="#142846">
+            <line x1="7" y1="7" x2="7" y2="18.3884911" id="Path-74" stroke-width="0.9" stroke-linejoin="round"></line>
+            <path d="M11,9 L11,16.5 C11,16.7761424 10.7761424,17 10.5,17 L3,17 L3,17" id="Rectangle" stroke-width="0.9" stroke-linejoin="round" transform="translate(7.000000, 13.000000) rotate(45.000000) translate(-7.000000, -13.000000) "></path>
+            <rect id="Rectangle" stroke-width="0.2" fill="#142846" fill-rule="nonzero" x="0" y="0" width="14" height="3" rx="1"></rect>
+        </g>
+        <path d="M18.45,17 L18.449,27.571 L23.3386562,22.6818019 L23.9750523,23.3181981 L18.6717514,28.6214989 C18.3007534,28.992497 17.6992466,28.992497 17.3282486,28.6214989 L12.0249477,23.3181981 L12.6613438,22.6818019 L17.549,27.57 L17.55,17 L18.45,17 Z M24,9.9 C24.6075132,9.9 25.1,10.3924868 25.1,11 L25.1,12 C25.1,12.6075132 24.6075132,13.1 24,13.1 L12,13.1 C11.3924868,13.1 10.9,12.6075132 10.9,12 L10.9,11 C10.9,10.3924868 11.3924868,9.9 12,9.9 L24,9.9 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

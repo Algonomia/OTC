@@ -1,0 +1,395 @@
+// Algonomia color map
+
+:root {
+
+    /* Specific fields */
+    --text-1: var(--grey-10);
+    --text-2: var(--grey-7);
+    --text-3: var(--grey-5);
+    --text-on-dark: var(--grey-0);
+
+    --page-background: var(--grey-3);
+
+    --table-line-1: var(--grey-1);
+    --table-line-2: var(--grey-0);
+
+    --text-1-hover: var(--grey-9);
+    --text-2-hover: var(--grey-6);
+    --text-3-hover: var(--grey-4);
+
+    --link: var(--link-2);
+    --link-hover: var(--link-1);
+    --link-visited: var(--link-3);
+
+    --shadow-10: #1428461A;
+    --shadow-20: #14284633;
+    --shadow-50: #14284680;
+    --shadow-80: #142846CC;
+
+    --white-90: #FFFFFFE6;
+    --white-80: #FFFFFFCC;
+    --white-50: #FFFFFF80;
+    --white-20: #FFFFFF33;
+
+    --new-item-label: var(--link-2);
+    --status-label: var(--link-3);
+    --perimeter-label: var(--grey-10);
+
+    --button-text: var(--grey-0);
+
+    --main-button: var(--main-4);
+    --main-button-min: var(--main-3);
+    --main-button-max: var(--main-5);
+
+    --OK-button: var(--OK-4);
+    --OK-button-min: var(--OK-3);
+    --OK-button-max: var(--OK-5);
+
+    --KO-button: var(--KO-4);
+    --KO-button-min: var(--KO-3);
+    --KO-button-max: var(--KO-5);
+
+    --grey-button: var(--grey-6);
+    --grey-button-min: var(--grey-5);
+    --grey-button-max: var(--grey-7);
+
+    --button-shadow: var(--shadow-10);
+
+    --notification-1: var(--KO-3);
+    --notification-2: var(--KO-4);
+    --notification-3: var(--KO-5);
+    --notification-1-hover: var(--KO-2);
+    --notification-2-hover: var(--KO-3);
+    --notification-3-hover: var(--KO-4);
+
+    --community: var(--link-2);
+
+    --landing-band: #001450CC; /* from main 6 */
+
+    /* #Deep Blue — Brand color */
+    --main-1: #AFE1FF;
+    --main-2: #73B9FF;
+    --main-3: #5082FF;
+    --main-4: #2850DC;
+    --main-5: #0032A0; /* from logo */
+    --main-6: #001450;
+
+    /* Products range */
+    --risk: #E12814;
+    --tp: #50BE3C;
+    --corpo: #147DF0;
+    --conso: #879BB4;
+    --legal: #A05AFA;
+
+    --risk-min: #FF5000;
+    --tp-min: #00DC3C;
+    --corpo-min: #2DA0FF;
+    --conso-min: #B4BED2;
+    --legal-min: #B982FF;
+
+    --risk-max: #C80A0A;
+    --tp-max: #00A014;
+    --corpo-max: #0055E1;
+    --conso-max: #78879B;
+    --legal-max: #823CDC;
+
+    /* #Titanium — Grey-0 stands for White, Grey-10 stands for Black */
+    --grey-0: #FFFFFF;
+    --grey-1: #F5FAFF;
+    --grey-2: #EEF0FA;
+    --grey-3: #DFE4F0;
+    --grey-4: #D0D9E8;
+    --grey-5: #BEC8D9;
+    --grey-6: #A7B4C8;
+    --grey-7: #879BB4;
+    --grey-8: #5F7891;
+    --grey-9: #415A78;
+    --grey-10: #142846;
+
+    /* #Kelly — OK colors are for anything positive */
+    --OK-0: #E1FFE6;
+    --OK-1: #BEFAC8;
+    --OK-2: #73EB87;
+    --OK-3: #2DCD50;
+    --OK-4: #00A032;
+    --OK-5: #00693C;
+
+    /* #Tangerin — KO colors are for anything negative */
+    --KO-0: #FFEBE1;
+    --KO-1: #FFCDB9;
+    --KO-2: #FF8250;
+    --KO-3: #FF5532;
+    --KO-4: #E12814;
+    --KO-5: #9B0A00;
+
+    /* #Processor — Links colors are for active and link purpose */
+    --link-0: #D7F0FF;
+    --link-1: #AFE1FF;
+    --link-2: #73BEFF;
+    --link-3: #4191F0;
+    --link-4: #286EDC;
+    --link-5: #0032A0;
+
+    /* Graphs colors */
+
+    /* #Blue */
+    --graph-blue-1: #C3E1FF;
+    --graph-blue-2: #91C8FF;
+    --graph-blue-3: #3796FF;
+    --graph-blue-4: #1478E6;
+    --graph-blue-5: #0050A5;
+
+    /* #Turquoise */
+    --graph-turquoise-1: #BEF0F5;
+    --graph-turquoise-2: #87E6EB;
+    --graph-turquoise-3: #2DD2DC;
+    --graph-turquoise-4: #05AFB9;
+    --graph-turquoise-5: #006469;
+
+    /* #Green */
+    --graph-green-1: #C3F5B9;
+    --graph-green-2: #96E18C;
+    --graph-green-3: #46BE2D;
+    --graph-green-4: #239B0F;
+    --graph-green-5: #0F7300;
+
+    /* #Yellow */
+    --graph-yellow-1: #F5F0BE;
+    --graph-yellow-2: #F5E18C;
+    --graph-yellow-3: #EFC81E;
+    --graph-yellow-4: #D7B419;
+    --graph-yellow-5: #9B7D00;
+
+    /* #Orange */
+    --graph-orange-1: #FFDCC3;
+    --graph-orange-2: #F5B47D;
+    --graph-orange-3: #FF8732;
+    --graph-orange-4: #D76919;
+    --graph-orange-5: #A04600;
+
+    /* #Red */
+    --graph-red-1: #FFC8C3;
+    --graph-red-2: #FA9182;
+    --graph-red-3: #EB280F;
+    --graph-red-4: #D22D14;
+    --graph-red-5: #9B0F00;
+
+    /* #Purple */
+    --graph-purple-1: #EBD7FF;
+    --graph-purple-2: #D2A0FF;
+    --graph-purple-3: #A555F5;
+    --graph-purple-4: #8728E1;
+    --graph-purple-5: #6919B4;
+
+    /* #Mint */
+    --graph-special-1: #BEFAEB;
+    --graph-special-2: #96F0D7;
+    --graph-special-3: #0ADCAF;
+    --graph-special-4: #05AF87;
+    --graph-special-5: #008769;
+
+    /* #Titanium */
+    --graph-grey-1: var(--grey-2);
+    --graph-grey-2: var(--grey-4);
+    --graph-grey-3: var(--grey-6);
+    --graph-grey-4: var(--grey-8);
+    --graph-grey-5: var(--grey-10);
+
+    /* Where 1 is the coldest and 5 the hotest value */
+    --heatmap-1: var(--graph-turquoise-5);
+    --heatmap-2: var(--graph-green-3);
+    --heatmap-3: var(--graph-yellow-3);
+    --heatmap-4: var(--graph-orange-3);
+    --heatmap-5: var(--graph-red-5);
+    --heatmap-neutral: var(--grey-5);
+
+    /* Waterfall values */
+    --waterfall-total: var(--main-4);
+    --waterfall-decrease: var(--OK-3);
+    --waterfall-increase: var(--KO-3);
+    --waterfall-neutral: var(--grey-5);
+
+    /* heatmap graph */
+    --heatmap-increase-2: var(--KO-4);
+    --heatmap-increase-1: var(--KO-2);
+    --heatmap-neutral: var(--grey-5);
+    --heatmap-decrease-1: var(--OK-2);
+    --heatmap-decrease-2: var(--OK-4);
+
+    /* mapheatmap graph */
+    --mapheatmap-min: var(--main-2);
+    --mapheatmap-max: var(--main-6);
+    --mapheatmap-hover: var(--main-1);
+    --mapheatmap-background: var(--grey-5);
+
+    /* dumbbell graph */
+    --dumbbell-open: var(--main-3);
+    --dumbbell-close: var(--main-5);
+
+    /* 1 value barchart */
+    --barchart-single: var(--main-4);
+
+    /* Up to 5 values barchart */
+    --barchart-1: var(--main-1);
+    --barchart-2: var(--main-2);
+    --barchart-3: var(--main-3);
+    --barchart-4: var(--main-4);
+    --barchart-5: var(--main-5);
+
+    /* Up to 50 values chart */
+    --chart-1: var(--main-3);
+    --chart-2: var(--graph-blue-1);
+    --chart-3: var(--grey-8);
+    --chart-4: var(--graph-green-3);
+    --chart-5: var(--graph-special-2);
+    --chart-6: var(--graph-turquoise-4);
+    --chart-7: var(--graph-yellow-2);
+    --chart-8: var(--graph-orange-3);
+    --chart-9: var(--graph-red-3);
+    --chart-10: var(--graph-purple-1);
+    --chart-11: var(--main-5);
+    --chart-12: var(--graph-blue-2);
+    --chart-13: var(--grey-4);
+    --chart-14: var(--graph-green-5);
+    --chart-15: var(--graph-special-3);
+    --chart-16: var(--graph-turquoise-1);
+    --chart-17: var(--graph-yellow-1);
+    --chart-18: var(--graph-orange-2);
+    --chart-19: var(--graph-red-4);
+    --chart-20: var(--graph-purple-2);
+    --chart-21: var(--main-6);
+    --chart-22: var(--graph-blue-3);
+    --chart-23: var(--grey-6);
+    --chart-24: var(--graph-green-2);
+    --chart-25: var(--graph-special-5);
+    --chart-26: var(--graph-turquoise-2);
+    --chart-27: var(--graph-yellow-5);
+    --chart-28: var(--graph-orange-1);
+    --chart-29: var(--graph-red-2);
+    --chart-30: var(--graph-purple-3);
+    --chart-31: var(--main-2);
+    --chart-32: var(--graph-blue-4);
+    --chart-33: var(--grey-2);
+    --chart-34: var(--graph-green-4);
+    --chart-35: var(--graph-special-1);
+    --chart-36: var(--graph-turquoise-5);
+    --chart-37: var(--graph-yellow-4);
+    --chart-38: var(--graph-orange-5);
+    --chart-39: var(--graph-red-1);
+    --chart-40: var(--graph-purple-5);
+    --chart-41: var(--main-1);
+    --chart-42: var(--graph-blue-5);
+    --chart-43: var(--grey-10);
+    --chart-44: var(--graph-green-1);
+    --chart-45: var(--graph-special-4);
+    --chart-46: var(--graph-turquoise-3);
+    --chart-47: var(--graph-yellow-3);
+    --chart-48: var(--graph-orange-4);
+    --chart-49: var(--graph-red-5);
+    --chart-50: var(--graph-purple-4);
+
+    /* Process color range */
+    --process-1: var(--grey-7);
+    --process-2: var(--grey-10);
+    --process-3: var(--graph-red-3);
+    --process-4: var(--graph-orange-3);
+    --process-5: var(--graph-yellow-3);
+    --process-6: var(--graph-green-3);
+    --process-7: var(--graph-blue-3);
+    --process-8: var(--graph-purple-3);
+
+    /* Profil color range */
+    --profil-1: #879BB480;
+    --profil-2: #14284680;
+    --profil-3: #EB2D1980;
+    --profil-4: #FF873280;
+    --profil-5: #EFC81E80;
+    --profil-6: #46BE2D80;
+    --profil-7: #3796FF80;
+    --profil-8: #A555F580;
+
+    /* Heritage fields */
+    --main-main: var(--main-5);
+    --success: var(--main-3);
+    --font-color: var(--grey-10);
+    --font-color-doc: var(--grey-10);
+    --grey-background: var(--grey-3);
+    --text-hover-main-main-1: var(--grey-0);
+    --active: var(--main-3);
+    --shadow: #14284616;
+    --shadow-dark: #14284633;
+
+    /* Cold and warm groups */
+    --cold-1-1: var(--main-2);
+    --cold-1-2: var(--main-3);
+    --cold-1-3: var(--main-4);
+    --cold-1-4: var(--main-5);
+    --cold-1-5: var(--main-6);
+
+    --cold-2-1: var(--graph-turquoise-1);
+    --cold-2-2: var(--graph-turquoise-2);
+    --cold-2-3: var(--graph-turquoise-3);
+    --cold-2-4: var(--graph-turquoise-4);
+    --cold-2-5: var(--graph-turquoise-5);
+
+    --cold-3-1: var(--graph-special-1);
+    --cold-3-2: var(--graph-special-2);
+    --cold-3-3: var(--graph-special-3);
+    --cold-3-4: var(--graph-special-4);
+    --cold-3-5: var(--graph-special-5);
+
+    --cold-4-1: var(--grey-2);
+    --cold-4-2: var(--grey-4);
+    --cold-4-3: var(--grey-6);
+    --cold-4-4: var(--grey-8);
+    --cold-4-5: var(--grey-10);
+
+    --cold-5-1: var(--graph-blue-1);
+    --cold-5-2: var(--graph-blue-2);
+    --cold-5-3: var(--graph-blue-3);
+    --cold-5-4: var(--graph-blue-4);
+    --cold-5-5: var(--graph-blue-5);
+
+    --cold-6-1: var(--graph-purple-1);
+    --cold-6-2: var(--graph-purple-2);
+    --cold-6-3: var(--graph-purple-3);
+    --cold-6-4: var(--graph-purple-4);
+    --cold-6-5: var(--graph-purple-5);
+
+    --warm-1-1: var(--KO-1);
+    --warm-1-2: var(--KO-2);
+    --warm-1-3: var(--KO-3);
+    --warm-1-4: var(--KO-4);
+    --warm-1-5: var(--KO-5);
+
+    --warm-2-1: var(--graph-yellow-1);
+    --warm-2-2: var(--graph-yellow-2);
+    --warm-2-3: var(--graph-yellow-3);
+    --warm-2-4: var(--graph-yellow-4);
+    --warm-2-5: var(--graph-yellow-5);
+
+    --warm-3-1: var(--graph-green-1);
+    --warm-3-2: var(--graph-green-2);
+    --warm-3-3: var(--graph-green-3);
+    --warm-3-4: var(--graph-green-4);
+    --warm-3-5: var(--graph-green-5);
+
+    --warm-4-1: var(--graph-orange-1);
+    --warm-4-2: var(--graph-orange-2);
+    --warm-4-3: var(--graph-orange-3);
+    --warm-4-4: var(--graph-orange-4);
+    --warm-4-5: var(--graph-orange-5);
+
+    --warm-5-1: var(--OK-1);
+    --warm-5-2: var(--OK-2);
+    --warm-5-3: var(--OK-3);
+    --warm-5-4: var(--OK-4);
+    --warm-5-5: var(--OK-5);
+
+    --warm-6-1: var(--graph-red-1);
+    --warm-6-2: var(--graph-red-2);
+    --warm-6-3: var(--graph-red-3);
+    --warm-6-4: var(--graph-red-4);
+    --warm-6-5: var(--graph-red-5);
+
+}

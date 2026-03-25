@@ -1,0 +1,30 @@
+<app-screen-size-handler [appSmallTemplate]="sharedBtnShort" [appNormalTemplate]="sharedBtn"></app-screen-size-handler>
+
+<ng-template #sharedBtnShort>
+    @if (type === 'next') {
+        <app-button-main-action icon="Action/Arrow/ArrowRight" [disabled_btn]="disabled_btn"></app-button-main-action>
+    } @else {
+        <app-button-main-action icon="Action/Arrow/ArrowLeft" [disabled_btn]="disabled_btn"></app-button-main-action>
+    }
+</ng-template>
+
+<ng-template #sharedBtn>
+    @if (show_text) {
+        @if (text) {
+            @if (type === 'next') {
+                <app-button-main-action [text]="text" icon="Action/Arrow/ArrowRight" [disabled_btn]="disabled_btn"></app-button-main-action>
+
+            } @else {
+                <app-button-main-action [text]="text" icon="Action/Arrow/ArrowLeft" [left_icon]="true" [disabled_btn]="disabled_btn"></app-button-main-action>
+            }
+        } @else {
+            @if (type === 'next') {
+                <app-button-main-action [text]="'AngularSdk.CoreCommon.Next'" icon="Action/Arrow/ArrowRight" [disabled_btn]="disabled_btn"></app-button-main-action>
+            } @else {
+                <app-button-main-action [text]="'AngularSdk.CoreCommon.Previous'" icon="Action/Arrow/ArrowLeft" [left_icon]="true" [disabled_btn]="disabled_btn"></app-button-main-action>
+            }
+        }
+    } @else {
+        <app-button-main-action icon="Action/Arrow/ArrowLeft" [disabled_btn]="disabled_btn"></app-button-main-action>
+    }
+</ng-template>

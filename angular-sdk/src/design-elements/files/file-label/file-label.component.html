@@ -1,0 +1,23 @@
+@let errorFile = !is_active;
+@let textOpacity = errorFile ? 0.6 : 1;
+
+@if (iFile) {
+    <div class="file" [class.error-file]="errorFile">
+        <div class="std-aligned text-wrap-ellipsis" [style.opacity]="textOpacity">
+            <app-file-icon class="flex" style="margin: 0 5px 0 10px;" [extension]="iFile.extension ?? ''"></app-file-icon>
+            <span class="text-wrap-ellipsis">{{ iFile.name }}</span>
+        </div>
+        <div class="std-aligned">
+            @if (is_active) {
+                <img src="assets/images/Valid.png" alt="" width="32" height="32"/>
+                <span class="size-text">{{ iFile.size ?? 0 | fileSize }}</span>
+            } @else {
+                <img src="assets/images/Error.png" alt="" width="32" height="32"/>
+                <span class="error-text">{{ 'AngularSdk.CoreCommon.Error' | translate }}</span>
+            }
+            <app-algo-icon name="Action/Navigation/Close" class="icon cursor-pointer" style="margin-right: 5px;"
+                           weight="Regular" (click)="callBack.emit()">
+            </app-algo-icon>
+        </div>
+    </div>
+}

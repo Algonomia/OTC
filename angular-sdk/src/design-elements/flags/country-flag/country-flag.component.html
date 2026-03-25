@@ -1,0 +1,17 @@
+<div class="std-aligned gap-10px">
+    <span class="fi flag" [ngClass]="__countryClass" [class.rounded]="rounded"
+          [ngStyle]="size_rem ? { 'width.rem': size_rem, 'height.rem': ( rounded ? size_rem : (size_rem - size_rem / 4)) } : {}">
+    </span>
+
+    @switch (display) {
+        @case ('lang') {
+            <span class="name">{{ __lang }}</span>
+        }
+        @case ('name') {
+            <span class="name" [class.hide-mobile]="hideNameMobile">{{ __name }}</span>
+        }
+        @case ('iso2') {
+            <span class="name">{{ __iso2 | uppercase }}</span>
+        }
+    }
+</div>

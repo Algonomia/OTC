@@ -1,0 +1,49 @@
+{{- if .Values.fileMicroservice.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-microservice
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.fileMicroservice.replicaCount }}
+  selector:
+    matchLabels:
+      run: file-microservice
+  template:
+    metadata:
+      labels:
+        run: file-microservice
+    spec:
+      containers:
+        - name: file-microservice
+          image: "{{ .Values.fileMicroservice.image.repository }}:{{ .Values.fileMicroservice.image.tag }}"
+          imagePullPolicy: {{ .Values.fileMicroservice.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.fileMicroservice.service.targetPort }}
+          env:
+            - name: CORS_ORIGIN
+              value: "{{ .Values.fileMicroservice.env.corsOrigin }}"
+            - name: HOST
+              value: "{{ .Values.fileMicroservice.env.host }}"
+            - name: FILE_STORAGE_PATH
+              value: /dynamic/media
+            - name: SQLITE_FILE_PATH
+              value: /sqlite/sqlite.db
+            - name: LARGE_FILE_THRESHOLD
+              value: "{{ .Values.fileMicroservice.env.largeFileThreshold }}"
+          volumeMounts:
+            - name: file-persistent-storage
+              mountPath: /dynamic/media
+            - name: file-persistent-storage
+              mountPath: /sqlite
+
+      {{- if .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml .Values.global.imagePullSecrets | nindent 8 }}
+      {{- end }}
+
+      volumes:
+        - name: file-persistent-storage
+          persistentVolumeClaim:
+            claimName: file-microservice-pvc
+{{- end }}

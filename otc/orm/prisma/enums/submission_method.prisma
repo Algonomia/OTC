@@ -1,0 +1,9 @@
+enum SubmissionMethodId {
+    Electronic
+    Paper
+    UponRequest
+    NoDirectFiling
+    Mixed
+    NotApplicable
+    Other
+}

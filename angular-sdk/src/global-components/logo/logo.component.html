@@ -1,0 +1,22 @@
+<app-href-handler [link]="'/'" [template]="logo"></app-href-handler>
+
+<ng-template #logo>
+    <app-screen-size-handler [appSmallTemplate]="sharedLogoShort"
+                             [appIntermediaryTemplate]="sharedLogoShort"
+                             [appNormalTemplate]="sharedLogo">
+    </app-screen-size-handler>
+
+    <ng-template #sharedLogoShort>
+        <div class="std-aligned cursor-pointer" (mouseenter)="weight = 'Regular'" (mouseleave)="weight = 'Medium'">
+            <img [src]="logo_paths.logo[weight]" class="logo" alt="logo_icon"/>
+            <img [src]="logo_paths.short_wordmark[weight]" class="wordmark" alt="logo_text"/>
+        </div>
+    </ng-template>
+
+    <ng-template #sharedLogo>
+        <div class="std-aligned cursor-pointer" (mouseenter)="weight = 'Regular'" (mouseleave)="weight = 'Medium'">
+            <img [src]="logo_paths.logo[weight]" class="logo" alt="logo_icon"/>
+            <img [src]="logo_paths.wordmark[weight]" class="wordmark" alt="logo_text"/>
+        </div>
+    </ng-template>
+</ng-template>

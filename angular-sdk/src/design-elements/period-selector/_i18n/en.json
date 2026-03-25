@@ -1,0 +1,9 @@
+{
+    "AngularSdk": {
+        "PeriodSelector": {
+            "ChooseValue": "Choose value",
+            "ChooseUnit": "Choose unit",
+            "ChooseCountType": "Choose count type"
+        }
+    }
+}

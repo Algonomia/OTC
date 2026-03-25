@@ -1,0 +1,6 @@
+@if(this.parentFilingExemption && this.parentFilingExemption.text) {
+    <app-label-status [type]="parentFilingExemption.id === EParentFilingExemptionId.Yes ? 'ok' : 'ko'"
+                      [text]="this.parentFilingExemption.text"
+                      [icon]="this.parentFilingExemption.icon">
+    </app-label-status>
+}

@@ -1,0 +1,23 @@
+<div class="std-flex">
+    <h1 class="text-intro">
+        {{ 'OTCFront.Home.introMessage1' | translate }}
+
+        @if (__isConnected$ | async) {
+            <app-button-link-outline-big text="OTCFront.Home.CtaDiscover" class="align-with-text cta-discover" link="/about"></app-button-link-outline-big>
+            <app-button-link-outline text="OTCFront.Home.CtaDiscoverShort" class="align-with-text cta-discover-mobile" link="/about"></app-button-link-outline>
+        }
+    </h1>
+</div>
+
+<div class="std-flex">
+    <h2 class="text-intro">
+        {{ 'OTCFront.Home.introMessage2' | translate }}
+        @if (!(__isConnected$ | async)) {
+            <app-linkedin-connect class="align-with-text cta-connect-mobile"></app-linkedin-connect>
+
+            <app-button-main-outline (click)="openLoginModal()" class="align-with-text cta-connect"
+                                     text="OTCFront.Home.CtaConnect" icon="Action/Arrow/ArrowRight">
+            </app-button-main-outline>
+        }
+    </h2>
+</div>

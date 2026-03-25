@@ -1,0 +1,35 @@
+OBLIGATION CONTEXT ADDENDUM — AnnualTPForm
+
+Definition (what “AnnualTPForm” means)
+- AnnualTPForm = a transfer-pricing-specific ANNUAL filing / return / statement / information form submitted to the tax authority (often with or near the corporate income tax return).
+- In some jurisdictions, this AnnualTPForm is explicitly named a “Summary Information Table” (SIT) or “SIT disclosure/filing” (or a clearly equivalent “summary information table” regime). Those SIT-style filings ARE INCLUDED in AnnualTPForm.
+- Related Party Disclosures are NOT considered as AnnualTPForm.
+
+What to look for (recognition cues)
+Look for explicit evidence that the jurisdiction requires an ANNUAL TP-specific filing, such as:
+- Names/labels:
+  - “transfer pricing return”, “TP return”, “transfer pricing information return/form”
+  - “transfer pricing statement”, “TP statement”, “arm’s length statement/declaration/certificate”
+  - “transfer pricing disclosure form”, “TP information form”, “TP compliance form”
+  - “Summary Information Table”, “SIT”, “SIT filing”, “SIT disclosure”, “summary information table of controlled transactions”
+- Form identifiers:
+  - explicit form names/numbers/codes (e.g., “Form X”, “Schedule TP-…”, “Annex …”) (but these need to be related to transfer pricing)
+- Content cues (typical for AnnualTPForm/SIT-style filings):
+  - reporting TP methods or pricing policy choices
+  - arm’s length declarations/checkboxes/certifications
+  - confirmations that TP documentation exists / is maintained
+  - structured table-format disclosures of controlled transactions (especially if explicitly called SIT / summary information table)
+  - filing channel/portal references specific to the TP filing (e.g., electronic submission through a TP portal)
+
+Boundary / disambiguation rules
+- AnnualTPForm is about an ANNUAL TP-specific filing requirement (a form/return/statement/table) — not the narrative TP documentation file itself.
+- If the source text describes a TP-specific annual filing but uses local naming, treat it as AnnualTPForm as long as it is clearly:
+  (a) TP-specific, and
+  (b) annual, and
+  (c) a filing/statement/table submitted (or required to be submitted) to the tax authority.
+- Do NOT take Related Party Disclosures as “AnnualTPForm”, those should be treated as its separate obligation RelatedPartyDisclosure.
+
+Important constraints
+- Do NOT use “additional_values” for AnnualTPForm. (This obligation has no sub-obligation / sub-filing outputs.)
+- Do NOT invent form names, portals, or schedules; only include names that appear in the source text.
+- Do NOT use information about Related Party Disclosures for AnnualTPForm.

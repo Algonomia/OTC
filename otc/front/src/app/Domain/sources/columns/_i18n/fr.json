@@ -1,0 +1,77 @@
+{
+    "OTCFront": {
+        "Sources": {
+            "title": "Sources",
+            "columns": {
+                "SourceName": {
+                    "text": "Nom de la source",
+                    "info": ""
+                },
+                "Organization": {
+                    "text": "Organisation",
+                    "info": ""
+                },
+                "OrganizationType": {
+                    "text": "Type d'organisation",
+                    "info": ""
+                },
+                "DateOfPublication": {
+                    "text": "Date de publication",
+                    "info": ""
+                },
+                "Jurisdictions": {
+                    "text": "Jurisdictions",
+                    "info": ""
+                },
+                "ObligationsTypes": {
+                    "text": "Types d'obligation",
+                    "info": ""
+                },
+                "Indicators": {
+                    "text": "Indicateurs",
+                    "info": ""
+                },
+                "ProposedBy": {
+                    "text": "Proposée par",
+                    "info": ""
+                },
+                "PropositionDate": {
+                    "text": "Date de proposition",
+                    "info": ""
+                },
+                "ValidatedBy": {
+                    "text": "Validée par",
+                    "info": ""
+                },
+                "ValidationDate": {
+                    "text": "Date de validation",
+                    "info": ""
+                },
+                "Status": {
+                    "text": "Statut",
+                    "info": ""
+                },
+                "Link": {
+                    "text": "Lien",
+                    "info": ""
+                },
+                "Files": {
+                    "text": "Fichiers",
+                    "info": ""
+                },
+                "Comment": {
+                    "text": "Commentaire",
+                    "info": ""
+                },
+                "AdminComment": {
+                    "text": "Commentaire admin",
+                    "info": ""
+                },
+                "Action": {
+                    "text": "Action",
+                    "info": ""
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{{- if .Values.otcLlm.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.otcLlm.service.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    run: otc-llm
+spec:
+  ports:
+    - port: {{ .Values.otcLlm.service.port }}
+      targetPort: {{ .Values.otcLlm.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    run: otc-llm
+{{- end }}

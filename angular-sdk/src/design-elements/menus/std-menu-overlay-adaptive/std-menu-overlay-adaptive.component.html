@@ -1,0 +1,17 @@
+<app-screen-size-handler [appSmallTemplate]="sharedMenuModal" [appNormalTemplate]="sharedMenuOverlay"></app-screen-size-handler>
+
+<ng-template #sharedMenuOverlay>
+    <app-std-menu class="flex" [selectHandler]="selectHandler" [selectAll]="selectAll" [sorted]="sorted"
+                  [placeholder]="placeholder">
+    </app-std-menu>
+</ng-template>
+
+<ng-template #sharedMenuModal>
+    <app-std-menu-overlay-modal class="flex"
+                                [selectHandler]="selectHandler"
+                                [selectAll]="selectAll"
+                                [sorted]="sorted"
+                                [modalTitle]="modalTitle"
+                                [placeholder]="placeholder">
+    </app-std-menu-overlay-modal>
+</ng-template>

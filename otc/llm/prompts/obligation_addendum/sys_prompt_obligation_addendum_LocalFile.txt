@@ -1,0 +1,28 @@
+OBLIGATION CONTEXT ADDENDUM — LocalFile
+
+UPDATED SCOPE (MERGE POLICY)
+- LocalFile is now an umbrella obligation for substantive transfer pricing (TP) documentation requirements, including BOTH:
+  A) OECD/BEPS Action 13 “Local File” regimes (explicit “Local File” framing), AND
+  B) Non‑Action‑13 “contemporaneous TP documentation” regimes (TP study/report/file) where the jurisdiction does not use Action 13 labels.
+- IMPORTANT: This obligation EXCLUDES clearly “simplified / short‑form / light / abbreviated” TP documentation regimes that are described as a distinct alternative. Those belong to the separate obligation SimplifiedTPDocumentation.
+
+CRITICAL DISTINCTIONS (avoid wrong obligation mapping)
+1) LocalFile vs SimplifiedTPDocumentation (NEW)
+- If the source explicitly describes a “simplified / short‑form / light / abbreviated” TP documentation that is DISTINCT from the full documentation,
+  classify that simplified regime under SimplifiedTPDocumentation (separate obligation), NOT under LocalFile.
+- If the source describes BOTH:
+  - Full documentation requirement (LocalFile) AND
+  - Simplified/short‑form alternative (SimplifiedTPDocumentation),
+  treat BOTH obligations as present (InPlace/NotEnforced as appropriate) in their respective extractions.
+- If the ONLY TP documentation described is simplified/short‑form and there is no evidence of a full documentation requirement,
+  treat it as SimplifiedTPDocumentation and do NOT force it into LocalFile.
+
+2) LocalFile vs SpecialItemFile (main and sub obligation)
+- If the source requires additional, transaction‑type‑specific TP documentation files (e.g., financing file, intangibles file, cost sharing file)
+  described as “additional documentation” with additional triggers to be added to the Local File, treat those under the sub-obligation SpecialItemFile (as "additional_values" of LocalFile),
+  unless the text explicitly states they are merely sections within the Local File required for anyone who needs to prepare or file Local File, then it can be ignored.
+
+Practical guidance for downstream extraction (deadlines/thresholds/penalties)
+- If the source uses Action 13 labels, treat the threshold/deadline/penalty logic as Local File logic.
+- If the source uses “contemporaneous TP documentation / TP study” labels with no Action 13 terminology, STILL treat it as LocalFile logic (under this merged policy).
+- If there is a simplified/short‑form regime, expect thresholds to distinguish “full vs simplified” (use LocalFile and SimplifiedTPDocumentation obligation separately).

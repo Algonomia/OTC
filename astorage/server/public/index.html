@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Microservice - Upload & Download</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .upload-form {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .file-list {
+      margin-top: 20px;
+    }
+    .file-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid #ddd;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+    .file-info {
+      flex-grow: 1;
+    }
+    .file-name {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .file-meta {
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 4px;
+    }
+    .file-actions {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-primary {
+      background: #3498db;
+      color: white;
+    }
+    .btn-secondary {
+      background: #95a5a6;
+      color: white;
+    }
+    .btn-success {
+      background: #27ae60;
+      color: white;
+    }
+    .btn-danger {
+      background: #e74c3c;
+      color: white;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .selected {
+      background: #e8f5e8 !important;
+      border-color: #27ae60 !important;
+    }
+    .bulk-actions {
+      margin: 20px 0;
+      padding: 15px;
+      background: #ecf0f1;
+      border-radius: 4px;
+    }
+    .status {
+      padding: 8px;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    .status-success { background: #d4edda; color: #155724; }
+    .status-error { background: #f8d7da; color: #721c24; }
+    .status-info { background: #d1ecf1; color: #0c5460; }
+    .malware-status {
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+    .malware-clean { background: #d4edda; color: #155724; }
+    .malware-pending { background: #fff3cd; color: #856404; }
+    .malware-infected { background: #f8d7da; color: #721c24; }
+    .malware-error { background: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🗂️ File Microservice</h1>
+    
+    <div class="upload-form">
+      <h2>📤 Upload Files</h2>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" name="files" multiple required>
+        <br><br>
+        <button type="submit" class="btn-primary">Upload Files</button>
+      </form>
+    </div>
+
+    <div id="statusMessage"></div>
+
+    <div class="container">
+      <h2>📁 Uploaded Files</h2>
+      
+      <div class="bulk-actions">
+        <button onclick="selectAll()" class="btn-secondary">Select All</button>
+        <button onclick="deselectAll()" class="btn-secondary">Deselect All</button>
+        <button onclick="downloadSelected()" class="btn-success">Download Selected as ZIP</button>
+        <span id="selectedCount">0 files selected</span>
+      </div>
+
+      <button onclick="loadFiles()" class="btn-primary">🔄 Refresh File List</button>
+
+      <div id="filesList" class="file-list">
+        <p>Loading files...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let selectedFiles = new Set();
+    let allFiles = [];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadFiles();
+      setupUploadForm();
+    });
+
+    function setupUploadForm() {
+      document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        const files = document.getElementById('fileInput').files;
+        
+        for (let file of files) {
+          formData.append('files', file);
+        }
+
+        try {
+          showStatus('Uploading files...', 'info');
+          const response = await fetch('/upload', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            showStatus(`Successfully uploaded ${files.length} file(s)!`, 'success');
+            document.getElementById('fileInput').value = '';
+            loadFiles();
+          } else {
+            const error = await response.json();
+            showStatus(`Upload failed: ${error.message}`, 'error');
+          }
+        } catch (error) {
+          showStatus(`Upload error: ${error.message}`, 'error');
+        }
+      });
+    }
+
+    async function loadFiles() {
+      try {
+        const response = await fetch('/metadata');
+        if (response.ok) {
+          allFiles = await response.json();
+          displayFiles(allFiles);
+        } else {
+          showStatus('Failed to load files', 'error');
+        }
+      } catch (error) {
+        showStatus(`Error loading files: ${error.message}`, 'error');
+      }
+    }
+
+    function displayFiles(files) {
+      const container = document.getElementById('filesList');
+
+      // Clear existing content safely
+      container.textContent = '';
+
+      if (files.length === 0) {
+        const p = document.createElement('p');
+        p.textContent = 'No files uploaded yet.';
+        container.appendChild(p);
+        return;
+      }
+
+      // Create file items using safe DOM methods
+      files.forEach(file => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+        fileItem.dataset.uuid = file.uuid;
+        fileItem.addEventListener('click', () => toggleSelection(file.uuid));
+
+        const fileInfo = document.createElement('div');
+        fileInfo.className = 'file-info';
+
+        const fileName = document.createElement('div');
+        fileName.className = 'file-name';
+        fileName.textContent = file.name; // SAFE: Auto-escaped
+
+        const fileMeta = document.createElement('div');
+        fileMeta.className = 'file-meta';
+        fileMeta.textContent = `📁 ${formatFileSize(file.size)} • 🗓️ ${formatDate(file.upload_date)} • 📋 ${file.mimetype} `;
+
+        const malwareStatus = document.createElement('span');
+        malwareStatus.className = `malware-status malware-${file.malware_scan.toLowerCase()}`;
+        malwareStatus.textContent = file.malware_scan; // SAFE: Auto-escaped
+        fileMeta.appendChild(malwareStatus);
+
+        fileInfo.appendChild(fileName);
+        fileInfo.appendChild(fileMeta);
+
+        const fileActions = document.createElement('div');
+        fileActions.className = 'file-actions';
+
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'btn-success';
+        downloadBtn.textContent = '⬇️ Download';
+        downloadBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          downloadFile(file.uuid, file.name);
+        });
+        fileActions.appendChild(downloadBtn);
+
+        fileItem.appendChild(fileInfo);
+        fileItem.appendChild(fileActions);
+        container.appendChild(fileItem);
+      });
+    }
+
+    function toggleSelection(uuid) {
+      const element = document.querySelector(`[data-uuid="${uuid}"]`);
+      
+      if (selectedFiles.has(uuid)) {
+        selectedFiles.delete(uuid);
+        element.classList.remove('selected');
+      } else {
+        selectedFiles.add(uuid);
+        element.classList.add('selected');
+      }
+      
+      updateSelectedCount();
+    }
+
+    function selectAll() {
+      selectedFiles.clear();
+      allFiles.forEach(file => selectedFiles.add(file.uuid));
+      document.querySelectorAll('.file-item').forEach(el => el.classList.add('selected'));
+      updateSelectedCount();
+    }
+
+    function deselectAll() {
+      selectedFiles.clear();
+      document.querySelectorAll('.file-item').forEach(el => el.classList.remove('selected'));
+      updateSelectedCount();
+    }
+
+    function updateSelectedCount() {
+      document.getElementById('selectedCount').textContent = `${selectedFiles.size} files selected`;
+    }
+
+    function downloadFile(uuid, filename) {
+      const link = document.createElement('a');
+      link.href = `/download?uuid=${uuid}`;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    async function downloadSelected() {
+      if (selectedFiles.size === 0) {
+        showStatus('Please select files to download', 'error');
+        return;
+      }
+
+      try {
+        showStatus('Preparing ZIP download...', 'info');
+        
+        const response = await fetch('/download', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            uuids: Array.from(selectedFiles)
+          })
+        });
+
+        if (response.ok) {
+          const blob = await response.blob();
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = `files-${new Date().getTime()}.zip`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(link.href);
+          
+          showStatus(`Downloaded ${selectedFiles.size} files as ZIP`, 'success');
+        } else {
+          const error = await response.json();
+          showStatus(`Download failed: ${error.message}`, 'error');
+        }
+      } catch (error) {
+        showStatus(`Download error: ${error.message}`, 'error');
+      }
+    }
+
+    function showStatus(message, type) {
+      const statusDiv = document.getElementById('statusMessage');
+
+      // Clear existing content safely
+      statusDiv.textContent = '';
+
+      // Create status element using safe DOM methods
+      const statusElement = document.createElement('div');
+      statusElement.className = `status status-${type}`;
+      statusElement.textContent = message; // SAFE: Auto-escaped
+
+      statusDiv.appendChild(statusElement);
+
+      if (type === 'success' || type === 'info') {
+        setTimeout(() => {
+          statusDiv.textContent = '';
+        }, 3000);
+      }
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function formatDate(timestamp) {
+      if (!timestamp) return 'Unknown';
+      return new Date(timestamp).toLocaleString();
+    }
+  </script>
+</body>
+</html>

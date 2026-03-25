@@ -1,0 +1,3 @@
+<app-label #label [color_theme]="color_theme" [border_theme]="border_theme" [font_theme]="weight" [height]="height">
+    <ng-container *ngTemplateOutlet="label.CounterTemplate; context: { counter: counter, prefix: '+'  }"></ng-container>
+</app-label>

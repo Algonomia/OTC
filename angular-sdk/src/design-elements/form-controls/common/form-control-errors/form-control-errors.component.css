@@ -1,0 +1,11 @@
+.error-message {
+    display: flex;
+    flex-direction: column;
+
+    span {
+        font-size: 11px;
+        padding-top: 2px;
+        color: var(--KO-3);
+        font-family: "Integral UI Medium", sans-serif;
+    }
+}

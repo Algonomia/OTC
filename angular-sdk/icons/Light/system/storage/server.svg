@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>system / storage / server</title>
+    <g id="system-/-storage-/-server" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(10.725000, 9.725000)" fill="#142846" fill-rule="nonzero">
+            <circle id="Oval" cx="11.325" cy="2.925" r="1"></circle>
+            <path d="M12.775,0 C13.7553054,0 14.55,0.794694569 14.55,1.775 L14.55,14.775 C14.55,15.7553054 13.7553054,16.55 12.775,16.55 L1.775,16.55 C0.794694569,16.55 0,15.7553054 0,14.775 L0,1.775 C0,0.794694569 0.794694569,0 1.775,0 L12.775,0 Z M14,11.25 L0.549,11.25 L0.55,14.775 C0.55,15.4515488 1.09845118,16 1.775,16 L12.775,16 C13.4515488,16 14,15.4515488 14,14.775 L14,11.25 Z M14,5.949 L0.549,5.949 L0.549,10.7 L14,10.7 L14,5.949 Z M12.775,0.55 L1.775,0.55 C1.09845118,0.55 0.55,1.09845118 0.55,1.775 L0.549,5.399 L14,5.399 L14,1.775 C14,1.09845118 13.4515488,0.55 12.775,0.55 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

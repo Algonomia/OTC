@@ -1,0 +1,34 @@
+<app-screen-size-handler [appSmallTemplate]="small" [appNormalTemplate]="normal"></app-screen-size-handler>
+
+<ng-template #small>
+    <div class="about-footer-small">
+        <div class="flex flex-column gap-1">
+            <p>{{ 'OTCFront.About.Footer.OTC' | translate }}</p>
+
+            <p>{{ 'OTCFront.About.Footer.ProudlyBy' | translate }}<span class="algonomia-title">Algonomia</span></p>
+
+            <p>©&nbsp;<span class="algonomia-title">Open tax society</span> 2025</p>
+
+            <app-button-main-action-outline style="width: max-content" text="OTCFront.About.Footer.LegalNotice" (click)="openLegalNoticeModal()"></app-button-main-action-outline>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #normal>
+    <div class="std-aligned about-footer">
+        <p>{{ 'OTCFront.About.Footer.OTC' | translate }}</p>
+
+        <div class="vr"></div>
+
+        <p>{{ 'OTCFront.About.Footer.ProudlyBy' | translate }}<span class="algonomia-title">Algonomia</span></p>
+
+        <div class="vr"></div>
+
+        <p>©&nbsp;<span class="algonomia-title">Open tax society</span> 2025</p>
+
+        <div class="vr"></div>
+
+        <app-button-main-action-outline text="OTCFront.About.Footer.LegalNotice" (click)="openLegalNoticeModal()"></app-button-main-action-outline>
+    </div>
+</ng-template>
+

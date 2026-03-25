@@ -1,0 +1,22 @@
+<div class="edit-modal">
+    <div class="header std-aligned pad-1 gap-1">
+        <img src="../../../../../assets/logo/Logo/Logo%20Medium.svg" class="logo" alt="logo_icon"/>
+        <p class="title">{{ 'Profile' | translate }}</p>
+    </div>
+
+    <div class="container">
+        @if (!!userForm) {
+            <div class="pad-1">
+              <app-meta-form-group [metaFormGroup]="userForm"></app-meta-form-group>
+            </div>
+
+            <div class="footer pad-2">
+                <app-button-main-action type="submit"
+                                        text="OTCFront.CoreCommon.Confirm"
+                                        [disabled_btn]="userForm.invalid"
+                                        (click)="onSubmit()">
+                </app-button-main-action>
+            </div>
+        }
+    </div>
+</div>

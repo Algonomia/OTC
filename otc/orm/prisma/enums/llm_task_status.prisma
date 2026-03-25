@@ -1,0 +1,6 @@
+enum AiJobStatus {
+    PENDING
+    IN_PROGRESS
+    COMPLETED
+    FAILED
+}

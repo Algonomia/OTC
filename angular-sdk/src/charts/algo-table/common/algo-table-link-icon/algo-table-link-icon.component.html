@@ -1,0 +1,18 @@
+@if (text && link) {
+    <div class="flex">
+        <a [href]="link"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="std-aligned"
+           appIconHover
+           [algoIconHandler]="algoIconHandler"
+           (click)="$event.stopPropagation();"
+        >
+            @if (icon) {
+                <app-algo-icon [name]="icon" class="icon" [weight]="algoIconHandler.activeWeight"></app-algo-icon>
+            }
+            <span class="text text-wrap-ellipsis">{{ text | translate }}</span>
+            <app-algo-icon style="margin-left: auto;" name="Action/Panel/ExternalLink" class="icon external-link" [weight]="algoIconHandler.activeWeight"></app-algo-icon>
+        </a>
+    </div>
+}

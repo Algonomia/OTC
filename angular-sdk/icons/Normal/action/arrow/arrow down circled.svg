@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> action / arrow / arrow down circled</title>
+    <g id="-action-/-arrow-/-arrow-down-circled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18,27.176 C23.184,27.176 27.376,22.984 27.376,17.8 C27.376,12.616 23.184,8.424 18,8.424 C12.816,8.424 8.624,12.616 8.624,17.8 C8.624,22.984 12.816,27.176 18,27.176 Z M18,26.312 C13.328,26.312 9.488,22.472 9.488,17.8 C9.488,13.128 13.328,9.288 18,9.288 C22.672,9.288 26.512,13.128 26.512,17.8 C26.512,22.472 22.672,26.312 18,26.312 Z M18.64,22.44 L22.672,18.408 L22.064,17.768 L18.448,21.416 L18.448,12.552 L17.584,12.552 L17.584,21.416 L13.936,17.768 L13.328,18.408 L17.36,22.44 C17.712,22.792 18.288,22.792 18.64,22.44 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

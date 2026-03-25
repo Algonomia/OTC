@@ -1,0 +1,9 @@
+{
+    "ObligationDueDateDomain": {
+        "ValuesStatus": {
+            "WaitingForAdminValidation": "En attente de validation",
+            "AcceptedByAdmin": "Accepté par un administrateur",
+            "RejectedByAdmin": "Refusé par un administrateur"
+        }
+    }
+}

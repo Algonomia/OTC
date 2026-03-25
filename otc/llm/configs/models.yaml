@@ -1,0 +1,78 @@
+models:
+  qwen3_14b:
+    provider: "openai_compat"
+    model: "qwen/qwen3-14b"
+    model_env: "LLM_MODEL_ID"       # optional override from .env for the served model identifier/path
+    base_url_env: "LLM_BASE_URL"
+    api_key_env: "LLM_API_KEY"
+    temperature: 0.3
+    max_output_tokens: 8192
+    json_mode: false                 # try JSON mode; still harden parsing
+    use_instructor: true          
+    instructor_max_retries: 3      
+    instructor_mode: "JSON"        # "JSON" (aka JSON/JSON-schema mode) works well when the server accepts raw JSON outputs.
+    timeout: 180.0                 # "TOOLS" uses tool/function-calling. If the vLLM build supports tools/function calling reliably, "TOOLS" can be more robust.
+  qwen3-32b-awq:
+    provider: "openai_compat"
+    model: "Qwen3-32B-AWQ"          # fallback; override via LLM_MODEL_ID for local paths
+    model_env: "LLM_MODEL_ID"
+    base_url_env: "LLM_BASE_URL"
+    api_key_env: "LLM_API_KEY"
+    temperature: 0
+    max_output_tokens: 8192
+    json_mode: false
+    use_instructor: true
+    instructor_max_retries: 3
+    instructor_mode: "JSON"
+    timeout: 180.0
+  qwen3-14b-fp8:
+    provider: "openai_compat"
+    model: "Qwen3-14B-FP8"          # fallback; override via LLM_MODEL_ID for local paths
+    model_env: "LLM_MODEL_ID"
+    base_url_env: "LLM_BASE_URL"
+    api_key_env: "LLM_API_KEY"
+    temperature: 0
+    max_output_tokens: 8192
+    json_mode: false
+    use_instructor: true
+    instructor_max_retries: 3
+    instructor_mode: "JSON"
+    timeout: 180.0
+  qwen3-32b-fp4:
+    provider: "openai_compat"
+    model: "Qwen3-32B-FP4"          # fallback; override via LLM_MODEL_ID for local paths
+    model_env: "LLM_MODEL_ID"
+    base_url_env: "LLM_BASE_URL"
+    api_key_env: "LLM_API_KEY"
+    temperature: 0
+    max_output_tokens: 8192
+    json_mode: false
+    use_instructor: true
+    instructor_max_retries: 3
+    instructor_mode: "JSON"
+    timeout: 180.0
+  gpt-5-mini:
+    provider: "openai"
+    model: "GPT-5-Mini"    
+    base_url_env: "OPENAI_BASE_URL"
+    api_key_env: "OPENAI_API_KEY"
+    temperature: null
+    max_output_tokens: null
+    json_mode: false
+    timeout: 180.0
+    use_instructor: true          
+    instructor_max_retries: 3      
+    instructor_mode: "JSON"      
+  qwen3-14b-awq:
+    provider: "openai_compat"
+    model: "Qwen3-14B-AWQ"          # fallback; override via LLM_MODEL_ID for local paths
+    model_env: "LLM_MODEL_ID"
+    base_url_env: "LLM_BASE_URL"
+    api_key_env: "LLM_API_KEY"
+    temperature: 0.3
+    max_output_tokens: 8192
+    json_mode: false
+    use_instructor: true
+    instructor_max_retries: 3
+    instructor_mode: "JSON"
+    timeout: 600.0

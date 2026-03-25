@@ -1,0 +1,12 @@
+<app-href-handler [link]="link" [template]="linkHandler">
+    <ng-template #linkHandler>
+        <app-button btnCssClass="btn-main-0"
+                    [singleIcon]="!text ? 'Action/Arrow/ArrowRight' : ''"
+                    [rightIcon]="text ? 'Action/Arrow/ArrowRight' : ''"
+                    [disabled]="disabled_btn"
+                    [text]="text"
+                    [size_theme]="size_theme"
+                    [rounded]="rounded">
+        </app-button>
+    </ng-template>
+</app-href-handler>

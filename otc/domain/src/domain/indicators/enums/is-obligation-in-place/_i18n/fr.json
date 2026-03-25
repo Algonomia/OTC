@@ -1,0 +1,18 @@
+{
+    "ObligationDueDateDomain": {
+        "IsObligationInPlace": {
+            "InPlace": {
+                "text": "En vigueur",
+                "info": "La réglementation est en vigueur."
+            },
+            "NotEnforced": {
+                "text": "Non appliquée",
+                "info": "La réglementation n'est pas appliquée."
+            },
+            "NotExist": {
+                "text": "N'existe pas",
+                "info": "La réglementation n'existe plus ou n’a jamais existé."
+            }
+        }
+    }
+}

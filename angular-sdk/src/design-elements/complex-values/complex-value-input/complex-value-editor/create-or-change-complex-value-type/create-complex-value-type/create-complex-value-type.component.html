@@ -1,0 +1,10 @@
+<app-std-menu [selectHandler]="__complexValueSelectHandler"
+              [segmenter]="__segmenter"
+              [triggerTpl]="triggerTpl"
+>
+</app-std-menu>
+
+<ng-template #triggerTpl>
+    <app-button-add class="normal" text="AngularSdk.ComplexValueEditor.AddNewItem" [left_icon]="true"></app-button-add>
+    <app-button-add class="small"></app-button-add>
+</ng-template>

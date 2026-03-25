@@ -1,0 +1,35 @@
+{
+    "OTCFront": {
+        "About": {
+            "MetaTitle": "About - Open Tax Calendar",
+            "MetaDescription": "Open Tax Calendar is a free, open-source and collaborative easy to access database for Tax obligations and due dates",
+            "Panels": {
+                "Why": {
+                    "title": "Why",
+                    "content": "With the Open Tax Calendar project, we are addressing the lack of structured data for Tax due dates."
+                },
+                "What": {
+                    "title": "What",
+                    "content": "Open Tax Calendar is a free, open-source and collaborative easy to access database for Tax obligations and due dates."
+                },
+                "How": {
+                    "title": "How",
+                    "content": "Thanks to AI technologies, open-source guide-lines and collaborative interface, we are building a tool for everyone to use and enjoy."
+                },
+                "FAQ": {
+                    "title": "FAQ",
+                    "content": ""
+                },
+                "Sponsorship": {
+                    "title": "Sponsorship",
+                    "content": "Show your interest in tax tech breakthrough. Contact us at otc-contribution@opentaxcalendar.com and become an OTC sponsor too."
+                }
+            },
+            "Footer": {
+                "OTC": "Open Tax Calendar is an open-source and collaborative Tax due dates database",
+                "ProudlyBy": "Powered by ",
+                "LegalNotice": "Legal Notice"
+            }
+        }
+    }
+}

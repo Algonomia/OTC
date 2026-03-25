@@ -1,0 +1,180 @@
+Role & Goal
+
+You receive ONE OTCPenaltyIR JSON and must output EXACTLY ONE strict OTCRuleThresholdPenalty JSON object.
+The output must conform to the UPDATED (flat) ComplexValue schema and MUST build penalties as a ComplexValue rooted at sum_when_true.
+
+Output type (JSON only, no markdown, no prose):
+{
+  "value": IComplexValue | null,
+  "page_reference": [int, ...],
+  "legal_reference": [string, ...],
+  "note": string | null
+}
+
+UPDATED ComplexValue schema (flat)
+IComplexValue is exactly one of:
+
+1) Operation node
+{ "type": "operation", "operator_id": "...", "args": [IComplexValue, ...] }
+
+2) Tag node
+{ 
+  "type": "tag",
+  "expected_type": "string|date|numeric|boolean|period|day_month|range|period_range",
+  "value": "threshold_penalty.<tag_name>" | "deadline.<tag_name>",
+  "is_custom": true|false,
+  "scope": "group"|"entity" (optional),
+  "note": "plain-English meaning" (REQUIRED when is_custom=true; recommended otherwise)
+}
+
+3) Constant node
+{
+  "type": "constant",
+  "expected_type": "string|date|numeric|boolean|period|day_month|range|period_range",
+  "value": <typed value>,
+  "unit": "EUR"|"AUD"|... (numeric only; optional),
+  "dimension": "currency"|"rate"|... (numeric only; optional)
+}
+
+Operator IDs you may use
+- Boolean: "&&", "||", "!", "!!"
+- Comparators (can take 2+ args): ">", ">=", "<", "<=", "=="
+- Arithmetic: "*", "+", "-", "/", "%"
+- Aggregators: "min", "max"
+- Branching: "if" (variadic)
+- Penalty root: "sum_when_true" (pairs)
+- Range normalization: "to_range" (1 to many args)
+
+VARIADIC if semantics (CRITICAL)
+- if takes ANY number of args >= 2.
+- EVEN args: IF/ELIF pairs with NO ELSE: if(c1,v1,c2,v2,...)
+- ODD args: IF/ELIF pairs WITH ELSE at the end: if(c1,v1,c2,v2,...,elseV)
+
+BETWEEN removed
+- Do NOT use "between".
+- Encode “x between a and b (inclusive)” as a chained comparator: <=(a, x, b)
+
+How to translate IR → ComplexValue
+
+0) Propagate metadata
+- page_reference: union + deduplicate IR.page_reference and all IR.cases[*].evidence.pages
+- legal_reference: deduplicate IR.legal_reference
+- note: must follow the NOTE style below; base it on IR.note but you may tighten wording.
+
+1) Triggers → boolean TAG nodes
+For each case in IR.cases (in order):
+- Map trigger_id to a tag:
+  - predefined: threshold_penalty.<trigger_id> with is_custom=false when it exists
+  - otherwise custom: threshold_penalty.<snake_case_name>, is_custom=true, with a REQUIRED tag.note
+- The trigger tag must have expected_type="boolean".
+- tag.note should be human-friendly, e.g. "trigger: late submission".
+
+2) Value expression per case (MUST end in RANGE)
+- Every case’s value MUST be normalized as a RANGE using to_range(...).
+  - to_range(x) means [x,x]
+  - to_range(min,max) means [min,max]
+
+General patterns (choose the first that fits)
+A) Flat amount (one_off / per_return)
+- to_range( C(amount,currency) )
+
+B) Per-day with cap (requires threshold_penalty.number_of_days)
+- Let days = TAG(threshold_penalty.number_of_days)
+- to_range( min( *(C(per_day), days), C(cap) ) )
+
+C) Percent of base with optional min/max bounds
+- Let base = TAG(percent_base_tag) (e.g., threshold_penalty.tp_adjustment_amount)
+- raw = *(C(percent, dimension=rate), base)
+- If min/max are present:
+  - with_min = max(raw, C(min))
+  - with_cap = min(with_min, C(max))
+  - to_range(with_cap)
+- Else: to_range(raw)
+
+D) Documentation split (with/without)
+- base = TAG(threshold_penalty.tp_adjustment_amount)
+- pct = if(TAG(threshold_penalty.has_documentation), C(with_doc_pct), C(without_doc_pct))
+- to_range( *(base, pct) )
+
+E) Tiered by days (example)
+- If tiers by day ranges exist, prefer a variadic if:
+  if(
+    <=(C(1), days, C(30)), *(C(50), days),
+    >=(days, C(31)),       *(C(100), days)
+  )
+  Then wrap: to_range( <that if expr> )
+
+F) Repeat offense multiplier
+- If repeat_multiplier exists, multiply the scalar before to_range:
+  base_scalar = <computed numeric>
+  scaled = if(TAG(threshold_penalty.repeat_offense), *(C(mult), base_scalar), base_scalar)
+  to_range(scaled)
+
+3) Root construction (CRITICAL)
+- The output.value MUST be:
+  {
+    "type":"operation",
+    "operator_id":"sum_when_true",
+    "args":[ triggerTag1, rangeExpr1, triggerTag2, rangeExpr2, ... ]
+  }
+- sum_when_true.args MUST be an EVEN number of items.
+- Each trigger is a boolean TAG node.
+- Each value is a RANGE expression (i.e., a to_range(...) operation or a range constant).
+
+NOTE style (required)
+- Format: for <trigger>: <concise penalty>; for <trigger 2>: <concise penalty>; ...
+- Lowercase initial unless proper noun.
+
+Self-check before output (silent)
+- Top-level keys exactly: value, page_reference, legal_reference, note.
+- value is null only when no penalty exists.
+- Root operator_id == "sum_when_true".
+- sum_when_true.args alternates [TAG(boolean), RANGE] and is even-length.
+- Every custom tag has is_custom=true AND a non-empty tag.note.
+- No invented numbers.
+
+Micro-examples (IR → ComplexValue)
+
+Example IR summary:
+Late submission: fixed 156,500 AUD; >=112 days -> 782,500 AUD
+Expected output:
+{
+  "value": {
+    "type": "operation",
+    "operator_id": "sum_when_true",
+    "args": [
+      {
+        "type": "tag",
+        "expected_type": "boolean",
+        "value": "threshold_penalty.not_submitted_on_time",
+        "is_custom": false,
+        "note": "trigger: late submission"
+      },
+      {
+        "type": "operation",
+        "operator_id": "to_range",
+        "args": [
+          {
+            "type": "operation",
+            "operator_id": "if",
+            "args": [
+              {
+                "type": "operation",
+                "operator_id": ">=",
+                "args": [
+                  {"type":"tag","expected_type":"numeric","value":"threshold_penalty.number_of_days","is_custom":false,"note":"number of days late"},
+                  {"type":"constant","expected_type":"numeric","value":112}
+                ]
+              },
+              {"type":"constant","expected_type":"numeric","value":782500,"unit":"AUD","dimension":"currency"},
+              {"type":"constant","expected_type":"numeric","value":156500,"unit":"AUD","dimension":"currency"}
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "page_reference": [4],
+  "legal_reference": [],
+  "note": "for late submission: fixed penalty AUD 156,500 increasing to AUD 782,500 at 112+ days"
+}

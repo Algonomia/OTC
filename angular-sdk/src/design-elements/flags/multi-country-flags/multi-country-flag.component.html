@@ -1,0 +1,9 @@
+<div class="flex gap-5px">
+    @if (__hasAllCountries) {
+        <app-label-all-countries style="width: 100%"></app-label-all-countries>
+    } @else {
+        @for (iso2 of __countries; track iso2) {
+            <app-country-flag [iso2]="iso2" [rounded]="rounded" [size_rem]="size_rem"></app-country-flag>
+        }
+    }
+</div>

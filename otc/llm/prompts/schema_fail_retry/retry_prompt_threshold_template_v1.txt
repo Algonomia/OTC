@@ -1,0 +1,85 @@
+RETRY TASK: Fix Threshold ComplexValue extraction errors (PATCH MODE)
+
+You previously extracted Threshold ComplexValue fields. Post-processing extra schema checks found ERRORS/WARNINGS for certain ComplexValue key(s).
+Your job now is to PATCH ONLY the failing key(s), using the SAME rules as the original system prompt, and produce corrected JSON.
+
+You are given (below):
+1) The ORIGINAL SYSTEM PROMPT used for the initial extraction (authoritative).
+2) The SOURCE TEXT (authoritative).
+3) The PREVIOUS OUTPUT for ONLY the failing keys (including value/notes/references/tag_notes/additional_values).
+4) The VALIDATION REPORT (errors and warnings), produced by an external checker.
+
+---------------------------
+(1) ORIGINAL SYSTEM PROMPT
+---------------------------
+<<ORIGINAL_SYSTEM_PROMPT>>
+
+---------------------------
+(2) SOURCE TEXT
+---------------------------
+<<SOURCE_TEXT>>
+
+--------------------------------------------
+(3) PREVIOUS OUTPUT (FAILING KEYS ONLY)
+--------------------------------------------
+<<FAILING_KEYS_PREVIOUS_OUTPUT_JSON>>
+
+-----------------------------------
+(4) VALIDATION REPORT (AUTHORITATIVE)
+-----------------------------------
+<<VALIDATION_REPORT_JSON>>
+
+====================
+YOUR TASK (PATCH MODE)
+====================
+For EACH failing ComplexValue key in (3):
+- Fix the ComplexValue and any related metadata so that it satisfies:
+  (a) the ORIGINAL SYSTEM PROMPT rules, AND
+  (b) the VALIDATION REPORT errors (warnings are optional improvements).
+- Make the MINIMUM changes necessary. Preserve any correct text already present.
+- Do NOT modify keys that are not included in (3).
+
+Threshold-specific hard requirements:
+- Root operator MUST be either:
+  - if(...)   OR
+  - concat_when_true(...)
+- Threshold value branches MUST ultimately be constant string(s) ONLY.
+  - No numeric/date values in the value branches.
+  - Conditions carry the logic; values are categorical strings (e.g. required / exempt / applies / etc. per your system prompt).
+- 'not_required' is implied by default and should NOT be returned unless the source text explicitly states a special “not required” case.
+
+Condition ordering nuance (very important for if):
+- if(...) is mutually exclusive: the first matched condition wins. Order conditions from most specific to most general.
+- concat_when_true(...) is for non-exclusive coexistence (multiple variants/components can apply at once).
+
+Using ranges in conditions:
+- Use to_range(...) to represent numeric/date windows if needed.
+- For “between” style checks on fiscal year end month/day, prefer:
+  <=(day_month_const, extract_day_month(fiscal_year_end), day_month_const)
+  (avoid custom boolean tags for logical relations).
+
+Tag notes & references hygiene:
+- Keep 'references' format exactly as required by the system prompt.
+- Keep existing 'notes' unless you need to change them to stay consistent with the corrected value.
+- If you change the ComplexValue and it changes which tags appear:
+  - ensure tag_notes includes explanations for all tags used (including in additional_values),
+  - remove tag_notes entries that refer to tags not used anymore.
+
+=====================
+OUTPUT FORMAT (STRICT)
+=====================
+Return ONLY valid JSON (no markdown, no extra text) in this exact shape:
+
+{
+  "<ComplexValue_key_1>": <corrected_full_field_object>,
+  "<ComplexValue_key_2>": <corrected_full_field_object>
+}
+
+=====================
+SELF-CHECK BEFORE YOU OUTPUT
+=====================
+For each key:
+- Ensure every ERROR in the VALIDATION REPORT is fixed.
+- Confirm root is if(...) or concat_when_true(...).
+- Confirm every value branch ultimately contains only constant strings.
+- Confirm tag_notes matches tags used (including years_ago/scope variants).

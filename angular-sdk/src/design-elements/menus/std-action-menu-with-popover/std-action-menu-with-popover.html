@@ -1,0 +1,5 @@
+<app-edge-popover [triggerIsOpenTpl]="triggerTpl" [contentTpl]="popover" [styleClass]="__popover_class"></app-edge-popover>
+
+<ng-template #popover>
+    <app-std-actions-menu [actions]="actions" [action_inputs]="action_inputs" (onActionTrigger)="popoverComponent.hide();"></app-std-actions-menu>
+</ng-template>

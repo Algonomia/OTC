@@ -1,0 +1,165 @@
+Role & Goal
+
+You receive one OTCPenaltyIR JSON and must output a STRICT OTCRuleThresholdPenalty JSON object that conforms to the Pydantic schema provided (ComplexValue rooted at case). You must:
+-Build value as an operation whose root operator is case.
+-Alternate case.args as [TAG(boolean), RANGE-valued expression, TAG(boolean), RANGE-valued expression, … (optional default RANGE)].
+-Use namespaced tags: threshold_penalty.* or deadline.*. Use predefined tags when available; otherwise is_custom=true with concise snake_case names.
+-Ensure each branch reduces to a RANGE (to_range(x) or range(a,b)).
+-Aggregate/propagate page_reference and legal_reference from the IR (deduplicate).
+-Compose a NOTE exactly in the style defined below.
+
+Inputs you receive:
+
+-OTCPenaltyIR (the JSON from Step 1).
+-(Optionally) snippets of source, only for consistency checks. Do not change numbers beyond the IR.
+
+How to translate IR → ComplexValue
+-1.Triggers → boolean TAGs
+   For each case in IR:
+   -Map trigger_id to threshold_penalty.<trigger_id> (predefined) or create a custom boolean tag under threshold_penalty. mirroring trigger_id/trigger_label (e.g., threshold_penalty.has_shortfalls, is_custom=true if not predefined).
+   -Odd positions in case.args must be these TAGs with expected_type="boolean".
+
+-2. Value expression per case (must end in RANGE)
+--General patterns (choose the first that fits):
+---A. Flat amount (one_off / per_return):
+to_range( C(amount,currency) )
+---B. Per-day with cap (number_of_days required):
+to_range( min( *(C(per_day), TAG(number_of_days)), C(cap) ) )
+---C. Percent of base with min/max bounds:
+Let base = TAG(percent_base_tag) (e.g., threshold_penalty.tp_adjustment_amount)
+to_range( clamp( *(C(percent), base), min, max ) )
+where clamp(x,min,max) := min( max(x, C(min)), C(max) ) (omit min/max parts if null)
+---D. Documentation split (with/without):
+to_range( *( base, if( TAG(has_documentation), C(with_doc_percent), C(without_doc_percent) ) ) )
+---E. Tiered by days (example):
+to_range(
+  if( <=(TAG(number_of_days), C(30)),
+      *(C(50), TAG(number_of_days)),
+      *(C(100), TAG(number_of_days))
+  )
+)
+(Use >= / <= with numeric constants; if a flat switch at threshold, use two flats.)
+---F. Repeat offense multiplier:
+Wrap base value V as: to_range( if( TAG(repeat_offense), *(C(2.0), V_scalar), V_scalar ) )
+(When V is scalar inside to_range; otherwise multiply before normalization.)
+
+--Always normalize to a RANGE at the end (to_range(x) or range(a,b)).
+
+-3. Case root construction
+Root is {"type":"operation","operator":{"operator_id":"case", "args":[ ... ]}}.
+Append pairs: [<trigger_tag>, <range_expression>] in IR order.
+Default: If needed, add a final to_range(C(0)).
+If compose_hint == "accumulate" but you’re constrained to a case root, create a single synthetic trigger like threshold_penalty.composite_penalty_applies (custom boolean) and, inside its value, build the arithmetic sum using boolean guards, e.g.:
+to_range( + ( if(TAG(t1), V1_scalar, C(0)), if(TAG(t2), V2_scalar, C(0)) ) )
+(Use tags referenced in required_tags to gate components.)
+
+-4. NOTE style (required)
+for <trigger>: <concise penalty>; for <trigger 2>: <concise penalty>; …
+Lowercase initial unless proper noun. This should reflect the IR’s note but may be tightened.
+
+-5. Units & constants
+
+Percentages as decimals (5% → 0.05 with dimension:"rate").
+
+Currency must use ISO 4217 in unit and "currency" in dimension.
+
+Expand words like “million” to absolute numbers.
+
+Reference (group/entity) only if IR implies; else omit.
+
+-6. Tags
+
+Use predefined ThresholdPenaltyTagName when applicable (e.g., number_of_days, tp_adjustment_amount, has_documentation, repeat_offense).
+
+Otherwise, create custom tags under threshold_penalty. with is_custom=true and a short snake_case name.
+
+Self-check before output
+
+Top-level keys exactly: value, page_reference, legal_reference, note.
+
+value.operator.operator_id == "case".
+
+case.args alternates [TAG(boolean), RANGE] throughout.
+
+Every branch ends in a RANGE (to_range or range).
+
+Arrays present (may be empty) and deduplicated.
+
+No numbers guessed beyond IR.
+
+-7. Output JSON only (no markdown).
+
+Micro-examples (IR → ComplexValue)
+-Sample  IRtext: Late submission: fixed 156,500 AUD; ≥112 days → 782,500 AUD
+--expected response:
+```
+{
+  "value": {
+    "type": "operation",
+    "operator": {
+      "operator_id": "case",
+      "args": [
+        { "type":"tag", "tag":{"expected_type":"boolean","value":"threshold_penalty.not_submitted_on_time","is_custom":false} },
+        { "type":"operation","operator":{
+          "operator_id":"to_range",
+          "args":[
+            { "type":"operation","operator":{
+              "operator_id":"if",
+              "args":[
+                { "type":"operation","operator":{
+                  "operator_id":">=",
+                  "args":[
+                    { "type":"tag","tag":{"expected_type":"numeric","value":"threshold_penalty.number_of_days","is_custom":false} },
+                    { "type":"constant","constant":{"expected_type":"numeric","value":112} }
+                  ]}},
+                { "type":"constant","constant":{"expected_type":"numeric","value":782500,"unit":"AUD","dimension":"currency"} },
+                { "type":"constant","constant":{"expected_type":"numeric","value":156500,"unit":"AUD","dimension":"currency"} }
+              ]}}
+          ]}}
+      ]}}
+  },
+  "page_reference": [4],
+  "legal_reference": [],
+  "note": "for late submission: fixed penalty aud 156,500 increasing to aud 782,500 at 112+ days"
+}
+```
+-TP shortfall: 25% with documentation else 50% (base = TP adjustment)
+(second branch in same case root; shown standalone here)
+--expected response:
+```
+{
+  "value": {
+    "type":"operation",
+    "operator":{
+      "operator_id":"case",
+      "args":[
+        { "type":"tag","tag":{"expected_type":"boolean","value":"threshold_penalty.has_shortfalls","is_custom":true} },
+        { "type":"operation","operator":{
+          "operator_id":"to_range",
+          "args":[
+            { "type":"operation","operator":{
+              "operator_id":"*",
+              "args":[
+                { "type":"tag","tag":{"expected_type":"numeric","value":"threshold_penalty.tp_adjustment_amount","is_custom":false} },
+                { "type":"operation","operator":{
+                  "operator_id":"if",
+                  "args":[
+                    { "type":"tag","tag":{"expected_type":"boolean","value":"threshold_penalty.has_documentation","is_custom":false} },
+                    { "type":"constant","constant":{"expected_type":"numeric","value":0.25,"dimension":"rate"} },
+                    { "type":"constant","constant":{"expected_type":"numeric","value":0.50,"dimension":"rate"} }
+                  ]}}
+              ]}}
+          ]}}
+      ]}}
+  },
+  "page_reference": [4],
+  "legal_reference": [],
+  "note": "for transfer-pricing shortfall: 25% of adjustment with documentation, otherwise 50%"
+}
+```
+-Per-day with cap (generic):
+--to_range( min( *(per_day, number_of_days), cap ) )
+-Percent with min/max bounds:
+--to_range( min( max( *(percent, base), C(min) ), C(max) ) )
+-Repeat offense multiplier (on scalar before to_range):
+--to_range( if( TAG(repeat_offense), *(C(mult), base_scalar), base_scalar ) )

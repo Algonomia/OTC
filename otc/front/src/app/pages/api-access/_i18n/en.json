@@ -1,0 +1,38 @@
+{
+    "OTCFront": {
+        "Api": {
+            "Panels": {
+                "Key": {
+                    "title": "Generate API key",
+                    "content": "Since you’re loged in, you can generate a private key to access Open Tax Calendar API. Once the key is generated, use it to connect our database to your own project."
+                },
+                "Document": {
+                    "title": "API documentation",
+                    "content": "You can read our wiki to understand every aspect and detail of our data archi-tecture and calculation. Don’t hesitate to browse through every section."
+                }
+            },
+            "GenerateKey": "Generate key",
+            "AccessDocNow": "Access doc now",
+            "columns": {
+                "status": {
+                    "text": "Status"
+                },
+                "accessKey": {
+                    "text": "Access key"
+                },
+                "lastUsed": {
+                    "text": "Last used"
+                },
+                "expires_at": {
+                    "text": "Expiration"
+                },
+                "age": {
+                    "text": "Age"
+                }
+            },
+            "ClipboardTokenText": "Save the info above! This is the only time you'll be able to see the access token. if you lose it, you'll need to create a new API key",
+            "AccessKey": "Access key",
+            "AccessToken": "Access token"
+        }
+    }
+}

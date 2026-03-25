@@ -1,0 +1,222 @@
+<div style="height: 100%; position: relative;" #main  #resizableRef>
+    @if (__scrollSize) {
+        <div #wrapper class="wrapper" [class.border]="bordered" [style.height]="__wrapperHeight">
+            <!-- adding virtualScrollOptions seem to have repaired some synchronisation glitches even thoud it's redendent with other options. Note that other options are also necessary -->
+            <p-table #table
+                     [columns]="__columns"
+                     [value]="__data"
+                     dataKey="line_number"
+                     rowHover="true"
+                     columnResizeMode="expand"
+                     resizableColumns="true"
+                     resetPageOnSort="false"
+                     filterDelay="200"
+                     scrollable="true"
+                     virtualScroll="true"
+                     [scrollHeight]="'100%'"
+                     virtualScrollItemSize="41"
+                     [virtualScrollOptions]="{scrollHeight: __scrollSize, itemSize: 41}"
+                     [sortOrder]="sortParams.order"
+                     reorderableColumns="true"
+                     sortMode="single"
+                     customSort="true"
+                     [sortField]="sortParams.field"
+                     (sortFunction)="customSort($event)"
+                     (onFilter)="updateActiveFilterColumns();"
+                     [ngClass]="tableTheme"
+                     [tableStyle]="{'table-layout': __tableLayout}"
+                     [ngStyle]="{height: '100%', 'min-height': __scrollSize}"
+            >
+                <ng-template #header>
+                    <tr>
+                        @if (__selectionMode !== ESelectionMode.none) {
+                            <th pFrozenColumn [frozen]="true" [alignFrozen]="'left'">
+                                @if (__selectionMode === ESelectionMode.multiple) {
+                                    <app-select-all-checkbox [selectHandler]="__selectHandler"></app-select-all-checkbox>
+                                }
+                            </th>
+                        }
+                        @for (column of __columns; track column.id) {
+                            @if (__setVisibleColumns | setHas:column) {
+                                @if (column.frozen) {
+                                    <th pResizableColumn pReorderableColumn (click)="onSort(column.id)" class="cursor-pointer" pFrozenColumn [frozen]="!!column.frozen" [alignFrozen]="column.alignFrozen ?? ''">
+                                        <ng-template [ngTemplateOutlet]="thContent" [ngTemplateOutletContext]="{column: column}"></ng-template>
+                                    </th>
+                                } @else {
+                                    <th pResizableColumn pReorderableColumn (click)="onSort(column.id)" class="cursor-pointer">
+                                        <ng-template [ngTemplateOutlet]="thContent" [ngTemplateOutletContext]="{column: column}"></ng-template>
+                                    </th>
+                                }
+                            }
+                        }
+                        <ng-template let-column="column" #thContent>
+                            <div class="std-flex">
+                                <div class="cell-bold right-auto text-wrap-ellipsis" [class.hide-header-mobile]="column.hideHeaderOnMobile">{{ column.title | translate_arr | async}}</div>
+
+                                <ng-template [ngTemplateOutletContext]="{column: column}" [ngTemplateOutlet]="headerTooltip"></ng-template>
+                                <ng-template [ngTemplateOutletContext]="{column: column}" [ngTemplateOutlet]="tableSortTpl"></ng-template>
+                                <ng-template [ngTemplateOutletContext]="{column: column}" [ngTemplateOutlet]="tableFilterTpl"></ng-template>
+                            </div>
+                        </ng-template>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-data>
+                    @let is_line_selectable = __selectionMode !== ESelectionMode.none;
+                    @let is_line_clickable = !!onClickLine;
+                    @let cursor_pointer = is_line_selectable || is_line_clickable;
+                    <tr class="data-line"
+                        [class.cursor-pointer]="cursor_pointer"
+                        (click)="(is_line_selectable ? clickRowData(data) : null); (onClickLine ? onClickLine(data.line) : null)"
+                    >
+                        @if (is_line_selectable) {
+                            <td class="with-checkbox" pFrozenColumn [frozen]="true" [alignFrozen]="'left'">
+                                <app-single-select-box [selectHandler]="__selectHandler" [item]="data.line"></app-single-select-box>
+                            </td>
+                        }
+                        @for (column of __columns; track column.id) {
+                            @if (__setVisibleColumns | setHas:column) {
+                                @if (column.frozen) {
+                                    <td class="cell-light text-wrap-ellipsis"
+                                        [class.cursor-pointer]="column.onClickCell"
+                                        (click)="clickCell($event, column, data)"
+                                        pFrozenColumn [frozen]="true" [alignFrozen]="column.alignFrozen ?? ''"
+                                    >
+                                        <ng-template [ngTemplateOutlet]="tdContent" [ngTemplateOutletContext]="{column: column, data: data}"></ng-template>
+                                    </td>
+                                } @else {
+                                    <td class="cell-light text-wrap-ellipsis"
+                                        [class.cursor-pointer]="column.onClickCell"
+                                        (click)="clickCell($event, column, data)"
+                                    >
+                                        <ng-template [ngTemplateOutlet]="tdContent" [ngTemplateOutletContext]="{column: column, data: data}"></ng-template>
+                                    </td>
+                                }
+                            }
+                        }
+                    </tr>
+                </ng-template>
+                <ng-template #emptymessage>
+                    <tr>
+                        <td class="cell-bold" colspan="100%">{{'AngularSdk.Table.NoDataFound' | translate}}</td>
+                    </tr>
+                </ng-template>
+
+                <ng-template let-column="column" #tableFilterTpl>
+                    @let filterLineId = 'filterLine.' | concatStr:column.id;
+                    @if(column?.filterType !== 'list') {
+                        <p-columnFilter [field]="filterLineId" display="menu" [type]="column.filterType ?? 'text'">
+                            <ng-template pTemplate="filtericon">
+                                <ng-template [ngTemplateOutletContext]="{column: column}" [ngTemplateOutlet]="filterIconTpl"></ng-template>
+                            </ng-template>
+                        </p-columnFilter>
+                    } @else {
+                        <p-columnFilter
+                            [field]="filterLineId"
+                            matchMode="in"
+                            display="menu"
+                            [showMatchModes]="false"
+                            [showOperator]="false"
+                            [showAddButton]="false"
+                            class="ml-auto">
+
+                            <!-- Custom Filter Icon -->
+
+                            <ng-template pTemplate="filtericon">
+                                <ng-template [ngTemplateOutletContext]="{column: column}" [ngTemplateOutlet]="filterIconTpl"></ng-template>
+                            </ng-template>
+
+                            <!-- Custom Filter Content -->
+                            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                <p-multiselect
+                                    [options]="__mapValuesPerColumn | mapGet:column.id"
+                                    placeholder="Selected"
+                                    [ngModel]="value"
+                                    (onChange)="filter($event.value)">
+
+                                    <ng-template let-option pTemplate="item">
+                                        <div class="flex items-center gap-2">
+                                            <span>{{ option }}</span>
+                                        </div>
+                                    </ng-template>
+
+                                </p-multiselect>
+                            </ng-template>
+
+                        </p-columnFilter>
+                    }
+                </ng-template>
+
+                <ng-template let-column="column" #tableSortTpl>
+                    @if(column.id === sortParams.field) {
+                        <app-algo-icon
+                            label="Order"
+                            class="icon-light"
+                            weight="Medium"
+                            [name]="sortParams.order === 1
+                        ? 'Action/Arrow/ArrowUp'
+                        : 'Action/Arrow/ArrowDown'">
+                        </app-algo-icon>
+                    }
+                </ng-template>
+
+                <ng-template let-column="column" #headerTooltip>
+                    @if (column.info) {
+                        <ng-template [ngTemplateOutletContext]="{info: column.info | translate}" let-info="info" [ngTemplateOutlet]="translateInfo" #translateInfo>
+                            @if (info) {
+                                <app-algo-icon label="Info" [pTooltip]="info" [tooltipPosition]="'bottom'" tooltipStyleClass="algo-text-tooltip" class="icon-very-light cursor-pointer" name="People/User/Info" weight="Light"></app-algo-icon>
+                            }
+                        </ng-template>
+                    }
+                </ng-template>
+            </p-table>
+        </div>
+
+        <div class="std-flex toolbar" [class.border]="bordered" [style.height]="__infoBarHeightText">
+            @if(__exportable) {
+                <app-algo-icon class="icon-normal cursor-pointer" (click)="exportTableToExcel()" name="System/Storage/CloudExport"></app-algo-icon>
+            }
+
+            @if (table) {
+                <ng-template [ngTemplateOutletContext]="{n: count}" [ngTemplateOutlet]="visibleLinesText"></ng-template>
+            }
+        </div>
+
+        <ng-template let-column="column" #filterIconTpl>
+            @let isActiveFilterValue = __activeFilterColumnSet | setHas:column;
+            <app-algo-icon label="Filter" class="icon-light cursor-pointer icon-filter" name="Action/Operation/Filter"
+                           [class.filter-active]="isActiveFilterValue"
+                           [weight]="isActiveFilterValue ? 'Medium' : 'Normal'">
+            </app-algo-icon>
+        </ng-template>
+    }
+</div>
+
+<ng-template let-column="column" let-data="data" #tdContent>
+    @let renderComp = column.renderComponent | callFuncOrVal:data.line;
+    @if (renderComp) {
+        <app-component-renderer [renderComponent]="renderComp"
+                         [renderInputs]="column.renderInputs"
+                         [data]="data.line">
+        </app-component-renderer>
+    } @else {
+        {{data.valueLine[column.id]}}
+    }
+</ng-template>
+
+<ng-template let-n="n" #visibleLinesText>
+    @switch (n) {
+        @case (0) {}
+        @case (1) {
+            {{'AngularSdk.Table.nVisibleLinesSingular' | translate}}
+        }
+        @default {
+            {{'AngularSdk.Table.nVisibleLinesPlural' | translate:{n:n} }}
+        }
+    }
+</ng-template>
+
+<p-popover (onShow)="onPopoverShow()" (onHide)="onPopoverHide()" [styleClass]="'dark-menu'" #popover>
+    @if(__currentPopoverData) {
+        <app-std-actions-menu [actions]="__currentPopoverActions" [action_inputs]="__currentPopoverData.line_as_array" (onActionTrigger)="__onAction()"></app-std-actions-menu>
+    }
+</p-popover>

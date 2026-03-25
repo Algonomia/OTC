@@ -1,0 +1,48 @@
+data:
+  incoming_dir: "data/incoming"
+  processed_dir: "data/processed"
+
+tracking:
+  uri_env: "MLFLOW_TRACKING_URI"
+  experiment_env: "MLFLOW_EXPERIMENT_NAME"
+
+prompts:
+  unified_extraction_sys: "./prompts/extraction/sys_prompt_unified.txt"
+  overview_sys: "./prompts/extraction/sys_prompt_overview.txt"
+  deadline_sys: "./prompts/extraction/sys_prompt_deadline.txt"
+  threshold_sys: "./prompts/extraction/sys_prompt_threshold.txt"
+  penalty_sys: "./prompts/extraction/sys_prompt_penalty.txt"
+  obligation_addendum_dir: "./prompts/obligation_addendum"
+  chunk_labeler_sys: "./prompts/labeling/sys_prompt_chunk_labeler.txt"
+
+schemas:
+  overview_class: "otc.schemas.schema_overview:OTCOverviewRow"
+  deadline_class: "otc.schemas.schema_ddl_thr_pen:OTCDeadlineResult"
+  threshold_class:  "otc.schemas.schema_ddl_thr_pen:OTCThresholdResult"
+  penalty_class:  "otc.schemas.schema_ddl_thr_pen:OTCRuleThresholdPenalty"
+
+indicator_groups:
+  deadline: ["DeadlinePreparation","DeadlineFiling","DeadlineExtension"]
+  threshold: ["ThresholdPreparation","ThresholdFiling"]
+  penalty: ["Penalty"]
+  overview: ["IsObligationInPlace","ScopeOfObligation","FilingResponsibility","ParentFilingExemption","ApplicableEntityTypes","SubmissionMethod","LocalLanguage","EnglishAccepted"]
+
+deadline_field_map:
+  DeadlinePreparation: deadline_preparation
+  DeadlineFiling: deadline_filing
+  DeadlineExtension: deadline_extension
+
+threshold_field_map:
+  ThresholdPreparation: threshold_preparation
+  ThresholdFiling: threshold_filing
+  Threshold: threshold_preparation
+
+overview_field_map:
+  IsObligationInPlace: is_obligation_in_place
+  ScopeOfObligation: scope_of_obligation
+  FilingResponsibility: filing_responsibility
+  ParentFilingExemption: parent_filing_exemption
+  ApplicableEntityTypes: applicable_entity_types
+  SubmissionMethod: submission_method
+  LocalLanguage: local_language
+  EnglishAccepted: english_accepted

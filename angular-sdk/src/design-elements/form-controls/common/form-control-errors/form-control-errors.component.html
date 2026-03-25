@@ -1,0 +1,7 @@
+@if (displayErrors && !!errors) {
+    <div class="error-message">
+        @for (error of (errors | keyvalue); track error.key) {
+            <span>{{error.key | toErrorText | translate:error.value}}</span>
+        }
+    </div>
+}

@@ -1,0 +1,78 @@
+[
+    {
+        "title": "⚖\uFE0F Legal Disclaimer",
+        "text": [
+            "The Open Tax Calendar and associated tools are powered by open-source software developed by Algonomia SAS, licensed under the GNU AGPL.",
+            "The tax data points, structured obligations, scoring, and any outputs from the generative AI models are editorially curated and published by Open Tax Society. These are licensed under the Creative Commons BY-NC-SA 4.0 license.",
+            "Open Tax Calendar (OTC) is a collaborative and structured database of public information on international tax compliance, sourcing data from publicly available documents such as official government publications, international organizations, and open professional analyses. It is made available for free, under an open license for non-commercial reuse.",
+            "Use of the platform and its outputs—including reliability scores, jurisdictional comparisons, and AI-generated summaries—is subject to our [Terms of Use]. These outputs are meant for internal analysis, academic or policy use, or integration into automation solutions. They are not legal, financial, or tax advice and must be used responsibly.",
+            "Any organization using the platform must agree to the Terms of Use, and any contributor accepts that their inputs are governed under the same license. OTC is not targeted to users in the United States, China, Russia, or other jurisdictions restricting the open dissemination of legal or fiscal information. Use from these locations is at your own risk."
+        ]
+    },
+    {
+        "title": "\uD83D\uDCDA Legal Basis",
+        "text": [
+            "OTC’s legal and governance framework rests on:",
+            [
+                "French Intellectual Property Code (Code de la propriété intellectuelle): Factual data is not copyrightable (Article L112-1 & L112-3).",
+                "Directive 96/9/EC (EU Database Directive): The Open Tax Society does not reproduce any protected structure or substantial extraction from third-party proprietary databases.",
+                "Creative Commons BY-NC-SA 4.0 International License: All database content is shared under this license.",
+                "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                "General Data Protection Regulation (GDPR): Personal data of users is collected and stored securely in France with full user rights ensured.",
+                "EU Anti-SLAPP legal framework (Directive 2022/0117): The Open Tax Society reserves rights against abusive or strategic legal threats."
+            ]
+        ]
+    },
+    {
+        "title": "\uD83E\uDDE9 Data Sources and Public Availability",
+        "text": [
+            "Only data from publicly available, freely accessible sources are used. These include:",
+            [
+                "Government tax calendars, regulatory websites, or official notices.",
+                "International bodies (e.g., OECD, EU Commission).",
+                "Judicial or administrative rulings made available publicly.",
+                "Professional firm publications that were not paywalled or confidential at the time of access."
+            ],
+            "Contributors must verify that sources used are publicly available on the open web. Contributions citing confidential, paywalled, or unauthorized content will be rejected.",
+            "If a private publisher or firm believes their material was used inappropriately, they may contact otc-contribution@opentaxcalendar.com and provide:",
+            [
+                "Proof that the referenced source was not public at the time;",
+                "A takedown or dereferencing request signed by a legally authorized representative."
+            ]
+        ]
+    },
+    {
+        "title": "\uD83D\uDEE1\uFE0F Community Contributions & License Terms",
+        "text": [
+            "All user contributions fall under the CC BY-NC-SA 4.0 license.",
+            [
+                "By contributing, users affirm they have the right to share that data.",
+                "Contributions are limited to structured inputs (date, country, obligation type) or reliability ratings. No free text or comments are accepted.",
+                "Reliability scores and notes may be generated through AI and automated analysis. They reflect algorithmic editorial evaluations and not statements of fact.",
+                "Users accept that aggregated contributions may be used to produce rankings or comparisons that are shared on the platform, in newsletters, social media, or publications."
+            ],
+            "Contributors remain visible and credited (unless opted out) but waive the right to exclusivity or control over redistribution. Any submission may be removed if it violates the sourcing policy."
+        ]
+    },
+    {
+        "title": "\uD83E\uDD1D Main Partners",
+        "text": [
+            "Organizations that provide significant technical, financial, or visibility support to the platform may be acknowledged as Main Partners. Their status:",
+            [
+                "Is subject to an annual review;",
+                "Grants branding visibility and the ability to cite their support in their own materials;",
+                "Does not grant editorial control over the data, rankings, or scoring methods.",
+                "Permits the use of their logos only while actively listed as Main Partner."
+            ],
+            "Data shared by Main Partners not otherwise publicly available is incorporated under the CC BY-NC-SA license."
+        ]
+    },
+    {
+        "title": "\uD83C\uDF10 Territorial Scope",
+        "text": [
+            "OTC is developed, hosted, and governed under French and European law. Use of the platform from outside the EU, especially in jurisdictions such as the U.S., China, Russia, Turkey, Saudi Arabia, or others with restrictive data regimes, is at the user’s own legal risk.",
+            "The platform is not directed toward residents of these countries and should not be considered a solicitation, service, or advice offering in those regions.",
+            "For all inquiries, dereferencing requests, or corrections, contact: otc-contribution@opentaxcalendar.com."
+        ]
+    }
+]

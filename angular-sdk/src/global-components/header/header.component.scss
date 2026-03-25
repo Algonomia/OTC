@@ -1,0 +1,79 @@
+@use "../../css/media";
+
+.header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+
+    @include media.media('tabletL') {
+        padding: 1.25rem 0.5rem;
+    }
+
+    nav {
+        display: flex;
+
+        a {
+            text-decoration: none;
+            color: var(--main-4);
+            letter-spacing: 0.05em;
+
+            &.disabled-link {
+                color: var(--grey-5);
+                pointer-events: none;
+                cursor: default;
+            }
+        }
+    }
+
+    .active-link {
+        font-family: "Integral UI Bold", sans-serif;
+        position: relative;
+        letter-spacing: 0.044rem;
+        color: var(--main-4);
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            border-bottom: 2px solid var(--graph-orange-2);
+        }
+    }
+
+    .menu {
+        .icon-menu {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .menu-mobile {
+        position: absolute;
+        z-index: 100;
+        background-color: var(--grey-1);
+        width: var(--app-width);
+        height: calc(var(--app-height) - calc(var(--header-height-mobile) + 1px));
+        top: calc(var(--header-height-mobile) + 1px);
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .nav-mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            gap: 3rem;
+            margin: 2rem;
+            padding-right: 25px;
+            padding-top: 15px;
+
+            a {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

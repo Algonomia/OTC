@@ -1,0 +1,58 @@
+<app-space-left [firstTpl]="firstTpl" [secondTpl]="secondTpl" [minHeight]="500"></app-space-left>
+
+<ng-template #firstTpl>
+    <div class="first-tpl">
+        <div class="std-flex flex-wrap-tablet">
+            <app-global-filters style="flex: 1;" (submitted)="__filterValuesUI$.next($event)"></app-global-filters>
+            <app-contribution-bar style="flex: 1;"></app-contribution-bar>
+        </div>
+    </div>
+</ng-template>
+<ng-template #secondTpl>
+    <app-screen-size-handler [appSmallTemplate]="smallSize" [appNormalTemplate]="normalSize"></app-screen-size-handler>
+</ng-template>
+
+<ng-template #smallSize #normalSize>
+    <app-panel-synchro #panelsTpl [panels]="panels"></app-panel-synchro>
+
+    <ng-template #mapTpl>
+        <app-world-map [data]="__mapData" [valueKey]="'value'" [isActiveParamKey]="__MAP_ACTIVE_ISO2_KEY"></app-world-map>
+    </ng-template>
+    <ng-template #cardTpl>
+        <app-jurisdiction-card [data]="filteredCardData" [getIso2Callback]="getIso2Callback" [columns]="__otcLineColumns"></app-jurisdiction-card>
+    </ng-template>
+    <ng-template #tableTpl>
+        <app-algo-table [data]="filteredTableData"
+                        [columns]="__tableOtcLineColumns"
+                        [exportable]="isTableExportableCallback"
+                        [bordered]="false">
+        </app-algo-table>
+    </ng-template>
+</ng-template>
+
+<ng-template #cardHeaderTpl>
+    <div class="std-flex gap-10px">
+        <div style="position: relative; max-width: 50%">
+            @let placeholderCountries = 'OTCFront.CoreCommon.Countries' | translate;
+            <app-std-menu-overlay-adaptive [selectHandler]="countrySelectHandler"
+                                           [modalTitle]="placeholderCountries"
+                                           [placeholder]="placeholderCountries">
+            </app-std-menu-overlay-adaptive>
+        </div>
+        <div style="position: relative; max-width: 50%">
+            @let placeholderObligations = 'OTCFront.CoreCommon.Obligations' | translate;
+            <app-std-menu-overlay-adaptive [selectHandler]="obligationsSelectHandler"
+                                           [modalTitle]="placeholderObligations"
+                                           [placeholder]="placeholderObligations">
+            </app-std-menu-overlay-adaptive>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #tableHeaderTpl>
+    <div class="std-aligned gap-3 height-100" style="margin-left: 10px;">
+        <app-toggle [enabled]="(__subObligationsToggleSubject | async) ?? false" (enabledChange)="__updateSubObligationsToggle($event)" [text]="'OTCFront.Dashboard.table.showSubObligations' | translate"></app-toggle>
+        <app-toggle [enabled]="(__notesToggleSubject | async) ?? false" (enabledChange)="__updateNotesToggle($event)" [text]="'OTCFront.Dashboard.table.showNotes' | translate"></app-toggle>
+        <app-toggle [enabled]="(__refsToggleSubject | async) ?? false" (enabledChange)="__updateRefsToggle($event)" [text]="'OTCFront.Dashboard.table.showReferences' | translate"></app-toggle>
+    </div>
+</ng-template>

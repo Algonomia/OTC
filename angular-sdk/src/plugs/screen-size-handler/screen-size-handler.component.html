@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="screenSize">
+    <ng-template *ngSwitchCase="screenSizeEnum.small"
+                 [ngTemplateOutlet]="appSmallTemplate ?? (appIntermediaryTemplate ?? appNormalTemplate)">
+    </ng-template>
+    <ng-template *ngSwitchCase="screenSizeEnum.intermediary"
+                 [ngTemplateOutlet]="appIntermediaryTemplate ?? appNormalTemplate">
+    </ng-template>
+    <ng-template *ngSwitchCase="screenSizeEnum.normal"
+                 [ngTemplateOutlet]="appNormalTemplate">
+    </ng-template>
+</ng-container>

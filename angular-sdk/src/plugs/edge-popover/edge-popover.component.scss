@@ -1,0 +1,15 @@
+@use "../../css/colors";
+::ng-deep {
+    .p-popover {
+        --p-popover-background: var(--grey-0);
+        --p-popover-color: var(--main-4);
+        --p-popover-border-color: var(--grey-0);
+        --p-popover-content-padding: 0;
+        --p-popover-border-radius: 5px;
+    }
+
+    .p-popover-content {
+        overflow: hidden;
+        border-radius: var(--p-popover-border-radius);
+    }
+}

@@ -1,0 +1,84 @@
+RETRY TASK: Fix Penalty ComplexValue extraction errors (PATCH MODE)
+
+You previously extracted Penalty ComplexValue fields. Post-processing extra schema checks found ERRORS/WARNINGS for certain ComplexValue key(s).
+Your job now is to PATCH ONLY the failing key(s), using the SAME rules as the original system prompt, and produce corrected JSON.
+
+You are given (below):
+1) The ORIGINAL SYSTEM PROMPT used for the initial extraction (authoritative).
+2) The SOURCE TEXT (authoritative).
+3) The PREVIOUS OUTPUT for ONLY the failing keys (including value/notes/references/tag_notes/additional_values).
+4) The VALIDATION REPORT (errors and warnings), produced by an external checker.
+
+---------------------------
+(1) ORIGINAL SYSTEM PROMPT
+---------------------------
+<<ORIGINAL_SYSTEM_PROMPT>>
+
+---------------------------
+(2) SOURCE TEXT
+---------------------------
+<<SOURCE_TEXT>>
+
+--------------------------------------------
+(3) PREVIOUS OUTPUT (FAILING KEYS ONLY)
+--------------------------------------------
+<<FAILING_KEYS_PREVIOUS_OUTPUT_JSON>>
+
+-----------------------------------
+(4) VALIDATION REPORT (AUTHORITATIVE)
+-----------------------------------
+<<VALIDATION_REPORT_JSON>>
+
+====================
+YOUR TASK (PATCH MODE)
+====================
+For EACH failing ComplexValue key in (3):
+- Fix the ComplexValue and any related metadata so that it satisfies:
+  (a) the ORIGINAL SYSTEM PROMPT rules, AND
+  (b) the VALIDATION REPORT errors (warnings are optional improvements).
+- Make the MINIMUM changes necessary. Preserve any correct text already present.
+- Do NOT modify keys that are not included in (3).
+
+Penalty-specific hard requirements:
+- Root operator MUST be sum_when_true(...)
+- sum_when_true args MUST be an EVEN number of args:
+  (cond1, value1, cond2, value2, ...)
+- Each cond MUST be a boolean expression:
+  - a test operator (<=,==,&&,||,!), OR
+  - a boolean tag, OR
+  - a nested conditional/test expression that returns boolean.
+- Each value MUST represent a penalty amount:
+  - Single amount: numeric constant/tag or numeric expression (leaves must be numeric).
+  - Amount range: use to_range(numeric1, numeric2, ...) as the TOP-LEVEL value expression for that branch.
+    * Do NOT wrap a single scalar in to_range.
+    * Avoid nested to_range inside other operations.
+
+Range handling:
+- to_range takes >=2 numeric args (all numeric). If more than 2, downstream will take min/max; ordering is not critical.
+
+Tag notes & references hygiene:
+- Keep 'references' format exactly as required by the system prompt.
+- Keep existing 'notes' unless you need to change them to stay consistent with the corrected value.
+- If you change the ComplexValue and it changes which tags appear:
+  - ensure tag_notes includes explanations for all tags used (including in additional_values),
+  - remove tag_notes entries that refer to tags not used anymore.
+
+=====================
+OUTPUT FORMAT (STRICT)
+=====================
+Return ONLY valid JSON (no markdown, no extra text) in this exact shape:
+
+{
+  "<ComplexValue_key_1>": <corrected_full_field_object>,
+  "<ComplexValue_key_2>": <corrected_full_field_object>
+}
+
+=====================
+SELF-CHECK BEFORE YOU OUTPUT
+=====================
+For each key:
+- Ensure every ERROR in the VALIDATION REPORT is fixed.
+- Confirm root is sum_when_true(...) with even number of args.
+- Confirm condition/value alternating pattern is correct.
+- Confirm penalty values are numeric (scalar) or numeric to_range(...) (range).
+- Confirm tag_notes matches tags used (including years_ago/scope variants).

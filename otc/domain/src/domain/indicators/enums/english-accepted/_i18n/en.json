@@ -1,0 +1,26 @@
+{
+    "ObligationDueDateDomain": {
+        "EnglishAccepted": {
+            "FullyAccepted": {
+                "text": "Fully accepted",
+                "info": "English is fully acceptable."
+            },
+            "PartlyAccepted": {
+                "text": "Partly accepted",
+                "info": "English partly accepted or partial translation needed."
+            },
+            "AcceptedWithTranslationRequired": {
+                "text": "Accepted with translation required",
+                "info": "Must be accompanied by official translation."
+            },
+            "NotAccepted": {
+                "text": "Not accepted",
+                "info": "Must be in local language."
+            },
+            "NotApplicable": {
+                "text": "N/A",
+                "info": "Not applicable"
+            }
+        }
+    }
+}

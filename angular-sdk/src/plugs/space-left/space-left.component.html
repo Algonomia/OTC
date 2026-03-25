@@ -1,0 +1,8 @@
+<div style="height: 100%; width: 100%;" [ngClass]="wrapperClass" #resizableRef>
+    <div #first #resizableRef>
+        <ng-container *ngTemplateOutlet="firstTpl"></ng-container>
+    </div>
+    <div #second [style.height.px]="secondHeight" class="overflow-auto">
+        <ng-container *ngTemplateOutlet="secondTpl"></ng-container>
+    </div>
+</div>

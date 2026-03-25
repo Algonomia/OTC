@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>action / panel / reduce</title>
+    <g id="action-/-panel-/-reduce" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M26.5,17.45 L26.5,16.55 L20,16.55 C19.6962434,16.55 19.45,16.3037566 19.45,16 L19.45,9.5 L18.55,9.5 L18.55,16 C18.55,16.8008129 19.1991871,17.45 20,17.45 L26.5,17.45 Z M9.5,18.55 L9.5,19.45 L16,19.45 C16.3037566,19.45 16.55,19.6962434 16.55,20 L16.55,26.5 L17.45,26.5 L17.45,20 C17.45,19.1991871 16.8008129,18.55 16,18.55 L9.5,18.55 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

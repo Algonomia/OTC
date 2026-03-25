@@ -1,0 +1,7 @@
+<div class="flex" [pTooltip]="tooltipTemplate" [escape]="false" tooltipPosition="top">
+    <img src="assets/images/Warning.svg" class="warn-img" alt="warn-img"/>
+</div>
+
+<ng-template #tooltipTemplate>
+    <app-form-control-errors [displayErrors]="displayErrors" [errors]="errors"></app-form-control-errors>
+</ng-template>

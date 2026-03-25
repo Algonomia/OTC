@@ -1,0 +1,24 @@
+{
+    "Shared": {
+        "PeriodUnit": {
+            "Singular": {
+                "Second": "second",
+                "Minute": "minute",
+                "Hour": "hour",
+                "Day": "day",
+                "Week": "week",
+                "Month": "month",
+                "Year": "year"
+            },
+            "Plural": {
+                "Seconds": "seconds",
+                "Minutes": "minutes",
+                "Hours": "hours",
+                "Days": "days",
+                "Weeks": "weeks",
+                "Months": "months",
+                "Years": "years"
+            }
+        }
+    }
+}

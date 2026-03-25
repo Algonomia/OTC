@@ -1,0 +1,34 @@
+{
+  "name": "@otc/orm",
+  "description": "Apply / Update migration on your table that haven't been launch yet npx prisma migrate dev npx prisma migrate dev --name=\"migration_name\" npx prisma migrate dev --name=\"migration_name\" --create-only https://www.prisma.io/docs/orm/reference/prisma-cli-reference#migrate-dev",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run excel ./feed-database/main.ts && npm run execute",
+    "generate": "npx prisma generate",
+    "deploy": "npx prisma migrate deploy",
+    "execute": "sh ./prisma/custom_migration.sh",
+    "excel": "ts-node $1",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:create": "npx prisma migrate dev --create-only",
+    "reset-db": "npx prisma migrate reset --force",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Algonomia - Yannick XU <yannick.xu@algonomia.com>",
+  "contributors": [
+    "Algonomia - Youssef BALMA <youssef.balma@algonomia.com>"
+  ],
+  "license": "LGPLv3",
+  "dependencies": {
+    "@otc/domain": "file:../domain",
+    "@algonomia/ts-shared": "file:../../ts-shared",
+    "@prisma/client": "^6.10.1",
+    "exceljs": "^4.4.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "prisma": "^6.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

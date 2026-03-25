@@ -1,0 +1,10 @@
+@use "css/media";
+
+.source-content {
+    height: 100%;
+    width: 100%;
+
+    @include media.media('tabletL') {
+        min-height: 400px;
+    }
+}

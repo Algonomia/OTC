@@ -1,0 +1,33 @@
+@if (list) {
+    <app-screen-size-handler [appSmallTemplate]="sharedItemsShort" [appNormalTemplate]="sharedItems"></app-screen-size-handler>
+
+    <ng-template #sharedItemsShort>
+        <div class="overflow-hidden" [style.max-height.px]="max_height">
+            <app-slider-mobile [list]="list">
+                <ng-template #dataContent let-data="data">
+                    <ng-template [ngTemplateOutlet]="contentItemTemplate"
+                                 [ngTemplateOutletContext]="{ item: data }">
+                    </ng-template>
+                </ng-template>
+            </app-slider-mobile>
+        </div>
+    </ng-template>
+
+    <ng-template #sharedItems>
+        <div class="std-aligned gap-20px items pad-3" [style.max-height.px]="max_height">
+            @for (item of list; track item) {
+                <ng-template [ngTemplateOutlet]="contentItemTemplate"
+                             [ngTemplateOutletContext]="{ item: item }">
+                </ng-template>
+            }
+        </div>
+    </ng-template>
+}
+
+<ng-template #contentItemTemplate let-item="item">
+    <div #item>
+        <ng-template [ngTemplateOutlet]="contentTemplate"
+                     [ngTemplateOutletContext]="{ item: item }">
+        </ng-template>
+    </div>
+</ng-template>

@@ -1,0 +1,48 @@
+@use "media";
+
+.algo-dialog {
+    border: 1px solid var(--main-1) !important;
+    background-color: var(--grey-0) !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    color: var(--main-4) !important;
+    --p-dialog-content-padding: 5px;
+    overflow: hidden;
+}
+
+.p-dialog-mask {
+    background-color: rgba(228, 247, 255, 0.7) !important;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.p-dialog-content {
+    padding: 0 !important;
+}
+
+.p-dialog-header {
+    --p-dialog-header-padding: 1rem;
+
+    @include media.media('tabletL') {
+        --p-dialog-header-padding: 0.75rem;
+    }
+
+    @include media.media('mobileXL') {
+        --p-dialog-header-padding: 0.55rem;
+    }
+}
+
+.p-dialog-title {
+    --p-dialog-title-font-size:  1.125rem;
+    font-size: 1.125rem;
+    font-family: "Integral UI Regular", sans-serif;
+    font-weight: initial !important;
+    letter-spacing: 0.8px;
+    line-height: 1.5rem;
+}
+
+:root {
+    --p-button-text-secondary-hover-background: transparent !important;
+    --p-button-text-secondary-active-background: transparent !important;
+    --p-button-text-secondary-color: var(--main-4) !important;
+}

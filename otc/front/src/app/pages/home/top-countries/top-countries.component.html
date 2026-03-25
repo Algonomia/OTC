@@ -1,0 +1,7 @@
+@if (top_countries) {
+    <app-slider [list]="top_countries">
+        <ng-template #contentTemplate let-country="item">
+            <app-card-country [country]="country"></app-card-country>
+        </ng-template>
+    </app-slider>
+}

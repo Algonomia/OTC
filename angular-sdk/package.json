@@ -1,0 +1,86 @@
+{
+    "name": "@algonomia/angular-sdk",
+    "version": "1.0.0",
+    "description": "Angular UI component library by Algonomia — design elements, charts, smart forms, export services and utilities for Angular 21+ standalone applications.",
+    "keywords": [
+        "angular",
+        "angular-library",
+        "components",
+        "ui",
+        "design-system",
+        "sdk",
+        "standalone",
+        "charts",
+        "forms",
+        "table",
+        "i18n"
+    ],
+    "author": "Algonomia - Hakim NEMAR <hakim.nemar@algonomia.com>",
+    "contributors": [
+        "Algonomia - Youssef BALMA <youssef.balma@algonomia.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "license": "LGPLv3",
+    "homepage": "",
+    "main": "fesm2022/angular-sdk.mjs",
+    "types": "types/angular-sdk.d.ts",
+    "bin": {
+        "algonomia-i18n": "scripts/i18n-generator/generate-i18n.js"
+    },
+    "scripts": {
+        "ng": "ng",
+        "svg:sprite": "node scripts/generate-sprite/generate-sprite.js",
+        "build": "npm run svg:sprite && ng build angular-sdk",
+        "build:watch": "ng build angular-sdk --watch --configuration development",
+        "test": "ng test",
+        "test:ci": "ng test --no-watch --browsers=ChromeHeadlessNoSandbox"
+    },
+    "module": "dist/fesm2022/angular-sdk.mjs",
+    "typings": "dist/types/angular-sdk.d.ts",
+    "dependencies": {
+        "tslib": "^2.8.1"
+    },
+    "peerDependencies": {
+        "@algonomia/ts-shared": "file:../ts-shared",
+        "@amcharts/amcharts5": "^5.16.0",
+        "@amcharts/amcharts5-geodata": "^5.1.5",
+        "@angular/animations": "^21.2.0",
+        "@angular/common": "^21.2.0",
+        "@angular/core": "^21.2.0",
+        "@angular/forms": "^21.2.0",
+        "@angular/platform-browser": "^21.2.0",
+        "@angular/router": "^21.2.0",
+        "@ngx-translate/core": "^17.0.0",
+        "exceljs": "^4.4.0",
+        "file-saver": "^2.0.5",
+        "html2canvas": "^1.4.1",
+        "pdfmake": "~0.2.23",
+        "primeng": "^21.1.3",
+        "rxjs": "~7.8.2"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^21.2.0",
+        "@angular/cli": "^21.2.0",
+        "@angular/compiler": "^21.2.0",
+        "@angular/compiler-cli": "^21.2.0",
+        "@types/file-saver": "^2.0.7",
+        "@types/jasmine": "~5.1.15",
+        "@types/pdfmake": "~0.2.13",
+        "jasmine-core": "~5.13.0",
+        "karma": "~6.4.4",
+        "karma-chrome-launcher": "~3.2.0",
+        "karma-coverage": "~2.2.1",
+        "karma-jasmine": "~5.1.0",
+        "karma-jasmine-html-reporter": "~2.2.0",
+        "ng-packagr": "^21.2.0",
+        "svg-sprite": "^2.0.4",
+        "typescript": "~5.9.3",
+        "zone.js": "~0.16.0"
+    }
+}

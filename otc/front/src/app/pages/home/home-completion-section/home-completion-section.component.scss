@@ -1,0 +1,17 @@
+@use "css/media";
+
+.section-title {
+    gap: 10px;
+
+    @include media.media('tabletL') {
+        gap: 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.cta-access {
+    @include media.media('tabletL') {
+        display: none;
+    }
+}

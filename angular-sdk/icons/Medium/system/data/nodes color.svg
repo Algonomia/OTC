@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> system / data / nodes color</title>
+    <g id="-system-/-data-/-nodes-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="#142846" fill-rule="nonzero" cx="25.5" cy="11.5" r="4.5"></circle>
+        <path d="M18.0466194,11.2 L18.0466194,12.8 L10,12.8 C8.78497355,12.8 7.8,13.7849736 7.8,15 L7.8,22 C7.8,23.2150264 8.78497355,24.2 10,24.2 L25,24.2 C26.2150264,24.2 27.2,23.2150264 27.2,22 L27.2,18 L28.8,18 L28.8,22 C28.8,24.098682 27.098682,25.8 25,25.8 L10,25.8 C7.90131795,25.8 6.2,24.098682 6.2,22 L6.2,15 C6.2,12.901318 7.90131795,11.2 10,11.2 L18.0466194,11.2 Z" id="Rectangle" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

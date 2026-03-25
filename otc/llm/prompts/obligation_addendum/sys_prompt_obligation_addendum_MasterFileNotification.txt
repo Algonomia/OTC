@@ -1,0 +1,12 @@
+OBLIGATION CONTEXT ADDENDUM — MasterFileNotification
+
+Definition
+- MasterFileNotification = a procedural notice designating which entity will file a single Master File (or equivalent notification requirement).
+- This is DISTINCT from actually preparing/maintaining the Master File content.
+
+Recognition cues / common aliases
+- "Master File notification", "designation of Master File filing entity", "designated filer notice"
+- "notification of the entity responsible for Master File submission"
+
+What NOT to confuse with
+- The Master File itself (use MasterFile).

@@ -1,0 +1,21 @@
+{{- if .Values.database.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: database-pvc
+  namespace: {{ .Release.Namespace }}
+  labels:                                                                                              
+    app.kubernetes.io/managed-by: {{ .Release.Service }}                                               
+  annotations:                                                                                         
+    meta.helm.sh/release-name: {{ .Release.Name }}                                                     
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  {{- if .Values.database.persistentVolumeClaim.storageClassName }}
+  storageClassName: {{ .Values.database.persistentVolumeClaim.storageClassName }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.database.persistentVolumeClaim.storage }}
+{{- end }}

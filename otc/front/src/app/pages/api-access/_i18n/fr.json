@@ -1,0 +1,38 @@
+{
+    "OTCFront": {
+        "Api": {
+            "Panels": {
+                "Key": {
+                    "title": "Générer une clé API",
+                    "content": "Puisque vous êtes connecté, vous pouvez générer une clé privée pour accéder à l'API du calendrier fiscal ouvert. Une fois la clé générée, utilisez-la pour connecter notre base de données à votre propre projet."
+                },
+                "Document": {
+                    "title": "Documentation de l'API",
+                    "content": "Vous pouvez consulter notre wiki pour comprendre tous les aspects et détails de l'architecture et du calcul des données. N'hésitez pas à parcourir toutes les sections."
+                }
+            },
+            "GenerateKey": "Générer la clé",
+            "AccessDocNow": "Accéder au doc maintenant",
+            "columns": {
+                "status": {
+                    "text": "Statut"
+                },
+                "accessKey": {
+                    "text": "Clé d'accès"
+                },
+                "lastUsed": {
+                    "text": "Dernière utilisation"
+                },
+                "expires_at": {
+                    "text": "Expiration"
+                },
+                "age": {
+                    "text": "Âge"
+                }
+            },
+            "ClipboardTokenText": "Enregistrez les informations ci-dessus ! C'est la seule fois où vous pourrez voir le jeton d'accès. Si vous le perdez, vous devrez créer une nouvelle clé API.",
+            "AccessKey": "Clé d'accès",
+            "AccessToken": "Jeton d'accès"
+        }
+    }
+}

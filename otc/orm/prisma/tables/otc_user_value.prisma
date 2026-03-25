@@ -1,0 +1,27 @@
+model OtcUserValue {
+    id                           BigInt                 @id @default(autoincrement())
+    Jurisdiction                 String                 @map("jurisdiction")
+    ObligationType               ObligationTypeId       @map("obligation_type_id")
+
+    Source                       Source                 @relation(fields: [SourceId], references: [id], onDelete: Restrict)
+    SourceId                     Int                    @map("source_id")
+
+    Version                      DateTime               @map("version") @default(now())
+    Key                          String                 @map("key")
+    Value                        Json                   @map("value")
+    Notes                        String                 @map("notes") @default("")
+    Reference                    String                 @map("reference") @default("")
+    AdditionalValues             Json?                   @map("additional_values")
+
+    Status                       ValuesStatus           @map("status") @default(WaitingForAdminValidation)
+    AdminComment                 String                 @map("admin_comment") @default("")
+
+    UserId                       String                 @map("user_id")
+    User                         AuthUser               @relation(fields: [UserId], references: [id], onDelete: Restrict)
+
+
+    ValueRates                   ValueRate[]
+
+    @@index([SourceId, Jurisdiction, ObligationType])
+    @@map("otc_user_value")
+}

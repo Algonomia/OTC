@@ -1,0 +1,66 @@
+<div class="cgu">
+    <div class="header std-aligned pad-1 gap-1">
+        <img src="assets/logo/Logo/Logo Medium.svg" class="logo" alt="logo_icon"/>
+        <p class="title">{{ 'OTCFront.CGU.TermsOfUse' | translate }}</p>
+    </div>
+
+    <div #scrollableContent class="content-container pad-2 gap-1">
+        @for (content of cgu; track i; let i = $index) {
+            <ng-container [ngTemplateOutlet]="contentTemplate"
+                          [ngTemplateOutletContext]="{ content: content, index: i + 1 }">
+            </ng-container>
+
+            @if (content.subsection) {
+                @for (sub_content of content.subsection; track sub_i; let sub_i = $index) {
+                    <ng-container [ngTemplateOutlet]="contentTemplate"
+                                  [ngTemplateOutletContext]="{ content: sub_content, index: (i + 1) + '.' + (sub_i + 1) }">
+                    </ng-container>
+                }
+            }
+
+            @if (i < (cgu.length - 1)) {
+                <hr class="hr"/>
+            }
+        }
+    </div>
+
+    <div class="footer std-aligned justify-between pad-2">
+        <app-lang-selector></app-lang-selector>
+
+        <app-button-main-action text="OTCFront.CoreCommon.Accept"
+                                (click)="acceptCGU()">
+        </app-button-main-action>
+    </div>
+</div>
+
+<ng-template #contentTemplate let-content="content" let-index="index">
+    <div class="section">
+        <h5 *ngIf="content.title !== undefined">
+            {{ index }} {{ content.title | translate }}
+        </h5>
+
+        <div class="content">
+            @for (text of content.text; track i; let i = $index) {
+                <ng-container [ngTemplateOutlet]="renderText" [ngTemplateOutletContext]=" { text: text }"></ng-container>
+            }
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #renderText let-text="text">
+    @if (isString(text)) {
+        <p class="text">{{ text | translate }}</p>
+    } @else {
+        <ul>
+            @for (item of text; track i; let i = $index) {
+                @if (isString(item)) {
+                    <li>{{ item | translate }}</li>
+                } @else {
+                    <ng-container [ngTemplateOutlet]="renderText" [ngTemplateOutletContext]=" { text: item }"></ng-container>
+                }
+            }
+        </ul>
+    }
+</ng-template>
+

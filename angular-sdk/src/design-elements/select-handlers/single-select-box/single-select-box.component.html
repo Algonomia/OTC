@@ -1,0 +1,33 @@
+@if (!!selectHandler && item !== null && item !== undefined) {
+    <div [class.cursor-pointer]="!disabled" (click)="onClick($event)">
+        @let isSelected = selectHandler | selected:item | async;
+        @let weight = isSelected ? 'Medium' : 'Normal';
+
+        @switch (selectHandler.selectionMode) {
+            @case (ESelectionMode.none) {
+                <app-algo-icon [class.light-color]="colorTheme === 'light'"
+                               class="icon-light std-aligned-centered"
+                               [weight]="weight"
+                               [name]="isSelected ? 'Action/Toggle/RadioSelect' : 'Action/Toggle/RadioEmpty'"
+                >
+                </app-algo-icon>
+            }
+            @case (ESelectionMode.single) {
+                <app-algo-icon [class.light-color]="colorTheme === 'light'"
+                               class="icon-light std-aligned-centered"
+                               [weight]="weight"
+                               [name]="isSelected ? 'Action/Toggle/RadioSelect' : 'Action/Toggle/RadioEmpty'"
+                >
+                </app-algo-icon>
+            }
+            @case (ESelectionMode.multiple) {
+                <app-algo-icon [class.light-color]="colorTheme === 'light'"
+                               class="icon-light std-aligned-centered"
+                               [weight]="weight"
+                               [name]="isSelected ? 'Action/Toggle/CheckboxSelect' : 'Action/Toggle/CheckboxEmpty'"
+                >
+                </app-algo-icon>
+            }
+        }
+    </div>
+}

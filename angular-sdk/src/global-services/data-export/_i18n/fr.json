@@ -1,0 +1,17 @@
+{
+    "AngularSdk": {
+        "GenericPdfExport": {
+            "DocumentName": "Document_{{date}}.pdf",
+            "HeaderText": "Dates d'échéance des obligations",
+            "FooterText": "© Open Tax Calendar {{year}}",
+            "Subject": "Informations sur les dates d'échéance des obligations",
+            "Errors": {
+                "GenerationFailed": "Échec de la génération du PDF:",
+                "ExportFailed": "Échec de l'exportation au format PDF:",
+                "FailedToDecodeFile": "Échec du décodage de la police: {{file}}",
+                "FailedToLoadAsset": "Échec du chargement du fichier {{asset}}:"
+            },
+            "Creator": "Système PDF Algonomia"
+        }
+    }
+}

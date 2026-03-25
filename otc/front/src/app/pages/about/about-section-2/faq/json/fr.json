@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Qu'est-ce que l'Open Tax Calendar ?",
+        "text": "L'Open Tax Calendar est un projet en accès libre qui collecte, structure et publie les échéances fiscales à travers différentes juridictions. Il est conçu pour un usage mondial par les entreprises multinationales, les chercheurs et les fournisseurs de technologies fiscales."
+    },
+    {
+        "title": "Qui gère l'Open Tax Calendar ?",
+        "text": "Il est administré par l'Open Tax Society, une association française à but non lucratif (loi 1901), et maintenu techniquement par Algonomia SAS, qui développe et maintient le logiciel sous licences open source."
+    },
+    {
+        "title": "Quel type de données contient le calendrier ?",
+        "text": "Uniquement des informations fiscales factuelles, publiques, telles que les dates de dépôt, les échéances de paiement, les déclarations périodiques et les périmètres juridictionnels. Chaque entrée est liée à sa source publique originale."
+    },
+    {
+        "title": "D'où proviennent les données ?",
+        "text": "Les sources incluent les administrations fiscales nationales, les organisations internationales, les bulletins gouvernementaux et les rapports professionnels — tous librement accessibles sur le web au moment de l’extraction."
+    },
+    {
+        "title": "Puis-je contribuer au calendrier ?",
+        "text": "Oui, toute personne peut contribuer en remplissant des champs structurés avec des informations publiques et sourcées. La saisie de texte libre n’est pas autorisée. Les contributions sont validées éditorialement par l'Open Tax Society."
+    },
+    {
+        "title": "Les données sont-elles vérifiées ?",
+        "text": "Oui, chaque entrée est vérifiée pour son origine publique. Les utilisateurs peuvent également attribuer un score de fiabilité et une note, qui peuvent être générés par IA et agrégés pour plus de transparence."
+    },
+    {
+        "title": "S'agit-il d'un service commercial ?",
+        "text": "Non. L'Open Tax Calendar est un projet non commercial et open source. Vous pouvez l'utiliser librement sous licence Creative Commons BY-NC-SA 4.0, qui interdit la revente directe mais autorise l’intégration dans des outils commerciaux."
+    },
+    {
+        "title": "Sous quelle licence est le logiciel ?",
+        "text": "Le code source, incluant l’interface utilisateur et la logique d’IA générative, est développé par Algonomia SAS et publié sous licence GNU AGPL v3 — garantissant un usage ouvert et réciproque."
+    },
+    {
+        "title": "Puis-je intégrer ces données dans mon application ?",
+        "text": "Oui, via l’API publique. Cependant, les clés API sont délivrées après vérification organisationnelle afin d’assurer un usage responsable. L’utilisation de l’API est suivie, sans limitation stricte, pour garantir transparence et prévention des abus."
+    },
+    {
+        "title": "Quelles sont les protections légales du projet ?",
+        "text": "Les données factuelles structurées ne sont pas protégées par le droit d’auteur selon la loi française et européenne. Le projet inclut des procédures de désindexation et de règlement des litiges, et est hébergé en France sous juridiction française."
+    },
+    {
+        "title": "Les entités américaines ou britanniques peuvent-elles utiliser ces données ?",
+        "text": "Oui, mais à leurs propres risques juridiques. La plateforme ne cible pas les utilisateurs hors UE, et aucune garantie n’est donnée quant à la conformité aux normes juridiques non-européennes."
+    },
+    {
+        "title": "Que faire si un éditeur privé souhaite qu’une source soit retirée ?",
+        "text": "Il doit contacter otc-contribution@opentaxcalendar.com et prouver que le contenu n’était pas librement accessible sur le web ouvert au moment de la référence."
+    },
+    {
+        "title": "Les administrations fiscales nationales peuvent-elles collaborer ?",
+        "text": "Oui. Elles peuvent demander le statut de contributeur privilégié pour alimenter directement des données officielles dans un format structuré. Cela requiert un engagement formel d’accès public."
+    },
+    {
+        "title": "À qui appartiennent les données et la plateforme ?",
+        "text": "L’Open Tax Society est responsable et propriétaire des données structurées. Algonomia SAS détient la propriété du logiciel et de l’infrastructure. Tout le contenu est doublement licencié : AGPL pour le code, CC BY-NC-SA pour les données."
+    },
+    {
+        "title": "Mon organisation peut-elle devenir un Partenaire Principal ?",
+        "text": "Oui. Les Partenaires Principaux sont des institutions ou entreprises qui contribuent significativement (financièrement ou en nature) à l’hébergement, au développement ou au contenu. Ils sont crédités sur la page d’accueil et dans le dépôt public, avec un statut renouvelable."
+    }
+]

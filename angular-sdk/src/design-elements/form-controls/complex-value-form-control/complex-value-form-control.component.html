@@ -1,0 +1,16 @@
+@if (formControl) {
+    <app-form-control-template
+        [inputTpl]="inputTpl"
+        [required]="required"
+        [label]="label"
+        [displayErrors]="formControl.touched"
+        [errors]="formControl.errors"
+    >
+    </app-form-control-template>
+
+    <ng-template #inputTpl>
+        <app-complex-value-input [TAG_LIST]="tag_list" [SCOPE_LIST]="scope_list" [complexValue]="formControl.value" [expected_type]="expected_type"
+                                 [required]="required" (complexValueChange)="formControl.setValue($event)">
+        </app-complex-value-input>
+    </ng-template>
+}

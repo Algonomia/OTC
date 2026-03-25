@@ -1,0 +1,21 @@
+<app-header [isConnected$]="authLinkedinService.isConnected$"
+            [extraBtnsRef]="extraBtns"
+            [logoRef]="logo">
+</app-header>
+
+<ng-template #logo>
+    <app-logo logo_light="assets/logo/Logo/Logo Light.svg"
+              logo_regular="assets/logo/Logo/Logo Regular.svg"
+              logo_medium="assets/logo/Logo/Logo Medium.svg"
+              wordmark_light="assets/logo/Wordmark/Wordmark Light.svg"
+              wordmark_regular="assets/logo/Wordmark/Wordmark Regular.svg"
+              wordmark_medium="assets/logo/Wordmark/Wordmark Medium.svg"
+              short_wordmark_light="assets/logo/Short wordmark/Short wordmark Light.svg"
+              short_wordmark_regular="assets/logo/Short wordmark/Short wordmark Regular.svg"
+              short_wordmark_medium="assets/logo/Short wordmark/Short wordmark Medium.svg">
+    </app-logo>
+</ng-template>
+
+<ng-template #extraBtns>
+    <app-linkedin-connect></app-linkedin-connect>
+</ng-template>

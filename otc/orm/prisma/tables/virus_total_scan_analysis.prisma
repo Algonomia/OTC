@@ -1,0 +1,13 @@
+model VirusTotalScanAnalysis {
+    Id           BigInt     @id @default(autoincrement()) @map("id")
+    ScanId       String     @map("scan_id") @unique
+    ScanStatus   String     @map("scan_status")
+    CreatedAt    DateTime   @map("created_at") @default(now())
+    UpdatedAt    DateTime   @map("updated_at") @default(now()) @updatedAt
+
+    Source       Source     @relation(fields: [SourceId], references: [id], onDelete: Cascade)
+    SourceId     Int        @map("source_id") @unique
+
+    @@index([SourceId])
+    @@map("scan_analysis")
+}

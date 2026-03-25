@@ -1,0 +1,17 @@
+<div class="text-cropped-container">
+    <div [ngClass]="textClass" class="text-cropped"
+         appMiddleEllipsis [originalText]="text" (isCropped)="onTruncationChange($event)">
+    </div>
+
+    @if (isTruncated) {
+        <app-edge-popover styleClass="tooltip-popover" [triggerIsOpenTpl]="iconTpl" [contentTpl]="contentTpl"></app-edge-popover>
+    }
+
+    <ng-template #iconTpl>
+        <app-algo-icon class="cursor-pointer info-icon" name="People/User/Info"></app-algo-icon>
+    </ng-template>
+
+    <ng-template #contentTpl>
+        <div class="text-cropped-tooltip">{{ text }}</div>
+    </ng-template>
+</div>

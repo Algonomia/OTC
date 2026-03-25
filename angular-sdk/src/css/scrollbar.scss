@@ -1,0 +1,36 @@
+* {
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar {
+        height: 12px;
+        width: 12px;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background:  var(--main-1);
+        border: 4px solid transparent;
+        background-clip: padding-box;
+        cursor: url('../assets/Cursors/Hover grab.svg') 12 10, grab !important;
+
+        &:hover {
+            background:  var(--main-2);
+            background-clip: padding-box;
+        }
+
+        &:active {
+            cursor: url('../assets/Cursors/Grab.svg') 12 10, grabbing !important;
+        }
+    }
+
+    @-moz-document url-prefix() {
+        scrollbar-width: auto;
+        scrollbar-color: var(--grey-7) transparent;
+    }
+}

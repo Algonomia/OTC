@@ -1,0 +1,9 @@
+{
+    "AngularSdk": {
+        "EditTag": {
+            "Tag": "Tag",
+            "Scope": "Scope",
+            "RefYearNMin": "Reference year N - "
+        }
+    }
+}

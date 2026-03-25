@@ -1,0 +1,386 @@
+[
+    {
+        "title": "Introduction",
+        "text": [
+            "Les présentes Conditions d’Utilisation (les « Conditions ») régissent votre accès à la plateforme Open Tax Calendar (la « Plateforme ») ainsi que son utilisation. Elle est exploitée par l’« Open Tax Society » (OTS). La Plateforme fournit des données ouvertes, des outils, une API et des fonctionnalités collaboratives relatives aux échéances fiscales internationales.",
+            "En créant un compte, en utilisant l’API ou en soumettant des données, vous acceptez d’être lié par ces Conditions.",
+            "Ces Conditions s’appliquent à tous les types d’utilisateurs, notamment:",
+            [
+                "Les utilisateurs généraux et les consommateurs de l’API",
+                "Les contributeurs de données",
+                "Les Partenaires Institutionnels Principaux",
+                "Les administrations fiscales participantes en tant que contributeurs privilégiés"
+            ]
+        ]
+    },
+    {
+        "title": "Objectif et nature open-source",
+        "text": [
+            "La Plateforme fournit des données factuelles structurées extraites de documents et sites web accessibles au public, dans le but d’améliorer la conformité fiscale, la recherche et l’automatisation.",
+            "L’infrastructure logicielle (interface utilisateur, systèmes backend et composants d’IA générative) est développée et maintenue par Algonomia SAS. Ce logiciel est sous licence GNU Affero General Public License (AGPL), permettant sa réutilisation et modification selon les conditions open-source réciproques.",
+            "Tous les points de données fiscales structurées et modules logiques fournis via la Plateforme sont créés sous la responsabilité éditoriale de l’association à but non lucratif Open Tax Society, régie par la loi française de 1901. Ces données sont publiées sous licence Creative Commons BY-NC-SA 4.0..",
+            "OTS s’engage à maintenir ce projet en open-source et accessible au public sous cette licence.",
+            "Même si les présentes Conditions peuvent être modifiées, OTS ne révoquera pas le caractère ouvert du jeu de données ni sa disponibilité publique non-commerciale."
+        ]
+    },
+    {
+        "title": "Propriété intellectuelle et licences des éléments de la Plateforme",
+        "text": [
+            "Tous les éléments de marque (nom « Open Tax Calendar », identité visuelle, design du site, logo, apparence générale) sont la propriété exclusive d’OTS et ne peuvent être reproduits ou réutilisés sans autorisation écrite.",
+            "Le code source des composants d’IA générative et la structure de données sous-jacente sont publiés sous licence AGPL. Toute œuvre dérivée ou connectée doit rester ouverte selon les mêmes termes.",
+            "Les ensembles de données publiées et contenus générés par les utilisateurs sont sous licence Creative Commons BY-NC-SA 4.0. Ce modèle de double licence assure transparence et protection des contributions open-source et non-commerciales."
+        ]
+    },
+    {
+        "title": "Données publiques et licences",
+        "text": [
+            "Les jeux de données disponibles sur la Plateforme sont exclusivement composés d’informations factuelles extraites de sources librement accessibles:",
+            [
+                "Publications gouvernementales et bulletins officiels",
+                "Décisions de justice et avis administratifs",
+                "Rapports d’organisations internationales (OCDE, ONU, UE, etc.)",
+                "Publications professionnelles librement diffusées (livres blancs, lettres d'information, alertes fiscales d’auditeurs, cabinets juridiques ou de conseil)"
+            ],
+            "Seuls les documents librement accessibles en ligne sans inscription ni paiement sont utilisés. Les soumissions fondées sur des contenus payants ou non publics sont refusées.",
+            "Toutes les données structurées produites à partir de ces sources, ainsi que les contributions des utilisateurs, sont sous licence CC BY-NC-SA 4.0",
+            "Dans le cadre de cette licence:",
+            [
+                "Vous pouvez réutiliser, partager et adapter les données à des fins non commerciales, avec mention de la source.",
+                "L'utilisation des données dans des outils commerciaux pour l'automatisation, l'analyse interne ou les flux de travail de conformité est autorisée, à condition que l'ensemble de données lui-même ne soit pas revendu ou redistribué en tant que produit autonome."
+            ]
+        ],
+        "subsection": [
+            {
+                "title": "Déréférencement des sources privées",
+                "text": [
+                    "Si une organisation privée estime qu’un document référencé sur la Plateforme n’était pas accessible publiquement, elle peut demander son déréférencement.",
+                    "Cette demande doit:",
+                    [
+                        "Être soumise par un représentant légal autorisé",
+                        "Identifier précisément le document ou l’URL",
+                        "Fournir une preuve concrète et vérifiable que le contenu était:",
+                        [
+                            "Protégé (paywall, accès restreint ou non publié), ou",
+                            "Mis en ligne par erreur ou en violation du droit d’auteur ou de confidentialité"
+                        ]
+                    ],
+                    "La charge de la preuve incombe entièrement au demandeur. Les déclarations générales sans justificatif ne seront pas acceptées.",
+                    "Envoyer les demandes à : otc-contribution@opentaxcalendar.com.",
+                    "Si la réclamation est jugée valide, la référence sera supprimée ou remplacée, sans reconnaissance de responsabilité."
+                ]
+            },
+            {
+                "title": "Statut de contributeur privilégié pour les administrations fiscales",
+                "text": [
+                    "Les autorités fiscales nationales peuvent demander un statut de contributeur privilégié, incluant:",
+                    [
+                        "Meilleure visibilité de leurs sources de données",
+                        "Mention sur la Plateforme comme contributeur autorisé",
+                        "Aide pour la mise en forme ou l’intégration de leurs publications officielles"
+                    ],
+                    "Elles doivent s’engager à fournir des données officielles et à jour dans le format requis.",
+                    "Demandes à envoyer à : otc-contribution@opentaxcalendar.com."
+                ]
+            },
+            {
+                "title": "Définition de « usage commercial »",
+                "text": [
+                    "Est considéré comme usage commercial tout usage visant à générer un gain monétaire direct via la revente, la sous-licence ou l’intégration du jeu de données comme produit principal.",
+                    "L’utilisation interne par une entreprise (automatisation, analyse, services clients) est permise à condition de ne pas redistribuer les données comme produit autonome.",
+                    "OTS se réserve le droit d’évaluer au cas par cas selon l’intention, le conditionnement et la valeur créée."
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Contributions",
+        "text": [
+            "Les contributeurs doivent fournir uniquement des données factuelles extraites de documents publics accessibles librement (publications officielles, décisions de justice, réglementations, lettres professionnelles).",
+            "En soumettant une contribution, vous déclarez que:",
+            [
+                "Vous avez légalement le droit d’accéder à la source",
+                "Le contenu était public au moment de l’extraction",
+                "Vous ne violez aucun droit d’auteur ou de confidentialité",
+                "Vous autorisez OTS à redistribuer votre contribution sous licence CC BY-NC-SA 4.0"
+            ],
+            "OTS peut:",
+            [
+                "Rejeter, modifier ou supprimer toute contribution non conforme",
+                "Demander des précisions ou preuves",
+                "Conserver un historique des contributions pour contrôle qualité"
+            ],
+            "Les contributeurs qui soumettent intentionnellement ou de manière répétée un contenu trompeur, invérifiable ou non autorisé peuvent:",
+            [
+                "voir leurs contributions rejetées ou supprimées",
+                "être signalé publiquement dans le tableau de bord ou les journaux des contributeurs",
+                "être suspendus ou interdits de contribution de façon permanente"
+            ],
+            "OTS prend au sérieux l'intégrité des données afin de préserver la crédibilité et le statut juridique de la plateforme. L'utilisation inappropriée des fonctions de collaboration de la plateforme peut entraîner des mesures d'application."
+        ]
+    },
+    {
+        "title": "Utilisation des contributions pour les classements publics",
+        "text": [
+            "En contribuant, vous acceptez qu’OTS utilise vos données de manière agrégée ou anonymisée pour générer:",
+            [
+                "Classements publics",
+                "Visualisations comparatives ou points forts",
+                "Notes de fiabilité et partitions"
+            ],
+            "Ces résultats peuvent être publiés dans des bulletins d'information, des articles de blog, des médias sociaux ou des rapports publics. Si vous avez accepté d'être cité, une mention appropriée sera attribuée."
+        ],
+        "subsection": [
+            {
+                "title": "Notes de fiabilité et notes générées par l'IA",
+                "text": [
+                    "OTS peut attribuer à chaque source ou contribution une note de fiabilité, accompagnée d'une brève « note de fiabilité », afin d'assurer la transparence sur les points suivants:",
+                    [
+                        "Complétude et cohérence des sources",
+                        "Pertinence juridictionnelle",
+                        "Fréquence des mises à jour",
+                        "Qualité de la contribution ou vérifiabilité"
+                    ],
+                    "Ces notes sont générées par l'IA - et contiennent donc des éléments probabilistes - en utilisant la même méthodologie structurée que celle qui régit l'extraction et le formatage des données. Bien qu'un contrôle humain puisse s'appliquer dans certains cas, le contenu des notes de fiabilité est principalement produit par des systèmes génératifs formés sur la base de lignes directrices éditoriales et politiques accessibles au public.",
+                    "Les notes et les commentaires sont destinés à fournir une transparence contextuelle et non des jugements définitifs. La méthodologie de notation est ouvertement documentée et les notes visibles par le public sont basées sur une logique anonyme ou agrégée. Les notes des contributeurs individuels ne sont visibles que par les utilisateurs authentifiés."
+                ]
+            },
+            {
+                "title": "Limitation de la responsabilité",
+                "text": [
+                    "Tous les scores, classements et notes générés par l'IA sont fournis à titre d'information et d'analyse uniquement. Ils ne constituent pas des évaluations juridiques, des approbations ou des garanties factuelles.",
+                    "OTS décline expressément toute responsabilité en ce qui concerne:",
+                    [
+                        "L'impact d'une partition ou d'une note sur la réputation d'une source ou d'un contributeur",
+                        "Les plaintes pour diffamation, fausse déclaration ou déloyauté éditoriale",
+                        "Conséquences commerciales, juridiques ou en termes de réputation de l'utilisation de ces résultats"
+                    ],
+                    "Ces éléments représentent des expressions éditoriales ou des évaluations automatisées, et non des évaluations formelles ou réglementées"
+                ]
+            },
+            {
+                "title": "Droit de demander une révision ou une clarification",
+                "text": [
+                    "Tout organisme ou contributeur mentionné dans une partition ou une note peut:",
+                    [
+                        "Demander une explication de la méthodologie",
+                        "Apporter des précisions contextuelles",
+                        "Proposer des corrections ou des données supplémentaires"
+                    ],
+                    "Les demandes peuvent être soumises à l'adresse suivante : otc-contribution@opentaxcalendar.com.OTS examinera de bonne foi les demandes valables, mais ne garantit pas la modification ou la correction des données."
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Principaux partenaires",
+        "subsection": [
+            {
+                "title": "Principaux partenaires et contributions financières",
+                "text": [
+                    "Les partenaires principaux sont des organisations ou des contributeurs individuels qui, après validation par l'Open Tax Society (OTS), se sont engagés à apporter un soutien substantiel et durable au projet. Ce soutien peut prendre la forme de contributions de données structurées, d'hébergement ou d'infrastructure technique, de ressources d'ingénierie, d'assistance promotionnelle ou de contributions financières.",
+                    "Les partenaires principaux seront reconnus publiquement sur la page d'accueil de la plateforme et dans la section « À propos ». L'ordre de la liste reflète l'importance relative de la contribution de chaque partenaire. Les contributions sont réévaluées chaque année et l'OTS se réserve le droit de retirer un partenaire de la liste si son soutien n'est pas renouvelé après une période d'un an.",
+                    "En acceptant ce statut, les partenaires principaux consentent à l'affichage de leur nom, de leur logo et de toutes les sources de données contribuées au sein de la plateforme pendant la période active de leur contribution. En retour, ils ont le droit d'utiliser la marque Open Tax Calendar, y compris son nom, son logo et ses éléments visuels, pour faire référence à leur soutien dans des documents publics ou promotionnels, à condition qu'ils restent officiellement reconnus en tant que partenaires principaux.",
+                    "Toutes les données ou sources fournies par un partenaire principal qui n'étaient pas déjà accessibles au public au moment de la soumission sont distribuées sous la licence internationale Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0).",
+                    "Le statut de partenaire principal ne confère pas d'autorité éditoriale ni de droits de gouvernance. Toutes les décisions relatives à la notation des données, à la modération des contributeurs et à la validation du contenu relèvent exclusivement de l'indépendance éditoriale de l'OTS. Cela garantit la neutralité, la cohérence et l'équité des résultats de la plateforme."
+                ]
+            },
+            {
+                "title": "Principaux partenaires et éligibilité à l'allègement fiscal français",
+                "text": [
+                    "Les contributions financières apportées par les partenaires principaux peuvent, lorsqu'elles sont structurées comme des dons admissibles, donner lieu à des avantages fiscaux en vertu du droit français, conformément aux articles 200 et 238 bis du Code général des impôts (CGI). Ces dispositions permettent aux personnes physiques et morales soumises à l'impôt français de bénéficier d'une déduction ou d'un crédit d'impôt pour les dons de bienfaisance éligibles.",
+                    "Les partenaires principaux qui souhaitent obtenir un reçu fiscal doivent en faire la demande explicite et s'assurer que leur contribution remplit les conditions de déductibilité prévues par la législation en vigueur. L'OTS se réserve le droit de déterminer l'éligibilité conformément à la réglementation fiscale française et de s'acquitter de toute obligation de déclaration associée.",
+                    "Les questions relatives à la documentation ou à l'éligibilité des dons peuvent être adressées à : membership@opentaxsociety.com"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Accès à l'API",
+        "subsection": [
+            {
+                "title": "Principe de l'accès à l'API",
+                "text": [
+                    "L'API est fournie pour soutenir l'automatisation et l'intégration des données publiques structurées.",
+                    "Vous pouvez utiliser l'API dans des outils commerciaux ou internes, mais vous ne pouvez pas revendre les données obtenues par le biais de l'API.",
+                    "OTS peut limiter, suspendre ou mettre fin à l'accès à l'API en cas d'abus, de problèmes juridiques ou de violation des présentes conditions.",
+                    "Pour accéder à l'API du calendrier fiscal ouvert, les organisations doivent remplir une demande formelle, qui comprend l'identification de l'entité requérante et une description de l'utilisation prévue."
+                ]
+            },
+            {
+                "title": "Processus de demande et de vérification",
+                "text": [
+                    "Les candidats doivent soumettre:",
+                    [
+                        "Nom de l'organisation et pays d'enregistrement",
+                        "Adresse e-mail professionnelle (les adresses personnelles seront rejetées)",
+                        "Nom du contact et intitulé du poste",
+                        "Cas d'utilisation prévu (usage interne à valeur ajoutée ou non commercial uniquement)",
+                        "Profil LinkedIn optionnel de la personne faisant la demande"
+                    ],
+                    "OTS validera l'authenticité de la demande à l'aide de vérifications automatisées, notamment:",
+                    [
+                        "Vérification du domaine e-mail par rapport à des domaines commerciaux ou institutionnels connus",
+                        "Correspondance entre l'affiliation LinkedIn et l'employeur (lorsque fournie)",
+                        "Utilisation de services d’enrichissement externes pour confirmer l’existence de l’organisation et le rôle du demandeur"
+                    ],
+                    "OTS se réserve le droit de refuser l’accès à tout demandeur ne répondant pas aux critères d’éligibilité, notamment ceux dont l’usage prévu est la redistribution commerciale ou dont l’identité ne peut être vérifiée avec un niveau de confiance suffisant.",
+                    "L’accès à l’API est accordé à la seule discrétion d’OTS et peut être refusé, suspendu ou révoqué sans justification, en particulier si l’usage prévu entre en conflit avec la nature non commerciale de la plateforme."
+                ]
+            },
+            {
+                "title": "Délivrance de la clé",
+                "text": [
+                    "Une fois approuvée, l'organisation recevra une clé API unique, liée à son identité vérifiée et à son cas d'utilisation.",
+                    "L'utilisation de la clé API est personnelle à l'organisation approuvée et ne peut être partagée, transférée ou sous-licenciée."
+                ]
+            },
+            {
+                "title": "Contrôle de l'utilisation et conformité",
+                "text": [
+                    "Tout le trafic API est enregistré et surveillé afin de détecter les violations des conditions d'utilisation ou des conditions de licence. OTS se réserve le droit de:",
+                    [
+                        "Suspendre ou révoquer toute clé en cas de violation ou d'abus",
+                        "Faire respecter les restrictions d’usage non commercial lorsque cela s’applique"
+                    ]
+                ]
+            },
+            {
+                "title": "Reconduction annuelle",
+                "text": [
+                    "L'accès à l'API est accordé pour une période d'un an, après laquelle l'organisation doit reconfirmer ses coordonnées, la description de son utilisation, et son besoin continu d'accès. Le défaut de reconfirmation peut entraîner la suspension automatique de la clé."
+                ]
+            },
+            {
+                "title": "Protection des données",
+                "text": [
+                    "Les données personnelles collectées lors de la demande et du processus de vérification d’accès à l’API (ex. : nom, poste, adresse e-mail professionnelle, profil LinkedIn) seront traitées et stockées conformément à la Politique de confidentialité d’OTS décrite à l’article 10 des présentes Conditions d’utilisation."
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Compte et authentification",
+        "text": [
+            "Les utilisateurs s'authentifient via LinkedIn. En vous connectant, vous consentez à ce qu’OTS enregistre votre prénom, nom, adresse e-mail, intitulé de poste, nom de l’entreprise, identifiant de profil LinkedIn et informations de contact.",
+            "Ces informations sont utilisées pour l’attribution, l’amélioration du projet et la responsabilité des contributeurs, et seront mises à disposition des autres utilisateurs si vous choisissez de contribuer.",
+            "L'utilisation de LinkedIn pour l'authentification peut être complétée ou remplacée par OTS, à sa discrétion."
+        ]
+    },
+    {
+        "title": "Confidentialité et conformité RGPD",
+        "text": [
+            "OTS traite les données personnelles conformément au Règlement Général sur la Protection des Données (UE) 2016/679 (RGPD) et aux lois françaises applicables en matière de protection des données."
+        ],
+        "subsection": [
+            {
+                "title": "Données collectées",
+                "text": [
+                    "Lorsque vous interagissez avec la Plateforme, OTS peut collecter et stocker les catégories de données personnelles suivantes:",
+                    [
+                        "Nom complet et intitulé de poste",
+                        "Adresse e-mail professionnelle",
+                        "Nom de l’organisation ou de l’entreprise",
+                        "Identifiant de profil LinkedIn (lorsqu’utilisé pour l’authentification)",
+                        "Vos contributions soumises (y compris les métadonnées)"
+                    ],
+                    "Ces données sont collectées afin d’authentifier les utilisateurs, attribuer les contributions, maintenir le contact, et garantir le respect des Conditions d’utilisation de la Plateforme."
+                ]
+            },
+            {
+                "title": "Base légale du traitement",
+                "text": [
+                    "Les données sont traitées sur la base de:",
+                    [
+                        "L’intérêt légitime (Article 6(1)(f) du RGPD) dans l’exploitation et la maintenance de la Plateforme",
+                        "Le consentement (Article 6(1)(a) du RGPD) lorsque vous soumettez volontairement des données personnelles ou acceptez les conditions lors de la connexion"
+                    ]
+                ]
+            },
+            {
+                "title": "Utilisation des données personnelles",
+                "text": [
+                    "Les données peuvent être utilisées par OTS et ses Partenaires Principaux désignés uniquement pour:",
+                    [
+                        "Contacter les utilisateurs au sujet de leurs contributions ou de leur accès à la Plateforme",
+                        "Proposer des services professionnels ou commerciaux connexes directement, sans transfert de données personnelles à des tiers non liés"
+                    ],
+                    "Aucune donnée personnelle n’est vendue ni partagée avec des tiers non liés. Les Partenaires Principaux sont soumis à ces conditions et ne peuvent utiliser les données que tant qu’ils sont listés comme tels."
+                ]
+            },
+            {
+                "title": "Droits relatifs aux données",
+                "text": [
+                    "Vous avez le droit de:",
+                    [
+                        "Accéder à vos données personnelles",
+                        "Rectifier des informations inexactes ou incomplètes",
+                        "Demander leur suppression (« droit à l’oubli »)",
+                        "Limiter ou vous opposer à certains types de traitement",
+                        "Déposer une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés)"
+                    ],
+                    "Les demandes peuvent être envoyées à privacy@opentaxcalendar.com. OTS répondra dans les délais prévus par le RGPD."
+                ]
+            },
+            {
+                "title": "Sécurité et conservation des données",
+                "text": [
+                    "OTS met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre l’accès non autorisé, la divulgation ou la perte. Les données sont conservées uniquement pendant la durée nécessaire à la réalisation des finalités décrites ci-dessus ou selon les exigences légales."
+                ]
+            },
+            {
+                "title": "Hébergement et transferts des données",
+                "text": [
+                    "Toutes les données personnelles collectées par OTS sont stockées et traitées sur une infrastructure sécurisée située exclusivement sur le territoire de la France ou de l’Union européenne. OTS ne transfère pas de données personnelles en dehors de l’UE/EEE sauf si des garanties appropriées sont mises en place, conformément au RGPD, telles que les Clauses Contractuelles Types (CCT) ou des décisions d’adéquation approuvées par la Commission européenne."
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Limitation de la responsabilité",
+        "text": [
+            "La plate-forme, y compris ses ensembles de données, son API, ses outils et toutes les ressources libres connexes, est fournie strictement « en l'état », sans aucune garantie de disponibilité, d'exactitude, d'exhaustivité ou d'adéquation à un usage particulier.",
+            "OTS propose l'Open Tax Calendar en tant qu'initiative gratuite, communautaire et non commerciale, et ne s'engage pas à respecter des accords de niveau de service (SLA) en matière de temps de fonctionnement, de maintenance, d'assistance ou de continuité du service. Les fonctionnalités de la plateforme peuvent être modifiées, limitées ou suspendues à tout moment sans préavis.",
+            "OTS n'est pas responsable des dommages directs, indirects, accessoires, spéciaux ou consécutifs, y compris, mais sans s'y limiter, la perte de données, de revenus, de réputation, de résultats en matière de conformité ou d'interruption d'activité résultant de l'utilisation de la plateforme open-source ou de la confiance accordée à cette dernière.",
+            "Pour toute question d'ordre général concernant la plateforme open-source, les utilisateurs peuvent contacter support@opentaxcalendar.com. Bien que l'OTS fasse des efforts raisonnables pour répondre, aucune garantie de délai de réponse ou de résolution ne s'applique. Les demandes peuvent être transmises aux collaborateurs ou partenaires appropriés, le cas échéant."
+        ]
+    },
+    {
+        "title": "Aucun conseil juridique ou fiscal",
+        "text": [
+            "Les informations et données mises à disposition via la Plateforme sont fournies à des fins d'information et de recherche uniquement et ne constituent pas des conseils juridiques, fiscaux, financiers ou professionnels.",
+            "OTS ne fournit pas et n’a pas l’intention de fournir de services de conseil professionnel par le biais de cette Plateforme. Les utilisateurs sont seuls responsables de l’évaluation de la pertinence et de l’applicabilité des informations, et doivent consulter des professionnels qualifiés en matière juridique, fiscale ou financière avant de prendre des décisions ou d'agir sur la base du contenu de la Plateforme.",
+            "L'utilisation de la Plateforme ne crée aucune relation conseiller-client entre l'utilisateur et OTS ou l’un de ses partenaires ou contributeurs."
+        ]
+    },
+    {
+        "title": "Modifications des Conditions",
+        "text": [
+            "OTS peut mettre à jour les présentes Conditions à tout moment. Les utilisateurs seront informés des modifications lors de leur prochaine connexion.",
+            "En continuant à utiliser la Plateforme, vous acceptez les Conditions révisées. Toutefois, toute modification n’affectera pas la licence open source du projet et des données.",
+            "Ces Conditions s’appliquent uniquement à l’utilisation gratuite et open source de la Plateforme. Tout accès commercial aux services en ligne payants d’OTS (tels que les intégrations avancées) est exclusivement régi par des accords contractuels distincts. Aucune modification de ces Conditions n’affectera la nature open source de la Plateforme sans préavis public et explication.",
+            "OTS tient un journal des modifications importantes apportées aux présentes Conditions d’utilisation. Lorsque des modifications sont susceptibles d’avoir un impact significatif sur les droits des contributeurs, une notification sera fournie via la Plateforme ou par e-mail aux utilisateurs enregistrés. Il est recommandé aux utilisateurs de consulter régulièrement les Conditions. La poursuite de l’utilisation de la Plateforme après la publication d’une modification vaut acceptation des Conditions révisées."
+        ]
+    },
+    {
+        "title": "Droit applicable et juridiction",
+        "text": [
+            "Ces Conditions sont régies par le droit français et toute utilisation implique l’acceptation pleine et entière du droit et de la juridiction français, à l’exclusion de tout autre.",
+            "Tout litige découlant de ou lié à ces Conditions sera soumis à la compétence exclusive des tribunaux de Nanterre, France."
+        ]
+    },
+    {
+        "title": "Champ d'application territorial et limitations légales",
+        "text": [
+            "La Plateforme et son contenu, y compris les données, outils et résultats, sont développés, exploités et hébergés au sein de l’Union européenne et régis exclusivement par le droit français et européen.",
+            "La Plateforme n’est pas spécifiquement destinée aux utilisateurs ou organisations basés dans des juridictions hors de l’Union européenne, y compris mais sans s’y limiter les États-Unis. Tout accès ou utilisation de la Plateforme depuis l’extérieur de l’UE se fait volontairement et sous la seule responsabilité juridique de l’utilisateur.",
+            "OTS ne garantit pas que le contenu ou le fonctionnement de la Plateforme soit conforme aux lois ou réglementations des juridictions hors de l’UE. En utilisant la Plateforme, vous reconnaissez que:",
+            [
+                "Vous ne comptez pas sur OTS pour respecter les lois de toute juridiction non membre de l’UE.",
+                "Vous renoncez à toute réclamation ou recours fondé sur des lois étrangères incompatibles avec le droit français ou l’ordre public.",
+                "Toute réclamation ou litige sera exclusivement régi par les lois et tribunaux français, comme précisé à la Clause 14."
+            ],
+            "Si vous êtes un résident ou une entité juridique basée dans une juridiction qui restreint ou interdit l’utilisation de données ouvertes, le scoring automatisé ou les résumés générés par IA, vous devez vous abstenir d’utiliser la Plateforme.",
+            "L’utilisation de la Plateforme ou l’accès à l’API est interdit à toute personne ou entité faisant l’objet de sanctions internationales par l’UE, l’ONU ou toute autre autorité compétente."
+        ]
+    }
+]

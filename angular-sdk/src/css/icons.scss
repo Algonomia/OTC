@@ -1,0 +1,71 @@
+@use "media";
+
+.icon-very-light {
+    color: var(--main-4);
+    width: 21px;
+    height: 21px;
+    margin: 0 -4px;
+}
+
+.icon-25 {
+    width: 25px;
+    height: 25px;
+}
+
+.icon-light {
+    color: var(--main-4);
+    width: 25px;
+    height: 25px;
+    margin: 0 -6px;
+}
+
+.icon-normal {
+    color: var(--main-4);
+    width: 30px;
+    height: 30px;
+    margin: 0 -8px;
+}
+
+.right-icon-light {
+    width: 25px;
+    height: 25px;
+    margin: 0 0 0 -6px;
+    padding-left: 0 !important;
+}
+
+.left-icon-light {
+    width: 25px;
+    height: 25px;
+    margin: 0 -4px;
+}
+
+.left-image-light {
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    margin: 0 -4px 0 -2px;
+}
+
+.icon-medium {
+    color: var(--main-4);
+    width: 36px;
+    height: 36px;
+    margin: 0 -9px;
+
+    @include media.media('tabletL') {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.right-auto {
+    margin-right: auto;
+}
+
+.left-auto {
+    margin-left: auto;
+}
+
+.top-auto {
+    margin-top: auto;
+}

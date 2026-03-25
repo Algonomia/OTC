@@ -1,0 +1,22 @@
+<div class="std-aligned gap-1">
+    <input class="input-container"
+           type="number"
+           autocomplete="off"
+           (change)="onValueChange($event)"
+           [value]="period?.value"
+           [placeholder]="(valuePlaceholder ? valuePlaceholder : 'AngularSdk.PeriodSelector.ChooseValue') | translate"
+           [class.valid]="isValid"
+           [class.error]="isInvalid">
+
+    <app-std-menu-overlay-adaptive
+        [sorted]="false"
+        [selectHandler]="periodUnitSelectHandler"
+        [placeholder]="(unitPlaceholder ? unitPlaceholder : 'AngularSdk.PeriodSelector.ChooseUnit') | translate">
+    </app-std-menu-overlay-adaptive>
+
+    <app-std-menu-overlay-adaptive
+        [sorted]="false"
+        [selectHandler]="dayCountTypeSelectHandler"
+        [placeholder]="(countTypePlaceholder ? countTypePlaceholder : 'AngularSdk.PeriodSelector.ChooseCountType') | translate">
+    </app-std-menu-overlay-adaptive>
+</div>

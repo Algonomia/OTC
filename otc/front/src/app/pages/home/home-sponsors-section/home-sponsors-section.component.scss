@@ -1,0 +1,21 @@
+@use "css/media";
+
+.sponsors-section {
+    .sponsors-initiative {
+        color: var(--main-4);
+    }
+
+    @include media.media('tabletL') {
+        display: block;
+
+        .sponsors-initiative {
+            font-family: "Integral UI Regular", sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .cta-discover {
+            display: flex;
+            justify-content: end;
+        }
+    }
+}

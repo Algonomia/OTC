@@ -1,0 +1,14 @@
+{
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+        "entryFile": "src/public-api.ts",
+        "styleIncludePaths": ["src"]
+    },
+    "dest": "dist",
+    "assets": [
+        "src/**/_i18n/*.json",
+        "src/assets/",
+        "src/css/**/*.scss",
+        "scripts"
+    ]
+}

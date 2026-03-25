@@ -1,0 +1,121 @@
+<app-modal-stepper [modalSteps]="modalSteps"></app-modal-stepper>
+
+<ng-template #choiceSourceRef>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: 'Action/Navigation/Add',
+                      title: 'OTCFront.ContributionModal.Source' | translate,
+                      bodyTpl: bodyTpl
+                  }">
+    </ng-container>
+    <ng-template #bodyTpl>
+        <div class="pad-1">
+            <app-meta-form-control [metaFormControl]="sourceFormControl"></app-meta-form-control>
+        </div>
+    </ng-template>
+</ng-template>
+
+<ng-template #choiceSegmentationRef>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: 'Action/Navigation/Add',
+                      title: 'OTCFront.ContributionModal.Segmentation' | translate,
+                      bodyTpl: bodyTpl
+                  }">
+    </ng-container>
+    <ng-template #bodyTpl>
+        <div class="pad-1">
+            <app-meta-form-group [metaFormGroup]="segmentationFormGroup"></app-meta-form-group>
+        </div>
+    </ng-template>
+</ng-template>
+
+<ng-template #submitSourceRef>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.NextStep" (click)="onValidateSource()"
+                             [disabled_btn]="sourceFormControl.invalid">
+        </app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #submitSegmentRef>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.NextStep" (click)="onValidateSegmentation()"
+                             [disabled_btn]="segmentationFormGroup.invalid">
+        </app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #choiceValuesRef>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: 'Action/Navigation/Add',
+                      title: 'OTCFront.ContributionModal.Values' | translate,
+                      bodyTpl: bodyTpl
+                  }">
+    </ng-container>
+    <ng-template #bodyTpl>
+        @for (formGroup of indicatorFormControls; let i = $index; track formGroup) {
+            <div class="pad-1">
+                <app-meta-form-group [metaFormGroup]="formGroup" [hide_optionals]="!expand_optionals"></app-meta-form-group>
+            </div>
+            @if (i < indicatorFormControls.length - 1) {
+                <div class="pad-x-1">
+                    <hr style="margin: 0"/>
+                </div>
+            }
+        }
+    </ng-template>
+</ng-template>
+
+<ng-template #submitValuesRef>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.NextStep" (click)="onValidateValues()"
+                             [disabled_btn]="indicatorFormArray.invalid">
+        </app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #doneRef>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                          icon: 'People/Community/LikeSelect',
+                          title: 'OTCFront.CoreCommon.OTCLovesYou',
+                          bodyTpl: doneContent
+                      }">
+    </ng-container>
+    <ng-template #doneContent>
+        <app-done-step (close)="closeModal()"
+                         [messages]="['OTCFront.CoreCommon.ThanksForCommitment', 'OTCFront.CoreCommon.AdminWillValidate']">
+        </app-done-step>
+    </ng-template>
+</ng-template>
+
+<ng-template #closeBtn>
+    <app-button-cancel (click)="closeModal()"></app-button-cancel>
+</ng-template>
+
+<ng-template #gotItRef>
+    <div class="std-aligned justify-end">
+        <app-button-got-it (click)="closeModal()"></app-button-got-it>
+    </div>
+</ng-template>
+
+<ng-template #containerModal let-icon="icon" let-title="title" let-bodyTpl="bodyTpl">
+    <div class="container-modal">
+        <ng-container [ngTemplateOutlet]="bodyTpl"></ng-container>
+    </div>
+</ng-template>
+
+<ng-template #toggleRef>
+    <div class="std-aligned gap-1">
+        <p class="toggle-text">{{ 'OTCFront.ContributionModal.ExpandOptionalQuestions' | translate }}</p>
+        <app-toggle class="toggle" [(enabled)]="expand_optionals"></app-toggle>
+    </div>
+</ng-template>

@@ -1,0 +1,12 @@
+<div class="std-aligned justify-between">
+    <div class="std-aligned section-title">
+        <h3>{{'OTCFront.Home.completion.__title' | translate}}</h3>
+        <h3><b>{{ completion }}&nbsp;%</b></h3>
+    </div>
+
+    @if (authLinkedinService.isConnected$ | async) {
+        <app-button-link text="OTCFront.Home.AccessContributions" link="/dashboard" class="cta-access" size_theme="Medium"></app-button-link>
+    }
+</div>
+
+<app-completion-bar [completion]="completion"></app-completion-bar>

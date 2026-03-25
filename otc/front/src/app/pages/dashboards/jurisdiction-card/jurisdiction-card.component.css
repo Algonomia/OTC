@@ -1,0 +1,8 @@
+.flex-export {
+    padding: 1rem 0;
+
+    .jurisdiction {
+        font-family: "Integral UI Semibold", sans-serif;
+        font-size: 1.25rem;
+    }
+}

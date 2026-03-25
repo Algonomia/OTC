@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>system / data / piechart</title>
+    <g id="system-/-data-/-piechart" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18.032,26.088 C22.576,26.088 26.288,22.376 26.288,17.8 C26.288,13.224 22.576,9.512 18.032,9.512 C13.456,9.512 9.744,13.224 9.744,17.8 C9.744,22.376 13.456,26.088 18.032,26.088 Z M18.032,25.512 C13.776,25.512 10.32,22.056 10.32,17.8 C10.32,13.64 13.616,10.248 17.744,10.088 L17.744,17.608 C17.744,17.864 17.936,18.088 18.192,18.088 L25.712,18.088 C25.552,22.216 22.16,25.512 18.032,25.512 Z M25.712,17.512 L18.288,17.512 L18.288,10.088 C22.32,10.248 25.552,13.48 25.712,17.512 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

@@ -1,0 +1,13 @@
+{
+    "OTCFront": {
+        "Header": {
+            "home": "accueil",
+            "dashboard": "tableau de bord",
+            "sources": "sources",
+            "contributions": "contributions",
+            "APIAccess": "accès API",
+            "myCalendar": "mon calendrier",
+            "about": "à propos"
+        }
+    }
+}

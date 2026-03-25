@@ -1,0 +1,96 @@
+{
+    "ObligationDueDateDomain": {
+        "Indicator": {
+            "IsObligationInPlace": {
+                "text": "Is obligation in place",
+                "notes": "Is obligation in place - Notes",
+                "refs": "Is obligation in place - References",
+                "info": ""
+            },
+            "ScopeOfObligation": {
+                "text": "Scope of obligation",
+                "notes": "Scope of obligation - Notes",
+                "refs": "Scope of obligation - References",
+                "info": ""
+            },
+            "FilingResponsibility": {
+                "text": "Filing responsibility",
+                "notes": "Filing responsibility - Notes",
+                "refs": "Filing responsibility - References",
+                "info": ""
+            },
+            "ParentFilingExemption": {
+                "text": "Parent filing exemption",
+                "notes": "Parent filing exemption - Notes",
+                "refs": "Parent filing exemption - References",
+                "info": ""
+            },
+            "ApplicableEntityTypes": {
+                "text": "Applicable entity types",
+                "notes": "Applicable entity types - Notes",
+                "refs": "Applicable entity types - References",
+                "info": ""
+            },
+            "SubmissionMethods": {
+                "text": "Submission methods",
+                "notes": "Submission methods - Notes",
+                "refs": "Submission methods - References",
+                "info": ""
+            },
+            "SubmissionURL": {
+                "text": "Submission URL",
+                "notes": "Submission URL - Notes",
+                "refs": "Submission URL - References",
+                "info": ""
+            },
+            "LocalLanguage": {
+                "text": "Local languages",
+                "notes": "Local languages - Notes",
+                "refs": "Local languages - References",
+                "info": ""
+            },
+            "EnglishAccepted": {
+                "text": "English accepted",
+                "notes": "English accepted - Notes",
+                "refs": "English accepted - References",
+                "info": ""
+            },
+            "Penalty": {
+                "text": "Penalty",
+                "notes": "Penalty - Notes",
+                "refs": "Penalty - References",
+                "info": ""
+            },
+            "ThresholdPreparation": {
+                "text": "Threshold preparation",
+                "notes": "Threshold preparation - Notes",
+                "refs": "Threshold preparation - References",
+                "info": ""
+            },
+            "ThresholdFiling": {
+                "text": "Threshold filing",
+                "notes": "Threshold filing - Notes",
+                "refs": "Threshold filing - References",
+                "info": ""
+            },
+            "DeadlineFiling": {
+                "text": "Filing Deadline",
+                "notes": "Filing Deadline - Notes",
+                "refs": "Filing Deadline - References",
+                "info": ""
+            },
+            "DeadlinePreparation": {
+                "text": "Preparation deadline",
+                "notes": "Preparation deadline - Notes",
+                "refs": "Preparation deadline - References",
+                "info": ""
+            },
+            "DeadlineExtension": {
+                "text": "Deadline extension",
+                "notes": "Deadline extension - Notes",
+                "refs": "Deadline extension - References",
+                "info": ""
+            }
+        }
+    }
+}

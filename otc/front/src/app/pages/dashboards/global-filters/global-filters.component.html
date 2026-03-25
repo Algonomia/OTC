@@ -1,0 +1,25 @@
+<app-bar [contentTpl]="contentTpl" [icon]="'Action/Operation/Filter'" [title]="'OTCFront.CoreCommon.FiltersAndAggregates'"></app-bar>
+
+<ng-template #contentTpl>
+    <div class="std-aligned gap-1">
+        @if (__filterCounter) {
+            <app-label-counter [counter]="__filterCounter"></app-label-counter>
+        }
+        <app-button-tune style="margin-left: auto" (click)="open()" [left_icon]="true"></app-button-tune>
+    </div>
+</ng-template>
+
+<ng-template #modalRef>
+    @if (!!__formGroup) {
+        <div class="pad-1">
+            <app-meta-form-group [metaFormGroup]="__formGroup"></app-meta-form-group>
+        </div>
+        <div class="std-aligned pad-1 gap-1 justify-between">
+            <app-button-cancel (click)="closeModal()"></app-button-cancel>
+            <div class="std-aligned gap-1">
+                <app-button-reset text="OTCFront.CoreCommon.Reset" (click)="reset()"></app-button-reset>
+                <app-button-continue type="submit" text="OTCFront.CoreCommon.Submit" (click)="submit()"></app-button-continue>
+            </div>
+        </div>
+    }
+</ng-template>

@@ -1,0 +1,96 @@
+{
+    "ObligationDueDateDomain": {
+        "Indicator": {
+            "IsObligationInPlace": {
+                "text": "Obligation en place",
+                "notes": "Obligation en place - Notes",
+                "refs": "Obligation en place - Références",
+                "info": ""
+            },
+            "ScopeOfObligation": {
+                "text": "Portée de l'obligation",
+                "notes": "Portée de l'obligation - Notes",
+                "refs": "Portée de l'obligation - Références",
+                "info": ""
+            },
+            "FilingResponsibility": {
+                "text": "Responsabilité du dépôt",
+                "notes": "Responsabilité du dépôt - Notes",
+                "refs": "Responsabilité du dépôt - Références",
+                "info": ""
+            },
+            "ParentFilingExemption": {
+                "text": "Exonération de dépôt pour la société mère",
+                "notes": "Exonération de dépôt pour la société mère - Notes",
+                "refs": "Exonération de dépôt pour la société mère - Références",
+                "info": ""
+            },
+            "ApplicableEntityTypes": {
+                "text": "Types d'entités concernés",
+                "notes": "Types d'entités concernés - Notes",
+                "refs": "Types d'entités concernés - Références",
+                "info": ""
+            },
+            "SubmissionMethods": {
+                "text": "Méthodes de soumission",
+                "notes": "Méthodes de soumission - Notes",
+                "refs": "Méthodes de soumission - Références",
+                "info": ""
+            },
+            "SubmissionURL": {
+                "text": "URL de soumission",
+                "notes": "URL de soumission - Notes",
+                "refs": "URL de soumission - Références",
+                "info": ""
+            },
+            "LocalLanguage": {
+                "text": "Langues locales",
+                "notes": "Langues locales - Notes",
+                "refs": "Langues locales - Références",
+                "info": ""
+            },
+            "EnglishAccepted": {
+                "text": "Anglais accepté",
+                "notes": "Anglais accepté - Notes",
+                "refs": "Anglais accepté - Références",
+                "info": ""
+            },
+            "Penalty": {
+                "text": "Pénalité",
+                "notes": "Pénalité - Notes",
+                "refs": "Pénalité - Références",
+                "info": ""
+            },
+            "ThresholdPreparation": {
+                "text": "Seuil de préparation",
+                "notes": "Seuil de préparation - Notes",
+                "refs": "Seuil de préparation - References",
+                "info": ""
+            },
+            "ThresholdFiling": {
+                "text": "Seuil de dépôt",
+                "notes": "Seuil de dépôt - Notes",
+                "refs": "Seuil de dépôt - References",
+                "info": ""
+            },
+            "DeadlineFiling": {
+                "text": "Délais de dépôt",
+                "notes": "Délais de dépôt - Notes",
+                "refs": "Délais de dépôt - Références",
+                "info": ""
+            },
+            "DeadlinePreparation": {
+                "text": "Délais de préparation",
+                "notes": "Délais de préparation - Notes",
+                "refs": "Délais de préparation - Références",
+                "info": ""
+            },
+            "DeadlineExtension": {
+                "text": "Prolongation de délais",
+                "notes": "Prolongation de délais - Notes",
+                "refs": "Prolongation de délais - Références",
+                "info": ""
+            }
+        }
+    }
+}

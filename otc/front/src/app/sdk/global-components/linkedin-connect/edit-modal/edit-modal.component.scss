@@ -1,0 +1,38 @@
+$header_height: 77px;
+$footer_height: 77px;
+
+::ng-deep app-edit-modal {
+    width: 100%;
+}
+
+.edit-modal {
+    height: 100%;
+    color: var(--main-3);
+    font-size: 0.875rem;
+    letter-spacing: 0.8px;
+    line-height: 1.5rem;
+
+    .header {
+        height: $header_height;
+        border-bottom: 1px solid var(--main-1);
+
+        .logo {
+            width: 45px;
+            height: 45px;
+        }
+
+        .title {
+            font-size: 1.125rem;
+            color: var(--main-4);
+            font-family: "Integral UI Regular", sans-serif;
+        }
+    }
+
+    .footer {
+        height: $footer_height;
+        display: flex;
+        justify-content: end;
+        border-top: 1px solid var(--main-1);
+    }
+}
+

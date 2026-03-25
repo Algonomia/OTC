@@ -1,0 +1,18 @@
+{
+    "ObligationDueDateDomain": {
+        "ValuePriority": {
+            "version": "Valeur la plus récente",
+            "reliability": "Meilleur score de fiabilité de la source"
+        },
+        "GlobalFilters": {
+            "change": "Changer",
+            "minVersion": "Date la plus ancienne de génération de valeur",
+            "maxVersion": "Date la plus récente de génération de valeur",
+            "minReliability": "Score minimum de fiabilité de la source",
+            "priority": "Aggréger par",
+            "jurisdictions": "Jurisdictions",
+            "obligationTypeIds": "Types d'obligation",
+            "sources": "Sources"
+        }
+    }
+}

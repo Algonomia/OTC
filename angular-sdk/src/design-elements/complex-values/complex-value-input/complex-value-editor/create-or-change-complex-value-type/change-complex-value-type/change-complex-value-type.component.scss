@@ -1,0 +1,16 @@
+@use "../../../../../../css/colors";
+.operation-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .operator-symbol {
+        padding: 4px 8px;
+        background-color: var(--grey-2);
+        border-radius: 4px;
+        color: var(--grey-9);
+        font-weight: 600;
+        font-size: 14px;
+        width: max-content;
+    }
+}

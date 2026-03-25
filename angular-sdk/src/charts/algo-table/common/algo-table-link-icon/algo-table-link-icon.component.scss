@@ -1,0 +1,24 @@
+@use "../../../../css/colors";
+.icon {
+    width: 24px;
+    height: 24px;
+
+    &.external-link {
+        color: var(--link-2);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-4);
+    border: 1px solid var(--main-1);
+    border-radius: 3px;
+    padding: 0.1rem 0.2rem 0.1rem;
+    max-width: 100%;
+
+    &:hover:not([disabled]) {
+        .text {
+            -webkit-text-stroke: 0.3px currentColor;
+        }
+    }
+}

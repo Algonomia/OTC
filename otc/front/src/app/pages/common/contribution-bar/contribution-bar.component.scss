@@ -1,0 +1,28 @@
+@use "css/media";
+
+.contribution {
+    border: 1px solid var(--graph-orange-3);
+    border-radius: 50px;
+    height: var(--header-panel-size);
+    padding: 0.7rem;
+    background-color: var(--grey-0);
+
+    @include media.media('tablet') {
+        height: var(--header-panel-size-mobile);
+    }
+
+    .title {
+        gap: 0.5rem;
+
+        p {
+            color: var(--main-4);
+            font-size: 1.125rem;
+            padding-bottom: 1px;
+        }
+
+        .icon-edit {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@use "../../../css/colors";
+.file {
+    border: 1px solid var(--main-1);
+    border-radius: 50px;
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-color: var(--main-3);
+    color: var(--main-4);
+    justify-content: space-between;
+
+    .icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .size-text {
+        color: var(--main-2);
+        white-space: nowrap;
+    }
+
+    &.error-file {
+        .error-text {
+            color: var(--KO-3);
+            white-space: nowrap;
+        }
+    }
+}

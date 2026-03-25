@@ -1,0 +1,72 @@
+@use "css/media";
+
+.about {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex: 1;
+
+        @include media.media('tablet') {
+            height: calc(var(--app-height) - var(--header-height-mobile));
+            padding-bottom: 1rem;
+        }
+
+        .sections {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            flex: 1;
+
+            @include media.media('tablet') {
+                min-height: min-content;
+            }
+        }
+
+        .footer {
+            height: 50px;
+            flex: 0;
+
+            @include media.media('tabletL') {
+                height: unset;
+            }
+
+            @include media.media('tablet') {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+.lvl-1 {
+    height: calc(52% - 50px);
+    flex: 1.2;
+
+    @include media.media('tabletL') {
+        height: unset;
+        max-height: 100%;
+    }
+
+    @include media.media('tablet') {
+        flex: 1;
+    }
+}
+
+.lvl-2 {
+    height: calc(48% - 50px);
+    flex: 1;
+
+    @include media.media('tabletL') {
+        height: unset;
+        max-height: 100%;
+    }
+
+    @include media.media('tablet') {
+        flex: 1.2;
+    }
+}

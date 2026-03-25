@@ -1,0 +1,13 @@
+<app-label #label [color_theme]="type === 'ko' ? 'ko-0-outline' : 'ok-0-outline'"
+           [border_theme]="border_theme"
+           [font_theme]="weight"
+           [height]="height"
+           [all_icon_display_on_hover]="false"
+           [radius]="radius">
+
+    <ng-container *ngTemplateOutlet="label.TextTemplate; context: { text: text }"></ng-container>
+
+    @if(icon) {
+        <ng-container *ngTemplateOutlet="label.AlgoIconTemplate; context: {icon_class: 'right-icon-light', path: icon }"></ng-container>
+    }
+</app-label>

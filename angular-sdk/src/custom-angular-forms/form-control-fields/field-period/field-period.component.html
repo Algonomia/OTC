@@ -1,0 +1,11 @@
+@if (formControl) {
+    <app-period-form-control
+        [formControl]="formControl"
+        [required]="formControl.algoValidator.meta.required"
+        [label]="formControl.algoValidator.meta.label"
+        [placeholder]="formControl.algoValidator.meta.placeholder"
+        [placeholder_2]="formControl.algoValidator.meta.placeholder_2"
+        [placeholder_3]="formControl.algoValidator.meta.placeholder_3"
+    >
+    </app-period-form-control>
+}

@@ -1,0 +1,59 @@
+$header_height: 77px;
+$footer_height: 77px;
+
+.cgu {
+    height: 100%;
+    color: var(--main-3);
+    font-size: 0.875rem;
+    letter-spacing: 0.8px;
+    line-height: 1.5rem;
+    word-break: break-word;
+
+    .header {
+        height: $header_height;
+        border-bottom: 1px solid var(--main-1);
+
+        .logo {
+            width: 45px;
+            height: 45px;
+        }
+
+        .title {
+            font-size: 1.125rem;
+            color: var(--main-4);
+            font-family: "Integral UI Regular", sans-serif;
+        }
+    }
+
+    .content-container {
+        height: calc(100% - ($header_height + $footer_height));
+        overflow-y: scroll;
+        //padding: 0 1rem;
+        //margin: 0 0.25rem;
+
+        h5 {
+            font-size: 1rem;
+            font-family: "Integral UI Semibold", sans-serif;
+            letter-spacing: 0.05rem;
+            margin: 1rem 0;
+        }
+
+
+        .content {
+            margin-left: 1.75rem;
+
+            .text, li {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .footer {
+        height: $footer_height;
+        border-top: 1px solid var(--main-1);
+    }
+
+    .hr {
+        margin: 1rem 0 0;
+    }
+}

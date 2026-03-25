@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 9</title>
+    <defs>
+        <circle id="path-1" cx="18" cy="18" r="18"></circle>
+    </defs>
+    <g id="V4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-9">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Oval" fill="#FFDCC3" xlink:href="#path-1"></use>
+            <path d="M18,21.9097778 C20.9386667,21.9097778 23.3368889,19.5115556 23.3368889,16.5728889 C23.3368889,13.6342222 20.9386667,11.2697778 18,11.2697778 C15.0613333,11.2697778 12.6631111,13.6342222 12.6631111,16.5728889 C12.6631111,19.5115556 15.0613333,21.9097778 18,21.9097778 Z M18,36.3666667 C22.3911111,36.3666667 26.3093333,34.8466667 29.4844444,32.3471111 C28.4373333,30.5906667 24.8568889,25.5915556 18,25.5915556 C11.1431111,25.5915556 7.52888889,30.5906667 6.51555556,32.3471111 C9.69066667,34.8466667 13.6088889,36.3666667 18,36.3666667 Z" id="Shape" fill="#286EDC" fill-rule="nonzero" mask="url(#mask-2)"></path>
+        </g>
+    </g>
+</svg>

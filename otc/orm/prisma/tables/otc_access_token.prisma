@@ -1,0 +1,11 @@
+model OTCAccessToken {
+    accessKey      String      @id @unique @map("access_key")
+    accessToken    String      @map("access_token")
+    expiresAt      DateTime    @map("expires_at")
+    createdAt      DateTime    @map("created_at")
+    userId         String      @map("user_id")
+
+    user           AuthUser    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@map("otc_access_token")
+}

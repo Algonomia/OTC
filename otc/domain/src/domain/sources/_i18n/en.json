@@ -1,0 +1,27 @@
+{
+    "ObligationDueDateDomain": {
+        "SourcesSubInterfaces": {
+            "UrlSource": {
+                "Comment": "Comment (optional)",
+                "CommentPlaceholder": "My comment about this source"
+            },
+            "NameSource": {
+                "Name": "Add the name of your source",
+                "Placeholder": "Name of source"
+            },
+            "OrganizationSource": {
+                "Organization": "Add organization",
+                "Placeholder": "Organization"
+            },
+            "DateOfPublication": "Date de publication",
+            "SelectConcernedOrganizationType": "Select concerned organization type",
+            "SelectOrganizationType": "Select organization type",
+            "SelectConcernedObligation": "Select concerned obligation type",
+            "SelectObligation": "Select obligation type",
+            "SelectConcernedJurisdiction": "Select concerned jurisdictions",
+            "SelectJurisdiction": "Select jurisdictions",
+            "SelectIndicators": "Select indicators",
+            "RecommendedIndicators": "Indicators to extract"
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{{- if .Values.otcLlmMlflow.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otc-llm-mlflow
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: otc-llm-mlflow
+  template:
+    metadata:
+      labels:
+        run: otc-llm-mlflow
+    spec:
+      containers:
+        - name: otc-llm-mlflow
+          image: "{{ .Values.otcLlmMlflow.image.repository }}:{{ .Values.otcLlmMlflow.image.tag }}"
+          imagePullPolicy: {{ .Values.otcLlmMlflow.image.pullPolicy }}
+          ports:
+            - containerPort: 5000
+          args:
+            - mlflow
+            - server
+            - --host
+            - "0.0.0.0"
+            - --port
+            - "5000"
+            - --backend-store-uri
+            - /mlflow
+            - --default-artifact-root
+            - /mlflow
+          {{- if .Values.otcLlmMlflow.persistentVolumeClaim.enabled }}
+          volumeMounts:
+            - name: mlruns
+              mountPath: /mlflow
+          {{- end }}
+      {{- if .Values.otcLlmMlflow.persistentVolumeClaim.enabled }}
+      volumes:
+        - name: mlruns
+          persistentVolumeClaim:
+            claimName: otc-llm-mlruns-pvc
+      {{- end }}
+{{- end }}

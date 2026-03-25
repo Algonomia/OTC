@@ -1,0 +1,10 @@
+@use "../../../css/media";
+
+.jurisdiction {
+    font-family: "Integral UI Semibold", sans-serif;
+    font-size: 1.25rem;
+
+    @include media.media('tabletL') {
+        font-size: 1rem;
+    }
+}

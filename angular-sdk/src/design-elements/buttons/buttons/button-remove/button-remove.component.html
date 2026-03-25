@@ -1,0 +1,9 @@
+<app-button btnCssClass="btn-ko-3-outline"
+            [leftIcon]="icon && left_icon && text ? 'System/Filing/Trash' : ''"
+            [singleIcon]="!text ? 'System/Filing/Trash' : ''"
+            [rightIcon]="icon && !left_icon && text ? 'System/Filing/Trash' : ''"
+            [text]="text ? 'AngularSdk.CoreCommon.RemoveSelection' : undefined"
+            [disabled]="disabled_btn"
+            [size_theme]="size_theme"
+            [rounded]="rounded">
+</app-button>

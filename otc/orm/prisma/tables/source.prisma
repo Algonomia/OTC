@@ -1,0 +1,29 @@
+model Source {
+    id                           Int                    @id @default(autoincrement())
+    SourceName                   String                 @map("source_name")
+    Organization                 String                 @map("organization")
+    OrganizationTypeId           OrganizationTypeId     @map("organization_type_id")
+    DateOfPublication            DateTime?              @map("date_of_publication")
+    Jurisdictions                String[]               @map("jurisdictions")
+    ObligationsTypeIds           ObligationTypeId[]     @map("obligation_type_ids")
+    Indicators                   String[]               @map("indicators")
+    ProposerEmail                String                 @map("proposer_email")
+    CreatedAt                    DateTime               @map("created_at") @default(now())
+    ValidatedAt                  DateTime?              @map("validated_at")
+    ValidatorEmail               String?                @map("validator_email")
+    Status                       SourceStatus           @map("status") @default(WaitForValidation)
+    SourceType                   SourceType             @map("source_type")
+    Link                         String?                @map("link")
+    Comment                      String?                @map("comment")
+    FileUUIDs                    String[]               @map("file_uuids")
+    OCRFileIDs                   Int[]                  @map("ocr_file_ids")
+    AdminComment                 String                 @map("admin_comment") @default("")
+    ProcessByAI                  Boolean                @map("_process_by_ai") @default(true)
+
+    OtcAITasks                   OtcAITask[]
+    OtcLLMValues                 OtcLLMValue[]
+    OtcUserValues                OtcUserValue[]
+    VirusTotalScanAnalysis       VirusTotalScanAnalysis?
+
+    @@map("source")
+}

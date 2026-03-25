@@ -1,0 +1,19 @@
+<div class="std-aligned gap-10px" [class.light-color]="colorTheme === 'light'" [class.with-icons]="iconLeft && iconRight">
+    @if (text) {
+        <div class="text" [class.disabled]="isActuallyDisabled()" [class.enabled]="enabled">{{ text | translate }}</div>
+    }
+
+    <label class="toggle cursor-pointer">
+        <input type="checkbox"
+               [checked]="enabled"
+               (change)="toggle()"
+               [disabled]="isActuallyDisabled()"
+        />
+        <span class="slider" [class.disabled]="isActuallyDisabled()">
+            @if (iconLeft && iconRight) {
+                <app-algo-icon [name]="iconLeft" class="icon icon-left" [class.active]="!enabled"></app-algo-icon>
+                <app-algo-icon [name]="iconRight" class="icon icon-right" [class.active]="enabled"></app-algo-icon>
+            }
+        </span>
+    </label>
+</div>

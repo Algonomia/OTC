@@ -1,0 +1,13 @@
+{
+    "OTCFront": {
+        "ContributionModal": {
+            "SpecifyValue": "Spécifier une valeur",
+            "SpecifySource": "Spécifier une source",
+            "Contribute": "Contribuer",
+            "Segmentation": "Segmentation",
+            "Source": "Source",
+            "Values": "Valeurs",
+            "ExpandOptionalQuestions": "Déplier toutes les questions optionnelles"
+        }
+    }
+}

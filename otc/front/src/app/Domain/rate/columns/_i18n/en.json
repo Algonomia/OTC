@@ -1,0 +1,28 @@
+{
+    "OTCFront": {
+        "Rates": {
+            "columns": {
+                "rate": {
+                    "text": "Rate",
+                    "info": ""
+                },
+                "comment": {
+                    "text": "Comment",
+                    "info": ""
+                },
+                "rated_at": {
+                    "text": "Date",
+                    "info": ""
+                },
+                "rated_by": {
+                    "text": "By",
+                    "info": ""
+                },
+                "Action": {
+                    "text": "Action",
+                    "info": ""
+                }
+            }
+        }
+    }
+}

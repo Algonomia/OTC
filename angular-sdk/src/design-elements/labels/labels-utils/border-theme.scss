@@ -1,0 +1,12 @@
+$max-border-size: 5px;
+
+.border-none {
+    border: none;
+}
+
+@for $i from 1 through $max-border-size {
+    .border-#{$i} {
+        border-width: #{$i}px;
+        border-style: solid;
+    }
+}

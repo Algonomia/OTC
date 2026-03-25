@@ -1,0 +1,46 @@
+@if (displayNotification) {
+    <div class="notification-list" #div >
+        @for (stack of notificationsStacks; track stack) {
+            @for (notifications of stack.displayedListNotifs; track notifications) {
+                <div class="algo-wrapper std-aligned" [@transformLeft] [class]="notifications.notification.warnLevel.theme">
+                    <div class="std-aligned">
+                        @if (notifications.notification.warnLevel.image) {
+                            <img [src]="notifications.notification.warnLevel.image" class="warn-level-img" alt="logo_icon"/>
+                        }
+
+                        <div>
+                            @if (notifications.notification.title) {
+                                <p class="title-notification">{{ notifications.notification.title }}</p>
+                            }
+                            <p>{{ notifications.notification.message }}</p>
+                        </div>
+
+                        @for (action of notifications.notification.actions; track action) {
+                            <button (click)="action.callback($event)">
+                                {{ action.actionName | translate }}
+                            </button>
+                        }
+
+                        @if (notifications.notification.actionClose) {
+                            <button (click)="stack.deleteNotification(notifications.id)">
+                                {{ 'AngularSdk.CoreCommon.GotIt' | translate }}
+                            </button>
+                        }
+
+                        @if (stack.params.isTimer) {
+                            <p>&nbsp;{{ stack.timeDisplay }}</p>
+                        }
+
+                        @if (stack.params.isClosable) {
+                            <app-algo-icon (click)="stack.deleteNotification(notifications.id)"
+                                           name="Action/Navigation/Close"
+                                           class="icon-close cursor-pointer"
+                                           weight="Medium">
+                            </app-algo-icon>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+}

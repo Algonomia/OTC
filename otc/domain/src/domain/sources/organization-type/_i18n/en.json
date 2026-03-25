@@ -1,0 +1,34 @@
+{
+    "ObligationDueDateDomain": {
+        "OrganizationType": {
+            "Legislation": {
+                "text": "Legislation",
+                "info": "Official statutory code or law."
+            },
+            "TaxAdmin": {
+                "text": "Tax administration",
+                "info": "Official tax admin guidance."
+            },
+            "Regulation": {
+                "text": "Regulation",
+                "info": "Government/regulatory rule that’s not full legislation."
+            },
+            "OtherPrimarySource": {
+                "text": "Other primary source",
+                "info": "Other primary source written by a government agency from the jurisdiction that is not included above."
+            },
+            "ConsultingFirm": {
+                "text": "Consulting firm",
+                "info": "Secondary source from consulting firms like Big Four or local consultants."
+            },
+            "InternationalOrg": {
+                "text": "International organization",
+                "info": "Secondary source from international organizations like OECD, UN, etc."
+            },
+            "OtherSecondarySource": {
+                "text": "Other secondary source",
+                "info": "Other secondary source not included above."
+            }
+        }
+    }
+}

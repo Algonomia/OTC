@@ -1,0 +1,19 @@
+<div class="flex flex-column pad-1 gap-1">
+    @if (messages && messages.length > 0 ) {
+        <div class="text-container">
+            @for (message of messages; track message; let first = $first) {
+                <p class="text" [ngClass]="{ 'pad-top-1': !first }">{{ message | translate }}</p>
+            }
+        </div>
+    }
+
+    <div class="heart-container">
+        <div class="rings">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <app-algo-icon name="People/Community/LikeEmpty" class="icon"></app-algo-icon>
+        </div>
+    </div>
+</div>

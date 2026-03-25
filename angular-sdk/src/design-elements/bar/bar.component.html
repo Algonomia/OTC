@@ -1,0 +1,17 @@
+<div class="bar gap-1 std-aligned justify-between pad-1" [class.highlighted]="highlighted" [class.rounded]="rounded">
+    <div class="title text-wrap-ellipsis std-aligned gap-10px">
+        @if (icon) {
+            <app-algo-icon [name]="icon" class="icon-medium margin-0"></app-algo-icon>
+        }
+        <app-screen-size-handler [appNormalTemplate]="titleTpl"></app-screen-size-handler>
+        <ng-template #titleTpl>
+            @if (title) {
+                <div class="text-title">{{ title | translate }}</div>
+            }
+        </ng-template>
+    </div>
+
+    @if (contentTpl) {
+        <ng-template [ngTemplateOutlet]="contentTpl"></ng-template>
+    }
+</div>

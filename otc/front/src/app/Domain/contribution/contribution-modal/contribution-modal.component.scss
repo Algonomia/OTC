@@ -1,0 +1,38 @@
+.container-modal {
+    color: var(--main-3);
+    font-size: 0.875rem;
+    letter-spacing: 0.8px;
+    line-height: 1rem;
+    word-break: break-word;
+
+    .head {
+        position: relative;
+
+        .icon-head {
+            width: 32px;
+            height: 32px;
+            background-color: var(--main-4);
+            border-radius: 50px;
+            color: var(--grey-0);
+        }
+
+        .icon-close {
+            position: absolute;
+            right: 5px;
+            width: 45px;
+            height: 45px;
+        }
+
+        .title {
+            font-size: 1.125rem;
+            color: var(--main-4);
+            font-family: "Integral UI Regular", sans-serif;
+            padding-bottom: 1px;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+}

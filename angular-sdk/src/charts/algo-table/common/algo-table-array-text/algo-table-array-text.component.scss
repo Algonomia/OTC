@@ -1,0 +1,8 @@
+@use "../../../../css/colors";
+.comment {
+    border: 1px solid var(--main-1);
+    border-radius: 3px;
+    padding: 0.3rem 0.5rem 0.4rem;
+    word-break: break-word;
+    max-width: max-content;
+}

@@ -1,0 +1,21 @@
+@if (__connected) {
+    <app-std-action-menu-with-popover [triggerTpl]="connect" [actions]="__actions"></app-std-action-menu-with-popover>
+
+    <ng-template #connect>
+        <div class="connect std-aligned gap-5px cursor-pointer" [class.no-picture]="!showImage">
+            <span class="text username">{{ __name }}</span>
+            @if(showImage) {
+                <img [src]="__picture"
+                     (error)="updateShowImage()"
+                     alt="Picture_profile"
+                     class="icon-linkedin"
+                />
+            }
+        </div>
+    </ng-template>
+} @else {
+    <div (click)="openLoginModal()" class="connect std-aligned cursor-pointer">
+        <span class="text">{{ 'OTCFront.Login.Connect' | translate }}</span>
+        <app-algo-icon class="icon-linkedin" name="Brand/Mark/LinkedinConnect"></app-algo-icon>
+    </div>
+}

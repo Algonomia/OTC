@@ -1,0 +1,25 @@
+@use "../../css/media";
+
+.list {
+    height: calc(100% - 68px);
+    overflow: hidden auto;
+
+    @include media.media('tabletL') {
+        height: calc(100% - 53.5px);
+    }
+
+    ul {
+        display: flex;
+        position: relative;
+        transition: -webkit-transform .5s ease-in-out;
+        transition: transform .5s ease-in-out;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            flex: 0 0 100%;
+            padding-bottom: 0;
+        }
+    }
+}

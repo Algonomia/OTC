@@ -1,0 +1,41 @@
+<div class="pad-2 flex flex-column gap-2">
+    @if (valueSegment) {
+        <div class="std-aligned  gap-1">
+            <app-jurisdiction-flag-label [iso2]="valueSegment.jurisdiction"></app-jurisdiction-flag-label>
+            <div class="box-main-1">
+                {{ __obligationTypeText | translate }}
+            </div>
+        </div>
+    }
+
+    @if (!(__datumId$ | async)) {
+        <div class=" line-msg">
+            {{ 'OTCFront.HistoryModal.clickLineMessage' | translate }}
+        </div>
+    }
+
+    <div style="height: 300px">
+        <app-algo-table [data]="__historyData" [columns]="__historyColumns" [onClickLine]="__setDatumIdForRates"></app-algo-table>
+    </div>
+</div>
+
+@if (__datumId$ | async) {
+    @if (__rateData.length === 0) {
+        <div class="pad-2 no-rate-msg">
+            {{ 'OTCFront.HistoryView.noRateMessage' | translate }}
+        </div>
+    } @else {
+        <app-card [data]="__rateData" [columns]="__rateColumns" [headerRef]="headerRef"></app-card>
+        <ng-template let-dataWrapper="dataWrapper" #headerRef>
+            <div class="std-flex gap-1">
+                <div class="rated-by">{{ dataWrapper.line.rated_by }}</div>
+                <div> – </div>
+                <div>
+                    <app-display-rate-as-stars [value]="dataWrapper.line.rate" [clickable]="false"></app-display-rate-as-stars>
+                </div>
+                <div style="margin-left: auto">{{ dataWrapper.line.rated_at | date:'dd/MM/yyyy' }}</div>
+            </div>
+            <hr style="margin: 0"/>
+        </ng-template>
+    }
+}

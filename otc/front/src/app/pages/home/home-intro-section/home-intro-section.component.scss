@@ -1,0 +1,15 @@
+@use "css/media";
+
+.cta-discover-mobile, .cta-connect-mobile {
+    display: none;
+}
+
+@include media.media('tabletL') {
+    .cta-discover, .cta-connect {
+        display: none;
+    }
+
+    .cta-discover-mobile, .cta-connect-mobile {
+        display: inline-block;
+    }
+}

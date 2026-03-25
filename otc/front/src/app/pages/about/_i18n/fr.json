@@ -1,0 +1,35 @@
+{
+    "OTCFront": {
+        "About": {
+            "MetaTitle": "À propos - Open Tax Calendar",
+            "MetaDescription": "Open Tax Calendar est une base de données gratuite, open source et collaborative, facile d'accès, qui répertorie les obligations fiscales et les dates d'échéance.",
+            "Panels": {
+                "Why": {
+                    "title": "Pourquoi",
+                    "content": "Avec le projet de calendrier fiscal ouvert, nous nous attaquons au manque de données structurées pour les échéances fiscales."
+                },
+                "What": {
+                    "title": "Quoi",
+                    "content": "Open Tax Calendar est une base de données gratuite, open-source et collaborative facile d'accès pour les obligations fiscales et les dates d'échéance."
+                },
+                "How": {
+                    "title": "Comment",
+                    "content": "Grâce aux technologies de l'IA, aux guides en libre accès et à l'interface collaborative, nous construisons un outil que tout le monde peut utiliser et apprécier."
+                },
+                "FAQ": {
+                    "title": "FAQ",
+                    "content": ""
+                },
+                "Sponsorship": {
+                    "title": "Parrainage",
+                    "content": "Montrez votre intérêt pour la percée des technologies fiscales. Contactez-nous sur otc-contribution@opentaxcalendar.com et devenez vous aussi sponsor de l'OTC."
+                }
+            },
+            "Footer": {
+                "OTC": "Open Tax Calendar est une base de données open-source collaborative sur les échéances fiscales",
+                "ProudlyBy": "Alimenté par ",
+                "LegalNotice": "Mentions légales"
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon / waiting for validation@1x</title>
+    <g id="V4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-waiting-for-validation" transform="translate(0.500000, 0.500000)" stroke="#4191F0">
+            <g id="Group-10" transform="translate(0.000000, -0.000000)">
+                <circle id="Oval" opacity="0.299446469" cx="9" cy="9" r="9"></circle>
+                <path d="M9,0 C3.71610464,0 0,4.5 0,9" id="Oval" stroke-linecap="round"></path>
+                <path d="M5,7.99540955 L7.50961571,10.5050253 C7.78298271,10.7783923 8.2261982,10.7783923 8.4995652,10.5050253 L13.0045905,6 L13.0045905,6" id="Path-13"></path>
+            </g>
+        </g>
+    </g>
+</svg>

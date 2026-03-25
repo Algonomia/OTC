@@ -1,0 +1,26 @@
+model AuthUser {
+    id                 String  @id @unique
+    firstname          String
+    lastname           String
+    email              String  @unique
+    emailVerified      Boolean @map("email_verified")
+    picture            String
+    country            String
+    language           String
+    job                String?
+    pro_email          String?
+    company            String?
+    phone              String?
+
+    cgu                Boolean @default(false)
+
+    is_admin           Boolean @default(false)
+    
+    oauthAccessTokens       OauthAccessToken[]
+    apiAccessTokens         OTCAccessToken[]
+    otcUserValues           OtcUserValue[]
+    valueRates              ValueRate[]
+
+    @@index([email])
+    @@map("auth_user")
+}

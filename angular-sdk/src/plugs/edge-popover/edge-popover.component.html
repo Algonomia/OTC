@@ -1,0 +1,10 @@
+<div (click)="toggle($event)">
+    <ng-container *ngTemplateOutlet="triggerIsOpenTpl"></ng-container>
+</div>
+
+<p-popover [styleClass]="styleClass" (onShow)="onShow()" (onHide)="onHide()" #popover>
+    <div #resizableRef>
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </div>
+</p-popover>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> action / control / dryrun stop</title>
+    <g id="-action-/-control-/-dryrun-stop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M24,11.55 C24.2485281,11.55 24.45,11.7514719 24.45,12 L24.45,24 C24.45,24.2485281 24.2485281,24.45 24,24.45 L12,24.45 C11.7514719,24.45 11.55,24.2485281 11.55,24 L11.55,12 C11.55,11.7514719 11.7514719,11.55 12,11.55 L24,11.55 Z M23.55,12.45 L12.45,12.45 L12.45,23.55 L23.55,23.55 L23.55,12.45 Z" id="Rectangle" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

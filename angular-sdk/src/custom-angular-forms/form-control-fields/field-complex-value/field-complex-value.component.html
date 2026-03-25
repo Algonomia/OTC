@@ -1,0 +1,12 @@
+@if (formControl) {
+    <app-complex-value-form-control
+        [label]="formControl.algoValidator.meta.label"
+        [formControl]="formControl"
+        [required]="formControl.algoValidator.meta.required"
+        [placeholder]="formControl.algoValidator.meta.placeholder"
+        [tag_list]="formControl.algoValidator.meta.tag_list ?? []"
+        [scope_list]="formControl.algoValidator.meta.scope_list ?? []"
+        [expected_type]="formControl.algoValidator.meta.expected_output ?? null"
+    >
+    </app-complex-value-form-control>
+}

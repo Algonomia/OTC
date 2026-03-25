@@ -1,0 +1,16 @@
+OBLIGATION CONTEXT ADDENDUM — RelatedPartyDisclosure
+
+Definition
+- RelatedPartyDisclosure = an annual related-party transaction (RPT) disclosure / controlled transaction notification / schedule.
+- Its primary purpose is transparency of related parties and/or controlled transaction amounts/types.
+- It is DISTINCT from AnnualTPForm (a TP statement/return/form with broader TP compliance content, including Summary Information Table).
+
+Recognition cues / common aliases
+- "RPT schedule", "related party disclosure", "controlled transactions disclosure", "intercompany transactions disclosure"
+- "related party transactions form", "notification of controlled transactions"
+- Often, but not always, described as being attached to the CIT return or submitted by CIT return due date.
+
+What NOT to confuse with
+- OECD Local File / Master File documentation (use LocalFile/MasterFile).
+- Annual TP Form for general transfer pricing statement (use AnnualTPForm).
+- SIT explicitly named SIT regime (use AnnualTPForm).

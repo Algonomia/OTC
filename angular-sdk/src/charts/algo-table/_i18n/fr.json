@@ -1,0 +1,10 @@
+{
+    "AngularSdk": {
+        "Table": {
+            "NoDataFound": "Pas de données",
+            "nVisibleLinesPlural": "{{n}} lignes visibles",
+            "nVisibleLinesSingular": "1 ligne visible",
+            "Of": "Sur"
+        }
+    }
+}

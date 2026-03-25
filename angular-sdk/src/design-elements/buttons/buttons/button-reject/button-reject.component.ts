@@ -1,0 +1,23 @@
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ButtonComponent, ButtonSizeType} from '../../button.component';
+import {CommonModule} from '@angular/common';
+
+@Component({
+    selector: 'app-button-reject',
+    templateUrl: './button-reject.component.html',
+    styleUrl: './button-reject.component.scss',
+    standalone: true,
+    imports: [
+        CommonModule,
+        ButtonComponent,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class ButtonRejectComponent {
+    @Input() icon = true;
+    @Input() left_icon = false;
+    @Input() disabled_btn!: boolean;
+    @Input() size_theme: ButtonSizeType = 'Normal';
+
+    rounded = true;
+}

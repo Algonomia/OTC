@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> action / control / pause</title>
+    <g id="-action-/-control-/-pause" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16.432,22.088 C16.56,22.088 16.688,21.96 16.688,21.832 L16.688,13.768 C16.688,13.64 16.56,13.512 16.432,13.512 L13.68,13.512 C13.552,13.512 13.424,13.64 13.424,13.768 L13.424,21.832 C13.424,21.96 13.552,22.088 13.68,22.088 L16.432,22.088 Z M22.32,22.088 C22.448,22.088 22.576,21.96 22.576,21.832 L22.576,13.768 C22.576,13.64 22.448,13.512 22.32,13.512 L19.568,13.512 C19.44,13.512 19.312,13.64 19.312,13.768 L19.312,21.832 C19.312,21.96 19.44,22.088 19.568,22.088 L22.32,22.088 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

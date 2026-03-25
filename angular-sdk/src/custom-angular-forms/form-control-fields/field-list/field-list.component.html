@@ -1,0 +1,13 @@
+@if (__formControl) {
+    <app-list-form-control
+        [formControl]="__formControl"
+        [multiple]="__multiple"
+        [selectHandler]="__selectHandler"
+        [label]="__formControl.algoValidator.meta.label"
+        [required]="__formControl.algoValidator.meta.required"
+        [placeholder]="__formControl.algoValidator.meta.placeholder"
+        [emptySelectionIsNull]="__formControl.algoValidator.meta.emptySelectionIsNull"
+    >
+    </app-list-form-control>
+}
+

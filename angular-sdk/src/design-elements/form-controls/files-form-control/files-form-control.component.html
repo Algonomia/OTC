@@ -1,0 +1,26 @@
+@if (formControl) {
+    <div class="flex flex-column gap-1">
+        <app-file-placeholder
+            [multi_select]="multiple ?? false"
+            [maxSize]="maxSize"
+            [maxSizeUnit]="maxSizeUnit"
+            [required]="required"
+            [allowed_extensions]="extensions"
+            [placeholder]="placeholder"
+            (filesEvent)="addFormValue($event)">
+        </app-file-placeholder>
+
+        @for (file of formControl.value ?? []; track file) {
+            <app-file-label
+                [file]="file"
+                [is_active]="
+                !formControl.errors?.['forbiddenExtension']?.badFiles?.includes(file) &&
+                !formControl.errors?.['maxSizeExceeded']?.includes(file)
+            "
+                (callBack)="removeFormValue(file)">
+            </app-file-label>
+        }
+
+        <app-form-control-errors [displayErrors]="formControl.touched" [errors]="formControl.errors"></app-form-control-errors>
+    </div>
+}

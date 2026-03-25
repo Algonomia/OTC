@@ -1,0 +1,21 @@
+{
+    "OTCFront": {
+        "Home": {
+            "MetaTitle": "Open Tax Calendar",
+            "MetaDescription": "Base de données open source pour les échéances fiscales des entreprises",
+            "introMessage1": "Nous construisons la meilleure base de données open source pour les délais de mise en conformité fiscale des entreprises.",
+            "introMessage2": "Rejoignez la communauté et ajoutez votre propre brique à l'aventure.",
+            "CtaDiscover": "Découvrez comment nous procédons",
+            "CtaDiscoverShort": "Découvrez comment",
+            "CtaConnect": "Connectez-vous et commencez à participer",
+            "DiscoverData": "Découvrez les données maintenant",
+            "AccessContributions": "Accès aux contributions",
+            "completion": {
+                "__title": "Complétion de la base de données mondiale"
+            },
+            "sponsors": {
+                "__Initiative": "Vous aimez l’initiative ? Contactez-nous sur otc-contribution@opentaxcalendar.com et devenez un sponsor."
+            }
+        }
+    }
+}

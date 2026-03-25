@@ -1,0 +1,200 @@
+@use "../../css/media";
+@use "../../css/colors";
+
+.wrapper {
+    width: 100% !important;
+    height: 100%;
+    background-color: var(--grey-0);
+    border-bottom: 1px solid var(--main-1);
+}
+
+.border {
+    border: 1px solid var(--main-1);
+}
+
+.toolbar {
+    width: 100%;
+    justify-content: right;
+    padding: 10px;
+    gap: 20px;
+    align-items: center;
+    background-color: var(--grey-0);
+    border-top: none;
+    font-size: 0.75rem;
+}
+
+.icon-filter {
+    color: var(--main-1);
+
+    &.filter-active {
+        &::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 3px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--main-3);
+            box-shadow: 0 0 3px var(--main-3);
+        }
+    }
+}
+
+th, td {
+    max-width: 500px; /*max autosize on init*/
+}
+@include media.media('tablet') {
+    th, td {
+        max-width: 175px;
+    }
+}
+
+
+th {
+    background: var(--grey-0) !important;
+}
+
+tr {
+    background: var(--grey-0) !important;
+}
+
+.data-line:hover > td {
+    background: var(--main-1-05-solid) !important;
+    color: var(--main-3) !important;
+}
+
+@include media.media('tablet') {
+    .hide-header-mobile {
+        display: none;
+    }
+}
+
+::ng-deep .p-datatable-table-container {
+    height: 100% !important;
+}
+
+::ng-deep .p-datatable-column-filter-button {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    min-width: auto !important;
+    width: 100% !important;
+    height: fit-content !important;
+}
+
+::ng-deep .p-datatable-column-filter-button:hover {
+    background: transparent !important;
+}
+
+::ng-deep p-table {
+    tr {
+        border-top: 1px solid var(--main-1);
+    }
+
+    td, tbody th {
+        height: 41px;
+        padding: 5px !important;
+    }
+
+    td, tbody th & .with-checkbox {
+        padding: 5px 8px !important;
+    }
+
+    thead th {
+        padding: 5px 8px !important;
+    }
+
+    td {
+        border-bottom: 1px solid var(--main-0) !important;
+
+        &:not(:first-child) {
+            border-left: 1px solid var(--main-0) !important;
+        }
+    }
+
+    th {
+        border-bottom: 1px solid var(--main-1) !important;
+
+        &:not(:first-child) {
+            border-left: 1px solid var(--main-1) !important;
+        }
+    }
+
+    &.theme-2 {
+        thead th div {
+            font-family: "Integral UI Light", sans-serif !important;
+            font-weight: initial !important;
+        }
+
+        tbody td, tbody td div {
+            font-family: "Integral UI Regular", sans-serif !important;
+        }
+
+        td {
+            border-color: var(--main-1) !important;
+        }
+    }
+}
+
+::ng-deep :root, ::ng-deep .p-datatable-filter-overlay-popover {
+    --p-button-primary-color: var(--grey-0);
+    --p-button-primary-hover-color: var(--grey-0);
+    --p-button-primary-active-color: var(--grey-0);
+
+    --p-overlay-popover-background: var(--grey-0);
+    --p-overlay-popover-border-color: var(--main-1);
+
+    --p-primary-color: var(--main-3);
+    --p-primary-hover-color: var(--main-2);
+    --p-primary-active-color: var(--main-1);
+    --p-button-outlined-primary-border-color: var(--main-3);
+
+    --p-overlay-select-background: var(--grey-0);
+    --p-overlay-select-border-color: var(--main-1);
+    --p-overlay-select-color: var(--main-3);
+
+    --p-form-field-background: var(--grey-0);
+    --p-form-field-color: var(--main-3);
+    --p-form-field-disabled-background: var(--grey-1);
+    --p-form-field-filled-background: var(--grey-0);
+    --p-form-field-filled-hover-background: var(--grey-0);
+    --p-form-field-filled-focus-background: var(--grey-0);
+    --p-form-field-border-color: var(--main-1);
+    --p-form-field-hover-border-color: var(--main-2);
+
+    --p-list-option-focus-background: var(--main-1);
+    --p-list-option-selected-background: var(--main-1);
+    --p-list-option-selected-focus-background: var(--main-1);
+    --p-list-option-color: var(--main-4);
+    --p-list-option-focus-color: var(--main-4);
+    --p-list-option-selected-color: var(--main-4);
+    --p-list-option-selected-focus-color: var(--main-4);
+
+    --p-content-background: var(--grey-0);
+    --p-content-hover-background: var(--grey-0);
+    --p-datatable-border-color: var(--grey-0);
+
+    --p-checkbox-border-color: var(--main-3) !important;
+    --p-checkbox-checked-background: var(--main-4) !important;
+    --p-checkbox-checked-border-color: var(--main-4) !important;
+    --p-checkbox-border-radius: 3px !important;
+    --p-checkbox-width: 1rem !important;
+    --p-checkbox-height: 1rem !important;
+    --p-checkbox-icon-size: 0.5rem !important;
+    --p-checkbox-icon-checked-color: var(--grey-0) !important;
+    --p-radiobutton-icon-checked-color: var(--grey-0) !important;
+    --p-radiobutton-icon-checked-hover-color: var(--grey-0) !important;
+
+    --p-button-outlined-primary-color: var(--main-3);
+    --p-button-primary-background: var(--main-3);
+    --p-button-primary-border-color: var(--main-3);
+    --p-multiselect-focus-border-color: var(--main-3);
+    --p-multiselect-placeholder-color: var(--main-2);
+    --p-multiselect-dropdown-color: var(--main-2);
+    --p-select-focus-border-color: var(--main-3);
+    --p-select-placeholder-color: var(--main-2);
+    --p-select-dropdown-color: var(--main-2);
+
+}

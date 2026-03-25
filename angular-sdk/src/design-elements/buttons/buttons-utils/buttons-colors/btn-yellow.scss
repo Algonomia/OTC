@@ -1,0 +1,17 @@
+@use "btn-main";
+
+@use '../btn-theme' as theme;
+@use '../btn-mixin';
+
+$map-btn-base: (
+    btn-yellow-1: theme.$btn-yellow-1,
+    btn-yellow-2: theme.$btn-yellow-2,
+    btn-yellow-3: theme.$btn-yellow-3,
+    btn-yellow-4: theme.$btn-yellow-4,
+    btn-yellow-5: theme.$btn-yellow-5,
+);
+
+.algo-btn {
+    @include btn-mixin.generate-btn-class(btn-main.$map-btn-base);
+}
+

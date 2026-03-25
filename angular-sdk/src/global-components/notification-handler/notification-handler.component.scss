@@ -1,0 +1,71 @@
+@use "../../css/colors";
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    z-index: 2050;
+
+    .algo-wrapper {
+        opacity: 0.95;
+        margin: 0 15px 15px;
+        border-radius: 8px;
+        width: max-content;
+
+        &.neutral {
+            background-color: var(--main-0);
+            border: 1px solid var(--main-1);
+
+            .warn-level-img, .icon-close, p {
+                color: var(--main-4);
+            }
+        }
+
+        &.warning {
+            background-color: var(--graph-yellow-1);
+            border: 1px solid var(--graph-yellow-2);
+
+            .warn-level-img, .icon-close, p {
+                color: var(--graph-yellow-5);
+            }
+        }
+
+        &.error {
+            background-color: var(--KO-0);
+            border: 1px solid var(--KO-1);
+
+            .warn-level-img, .icon-close, p {
+                color: var(--KO-5);
+            }
+        }
+
+        .warn-level-img {
+            width: 30px;
+            height: 30px;
+            margin-right: -10px;
+            margin-left: 7px;
+        }
+
+        .icon-close {
+            width: 30px;
+            height: 30px;
+            margin-right: 7px;
+            margin-left: -12px;
+        }
+
+        p {
+            font-family: 'Integral UI Medium', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.28px;
+            line-height: 15px;
+            max-width: 240px;
+            padding: 14px 15px 15px 15px;
+        }
+
+        .title-notification {
+            font-weight: bold;
+            text-transform: capitalize;
+            margin-bottom: -5px;
+        }
+    }
+}

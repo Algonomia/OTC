@@ -1,0 +1,9 @@
+{
+    "AngularSdk": {
+        "FileForm": {
+            "File": "Télécharger le fichier",
+            "Placeholder": "Cliquez pour télécharger le fichier",
+            "MaxSize": "(Taille max = {{maxSize}} {{maxSizeUnit}})"
+        }
+    }
+}

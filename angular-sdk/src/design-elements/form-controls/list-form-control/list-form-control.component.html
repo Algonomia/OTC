@@ -1,0 +1,16 @@
+<app-form-control-template
+    [inputTpl]="inputTpl"
+    [required]="required"
+    [label]="label"
+    [displayErrors]="formControl.touched"
+    [errors]="formControl.errors"
+>
+</app-form-control-template>
+
+<ng-template #inputTpl>
+    @let placeholderText = (!!placeholder ? placeholder : 'AngularSdk.ListForm.SelectValue') | translate;
+    <app-std-menu-overlay-adaptive [selectHandler]="selectHandler"
+                                   [modalTitle]="placeholderText"
+                                   [placeholder]="placeholderText">
+    </app-std-menu-overlay-adaptive>
+</ng-template>

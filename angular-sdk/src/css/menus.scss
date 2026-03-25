@@ -1,0 +1,79 @@
+.menu-popover {
+    &.p-popover {
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        --p-popover-border-color: var(--main-4);
+        --p-popover-arrow-offset: 22px;
+
+        &::after {
+            --p-popover-background: var(--main-4);
+        }
+
+        .p-popover-content {
+            background-color: var(--main-4);
+            border-radius: 14px;
+            box-shadow: var(--p-popover-shadow);
+        }
+    }
+}
+
+.light-menu {
+    li {
+        &:hover {
+            background-color: var(--grey-1);
+        }
+    }
+}
+
+.dark-menu {
+    li {
+        color: var(--grey-0);
+
+        &:hover {
+            background-color: var(--main-3);
+        }
+    }
+
+    &.p-popover {
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        --p-popover-border-color: var(--main-4);
+        --p-popover-arrow-offset: 22px;
+
+        &::after {
+            --p-popover-background: var(--main-4);
+        }
+
+        .p-popover-content {
+            background-color: var(--main-4);
+            border-radius: 14px;
+            box-shadow: var(--p-popover-shadow);
+        }
+    }
+}
+
+.tooltip-popover {
+    &.p-popover {
+        padding: 8px 14px;
+        background: var(--main-6);
+        color: var(--grey-0);
+        border-radius: 8px;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+        text-align: center;
+        opacity: 0.9 !important;
+        border: none;
+        max-width: 200px;
+        line-height: 1.25rem;
+
+        &::after {
+            --p-popover-background: var(--main-6);
+        }
+
+        * {
+            font-family: 'Integral UI Regular' , sans-serif;
+        }
+    }
+}

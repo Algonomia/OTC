@@ -1,0 +1,46 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Sprite
+/src/assets/sprite.svg
+
+# i18n generated
+/src/assets/i18n
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+/npm-debug.log
+/yarn-error.log
+
+# IDEs and editors
+.idea/
+
+# Visual Studio Code
+/.vscode/*
+!/.vscode/settings.json
+!/.vscode/tasks.json
+!/.vscode/launch.json
+!/.vscode/extensions.json
+/.history/*
+
+# Miscellaneous
+/.angular/cache
+/.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+/testem.log
+/typings
+
+# System files
+/.DS_Store
+/Thumbs.db
+
+# environment jsons
+src/environments/env.json
+!src/environments/env.example.json

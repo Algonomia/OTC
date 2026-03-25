@@ -1,0 +1,30 @@
+{
+    "AngularSdk": {
+        "CoreCommon": {
+            "All": "Tout",
+            "Search": "Rechercher",
+            "TextCopied": "Texte copié !",
+            "ShowOnlySelected": "Afficher uniquement la sélection",
+            "__n__files": "{{n}} fichiers",
+            "Display": "Affichage",
+            "Active": "Active",
+            "Expired": "Expiré",
+            "Edit": "Éditer",
+            "AllCountries": "Tous les pays",
+            "Copy": "Copier",
+            "Optional": "Optionnel",
+            "Error": "Erreur",
+            "Tune": "Régler",
+            "Cancel": "Annuler",
+            "GotIt": "Compris",
+            "Reject": "Rejeter",
+            "Validate": "Valider",
+            "YesQuit": "Oui, quitter",
+            "Export": "Exporter",
+            "Next": "Suivant",
+            "Previous": "Précédent",
+            "RemoveSelection": "Supprimer la sélection",
+            "Close": "Fermer"
+        }
+    }
+}

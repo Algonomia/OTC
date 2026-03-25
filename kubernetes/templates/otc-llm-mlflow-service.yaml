@@ -1,0 +1,17 @@
+{{- if .Values.otcLlmMlflow.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.otcLlmMlflow.service.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    run: otc-llm-mlflow
+spec:
+  ports:
+    - port: {{ .Values.otcLlmMlflow.service.port }}
+      targetPort: 5000
+      protocol: TCP
+      name: http
+  selector:
+    run: otc-llm-mlflow
+{{- end }}

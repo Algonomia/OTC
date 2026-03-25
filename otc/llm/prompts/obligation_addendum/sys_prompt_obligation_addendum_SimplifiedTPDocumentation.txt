@@ -1,0 +1,41 @@
+OBLIGATION CONTEXT ADDENDUM — SimplifiedTPDocumentation
+
+Definition (what SimplifiedTPDocumentation means for extraction)
+- A distinct “simplified / short‑form / light / abbreviated” version of transfer pricing documentation.
+- It is typically a reduced‑content documentation package compared to the full Local File documentation.
+- It may be:
+  - an alternative allowed for smaller taxpayers / low transaction volumes / safe harbors, OR
+  - a mandatory simplified format for certain categories.
+
+What to look for (recognition cues)
+- Explicit simplified terminology:
+  - “simplified transfer pricing documentation”
+  - “simplified documentation”
+  - “simplified local file”
+  - “short‑form local file”, “short form”, “abbreviated documentation”, “light documentation”
+  - “simplified TP report”, “simplified TP study”
+- Common eligibility cues (often used in thresholds):
+  - “SME”, “small taxpayer”, “low value transactions”, “de minimis”, “safe harbor”, “simplified method”
+  - thresholds based on revenue, transaction volume, employee count, or transaction types.
+
+CRITICAL DISTINCTIONS (avoid wrong obligation mapping)
+1) SimplifiedTPDocumentation vs LocalFile (merged umbrella)
+- If the text describes the simplified regime as DISTINCT from the full TP documentation, classify it as SimplifiedTPDocumentation.
+- Do NOT treat “simplified” as merely a label for the main documentation unless the text clearly indicates there is no separate full documentation requirement.
+- If the text states simplified documentation applies “instead of” a full/local file, then:
+  - SimplifiedTPDocumentation is present,
+  - LocalFile may be absent unless the text also describes a full documentation regime.
+
+2) SimplifiedTPDocumentation vs disclosures/returns (AnnualTPForm / RelatedPartyDisclosure / SITDisclosure)
+- SimplifiedTPDocumentation is documentation content (a file/report), not a disclosure schedule/table by itself.
+- Do not map RPT schedules or SIT tables to SimplifiedTPDocumentation unless the text explicitly says the documentation requirement is satisfied by those filings.
+
+3) SimplifiedTPDocumentation vs exemption
+- If the source says entities “are exempt from documentation” below a threshold (i.e., nothing to prepare),
+  that is NOT SimplifiedTPDocumentation. It is simply “not required”.
+- SimplifiedTPDocumentation requires explicit evidence of a documentation package that still must be prepared/maintained, but in reduced form.
+
+Practical guidance for downstream extraction (deadlines/thresholds/penalties)
+- Expect thresholds to specify who can use the simplified regime (vs full regime).
+- Deadlines/penalties may follow the same timing as the main documentation or may be different; extract as stated.
+- If the simplified documentation is only “maintained and provided upon request”, treat that as a valid “in place” obligation with UponRequest filing logic.

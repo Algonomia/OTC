@@ -1,0 +1,42 @@
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v3.5.1
+    container_name: otc-llm-mlflow
+    profiles: ["mlflow"]
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri sqlite:///mlflow/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+    environment:
+      MLFLOW_SERVER_ALLOWED_HOSTS: "mlflow:5000,localhost:5001,127.0.0.1:5001,host.docker.internal:5001"
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./mlruns:/mlflow
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: otc-llm
+    environment:
+      LLM_BASE_URL: "${LLM_BASE_URL:-http://host.docker.internal:8181/v1}"
+      LLM_API_KEY: "${LLM_API_KEY:-}"
+      OTC_MODEL_KEY: "${OTC_MODEL_KEY:-qwen3-14b-awq}"
+      OTC_LABELING_MODEL_KEY: "${OTC_LABELING_MODEL_KEY:-qwen3-14b-awq}"
+      OTC_ENABLE_MLFLOW: "${OTC_ENABLE_MLFLOW:-false}"
+      LLM_MODEL_ID: "${LLM_MODEL_ID:-/models/Qwen3-14B-AWQ}"
+      MLFLOW_TRACKING_URI: "${MLFLOW_TRACKING_URI:-file:/app/mlruns}"
+      MLFLOW_EXPERIMENT_NAME: "${MLFLOW_EXPERIMENT_NAME:-otc-llm-experiment}"
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./mlruns:/app/mlruns
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always

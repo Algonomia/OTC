@@ -1,0 +1,33 @@
+{{- if .Values.front.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.front.replicaCount }}
+  selector:
+    matchLabels:
+      run: front
+  template:
+    metadata:
+      labels:
+        run: front
+    spec:
+      containers:
+        - name: front
+          image: "{{ .Values.front.image.repository }}:{{ .Values.front.image.tag }}"
+          imagePullPolicy: {{ .Values.front.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.front.service.targetPort }}
+          {{- if .Values.front.envJson }}
+          env:
+            - name: ENV_JSON
+              value: {{ .Values.front.envJson | quote }}
+          {{- end }}
+
+      {{- if .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml .Values.global.imagePullSecrets | nindent 8 }}
+      {{- end }}
+{{- end }}

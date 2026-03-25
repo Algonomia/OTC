@@ -1,0 +1,21 @@
+{
+    "OTCFront": {
+        "Dashboard": {
+            "table": {
+                "title": "Database table",
+                "info": "Click on some value to explore contribution options",
+                "showNotes": "Notes",
+                "showReferences": "References",
+                "showSubObligations": "Sub-obligations"
+            },
+            "WorldMap": {
+                "title": "World map",
+                "info": "Click on some country to filter jurisdiction card and table"
+            },
+            "Card": {
+                "title": "Jurisdiction card",
+                "info": "Click on some value to explore contribution options"
+            }
+        }
+    }
+}

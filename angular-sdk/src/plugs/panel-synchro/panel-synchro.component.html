@@ -1,0 +1,114 @@
+<!-- Main Container -->
+<div class="std-flex flex-column" style="height: 100%" #main #resizableRef [style.gap]="__gap" [style.padding]="__pad">
+    @for (line of lines; track line) {
+        <ng-template [ngTemplateOutletContext]="{line: line}" [ngTemplateOutlet]="lineTemplate"></ng-template>
+    }
+</div>
+
+<ng-template let-line="line" #lineTemplate>
+    @let isHomogenousLine = __homogeneousLines | setHas:line;
+    <div class="std-flex horizontal-flex-container" [style.gap]="__gap"
+         [class.non_homogeneous-state]="!isHomogenousLine"
+         [class.homogeneous-state]="isHomogenousLine"
+    >
+        @for (panel of line; track panel) {
+            <ng-template [ngTemplateOutlet]="fullPanel"
+                         [ngTemplateOutletContext]="{ line: line, panel: panel, long: line.length === 1 }">
+            </ng-template>
+        }
+    </div>
+</ng-template>
+
+<ng-template #fullPanel let-panel="panel" let-long="long" let-line="line">
+    @let isPanelSelected = __selectedPanels | setHas:panel;
+    @let isAllSelectedLine = __allSelectedLines | setHas:line;
+    @let isSomeSelectedLine = __someSelectedLines | setHas:line;
+    @let fullySelectedOrNonSelctedLines = isAllSelectedLine || !isSomeSelectedLine;
+    @let lineUnselectedOrPanelSelected = !isSomeSelectedLine || isPanelSelected;
+    @let bloc_max_width = long ?
+        '100%' :
+        (fullySelectedOrNonSelctedLines ?
+            `calc(50% - ${__gap_inline})` :
+                (!isPanelSelected ? __headerWidth : `calc(100% - ${__headerWidthWithGap})`)
+        );
+    @let blockHeight = isSomeSelectedLine ? __selectedLineHeight : __headerWidth;
+    <div class="panel block-relative" [class.reverse_items]="panel.reverse_items"
+         [style.width]="bloc_max_width"
+         [style.height]="blockHeight"
+    >
+        @if (long || lineUnselectedOrPanelSelected) {
+            <ng-template [ngTemplateOutlet]="wideHeader" [ngTemplateOutletContext]="{ panel: panel, line: line }"></ng-template>
+        } @else {
+            <ng-template [ngTemplateOutlet]="longHeader" [ngTemplateOutletContext]="{ panel: panel, line: line }"></ng-template>
+        }
+        @if (isPanelSelected) {
+            <ng-template [ngTemplateOutlet]="subHeader" [ngTemplateOutletContext]="{panel: panel}"></ng-template>
+            <div class="content" [style.height]="panel.subHeaderTpl ? __contentHeightWithSubHeader : __contentHeight">
+                <ng-template [ngTemplateOutlet]="panel.contentTpl"
+                             [ngTemplateOutletContext]="{ panel: panel }">
+                </ng-template>
+            </div>
+        }
+    </div>
+</ng-template>
+
+<!-- Open Header Template -->
+<ng-template #wideHeader let-panel="panel" let-line="line">
+    <div class="wide-header std-flex gap-10px" [style.height]="__headerWidth">
+        <app-algo-icon class="icon-medium margin-0" weight="Normal" [name]="panel.logo"></app-algo-icon>
+        <div class="text-title text-wrap-ellipsis">{{ panel.title | translate }}</div>
+        @if (panel.info) {
+            <app-algo-icon label="Info" [pTooltip]="panel.info | translate" [tooltipPosition]="'bottom'"
+                           tooltipStyleClass="algo-text-tooltip"
+                           class="icon-medium cursor-pointer" name="People/User/Info" weight="Light">
+            </app-algo-icon>
+        }
+        @if (panel?.headerTpl && (__selectedPanels | setHas:panel)) {
+            <ng-container *ngTemplateOutlet="panel.headerTpl"></ng-container>
+        }
+        @if (!panel.not_closable) {
+            <div class="left-auto">
+                <app-screen-size-handler [appNormalTemplate]="arrowsWithText" [appSmallTemplate]="arrowsWithoutText"></app-screen-size-handler>
+                <ng-template #arrowsWithText>
+                    <div class="shrink std-flex gap-10px cursor-pointer" (click)="switch(panel, line)">
+                        @if (__selectedPanels | setHas:panel) {
+                            <app-algo-icon class="icon-medium" weight="Regular" name="Action/Navigation/ArrowUpEdge"></app-algo-icon>
+                            <div class="text-action shrink-text">{{ 'AngularSdk.panel.ShrinkPanel' | translate }}</div>
+                        } @else {
+                            <app-algo-icon class="icon-medium" weight="Regular" name="Action/Navigation/ArrowDownEdge"></app-algo-icon>
+                            <div class="text-action shrink-text">{{ 'AngularSdk.panel.ExpandPanel' | translate }}</div>
+                        }
+                    </div>
+                </ng-template>
+                <ng-template #arrowsWithoutText>
+                    <div class="shrink std-flex gap-10px cursor-pointer" (click)="switch(panel, line)">
+                        @if (__selectedPanels | setHas:panel) {
+                            <app-algo-icon class="icon-medium" weight="Regular" name="Action/Navigation/ArrowUpEdge"></app-algo-icon>
+                        } @else {
+                            <app-algo-icon class="icon-medium" weight="Regular" name="Action/Navigation/ArrowDownEdge"></app-algo-icon>
+                        }
+                    </div>
+                </ng-template>
+            </div>
+        }
+    </div>
+</ng-template>
+
+<ng-template #subHeader let-panel="panel" let-line="line">
+    @if (panel?.subHeaderTpl) {
+        <div class="wide-header sub-header" [style.height]="__headerWidth">
+            <ng-container *ngTemplateOutlet="panel.subHeaderTpl"></ng-container>
+        </div>
+    }
+</ng-template>
+
+<!-- Closed Header Template -->
+<ng-template #longHeader let-panel="panel" let-line="line">
+    <div class="long-header std-flex flex-column align-center gap-10px" [style.width]="__headerWidth">
+        <app-algo-icon class="icon-medium" weight="Normal" [name]="panel.logo"></app-algo-icon>
+        <div class="text-title vertical-text text-wrap-ellipsis">{{ panel.title | translate }}</div>
+        <div class="shrink cursor-pointer top-auto" (click)="switch(panel, line)">
+            <app-algo-icon class="icon-medium" weight="Regular" name="Action/Navigation/ArrowLeftEdge"></app-algo-icon>
+        </div>
+    </div>
+</ng-template>

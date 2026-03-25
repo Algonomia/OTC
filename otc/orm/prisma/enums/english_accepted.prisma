@@ -1,0 +1,7 @@
+enum EnglishAcceptedId {
+    FullyAccepted
+    PartlyAccepted
+    AcceptedWithTranslationRequired
+    NotAccepted
+    NotApplicable
+}

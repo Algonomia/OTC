@@ -1,0 +1,14 @@
+{{- if .Values.fileMicroservice.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.fileMicroservice.service.name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  ports:
+    - port: {{ .Values.fileMicroservice.service.port }}
+      targetPort: {{ .Values.fileMicroservice.service.targetPort }}
+      protocol: TCP
+  selector:
+    run: file-microservice
+{{- end }}

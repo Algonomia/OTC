@@ -1,0 +1,11 @@
+{
+    "ObligationDueDateDomain": {
+        "SourcesFromLink": {
+            "UrlSource": {
+                "Url": "Ajoutez l'url de votre source",
+                "Comment": "Commentaire (facultatif)",
+                "CommentPlaceholder": "Mon commentaire sur cette source"
+            }
+        }
+    }
+}

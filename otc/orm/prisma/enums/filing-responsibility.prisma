@@ -1,0 +1,6 @@
+enum FilingResponsibilityId {
+    LocalEntity
+    HeadOfTaxGroup
+    FilingConstituentEntity
+    UltimateParentEntity
+}

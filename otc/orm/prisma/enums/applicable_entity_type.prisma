@@ -1,0 +1,7 @@
+enum ApplicableEntityTypeId {
+    Company
+    PE
+    Partnership
+    TrustFoundation
+    Other
+}

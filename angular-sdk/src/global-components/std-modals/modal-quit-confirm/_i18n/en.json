@@ -1,0 +1,8 @@
+{
+    "AngularSdk": {
+        "QuitModal": {
+            "YouWanaQuit": "Are you sure you want to quit?",
+            "IfYouQuit": "If you quit, all your progresses will be lost."
+        }
+    }
+}

@@ -1,0 +1,71 @@
+<div class="header pad-3">
+    @if (logoRef) {
+        <ng-container [ngTemplateOutlet]="logoRef"></ng-container>
+    }
+
+    <app-screen-size-handler [appSmallTemplate]="sharedHeaderShort" [appNormalTemplate]="sharedHeader"></app-screen-size-handler>
+
+    <ng-template #sharedHeaderShort>
+        <div class="menu std-aligned gap-2">
+            <p class="active-link">{{ (show_menu_mobile ? 'menu' : __currentRouteTitle) | translate }}</p>
+
+            <app-lang-selector></app-lang-selector>
+
+            @if (extraBtnsRef) {
+                <ng-container [ngTemplateOutlet]="extraBtnsRef"></ng-container>
+            }
+
+            <app-algo-icon class="icon-menu cursor-pointer" [name]="show_menu_mobile ? 'Action/Navigation/Close' : 'Action/Navigation/Menu'"
+                           (click)="show_menu_mobile = !show_menu_mobile">
+            </app-algo-icon>
+        </div>
+
+        @if(show_menu_mobile) {
+            <ng-container [ngTemplateOutlet]="navMobile"></ng-container>
+        }
+    </ng-template>
+
+    <ng-template #sharedHeader>
+        <div class="std-aligned gap-3">
+            <nav class="nav gap-3">
+                @for (link of __headerRoutes; track link.path) {
+                    @if (!link.hasConnectionGuard || (isConnected$ | async)) {
+                        <a class="cursor-pointer" routerLinkActive="active-link" [class.disabled-link]="link.disabled"
+                           [routerLink]="link.path"
+                           [routerLinkActiveOptions]="{ matrixParams: 'exact', queryParams: 'subset', paths: 'exact', fragment: 'exact' }"
+                        >
+                            {{ link.title | translate }}
+                        </a>
+                    }
+                }
+            </nav>
+
+            <app-lang-selector></app-lang-selector>
+
+            @if (extraBtnsRef) {
+                <ng-container [ngTemplateOutlet]="extraBtnsRef"></ng-container>
+            }
+        </div>
+    </ng-template>
+</div>
+
+<hr/>
+
+<ng-template #navMobile>
+    <div class="menu-mobile" @transformRight>
+        <nav class="nav-mobile">
+            @for (link of __headerRoutes; track link.path) {
+                @if (!link.hasConnectionGuard || (isConnected$ | async)) {
+                    <a class="cursor-pointer" routerLinkActive="active-link" [class.disabled-link]="link.disabled"
+                       [routerLink]="link.path"
+                       [routerLinkActiveOptions]="{ matrixParams: 'exact', queryParams: 'subset', paths: 'exact', fragment: 'exact' }"
+                       (click)="show_menu_mobile = false">
+                        {{ link.title | translate }}
+                    </a>
+                }
+            }
+        </nav>
+
+        <app-button-go-back class="pad-3" text="Close menu" size_theme="Medium" (click)="show_menu_mobile = false"></app-button-go-back>
+    </div>
+</ng-template>

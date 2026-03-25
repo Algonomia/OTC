@@ -1,0 +1,10 @@
+@if (faq) {
+    <app-title-text-slider [list]="faq">
+        <ng-template #dataContent let-data="data">
+            <div class="flex flex-column gap-1">
+                <h4>{{ data.title | translate }}</h4>
+                <p>{{ data.text | translate }}</p>
+            </div>
+        </ng-template>
+    </app-title-text-slider>
+}

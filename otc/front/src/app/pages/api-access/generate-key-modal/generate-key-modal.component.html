@@ -1,0 +1,50 @@
+<app-modal-stepper [modalSteps]="modalSteps" [canGoBack]="false"></app-modal-stepper>
+
+<ng-template #creation>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: 'Action/Navigation/Add',
+                      title: 'SourceContribution.AddNewSource',
+                      bodyTpl: creationContent
+                  }">
+    </ng-container>
+    <ng-template #creationContent>
+        <div class="pad-1">
+            <app-meta-form-group [metaFormGroup]="generateKeyForm"></app-meta-form-group>
+        </div>
+    </ng-template>
+</ng-template>
+
+<ng-template #containerModal let-icon="icon" let-title="title" let-bodyTpl="bodyTpl">
+    <div class="container-modal">
+        <ng-container [ngTemplateOutlet]="bodyTpl"></ng-container>
+    </div>
+</ng-template>
+
+<ng-template #closeBtn>
+    <app-button-cancel (click)="closeModal()"></app-button-cancel>
+</ng-template>
+
+<ng-template #submitCreation>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.Validate" (click)="onSubmit()"
+                             [disabled_btn]="generateKeyForm.invalid">
+        </app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #clipboard>
+    @if (clipboard_data) {
+        <div class="pad-1 flex flex-column gap-1">
+            <app-clipboard-field [text]="clipboard_data.access_key" label="OTCFront.Api.AccessKey"></app-clipboard-field>
+            <app-clipboard-field [text]="clipboard_data.access_token" label="OTCFront.Api.AccessToken"></app-clipboard-field>
+
+            <div class="warning-info std-aligned gap-1">
+                <img src="assets/images/Warning.png" class="warn-img" alt="warn-img"/>
+                <p>{{ 'OTCFront.Api.ClipboardTokenText' | translate }}</p>
+            </div>
+        </div>
+    }
+</ng-template>

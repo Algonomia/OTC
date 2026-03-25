@@ -1,0 +1,34 @@
+{
+    "Shared": {
+        "ValidatorErrors": {
+            "required": "This field is required",
+            "minDateExceeded": "Value is under minimum date",
+            "maxDateExceeded": "Value is above maximum date",
+            "invalidSubDate": "Invalid sub-date",
+            "invalidPeriod": "Invalid period",
+            "notInList": "Value not in elligible list",
+            "forbiddenExtension": "Allowed extensions: {{forbiddenExtension.allowedExtensions}}",
+            "maxSizeExceeded": "Max size exceeded",
+            "minlength": "Must contain {{requiredLength}} characters or more",
+            "maxlength": "Must contain {{requiredLength}} characters or more",
+            "min": "Value is under {{min}}",
+            "max": "Value is above {{max}}",
+            "wrongUrl": "URL is wrong or does not exist",
+            "invalidEmail": "Email format is wrong",
+            "invalidPhone": "Phone number format is wrong",
+            "invalidFormat": "Invalid format",
+            "invalidObject": "Invalid object",
+            "invalidValues": "Invalid values",
+            "missingKeys": "Missing keys {{missingKeys}}",
+            "unauthorizedKeys": "Missing keys {{unauthorizedKeys}}",
+            "notRespectedBound": "Must be between {{min}} and {{max}}",
+            "unknownOperator": "Unknown operator",
+            "missingArgs": "{{nMissing}} missing arguments",
+            "overflowingArgs": "{{nOverflowing}} overflowing arguments",
+            "wrongInputs": "Wrong inputs in positions {{positions}}",
+            "unexpectedOutput": "Expected {{expected_output}} but got {{output}}",
+            "invalidNestedInputs": "Invalid nested values",
+            "default": "Field contains an error"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@if (country) {
+    <div class="card">
+        <div class="std-aligned justify-between">
+            <p class="country-name">{{ countryName }}</p>
+
+            <div class="std-aligned gap-10px">
+                <p class="completion">{{ country.completion }} %</p>
+                <app-country-flag class="flex" [iso2]="country.iso2" [rounded]="true"></app-country-flag>
+            </div>
+        </div>
+
+        <div class="list">
+            <app-list-items-handler [list]="country.obligations">
+                <ng-template #dataContent let-list_elem="data" let-idx="idx">
+                    <app-label-validated [text]="list_elem"></app-label-validated>
+                </ng-template>
+
+                <ng-template #counterTemplate let-counter="counter">
+                    <app-label-count-hidden [counter]="counter"></app-label-count-hidden>
+                </ng-template>
+            </app-list-items-handler>
+        </div>
+
+        @if (authLinkedinService.isConnected$ | async) {
+            <app-button-link-outline text="OTCFront.CoreCommon.ExploreData" class="explore-data"
+                                     [icon]="false" [link]="'/dashboard'" [queryParams]="queryParams">
+            </app-button-link-outline>
+        }
+    </div>
+}

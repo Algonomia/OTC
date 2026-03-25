@@ -1,0 +1,17 @@
+{
+    "AngularSdk": {
+        "GenericPdfExport": {
+            "DocumentName": "Document_{{date}}.pdf",
+            "HeaderText": "Obligation Due Dates",
+            "FooterText": "© Open Tax Calendar {{year}}",
+            "Subject": "Obligation due dates information",
+            "Errors": {
+                "GenerationFailed": "PDF generation failed:",
+                "ExportFailed": "PDF export failed:",
+                "FailedToDecodeFile": "Failed to decode font: {{file}}",
+                "FailedToLoadAsset": "Failed to load asset {{asset}}:"
+            },
+            "Creator": "Algonomia PDF System"
+        }
+    }
+}

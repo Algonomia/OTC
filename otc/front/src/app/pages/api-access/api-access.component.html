@@ -1,0 +1,78 @@
+<div class="pad-3 gap-3 api-access">
+    <ng-container [ngTemplateOutlet]="keyContainerTpl"></ng-container>
+    <ng-container [ngTemplateOutlet]="docContainerTpl"></ng-container>
+</div>
+
+<ng-template #keyContainerTpl>
+    <div class="container">
+        <div class="std-aligned head gap-10px">
+            <app-algo-icon class="icon-medium margin-0" weight="Normal" name="System/Class/Key"></app-algo-icon>
+            <div class="text-title">{{ 'OTCFront.Api.Panels.Key.title' | translate }}</div>
+        </div>
+
+        <hr style="margin: 0" />
+
+        <div class="content">
+            <ng-container [ngTemplateOutlet]="generateKeyTpl"></ng-container>
+
+            <hr style="margin: 0" />
+
+            <ng-container [ngTemplateOutlet]="tableTpl"></ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #generateKeyTpl>
+    <div class="std-aligned generate-key-container">
+        <div class="pad-2 width-50 generate-key-text">
+            <p>{{ 'OTCFront.Api.Panels.Key.content' | translate }}</p>
+        </div>
+
+        @if (__isConnected$ | async) {
+            <div class="pad-2 width-50 generate-key-btn">
+                <app-button-main-action text="OTCFront.Api.GenerateKey" icon="System/Class/Key" class="btn"
+                                        (click)="openGenerateKeyModal()">
+                </app-button-main-action>
+            </div>
+        }
+    </div>
+</ng-template>
+
+<ng-template #tableTpl>
+    <div class="pad-2 flex">
+        <app-button-remove [disabled_btn]="this.selectHandler.selected.length === 0" (click)="removeSelection()"></app-button-remove>
+    </div>
+
+    <hr style="margin: 0" />
+
+    <div class="flex-1 table-container">
+        <app-algo-table tableTheme="theme-2" [columns]="columns" [data]="selectHandler" [bordered]="false"></app-algo-table>
+    </div>
+</ng-template>
+
+<ng-template #docContainerTpl>
+    <div class="container doc-container">
+        <div class="content doc-content">
+            <img src="assets/images/Doc illu.svg" alt="Doc illustration" class="illustration border-bottom">
+
+            <hr style="margin: 0" />
+
+            <div class="pad-2 flex flex-column gap-2">
+                <p>{{ 'OTCFront.Api.Panels.Document.content' | translate }}</p>
+            </div>
+        </div>
+
+        <hr style="margin: 0" />
+
+        <div class="std-aligned head gap-10px justify-between">
+            <div class="std-aligned">
+                <app-algo-icon class="icon-medium margin-0" weight="Normal" name="People/User/Help"></app-algo-icon>
+                <div class="text-title">{{ 'OTCFront.Api.Panels.Document.title' | translate }}</div>
+            </div>
+
+            <a [href]="docApiUrl" target="_blank">
+                <app-button-main-action icon="Action/Arrow/ArrowRight" text="OTCFront.CoreCommon.Read"></app-button-main-action>
+            </a>
+        </div>
+    </div>
+</ng-template>

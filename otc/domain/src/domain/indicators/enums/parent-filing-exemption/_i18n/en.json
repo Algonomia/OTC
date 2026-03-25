@@ -1,0 +1,14 @@
+{
+    "ObligationDueDateDomain": {
+        "ParentFilingExemption": {
+            "Yes": {
+                "text": "Yes",
+                "info": ""
+            },
+            "No": {
+                "text": "No",
+                "info": ""
+            }
+        }
+    }
+}

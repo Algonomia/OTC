@@ -1,0 +1,9 @@
+<app-card [data]="data" [columns]="columns" [headerRef]="headerRef"></app-card>
+<ng-template let-dataWrapper="dataWrapper" #headerRef>
+    <div class="std-aligned justify-between flex-export" #wrapper>
+        <app-jurisdiction-flag-label [iso2]="getIso2(dataWrapper.line)"></app-jurisdiction-flag-label>
+        <app-jurisdiction-export [data]="dataWrapper" [getIso2Callback]="getIso2Callback" [columns]="columns" [wrapper]="wrapper"></app-jurisdiction-export>
+    </div>
+
+    <hr style="margin: 0"/>
+</ng-template>

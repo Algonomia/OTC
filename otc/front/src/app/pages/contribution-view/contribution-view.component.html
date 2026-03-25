@@ -1,0 +1,10 @@
+<app-space-left [firstTpl]="firstTpl" [secondTpl]="secondTpl" [wrapperClass]="'flex flex-column gap-3 pad-3'" [minHeight]="500"></app-space-left>
+
+<ng-template #firstTpl>
+    <app-contribution-bar></app-contribution-bar>
+</ng-template>
+
+<ng-template #secondTpl>
+    <app-algo-table [columns]="columns" [data]="data"></app-algo-table>
+</ng-template>
+

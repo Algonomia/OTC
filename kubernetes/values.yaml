@@ -1,0 +1,213 @@
+global:
+  imagePullSecrets:
+    - name: regcred
+
+  ingress:
+    host: __K8S_URL__
+    baseUrl: __K8S_BASE_URL__
+    tls:
+      enabled: true
+      clusterIssuer: letsencrypt-prod
+      secretName: obligation-due-dates-tls
+
+
+database:
+  enabled: true
+  replicaCount: 1
+
+  image:
+    repository: postgres
+    pullPolicy: IfNotPresent
+    tag: 17
+
+  service:
+    name: database-service
+    port: 5432
+    targetPort: 5432
+
+  persistentVolumeClaim:
+    enabled: true
+    storage: 2Gi
+
+  env:
+    postgres:
+      secretName: pgsql-auth
+      keywords:
+        host: POSTGRES_HOST
+        user: POSTGRES_USER
+        password: POSTGRES_PASSWORD
+        port: POSTGRES_PORT
+        db: POSTGRES_DB
+
+  backup:
+    enabled: true
+    schedule: "0 2 * * *"
+    rotationHistoryLimit: 30
+    secretName: s3-credentials
+    keywords:
+      bucketName: BUCKET
+      access_key: ACCESS_KEY
+      secret_key: SECRET_KEY
+      endpoint: ENDPOINT
+      region: REGION
+
+
+fileMicroservice:
+  enabled: true
+  replicaCount: 1
+
+  image:
+    repository: astorage
+    pullPolicy: IfNotPresent
+    tag: latest
+
+  service:
+    name: file-microservice-service
+    port: 80
+    targetPort: 3001
+
+  persistentVolumeClaim:
+    enabled: true
+    storage: 5Gi
+    # storageClassName: ""  # uncomment to set a specific storage class
+
+  env:
+    corsOrigin: "localhost:3000"
+    largeFileThreshold: 50
+    host: "file-microservice-service:80"
+
+
+back:
+  enabled: true
+  replicaCount: 1
+
+  image:
+    repository: obligation-due-dates-back
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
+  service:
+    name: back-service
+    port: 80
+    targetPort: 3000
+
+  ingress:
+    enabled: true
+    path: /back/
+    pathType: Prefix
+
+  probe:
+    livenessProbe:
+      enabled: true
+      path: /ping
+      initialDelaySeconds: 60
+      periodSeconds: 120
+    readinessProbe:
+      enabled: false
+
+  env:
+    production: production
+    isAuditable: false
+
+    linkedin:
+      secretName: linkedin-credentials
+      keywords:
+        clientId: client-id
+        clientSecret: client-secret
+        redirectUri: redirect-uri
+
+    google:
+      secretName: google-credentials
+      keywords:
+        apiKey: api-key
+
+    virustotal:
+      secretName: virustotal-credentials
+      keywords:
+        apiKey: api-key
+
+    corsOrigin: http://localhost:4200
+    fileServiceUrl: http://file-microservice-service:80
+    llmEndpointUrl: http://otc-llm-service:8090
+    ocrServiceUrl: http://axtractor-service:80
+    scraperServiceUrl: http://ascraper-service:80
+
+front:
+  enabled: true
+  replicaCount: 1
+
+  image:
+    repository: obligation-due-dates
+    pullPolicy: IfNotPresent
+    tag: latest
+
+  service:
+    name: front-service
+    port: 80
+    targetPort: 80
+
+  ingress:
+    enabled: true
+    path: /
+    pathType: Prefix
+
+  envJson: ""
+
+otcLlm:
+  enabled: true
+  replicaCount: 1
+
+  image:
+    repository: otc-llm
+    pullPolicy: IfNotPresent
+    tag: latest
+
+  service:
+    name: otc-llm-service
+    port: 8090
+    targetPort: 8090
+
+  persistentVolumeClaim:
+    data:
+      enabled: false
+      storage: 2Gi
+    logs:
+      enabled: false
+      storage: 500Mi
+    # storageClassName: ""  # uncomment to set a specific storage class
+
+  probe:
+    livenessProbe:
+      enabled: false
+      path: /health
+      initialDelaySeconds: 60
+      periodSeconds: 120
+
+  env:
+    llm:
+      secretName: otc-llm-credentials
+      keywords:
+        baseUrl: LLM_BASE_URL
+        apiKey: LLM_API_KEY
+
+    llmModelId: "/models/Qwen3-14B-AWQ"
+    otcModelKey: "qwen3-14b-awq"
+    otcLabelingModelKey: "qwen3-14b-awq"
+    mlflowExperimentName: "otc-llm-experiment"
+
+otcLlmMlflow:
+  enabled: false
+
+  image:
+    repository: ghcr.io/mlflow/mlflow
+    pullPolicy: IfNotPresent
+    tag: v3.5.1
+
+  service:
+    name: otc-llm-mlflow-service
+    port: 5000
+
+  persistentVolumeClaim:
+    enabled: false
+    storage: 1Gi
+    # storageClassName: ""  # uncomment to set a specific storage class

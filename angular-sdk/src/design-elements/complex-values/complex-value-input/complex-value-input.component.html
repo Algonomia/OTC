@@ -1,0 +1,53 @@
+<div class="std-flex">
+    <div class="text-wrap-ellipsis">{{complexValue() | displayComplexValue:TAG_LIST():SCOPE_LIST()}}</div>
+    <app-button-edit [text]="'AngularSdk.CoreCommon.Edit' | translate" (click)="open()"></app-button-edit>
+    @if (!__isValid()) {
+        <app-form-control-errors-tooltip [displayErrors]="true" [errors]="__errors()"></app-form-control-errors-tooltip>
+    }
+</div>
+
+<ng-template #editorModal>
+    <div [style.height]="__height" style="max-height: 100%" class="overflow-auto flex flex-column">
+        <ng-template [ngTemplateOutlet]="headerTpl"></ng-template>
+
+        <hr style="margin: 0"/>
+
+        <ng-template [ngTemplateOutlet]="contentTpl"></ng-template>
+    </div>
+</ng-template>
+
+<ng-template #headerTpl>
+    <div class="head pad-1 std-aligned justify-between">
+        <div class="std-aligned gap-1">
+            <app-algo-icon name="Action/Formatting/Edit" class="icon-head"></app-algo-icon>
+            <p class="modal-title">{{ "AngularSdk.ComplexValueEditor.EditAValue" | translate }}</p>
+        </div>
+        <app-algo-icon (click)="closeModal()" name="Action/Navigation/Close" class="icon-close cursor-pointer"></app-algo-icon>
+    </div>
+</ng-template>
+
+<ng-template #contentTpl>
+    <div class="content pad-1 flex flex-column flex-1 gap-1">
+        <div class="description-container flex flex-column">
+            <p>{{ "AngularSdk.ComplexValueEditor.HeadDescription" | translate }}</p>
+            <hr style="margin: 0"/>
+        </div>
+
+        <div class="editor flex-1 flex flex-column">
+            <div class="editor-content flex-1">
+                <div class="flex flex-column gap-1" style="height: 100%;">
+                    <app-complex-value-editor [complexValue]="complexValue()" [TAG_LIST]="TAG_LIST()" [SCOPE_LIST]="SCOPE_LIST()"
+                                              [expected_type]="expected_type()"
+                                              (outputComplexValue)="__updateModalComplexValue($event)" style="height: 100%;"
+                    >
+                    </app-complex-value-editor>
+                </div>
+            </div>
+
+            <div class="editor-footer std-aligned pad-1 gap-1 justify-end">
+                <app-button-cancel (click)="closeModal()"></app-button-cancel>
+                <app-button-continue [disabled_btn]="!__modalComplexValueValid()" text="AngularSdk.CoreCommon.Validate" (click)="__save()"></app-button-continue>
+            </div>
+        </div>
+    </div>
+</ng-template>

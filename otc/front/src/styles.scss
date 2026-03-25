@@ -1,0 +1,77 @@
+@use "css/tmp-colors.scss";
+@use "css/media" as media;
+
+:root {
+    --app-height: 100vh;
+    --app-width: 100vw;
+}
+
+@supports (height: 100dvh) {
+    :root {
+        --app-height: 100dvh;
+        --app-width: 100dvw;
+    }
+}
+
+html {
+    background-color: var(--grey-1);
+    color: var(--main-4);
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--grey-1);
+    margin: 0;
+    width: var(--app-width);
+    height: var(--app-height);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--main-1);
+    margin: 0 1.55rem;
+
+    @include media.media('tabletL') {
+        margin: 0 1.25rem;
+    }
+
+    @include media.media('mobileXL') {
+        margin: 0 1rem;
+    }
+}
+
+.vr {
+    width: 1px;
+    height: 100%;
+    background-color: var(--main-1);
+    margin: 0 1.35rem;
+
+    @include media.media('tabletL') {
+        margin: 0 1rem;
+    }
+}
+
+.height-100 {
+    height: 100%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.max-w-100 {
+    max-width: 100%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-auto {
+    overflow: auto;
+}

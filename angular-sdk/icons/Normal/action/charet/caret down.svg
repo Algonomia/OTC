@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title> action / charet / caret down</title>
+    <g id="-action-/-charet-/-caret-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="action-/-charet-/-chevron-up" transform="translate(11.107864, 9.857864)" fill="#142846" fill-rule="nonzero">
+            <g id="Material-/-New-chevron-light" transform="translate(7.071068, 7.071068) rotate(180.000000) translate(-7.071068, -7.071068) ">
+                <path d="M6.23015888,2.38890873 C6.7964191,1.82264851 7.71450832,1.82264851 8.28076854,2.38890873 L13.48,7.76 L12.82,8.45 L7.64437244,3.02530483 C7.42958408,2.81051647 7.08134334,2.81051647 6.86655498,3.02530483 L1.68,8.45 L1.02,7.76 L6.23015888,2.38890873 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

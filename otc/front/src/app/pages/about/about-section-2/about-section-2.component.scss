@@ -1,0 +1,17 @@
+@use "css/media";
+
+.text-sponsors {
+    text-align: justify;
+    word-wrap: break-word;
+    padding: 1.25rem 1.55rem;
+
+    @include media.media('tabletL') {
+        text-align: initial;
+        padding: 0.7rem 1rem;
+    }
+
+    @include media.media('tablet') {
+        font-size: 1.125rem;
+        line-height: 2rem;
+    }
+}

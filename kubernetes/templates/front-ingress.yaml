@@ -1,0 +1,64 @@
+{{- if and .Values.front.enabled .Values.front.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-front
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/rewrite-target: "/$1"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      gzip on;
+      gzip_types text/plain
+                 text/css
+                 application/json
+                 application/x-javascript
+                 text/xml
+                 application/xml
+                 application/xml+rss
+                 text/javascript
+                 application/x-font-ttf
+                 application/javascript
+                 font/woff
+                 font/opentype
+                 image/svg+xml
+                 image/x-icon
+                 text/plain;
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      more_set_headers "Cache-control: public, max-age=3600";
+      if ($request_uri !~ \.) {
+          more_set_headers "Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'";
+      }
+      more_set_headers "server: hide";
+      more_set_headers "X-Content-Type-Options: nosniff";
+      more_set_headers "X-Frame-Options: DENY";
+      more_set_headers "X-Xss-Protection: 1";
+      sub_filter_once off;
+      sub_filter random-csp-nonce $request_id;
+      more_set_headers "Strict-Transport-Security max-age=31536000; includeSubDomains";
+      more_set_headers "Content-Security-Policy: default-src 'self'; font-src 'unsafe-inline' 'self' data:; style-src 'unsafe-inline' 'self'; script-src 'unsafe-inline' 'self' https://plausible.algonomia.com; connect-src 'self' https://plausible.algonomia.com; object-src 'none'; frame-src 'self'; img-src 'self' https://media.licdn.com data:; Form-Action 'self'";
+    nginx.ingress.kubernetes.io/custom-http-errors: "400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,421,422,423,424,425,426,428,429,431,451,500,501,502,503,504,505,506,507,508,510,511"
+    {{- if .Values.global.ingress.tls.enabled }}
+    cert-manager.io/cluster-issuer: {{ .Values.global.ingress.tls.clusterIssuer }}
+    {{- end }}
+spec:
+  {{- if .Values.global.ingress.tls.enabled }}
+  tls:
+    - hosts:
+        - {{ .Values.global.ingress.host }}
+      secretName: {{ .Values.global.ingress.tls.secretName }}
+  {{- end }}
+  rules:
+    - host: {{ .Values.global.ingress.host }}
+      http:
+        paths:
+          - path: {{ .Values.global.ingress.baseUrl | trimSuffix "/" }}{{ .Values.front.ingress.path }}?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.front.service.name }}
+                port:
+                  number: {{ .Values.front.service.port }}
+{{- end }}

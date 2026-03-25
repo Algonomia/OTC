@@ -1,0 +1,13 @@
+{
+    "OTCFront": {
+        "Sources": {
+            "AddNewSource": "Add a new source",
+            "ByAddingSource": "By adding a new source, you help the Open Tax Calendar becoming both more efficient and reliable : )",
+            "2WaysAddSource": "There are 2 ways to add a source; you can either enter a valid url link to the file or upload it directly. Both ways are great!",
+            "ClickUrl": "Click to enter url",
+            "ClickFile": "Click to upload file",
+            "SpecifyObligationJurisdiction": "Nice! you must specify the obligation type and the jurisdictions concerned by this source.",
+            "LastThing": "One last thing: select values you want to extract from this source."
+        }
+    }
+}

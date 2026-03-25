@@ -1,0 +1,20 @@
+<div #fixedWindow class="fixedWindow"
+     (mousedown)="onTouchStart($event)"
+     (mousemove)="onTouchMove($event)"
+     (mouseup)="onTouchEnd()"
+     (touchstart)="onTouchStart($event)"
+     (touchmove)="onTouchMove($event)"
+     (touchend)="onTouchEnd()">
+
+    <ul #slider class="slider std-aligned justify-between pad-3" role="list">
+        @for (elem of list; track i; let i = $index) {
+            <li (click)="goToSlide(i)" role="listitem">
+                <div #resizableRef>
+                    <ng-template [ngTemplateOutlet]="dataContent"
+                                 [ngTemplateOutletContext]="{ data: elem }">
+                    </ng-template>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

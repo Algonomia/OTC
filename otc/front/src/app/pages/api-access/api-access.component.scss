@@ -1,0 +1,97 @@
+@use "css/media";
+
+.api-access {
+    min-height: 100%;
+    display: flex;
+
+    @include media.media('tabletL') {
+        flex-direction: column;
+    }
+
+    .container {
+        border: 1px solid var(--main-1);
+        border-radius: 3px;
+        background-color: var(--grey-0);
+        overflow: hidden;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+            flex: 0 0 70%;
+        }
+
+        .head {
+            height: var(--header-panel-size);
+            padding: 10px;
+
+            @include media.media('tabletL') {
+                height: var(--header-panel-size-mobile);
+            }
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            &.doc-content {
+                display: flex;
+                flex-direction: column;
+
+                img {
+                    flex: 1;
+                    margin-top: 20px;
+                    object-fit: cover;
+                    object-position: 65% 50%;
+
+                    @include media.media('tabletL') {
+                        max-height: 200px;
+                        margin-top: 0;
+                        object-position: bottom;
+                    }
+                }
+            }
+
+            p {
+                color: var(--main-4);
+            }
+
+            .generate-key-container {
+                .generate-key-text {
+                    border-right: 1px solid var(--main-1);
+                }
+
+                .generate-key-btn {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                @include media.media('tabletL') {
+                    flex-direction: column;
+
+                    div {
+                        width: 100%;
+                    }
+
+                    .generate-key-text {
+                        border-bottom: 1px solid var(--main-1);
+                        border-right: none;
+                    }
+                }
+            }
+
+            .table-container {
+                display: grid;
+                min-height: 300px;
+            }
+        }
+    }
+
+    .doc-container {
+        @include media.media('tabletL') {
+            flex-direction: column-reverse;
+        }
+    }
+}

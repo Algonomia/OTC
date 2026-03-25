@@ -1,0 +1,52 @@
+{
+    "ObligationDueDateDomain": {
+        "ObligationDueDate_Enums": {
+            "PeriodDayType": {
+                "CalendarDays": {
+                    "text": "Jours ouvrés",
+                    "info": ""
+                },
+                "BusinessDays": {
+                    "text": "Jours ouvrables",
+                    "info": ""
+                },
+                "DEFAULT": {
+                    "text": "Défaut",
+                    "info": ""
+                },
+                "NA": {
+                    "text": "N/A",
+                    "info": ""
+                }
+            },
+            "PeriodUnit": {
+                "Days": {
+                    "text": "Jours",
+                    "info": ""
+                },
+                "Weeks": {
+                    "text": "Semaines",
+                    "info": ""
+                },
+                "Months": {
+                    "text": "Mois",
+                    "info": ""
+                }
+            },
+            "ReferenceEvent": {
+                "FiscalYearEnd": {
+                    "text": "Fin de l'année fiscale",
+                    "info": ""
+                },
+                "GroupFYEnd": {
+                    "text": "Fin de l'année fiscale du groupe",
+                    "info": ""
+                },
+                "UponRequest": {
+                    "text": "À la demande",
+                    "info": ""
+                }
+            }
+        }
+    }
+}

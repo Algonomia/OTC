@@ -1,0 +1,48 @@
+@if (submitRateFormGroup) {
+    <app-modal-stepper [modalSteps]="modalSteps"></app-modal-stepper>
+}
+
+<ng-template #rate>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{ bodyTpl: rateContent }">
+    </ng-container>
+    <ng-template #rateContent>
+        <div class="pad-1">
+            <app-meta-form-group [metaFormGroup]="submitRateFormGroup"></app-meta-form-group>
+        </div>
+    </ng-template>
+</ng-template>
+
+<ng-template #done>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{ bodyTpl: doneContent }">
+    </ng-container>
+    <ng-template #doneContent>
+        <app-done-step (close)="closeModal()" [messages]="['OTCFront.RatesModal.ThanksForRating']"></app-done-step>
+    </ng-template>
+</ng-template>
+
+<ng-template #containerModal let-bodyTpl="bodyTpl">
+    <div class="container-modal">
+        <ng-container [ngTemplateOutlet]="bodyTpl"></ng-container>
+    </div>
+</ng-template>
+
+<ng-template #gotIt>
+    <div class="std-aligned justify-end">
+        <app-button-got-it (click)="closeModal()"></app-button-got-it>
+    </div>
+</ng-template>
+
+<ng-template #submit>
+    <div class="std-aligned pad-1 gap-1 justify-between">
+        <app-button-cancel (click)="closeModal()"></app-button-cancel>
+
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.Submit" (click)="onValidateRate()"
+                             [disabled_btn]="submitRateFormGroup.invalid || (
+                                            __submitRate?.comment === submitRateFormGroup.controls['comment'].value &&
+                                            __submitRate?.rate === submitRateFormGroup.controls['rate'].value
+                                        )">
+        </app-button-continue>
+    </div>
+</ng-template>

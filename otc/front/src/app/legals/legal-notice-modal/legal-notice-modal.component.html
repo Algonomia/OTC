@@ -1,0 +1,59 @@
+<div class="legal-notice">
+    <div class="std-aligned pad-1 gap-1">
+        <img src="assets/logo/Logo/Logo Medium.svg" class="logo" alt="logo_icon"/>
+        <p class="title">{{ 'OTCFront.About.Footer.LegalNotice' | translate }}</p>
+        <app-lang-selector></app-lang-selector>
+    </div>
+
+    <hr style="margin: 0"/>
+
+    <div class="pad-2 gap-1">
+        <p style="margin: 12px;">{{ 'OTCFront.LegalNotice.PublishedOTC' | translate }}</p>
+
+        <app-accordion-item [lineTitle]="'Headquarters' | translate" [itemTpl]="Headquarters"></app-accordion-item>
+        <ng-template #Headquarters>
+            <p>3 rue Clara Zetkin 92230, Gennevilliers, France</p>
+        </ng-template>
+        <app-accordion-item [lineTitle]="'Director of publication' | translate" [itemTpl]="Director"></app-accordion-item>
+        <ng-template #Director>
+            <p>Walid Eljaafari, Président</p>
+        </ng-template>
+        <app-accordion-item [lineTitle]="'Contact' | translate" [itemTpl]="Contact"></app-accordion-item>
+        <ng-template #Contact>
+            <p>otc-contribution&#64;opentaxcalendar.com</p>
+        </ng-template>
+        <app-accordion-item [lineTitle]="'Hosting is provided by' | translate" [itemTpl]="Hosting"></app-accordion-item>
+        <ng-template #Hosting>
+            <p>Algonomia SAS 16 rue Trezel, 92300, Levallois-Perret, France</p>
+        </ng-template>
+
+        <hr class="hr"/>
+
+        @for (content of legalNotice; track i; let i = $index) {
+            <div class="section">
+                <h5 *ngIf="content.title !== undefined">
+                    {{ content.title | translate }}
+                </h5>
+
+                <div class="content">
+                    @for (text of content.text; track i; let i = $index) {
+                        @if (isString(text)) {
+                            <p class="text">{{ text | translate }}</p>
+                        } @else {
+                            <ul>
+                                @for (list of text; track i; let i = $index) {
+                                    <li>{{ list | translate }}</li>
+                                }
+                            </ul>
+                        }
+                    }
+                </div>
+            </div>
+
+            @if (i < (legalNotice.length - 1)) {
+                <hr class="hr"/>
+            }
+        }
+    </div>
+</div>
+

@@ -1,0 +1,236 @@
+<div class="complex-value-editor-header flex flex-column">
+    <div class="flex justify-end pad-1">
+        <app-toggle [enabled]="modeAccordion" text="AngularSdk.CoreCommon.Display"
+                    (enabledChange)="changeModeAccordion()"
+                    iconLeft="System/Data/Qcom"
+                    iconRight="System/Data/Qcm">
+        </app-toggle>
+    </div>
+
+    <hr style="margin: 0"/>
+</div>
+
+<div class="complex-value-editor-content pad-1">
+    <ng-template [ngTemplateOutletContext]="{ complex_value: normalizedComplexValue(), expected_output: expected_type, isRoot: true }"
+                 [ngTemplateOutlet]="operationChildrenTpl">
+    </ng-template>
+</div>
+
+<ng-template let-parent_value="parent_value" let-complex_value="complex_value" let-expected_output="expected_output" #nodeTpl>
+    <div pDraggable
+         (onDragStart)="__onDragStart($event, parent_value, complex_value); $event.stopPropagation();"
+         (onDragEnd)="__onDragEnd($event); $event.stopPropagation();"
+         dragHandle=".drag-handle"
+         class="draggable-item" [class.mode-accordion]="modeAccordion">
+        <div class="drag-wrapper">
+            @let isReadModeOpen = __readModeSet | setHas:complex_value;
+
+            @if (modeAccordion) {
+                <ng-template [ngTemplateOutlet]="accordionHeaderTpl"
+                             [ngTemplateOutletContext]="{ complex_value, expected_output, isReadModeOpen, parent_value }">
+                </ng-template>
+            } @else {
+                <ng-template [ngTemplateOutlet]="normalHeaderTpl"
+                             [ngTemplateOutletContext]="{ complex_value, expected_output, isReadModeOpen, parent_value }">
+                </ng-template>
+            }
+
+            @if (!isReadModeOpen) {
+                @switch (complex_value.type) {
+                    @case ('operation') {
+                        <ng-template [ngTemplateOutletContext]="{complex_value, expected_output}" [ngTemplateOutlet]="operationChildrenTpl"></ng-template>
+                    }
+                    @case ('tag') {
+                        <ng-template [ngTemplateOutlet]="tagTpl" [ngTemplateOutletContext]="{complex_value}"></ng-template>
+                    }
+                    @case ('constant') {
+                        <ng-template [ngTemplateOutlet]="constantTpl" [ngTemplateOutletContext]="{complex_value}"></ng-template>
+                    }
+                }
+            }
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #accordionHeaderTpl
+             let-complex_value="complex_value"
+             let-expected_output="expected_output"
+             let-isReadModeOpen="isReadModeOpen"
+             let-parent_value="parent_value" >
+    <div [ngClass]="{ 'flex-column': !isReadModeOpen, 'std-aligned': isReadModeOpen, 'align-center': modeAccordion }"
+         class="drag-header flex gap-10px justify-between">
+        <div class="std-aligned gap-10px" [ngClass]="{ 'justify-between': !modeAccordion }">
+            <ng-template [ngTemplateOutlet]="errorsTpl" [ngTemplateOutletContext]="{ complex_value, parent_value, isReadModeOpen }"></ng-template>
+            <ng-template [ngTemplateOutlet]="dragHandleTpl" [ngTemplateOutletContext]="{ isReadModeOpen }"></ng-template>
+            <ng-template [ngTemplateOutlet]="toggleReadModeTpl" [ngTemplateOutletContext]="{ complex_value, isReadModeOpen }"></ng-template>
+            <ng-template [ngTemplateOutlet]="displayReadModeTpl" [ngTemplateOutletContext]="{ complex_value, isReadModeOpen }"></ng-template>
+            <ng-template [ngTemplateOutlet]="changeTypeTpl" [ngTemplateOutletContext]="{ complex_value, expected_output, isReadModeOpen }"></ng-template>
+        </div>
+        <ng-template [ngTemplateOutlet]="deleteTpl" [ngTemplateOutletContext]="{ complex_value, parent_value, isReadModeOpen }"></ng-template>
+    </div>
+</ng-template>
+
+<ng-template #normalHeaderTpl
+             let-complex_value="complex_value"
+             let-expected_output="expected_output"
+             let-isReadModeOpen="isReadModeOpen"
+             let-parent_value="parent_value">
+    <div [ngClass]="{ 'flex-column': !isReadModeOpen, 'std-aligned': isReadModeOpen, 'justify-between': !modeAccordion, 'align-center': modeAccordion }"
+         class="drag-header flex gap-10px">
+        <div class="std-aligned gap-10px actions">
+            <div class="flex justify-between gap-10px width-100">
+                <ng-template [ngTemplateOutlet]="dragHandleTpl" [ngTemplateOutletContext]="{ isReadModeOpen }"></ng-template>
+                <ng-template [ngTemplateOutlet]="errorsAndDeleteTpl" [ngTemplateOutletContext]="{ complex_value, parent_value, isReadModeOpen }"></ng-template>
+            </div>
+            <ng-template [ngTemplateOutlet]="changeTypeTpl" [ngTemplateOutletContext]="{ complex_value, expected_output, isReadModeOpen }"></ng-template>
+        </div>
+        <ng-template [ngTemplateOutlet]="toggleReadModeTpl" [ngTemplateOutletContext]="{ complex_value, isReadModeOpen }"></ng-template>
+        <ng-template [ngTemplateOutlet]="displayReadModeTpl" [ngTemplateOutletContext]="{ complex_value, isReadModeOpen }"></ng-template>
+    </div>
+</ng-template>
+
+<ng-template #dragHandleTpl let-isReadModeOpen="isReadModeOpen">
+    @if (!isReadModeOpen) {
+        <app-algo-icon name="Action/Navigation/Movable" class="icon-medium drag-handle cursor-grab"></app-algo-icon>
+    }
+</ng-template>
+
+<ng-template #toggleReadModeTpl let-complex_value="complex_value" let-isReadModeOpen="isReadModeOpen">
+    <app-toggle [enabled]="!isReadModeOpen" class="flex justify-end" style="height: 28px"
+                (enabledChange)="__switchReadMode(complex_value)"
+                iconLeft="Action/Formatting/Variable"
+                iconRight="Action/Formatting/Edit">
+    </app-toggle>
+</ng-template>
+
+<ng-template #displayReadModeTpl let-complex_value="complex_value" let-isReadModeOpen="isReadModeOpen">
+    @if (isReadModeOpen) {
+        <div style="padding-bottom: 2px">
+            {{ complex_value | displayComplexValue:TAG_LIST:SCOPE_LIST }}
+        </div>
+    }
+</ng-template>
+
+<ng-template #changeTypeTpl let-complex_value="complex_value" let-expected_output="expected_output" let-isReadModeOpen="isReadModeOpen">
+    @if (!isReadModeOpen) {
+        <app-change-complex-value-type [complexValue]="complex_value"
+                                       [TAG_LIST]="TAG_LIST"
+                                       [potential_outputs]="[expected_output]">
+        </app-change-complex-value-type>
+    }
+</ng-template>
+
+<ng-template #errorsAndDeleteTpl let-complex_value="complex_value" let-parent_value="parent_value" let-isReadModeOpen="isReadModeOpen">
+    <div class="std-aligned gap-10px">
+        <ng-template [ngTemplateOutlet]="errorsTpl" [ngTemplateOutletContext]="{ complex_value, parent_value, isReadModeOpen }"></ng-template>
+        <ng-template [ngTemplateOutlet]="deleteTpl" [ngTemplateOutletContext]="{ complex_value, parent_value, isReadModeOpen }"></ng-template>
+    </div>
+</ng-template>
+
+<ng-template #errorsTpl let-complex_value="complex_value">
+    @if (__nestedErrorMap | mapHas:complex_value) {
+        <app-form-control-errors-tooltip [displayErrors]="true" [errors]="__nestedErrorMap.get(complex_value)"></app-form-control-errors-tooltip>
+    }
+</ng-template>
+
+<ng-template #deleteTpl let-complex_value="complex_value" let-parent_value="parent_value" let-isReadModeOpen="isReadModeOpen">
+    @if (!isReadModeOpen && !!parent_value) {
+        <app-algo-icon name="System/Filing/Trash" class="icon-medium cursor-pointer remove-icon"
+                       (click)="__removeValue(parent_value, complex_value)">
+        </app-algo-icon>
+    }
+</ng-template>
+
+<ng-template let-complex_value="complex_value" let-expected_output="expected_output" let-isRoot="isRoot" #operationChildrenTpl>
+    @let minMax = complex_value?.operator_id | operatorMinMax;
+    @let args = complex_value?.args ?? [];
+    @let nArgs = args.length;
+    @let nMissing = Math.max(0, minMax.min_args - nArgs);
+    @let canAddArg = minMax.max_args === undefined || minMax.max_args > nArgs;
+    @let hasChildren = nArgs > 0 || nMissing > 0 || canAddArg;
+    @let expected_inputs = complex_value | expectedInputs:expected_output;
+    @if (hasChildren) {
+        <div class="card-children" [class.card-root]="isRoot">
+            @for (arg of args; track arg; let i = $index) {
+                @let arg_expected_output = expected_inputs[i];
+                @let arg_output = arg | expectedOutput:arg_expected_output;
+                @if (draggedItem !== null) {
+                    <div class="drop-zone-between" pDroppable (onDrop)="__onDropBetween($event, complex_value, arg)">
+                        <div class="drop-indicator">{{'AngularSdk.ComplexValueEditor.InsertHere' | translate}}</div>
+                    </div>
+                }
+                <ng-template [ngTemplateOutletContext]="{parent_value: complex_value, complex_value: arg, expected_output: arg_output}" [ngTemplateOutlet]="nodeTpl"></ng-template>
+            }
+
+            <!-- Drop zone after last argument -->
+            @if (args.length > 0 && draggedItem !== null) {
+                <div class="drop-zone-between" pDroppable (onDrop)="__onDropBetween($event, complex_value)">
+                    <div class="drop-indicator">{{'AngularSdk.ComplexValueEditor.InsertHere' | translate}}</div>
+                </div>
+            }
+
+            @let next_inputs = expected_inputs[args.length] ? [expected_inputs[args.length]] :  (complex_value | possibleNextInputs:expected_output);
+            @for (_ of Array(nMissing); track $index) {
+                <div class="card card-empty card-mandatory drop-zone" pDroppable (onDrop)="__onDropToEmpty($event, complex_value)">
+                    <div class="std-flex gap-10px">
+                        <app-create-complex-value-type [parentComplexValue]="complex_value"
+                                                       [TAG_LIST]="TAG_LIST"
+                                                       [potentiel_outputs]="next_inputs"
+                        >
+                        </app-create-complex-value-type>
+                        <ng-template [ngTemplateOutlet]="duplicateItemTpl"></ng-template>
+                    </div>
+                </div>
+            }
+
+            @if (canAddArg && nMissing === 0) {
+                <div class="card card-empty card-optional drop-zone" pDroppable (onDrop)="__onDropToEmpty($event, complex_value)">
+                    <div class="std-flex gap-10px">
+                        <app-create-complex-value-type [parentComplexValue]="complex_value"
+                                                       [TAG_LIST]="TAG_LIST"
+                                                       [potentiel_outputs]="next_inputs"
+                        >
+                        </app-create-complex-value-type>
+                        <ng-template [ngTemplateOutlet]="duplicateItemTpl"></ng-template>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</ng-template>
+
+<ng-template #duplicateItemTpl>
+    <div class="duplicate-item laptop">{{ 'AngularSdk.ComplexValueEditor.DuplicateItem' | translate }}</div>
+    <div class="duplicate-item mobile">{{ 'AngularSdk.ComplexValueEditor.DuplicateItemShort' | translate }}</div>
+</ng-template>
+
+<ng-template let-complex_value="complex_value" #tagTpl>
+    <div class="std-aligned">
+        <app-edit-tag [complexValue]="complex_value" [scopeList]="SCOPE_LIST"></app-edit-tag>
+    </div>
+</ng-template>
+
+<ng-template let-complex_value="complex_value" #constantTpl>
+    <div class="std-aligned">
+        @switch (complex_value.expected_type) {
+            @case ('numeric') {
+                <app-edit-constant-numeric [numComplexValue]="complex_value"></app-edit-constant-numeric>
+            }
+            @case ('string') {
+                <app-edit-constant-string [stringComplexValue]="complex_value"></app-edit-constant-string>
+            }
+            @case ('boolean') {
+                <app-edit-constant-boolean [boolComplexValue]="complex_value"></app-edit-constant-boolean>
+            }
+            @case ('date') {
+                <app-edit-constant-date [dateComplexValue]="complex_value"></app-edit-constant-date>
+            }
+            @case ('period') {
+                <app-edit-constant-period [periodComplexValue]="complex_value"></app-edit-constant-period>
+            }
+            @case ('day_month') {
+                <app-edit-constant-day-month [dayMonthComplexValue]="complex_value"></app-edit-constant-day-month>
+            }
+        }
+    </div>
+</ng-template>

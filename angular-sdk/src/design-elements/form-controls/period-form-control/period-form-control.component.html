@@ -1,0 +1,20 @@
+<app-form-control-template
+    [inputTpl]="inputTpl"
+    [required]="required"
+    [label]="label"
+    [displayErrors]="formControl.touched"
+    [errors]="formControl.errors"
+>
+</app-form-control-template>
+
+<ng-template #inputTpl>
+    <app-period-selector
+        [period]="formControl.value"
+        (periodChange)="onPeriodChange($event)"
+        [valuePlaceholder]="placeholder"
+        [unitPlaceholder]="placeholder_2"
+        [countTypePlaceholder]="placeholder_3"
+        [isValid]="formControl.valid && (formControl.dirty || formControl.touched)"
+        [isInvalid]="formControl.invalid && (formControl.dirty || formControl.touched)">
+    </app-period-selector>
+</ng-template>

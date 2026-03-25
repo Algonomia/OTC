@@ -1,0 +1,62 @@
+[
+    {
+        "title": "What is the Open Tax Calendar?",
+        "text": "The Open Tax Calendar is an open-access project that collects, structures, and publishes tax compliance deadlines across jurisdictions. It’s designed for global use by multinational enterprises, researchers, and tax technology providers."
+    },
+    {
+        "title": "Who runs the Open Tax Calendar?",
+        "text": "It is governed by the Open Tax Society, a French non-profit association (loi 1901), and technically operated by Algonomia SAS, which develops and maintains the software under open-source licenses."
+    },
+    {
+        "title": "What kind of data does the calendar contain?",
+        "text": "Only publicly available, factual tax compliance information such as filing dates, payment deadlines, periodic declarations, and jurisdictional scopes. Each entry is linked to its original public source."
+    },
+    {
+        "title": "Where does the data come from?",
+        "text": "Sources include national tax administrations, international organizations, government bulletins, and professional reports—all freely available on the web at the time of extraction."
+    },
+    {
+        "title": "Can I contribute to the calendar?",
+        "text": "Yes, anyone can contribute by filling in structured fields with public, sourced information. Free-text input is not allowed. Contributions are validated editorially by the Open Tax Society."
+    },
+    {
+        "title": "Is the data verified?",
+        "text": "Yes, each entry is checked for public provenance. Users can also assign a reliability score and note, which may be AI-generated and aggregated for transparency purposes."
+    },
+    {
+        "title": "Is this a commercial service?",
+        "text": "No. The Open Tax Calendar is a non-commercial, open-source project. You may use it freely under a Creative Commons BY-NC-SA 4.0 license, which prohibits direct resale but allows integration into commercial tools."
+    },
+    {
+        "title": "How is the software licensed?",
+        "text": "The underlying codebase, including the user interface and generative AI logic, is developed by Algonomia SAS and released under the GNU AGPL v3 license—ensuring reciprocal open use."
+    },
+    {
+        "title": "Can I integrate this data into my own app?",
+        "text": "Yes, via the public API. However, API keys are granted after organizational verification to ensure responsible use. API usage is monitored, though not limited, to support transparency and prevent abuse."
+    },
+    {
+        "title": "What are the legal protections for the project?",
+        "text": "Structured factual data is not copyrightable under French and EU law. The project includes dereferencing and dispute procedures, and is hosted in France under the jurisdiction of French law."
+    },
+    {
+        "title": "Can U.S. or UK entities use this data?",
+        "text": "Yes, but they do so at their own legal risk. The platform is not targeted at non-EU users, and no guarantee is made about compliance with non-EU legal standards."
+    },
+    {
+        "title": "What if a private publisher wants a source removed?",
+        "text": "They must contact otc-contribution@opentaxcalendar.com and demonstrate that the content was not freely available on the open web at the time of referencing."
+    },
+    {
+        "title": "Can national tax administrations collaborate?",
+        "text": "Yes. They may apply for privileged contributor status to directly populate authoritative data in a structured format. This requires a formal commitment to public access."
+    },
+    {
+        "title": "Who owns the data and the platform?",
+        "text": "The Open Tax Society curates and owns the structured data. Algonomia SAS retains ownership of the software and infrastructure. All content is dual-licensed: AGPL for the code, CC BY-NC-SA for the data."
+    },
+    {
+        "title": "Can my organization become a Main Partner?",
+        "text": "Yes. Main Partners are institutions or companies contributing significantly (financially or in kind) to hosting, development, or content. They are credited on the homepage and in the public repository, with renewable status."
+    }
+]

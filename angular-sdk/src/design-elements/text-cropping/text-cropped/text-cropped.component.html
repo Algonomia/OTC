@@ -1,0 +1,8 @@
+<span [pTooltip]="__cropped().is_cropped ? __normalizedText() : ''"
+     [tooltipPosition]="'bottom'"
+     tooltipStyleClass="algo-text-tooltip"
+     style="overflow: hidden; white-space: nowrap;"
+     [ngClass]="textClass"
+>
+    {{__cropped().cropped_text}}
+</span>

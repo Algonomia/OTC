@@ -1,0 +1,13 @@
+enum ObligationTypeId {
+    CIT
+    MasterFile
+    LocalFile
+    AnnualTPForm
+    CbCR
+    PublicCbCR
+    CbCRNotification
+    RelatedPartyDisclosure
+    SimplifiedTPDocumentation
+    MasterFileNotification
+    SpecialItemFile
+}

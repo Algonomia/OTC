@@ -1,0 +1,15 @@
+apiVersion: v2
+name: obligation-due-dates
+description: Helm chart for tax calendar application (OTC) - Backend, Frontend, Database, and File Microservice
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+
+keywords:
+  - obligation-due-dates
+  - tax-calendar
+  - otc
+  - nestjs
+  - angular
+  - postgres
+  - microservice

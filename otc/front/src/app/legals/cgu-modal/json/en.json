@@ -1,0 +1,387 @@
+[
+    {
+        "title": "Introduction",
+        "text": [
+            "These Terms of Use (the “Terms”) govern your access to and use of the Open Tax Calendar platform (the “Platform”), operated by the “Open Tax Society” (OTS). The Platform provides open data, tools, an API, and collaborative features related to international tax compliance timelines.",
+            "By creating an account, using the API, or submitting data, you agree to be bound by these Terms.",
+            "These Terms apply to all types of users, including:",
+            [
+                "General users and API consumers",
+                "Data contributors",
+                "Institutional Main Partners",
+                "Tax administrations participating as privileged contributors"
+            ]
+        ]
+    },
+    {
+        "title": "Purpose and Open-Source Nature",
+        "text": [
+            "The Platform provides structured factual data extracted from publicly available documents and websites for the purposes of improving compliance, research, and automation.",
+            "The software infrastructure (including the user interface, backend systems, and generative AI components) is developed and maintained by Algonomia SAS. This software is licensed under the GNU Affero General Public License (AGPL), allowing reuse and modification under reciprocal open-source terms.",
+            "All structured tax data points and logic modules contributed through the platform are created under the editorial responsibility of the Association Open Tax Society, a non-profit organization governed by French law (Loi 1901). These data outputs are published under the Creative Commons BY-NC-SA 4.0 license.",
+            "OTS is committed to keeping this project open-source and publicly available under a Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International License.",
+            "While these Terms may change, OTS will not revoke the open nature of the dataset or restrict its non-commercial public availability."
+        ]
+    },
+    {
+        "title": "Intellectual Property and Licensing of Platform Assets",
+        "text": [
+            "All branding elements, including but not limited to the name 'Open Tax Calendar', the visual identity, website design, logo, and overall look and feel, are the exclusive property of OTS and may not be reproduced or reused without written permission.",
+            "The source code for the generative AI components and the underlying data structure of the platform are made available under the GNU Affero General Public License (AGPL). This ensures that any derivative or connected works must also remain open under the same terms.",
+            "Any published datasets or user-generated content are licensed under the Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International License. This dual licensing model ensures both transparency and protection of non-commercial and open-source contributions."
+        ]
+    },
+    {
+        "title": "Public Data and Licensing",
+        "text": [
+            "The dataset available through the Platform is composed exclusively of factual information extracted from publicly accessible sources, including:",
+            [
+                "Government publications and official bulletins",
+                "Court decisions and administrative rulings",
+                "International organization reports (e.g., OECD, UN, EU)",
+                "Publicly posted professional publications (e.g., white papers, newsletters, tax alerts from audit, law, or consulting firms)"
+            ],
+            "Only documents that are freely accessible online, without registration or payment, are used. Submissions relying on non-public or paywalled materials are not accepted.",
+            "All structured data produced from these sources, as well as user contributions, are made available under the Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International License (CC BY-NC-SA 4.0).",
+            "Under this license:",
+            [
+                "You may reuse, share, and adapt the data for non-commercial purposes with attribution",
+                "Use of the data in commercial tools for automation, internal analysis, or compliance workflows is permitted, provided that the dataset itself is not resold or redistributed as a standalone product"
+            ]
+        ],
+        "subsection": [
+            {
+                "title": "Dereferencing of Private Sources",
+                "text": [
+                    "If a private organization (e.g., a law firm, consulting firm, or content publisher) believes that a document or source referenced on the Platform was not publicly available or should not have been publicly accessible at the time it was used, they may formally request dereferencing.",
+                    "Such a request must:",
+                    [
+                        "Be submitted by a duly authorized legal representative of the organization",
+                        "Identify the exact document or URL in question",
+                        "Provide concrete and verifiable evidence that the content was either:",
+                        [
+                            "Behind a paywall, access-restricted, or unpublished at the time of referencing; or",
+                            "Made available by mistake or in breach of copyright or confidentiality obligations"
+                        ]
+                    ],
+                    "The burden of proof lies entirely with the requesting party. General assertions or takedown notices without supporting documentation will not be accepted.",
+                    "Requests should be sent to: otc-contribution@opentaxcalendar.com.",
+                    "If the claim is found valid upon review, the corresponding reference will be removed or replaced without admission of liability or prejudice."
+                ]
+            },
+            {
+                "title": "Privileged Contributor Status for National Tax Administrations",
+                "text": [
+                    "National tax authorities that wish to support the project may request privileged contributor status, which includes:",
+                    [
+                        "Enhanced visibility of their jurisdictional data sources",
+                        "Acknowledgment on the Platform as an authoritative contributor",
+                        "Assistance with formatting or integrating their official publications into the data structure"
+                    ],
+                    "To qualify, the administration must commit to providing official and up-to-date information in the required format.",
+                    "Requests for privileged contributor status can be sent to: otc-contribution@opentaxcalendar.com."
+                ]
+            },
+            {
+                "title": "Definition of “Commercial Use”",
+                "text": [
+                    "For the purposes of the Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International License applied to the dataset, “commercial use” is defined as any use of the data whose primary purpose is to generate direct monetary gain through resale, sublicensing, or bundling of the data as a core product.",
+                    "The use of the dataset within commercial organizations for internal analysis, compliance automation, or client services is permitted, provided the dataset itself is not marketed or redistributed independently.",
+                    "OTS reserves the right to evaluate borderline cases based on intent, packaging, and proportionality of data use relative to the commercial value created."
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Contributions",
+        "text": [
+            "Contributors to the Platform must submit only factual data that has been extracted from freely accessible public documents. Accepted sources include, but are not limited to: official government publications, court decisions, regulations, tax authority guidance, and freely distributed professional content (e.g., newsletters, position papers).",
+            "By submitting a contribution, you explicitly confirm that:",
+            [
+                "You have a lawful right to access and use the source material",
+                "The material was publicly available online at the time of extraction",
+                "You are not infringing on any copyright, confidentiality, or proprietary rights",
+                "You authorize OTS to redistribute your contribution under the Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International License (CC BY-NC-SA 4.0)"
+            ],
+            "OTS reserves the right to:",
+            [
+                "Reject, modify, or remove any submission that does not meet the public access or factual integrity criteria",
+                "Request clarification or documentation from contributors if the source or interpretation is unclear",
+                "Maintain internal logs of contribution history and reviews for quality assurance purposes"
+            ],
+            "Contributors who intentionally or repeatedly submit misleading, unverifiable, or unauthorized content may:",
+            [
+                "Have their contributions rejected or removed",
+                "Be publicly flagged in the contributor dashboard or logs",
+                "Be suspended or permanently banned from contributing"
+            ],
+            "OTS takes data integrity seriously to preserve the Platform’s credibility and legal standing. Inappropriate use of the Platform’s collaborative features may result in enforcement action."
+        ]
+    },
+    {
+        "title": "Use of Contributions for Public Rankings",
+        "text": [
+            "By contributing data to the Platform, you agree that OTS may use aggregated and/or anonymized forms of your contributions to generate:",
+            [
+                "Public rankings",
+                "Comparative visualizations or highlights",
+                "Reliability notes and scores"
+            ],
+            "These outputs may be published in newsletters, blog articles, social media, or public reports. Where you have accepted to be named, appropriate attribution will be given."
+        ],
+        "subsection": [
+            {
+                "title": "Reliability Scores and AI-Generated Notes",
+                "text": [
+                    "OTS may assign each source or contribution a reliability score, accompanied by a brief \"reliability note\", to provide transparency on:",
+                    [
+                        "Source completeness and consistency",
+                        "Jurisdictional relevance",
+                        "Frequency of updates",
+                        "Contribution quality or verifiability"
+                    ],
+                    "These notes are AI-generated  - thus containing probabilistic elements - using the same structured methodology that governs data extraction and formatting. While human review may apply in specific cases, the content of reliability notes is primarily produced by generative systems trained on publicly available editorial and policy guidelines.",
+                    "Scores and notes are intended to provide contextual transparency, not definitive judgments. The scoring methodology is openly documented, and scores visible to the public are based on anonymized or aggregated logic. Individual contributor ratings are visible only to authenticated users."
+                ]
+            },
+            {
+                "title": "Limitation of Liability",
+                "text": [
+                    "All scores, rankings, and AI-generated notes are provided for informational and analytical purposes only. They do not constitute legal assessments, endorsements, or factual guarantees.",
+                    "OTS expressly disclaims any liability for:",
+                    [
+                        "The impact of a score or note on a source's or contributor’s reputation",
+                        "Claims of defamation, misrepresentation, or editorial unfairness",
+                        "Business, legal, or reputational consequences of relying on such outputs"
+                    ],
+                    "These elements represent editorial expressions or automated assessments, not formal or regulated evaluations"
+                ]
+            },
+            {
+                "title": "Right to Request Review or Clarification",
+                "text": [
+                    "Any organization or contributor referenced in a score or note may:",
+                    [
+                        "Request an explanation of the methodology",
+                        "Submit contextual clarifications",
+                        "Suggest corrections or additional data"
+                    ],
+                    "Requests may be submitted to: otc-contribution@opentaxcalendar.com.\nOTS will review valid input in good faith but does not guarantee modification or correction."
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Main Partners",
+        "subsection": [
+            {
+                "title": "Main Partners and Financial Contributions",
+                "text": [
+                    "Main Partners are organizations or individual contributors who, upon validation by the Open Tax Society (OTS), have committed to providing substantial and sustained support to the project. This support may take the form of structured data contributions, hosting or technical infrastructure, engineering resources, promotional assistance, or financial contributions.",
+                    "Main Partners will be publicly acknowledged on the platform’s landing page and in the “About” section. The order of listing will reflect the relative magnitude of each partner’s contribution. Contributions are reassessed annually, and OTS reserves the right to remove any partner from the listing should their support not be renewed after a one-year period.",
+                    "By accepting this status, Main Partners consent to the display of their name, logo, and any contributed data sources within the platform during the active period of their contribution. In return, they are granted the right to use the Open Tax Calendar branding, including its name, logo, and visual elements, for referencing their support in public-facing or promotional materials, provided they remain officially recognized as Main Partners.",
+                    "Any data or sources contributed by a Main Partner that were not already publicly accessible at the time of submission shall be distributed under the Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International License (CC BY-NC-SA 4.0).",
+                    "Main Partner status does not grant editorial authority or governance rights. All decisions related to data scoring, contributor moderation, and content validation remain solely under the editorial independence of OTS. This ensures neutrality, consistency, and fairness in the platform’s outputs."
+                ]
+            },
+            {
+                "title": "Main Partners and Eligibility for French Tax Relief",
+                "text": [
+                    "Financial contributions made by Main Partners may, when structured as qualifying donations, give rise to tax benefits under French law, pursuant to Articles 200 and 238 bis of the French General Tax Code (Code général des impôts). These provisions allow individuals and legal entities subject to French taxation to claim a deduction or credit for eligible charitable donations.",
+                    "Main Partners wishing to obtain a fiscal receipt (reçu fiscal) must make an explicit request and ensure that their contribution satisfies the conditions for deductibility under applicable legislation. OTS reserves the right to determine eligibility in accordance with French tax regulations and to fulfill any associated reporting duties.",
+                    "Inquiries related to donation documentation or eligibility may be addressed to: membership@opentaxsociety.com"
+                ]
+            }
+        ]
+    },
+    {
+        "title": "API Access",
+        "subsection": [
+            {
+                "title": "Principle of API Access",
+                "text": [
+                    "The API is provided to support automation and integration of structured public data.",
+                    "You may use the API in commercial or internal tools, but you may not resell the data obtained through the API.",
+                    "OTS may limit, suspend, or terminate API access in case of abuse, legal concerns, or violation of these Terms.",
+                    "To access the Open Tax Calendar API, organizations must complete a formal request process, which includes identification of the requesting entity and a description of the intended use."
+                ]
+            },
+            {
+                "title": "Request and Verification Process",
+                "text": [
+                    "Applicants must submit:",
+                    [
+                        "Organization name and country of registration",
+                        "Work email address (personal emails will be rejected)",
+                        "Contact name and job title",
+                        "Intended use case (non-commercial or value-added internal use only)",
+                        "Optional LinkedIn profile of the requesting individual"
+                    ],
+                    "OTS will validate the authenticity of the request through automated checks including:",
+                    [
+                        "Email domain verification against known commercial or institutional domains",
+                        "LinkedIn affiliation and employer match (when provided)",
+                        "Use of external enrichment services to confirm organization existence and role"
+                    ],
+                    "OTS reserves the right to deny access to any requester who does not meet the eligibility criteria, including those whose intended use is commercial redistribution or whose identity cannot be verified with sufficient confidence.",
+                    "Access to the API is granted at OTS’s sole discretion and may be declined, suspended, or revoked without justification, particularly if the intended use conflicts with the non-commercial nature of the Platform."
+                ]
+            },
+            {
+                "title": "Key Issuance",
+                "text": [
+                    "Once approved, the organization will receive a unique API key, linked to its verified identity and use case.",
+                    "Use of the API key is personal to the approved organization and may not be shared, transferred, or sublicensed."
+                ]
+            },
+            {
+                "title": "Usage Monitoring and Compliance",
+                "text": [
+                    "All API traffic is logged and monitored to detect violations of terms of use or license conditions. OTS reserves the right to:",
+                    [
+                        "Suspend or revoke any key in case of breach or abuse",
+                        "Enforce non-commercial use restrictions where applicable"
+                    ]
+                ]
+            },
+            {
+                "title": "Annual Reconfirmation",
+                "text": [
+                    "API access is granted for a period of one year, after which the organization must reconfirm its contact details, usage description, and ongoing need for access. Failure to reconfirm may result in automatic key suspension."
+                ]
+            },
+            {
+                "title": "Data Protection",
+                "text": [
+                    "Personal data collected during the API request and verification process (e.g., name, title, work email, LinkedIn profile) will be processed and stored in accordance with OTS’s Privacy Policy described in article 10 of the present Terms of Use."
+                ]
+            }
+        ]
+    },
+
+    {
+        "title": "Account and Authentication",
+        "text": [
+            "Users authenticate via LinkedIn. By logging in, you consent to OTS storing your name, surname, email, job title, company name, LinkedIn profile ID and contact information.",
+            "This information is used for attribution, project improvement, and contributor accountability, and will be made available to other users would you decide to contribute.",
+            "The use of LinkedIn for authentication may be completed or replaced by OTS, at its discretion."
+        ]
+    },
+    {
+        "title": "Privacy and GDPR Compliance",
+        "text": [
+            "OTS processes personal data in accordance with the General Data Protection Regulation (EU) 2016/679 (GDPR) and applicable French data protection laws."
+        ],
+        "subsection": [
+            {
+                "title": "Data Collected",
+                "text": [
+                    "When you interact with the Platform, OTS may collect and store the following categories of personal data:",
+                    [
+                        "Full name and job title",
+                        "Work email address",
+                        "Organization or company name",
+                        "LinkedIn profile identifier (when used for authentication)",
+                        "Your submitted contributions (including metadata)"
+                    ],
+                    "This data is collected to authenticate users, attribute contributions, maintain contact, and ensure compliance with the Platform’s Terms of Use."
+                ]
+            },
+            {
+                "title": "Legal Basis for Processing",
+                "text": [
+                    "Data is processed on the basis of:",
+                    [
+                        "Legitimate interest (Article 6(1)(f) GDPR) in operating and maintaining the Platform",
+                        "Consent (Article 6(1)(a) GDPR) when you voluntarily submit personal data or accept terms upon login"
+                    ]
+                ]
+            },
+            {
+                "title": "Use of Personal Data",
+                "text": [
+                    "The data may be used by OTS and its designated Main Partners solely for:",
+                    [
+                        "Contacting users about their contributions or access to the Platform",
+                        "Offering related professional or commercial services directly, without transferring personal data to third parties"
+                    ],
+                    "No personal data is sold or shared with unrelated third parties. Main Partners are bound by these terms and may use the data only while listed as such."
+                ]
+            },
+            {
+                "title": "Data Rights",
+                "text": [
+                    "You have the right to:",
+                    [
+                        "Access your personal data",
+                        "Rectify inaccurate or incomplete information",
+                        "Request deletion (“right to be forgotten”)",
+                        "Restrict or object to certain types of processing",
+                        "Lodge a complaint with the CNIL (Commission Nationale de l'Informatique et des Libertés)"
+                    ],
+                    "Requests can be sent to privacy@opentaxcalendar.com. OTS will respond within the time limits provided by GDPR."
+                ]
+            },
+            {
+                "title": "Data Security and Retention",
+                "text": [
+                    "OTS implements appropriate technical and organizational measures to protect your personal data from unauthorized access, disclosure, or loss. Data is retained only for the duration necessary to fulfill the purposes outlined above or as required by law."
+                ]
+            },
+            {
+                "title": "Data Hosting and Transfers",
+                "text": [
+                    "All personal data collected by OTS is stored and processed on secure infrastructure located exclusively within the territory of France or the European Union. OTS does not transfer personal data outside the EU/EEA unless appropriate safeguards are in place, in accordance with the General Data Protection Regulation (GDPR), such as Standard Contractual Clauses (SCCs) or adequacy decisions approved by the European Commission."
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Limitation of Liability",
+        "text": [
+            "The Platform, including its datasets, API, tools, and any related open-source resources, is provided strictly \"as is\" without any warranties or guarantees of availability, accuracy, completeness, or suitability for any particular purpose.",
+            "OTS offers the Open Tax Calendar as a free, community-driven, and non-commercial initiative, and does not commit to any service level agreements (SLAs) for uptime, maintenance, support, or continuity of service. Platform functionality may be modified, limited, or suspended at any time without notice.",
+            "OTS shall not be liable for any direct, indirect, incidental, special, or consequential damages, including but not limited to loss of data, revenue, reputation, compliance outcomes, or business interruption arising from use of, or reliance on, the open-source Platform.",
+            "For general questions regarding the open-source platform, users may contact support@opentaxcalendar.com. While OTS will make reasonable efforts to respond, no response time or resolution guarantee applies. Inquiries may be referred to appropriate collaborators or partners where relevant."
+        ]
+    },
+    {
+        "title": "No Legal or Tax Advice",
+        "text": [
+            "The information and data made available through the Platform are provided for informational and research purposes only and do not constitute legal, tax, financial, or professional advice.",
+            "OTS does not provide, and does not intend to provide, any form of professional advisory services through this Platform. Users are solely responsible for evaluating the relevance and applicability of the information and should consult with qualified legal, tax, or financial professionals before making decisions or taking action based on the content of the Platform.",
+            "Use of the Platform does not create any advisor-client relationship between the user and OTS or any of its partners or contributors."
+        ]
+    },
+    {
+        "title": "Modifications to Terms",
+        "text": [
+            "OTS may update these Terms at any time. Users will be notified of changes upon next login.",
+            "By continuing to use the Platform, you accept the revised Terms. However, any change will not affect the open-source licensing of the project and data.",
+            "These Terms apply solely to the free and open-source use of the Platform. Any commercial access to OTS’s paid Online Services (such as advanced integrations) is governed exclusively by separate contractual agreements. No change to these Terms shall affect the open-source nature of the Platform without prior public notice and explanation.",
+            "OTS maintains a changelog of material updates to these Terms of Use. Where changes may significantly affect contributor rights, notice will be provided via the Platform or by email to registered users. Users are encouraged to periodically review the Terms. Continued use of the Platform following a published change constitutes acceptance of the revised Terms."
+        ]
+    },
+    {
+        "title": "Governing Law and Jurisdiction",
+        "text": [
+            "These Terms are governed by French law and any use implies the full acceptation of French law and jurisdiction and no other.",
+            "Any dispute arising out of or related to these Terms shall be subject to the exclusive jurisdiction of the courts of Nanterre, France."
+        ]
+    },
+    {
+        "title": "Territorial Scope and Legal Limitations",
+        "text": [
+            "The Platform and its contents, including data, tools, and outputs, are developed, operated, and hosted within the European Union and governed exclusively by French and EU law.",
+            "The Platform is not specifically directed to users or organizations based in jurisdictions outside the European Union, including but not limited to the United States. Any access or use of the Platform from outside the EU is undertaken voluntarily and at the sole legal risk of the user.",
+            "OTS makes no representation that the content or operation of the Platform complies with the laws or regulations of jurisdictions outside the EU. By using the Platform, you acknowledge that:",
+            [
+                "You are not relying on OTS to comply with the laws of any non-EU jurisdiction.",
+                "You waive any claim or recourse under foreign laws that are inconsistent with French law or public policy.",
+                "Any legal claims or disputes shall be exclusively governed by the laws and courts of France, as specified in Clause 14."
+            ],
+            "If you are a resident or legal entity based in a jurisdiction that restricts or prohibits the use of open data, automated scoring, or AI-generated summaries, you must refrain from using the Platform.",
+            "Use of the Platform or access to the API is prohibited for any individual or entity subject to international sanctions by the EU, UN, or other competent authority."
+        ]
+    }
+]

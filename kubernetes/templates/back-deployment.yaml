@@ -1,0 +1,102 @@
+{{- if .Values.back.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.back.replicaCount }}
+  selector:
+    matchLabels:
+      run: back
+  template:
+    metadata:
+      labels:
+        run: back
+    spec:
+      containers:
+        - name: back
+          image: "{{ .Values.back.image.repository }}:{{ .Values.back.image.tag }}"
+          imagePullPolicy: {{ .Values.back.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.back.service.targetPort }}
+          env:
+            - name: CORS_ORIGIN
+              value: {{ .Values.back.env.corsOrigin }}
+            - name: IS_AUDITABLE
+              value: "{{ .Values.back.env.isAuditable }}"
+            - name: LINKEDIN_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.back.env.linkedin.secretName }}
+                  key: {{ .Values.back.env.linkedin.keywords.clientId }}
+            - name: LINKEDIN_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.back.env.linkedin.secretName }}
+                  key: {{ .Values.back.env.linkedin.keywords.clientSecret }}
+            - name: LINKEDIN_REDIRECT_URI
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.back.env.linkedin.secretName }}
+                  key: {{ .Values.back.env.linkedin.keywords.redirectUri }}
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.back.env.google.secretName }}
+                  key: {{ .Values.back.env.google.keywords.apiKey }}
+            - name: VIRUS_TOTAL_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.back.env.virustotal.secretName }}
+                  key: {{ .Values.back.env.virustotal.keywords.apiKey }}
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.host }}
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.user }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.password }}
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.port }}
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.env.postgres.secretName }}
+                  key: {{ .Values.database.env.postgres.keywords.db }}
+            - name: DATABASE_URL
+              value: "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@$(POSTGRES_HOST):$(POSTGRES_PORT)/$(POSTGRES_DB)?schema=public"
+            - name: FILE_SERVICE_URL
+              value: {{ .Values.back.env.fileServiceUrl }}
+            - name: AI_ENDPOINT_URL
+              value: {{ .Values.back.env.llmEndpointUrl }}
+            - name: OCR_SERVICE_URL
+              value: {{ .Values.back.env.ocrServiceUrl }}
+            - name: SCRAPER_SERVICE_URL
+              value: {{ .Values.back.env.scraperServiceUrl }}
+
+          {{- if .Values.back.probe.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.back.probe.livenessProbe.path }}
+              port: {{ .Values.back.service.targetPort }}
+            initialDelaySeconds: {{ .Values.back.probe.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.back.probe.livenessProbe.periodSeconds }}
+          {{- end }}
+
+      {{- if .Values.global.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml .Values.global.imagePullSecrets | nindent 8 }}
+      {{- end }}
+{{- end }}

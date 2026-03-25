@@ -1,0 +1,48 @@
+@use "../../../css/media";
+@use "../../../css/colors";
+
+.section-line {
+    margin: 12px 0;
+    place-content: flex-end;
+    position: relative;
+    align-items: start;
+    width: 100%;
+
+    @include media.media('tabletL') {
+        margin: 5px 0;
+    }
+
+    .section-line-title {
+        height: max-content;
+        line-height: 28px;
+    }
+
+    .inspector-light-text {
+        margin: 4px 0;
+        letter-spacing: 0.3px;
+        line-height: 27px;
+        color: var(--grey-7);
+        white-space: nowrap;
+    }
+
+    .dots {
+        flex-grow: 1;
+        height: 1px;
+        margin: 14px 10px;
+        background: repeating-linear-gradient(
+            to right,
+            transparent,
+            transparent 6px,
+            var(--main-2) 6px,
+            var(--main-2) 7px
+        );
+    }
+
+    .line-value {
+        max-width: 60%;
+        min-height: 28px;
+        align-items: center;
+        display: flex;
+    }
+}
+

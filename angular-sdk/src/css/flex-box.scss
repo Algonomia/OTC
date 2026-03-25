@@ -1,0 +1,147 @@
+@use "media";
+
+.std-flex {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.std-aligned {
+    display: flex;
+    align-items: center;
+}
+
+.std-aligned-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.std-relative {
+    position: relative;
+}
+
+.flex-align-normal {
+    align-items: normal;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-wrap-tablet {
+    @include media.media('tablet') {
+        flex-wrap: wrap;
+    }
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.gap-2px {
+    gap: 2px;
+}
+
+.gap-5px {
+    gap: 5px;
+}
+
+.gap-8px {
+    gap: 10px;
+}
+
+.gap-10px {
+    gap: 10px;
+}
+
+.gap-20px {
+    gap: 20px;
+}
+
+.gap-40px {
+    gap: 40px;
+}
+
+.gap-1 {
+    gap: 1rem;
+
+    @include media.media('tabletL') {
+        gap: 0.75rem;
+    }
+
+    @include media.media('mobileXL') {
+        gap: 0.55rem;
+    }
+}
+
+.gap-2 {
+    gap: 1.25rem;
+
+    @include media.media('tabletL') {
+        gap: 1rem;
+    }
+
+    @include media.media('mobileXL') {
+        gap: 0.75rem;
+    }
+}
+
+.gap-3 {
+    gap: 1.55rem;
+
+    @include media.media('tabletL') {
+        gap: 1.25rem;
+    }
+
+    @include media.media('mobileXL') {
+        gap: 1rem;
+    }
+}
+
+.gap-4 {
+    gap: 1.875rem;
+
+    @include media.media('tabletL') {
+        gap: 1.55rem;
+    }
+
+    @include media.media('mobileXL') {
+        gap: 1.25rem;
+    }
+}
+
+.mar-1 {
+    margin: 1rem;
+
+    @include media.media('tabletL') {
+        margin: 0.75rem;
+    }
+
+    @include media.media('mobileXL') {
+        margin: 0.55rem;
+    }
+}

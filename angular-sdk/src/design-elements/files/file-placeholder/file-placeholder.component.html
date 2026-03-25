@@ -1,0 +1,14 @@
+<input #fileInput
+       type="file"
+       [attr.multiple]="multi_select ? '' : null"
+       [attr.accept]="__allowedExtensions"
+       (change)="onFileSelected($event)"
+       hidden />
+
+<div class="cta cursor-pointer" (click)="fileInput.click()">
+    <span>{{ (placeholder ?? 'AngularSdk.FileForm.Placeholder') | translate }} {{!!maxSize ? ('AngularSdk.FileForm.MaxSize' | translate:{maxSize: maxSize, maxSizeUnit: maxSizeUnit}) : '' }}</span>
+    @if (!!required) {
+        <app-algo-icon name="Action/Formatting/Mandatory" class="icon-25"></app-algo-icon>
+    }
+    <app-algo-icon name="System/Storage/CloudAdd" class="icon" weight="Normal"></app-algo-icon>
+</div>

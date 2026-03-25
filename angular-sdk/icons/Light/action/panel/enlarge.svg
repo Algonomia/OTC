@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>action / panel / enlarge</title>
+    <g id="action-/-panel-/-enlarge" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M19,9.225 L19,9.775 L24.5,9.775 C25.4526912,9.775 26.225,10.5473088 26.225,11.5 L26.225,17 L26.775,17 L26.775,11.5 C26.775,10.2435522 25.7564478,9.225 24.5,9.225 L19,9.225 Z M17,26.775 L17,26.225 L11.5,26.225 C10.5473088,26.225 9.775,25.4526912 9.775,24.5 L9.775,19 L9.225,19 L9.225,24.5 C9.225,25.7564478 10.2435522,26.775 11.5,26.775 L17,26.775 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

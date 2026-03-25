@@ -1,0 +1,14 @@
+<app-form-control-template
+    [inputTpl]="inputTpl"
+    [required]="required"
+    [label]="label"
+    [displayErrors]="formControl.touched"
+    [errors]="formControl.errors"
+>
+</app-form-control-template>
+
+<ng-template #inputTpl>
+    <app-display-rate-as-stars (clickValue)="changeValue($event)" [value]="formControl.value ?? 0" [clickable]="editable"></app-display-rate-as-stars>
+</ng-template>
+
+

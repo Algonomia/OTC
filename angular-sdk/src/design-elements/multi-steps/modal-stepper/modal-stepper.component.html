@@ -1,0 +1,56 @@
+@if(!!__currentStep) {
+    <div class="modal-stepper">
+        <ng-template [ngTemplateOutlet]="headerTpl"></ng-template>
+
+        <ng-template [ngTemplateOutlet]="subHeaderTpl"></ng-template>
+
+        <div class="content">
+            <ng-template [ngTemplateOutlet]="__currentStep.templateRef"></ng-template>
+        </div>
+
+        <div class="footer std-aligned pad-1 gap-1 justify-between">
+            <div>
+                @if (!__currentStep.ignoreIdx) {
+                    <app-stepper [currentStep]="__currentStepGroupIdx" [totalSteps]="__totalStep"></app-stepper>
+                }
+            </div>
+
+            @for(buttonRef of __currentStep.buttonsRef; track buttonRef) {
+                <ng-template [ngTemplateOutlet]="buttonRef"></ng-template>
+            }
+        </div>
+    </div>
+
+    <ng-template #headerTpl>
+        @if(__currentStep.headIcon || __currentStep.headTitle) {
+            <div class="head pad-1 std-aligned justify-between">
+                <div class="std-aligned gap-1">
+                    @if (__currentStepGroupIdx > 0 && !__currentStep.ignoreIdx && canGoBack) {
+                        <app-algo-icon name="Action/Arrow/ArrowLeft" class="icon-back cursor-pointer" (click)="prev()"></app-algo-icon>
+                    }
+                    @if (__currentStep.headIcon) {
+                        <app-algo-icon [name]="__currentStep.headIcon" class="icon-head"></app-algo-icon>
+                    }
+                    @if (__currentStep.headTitle) {
+                        <p class="modal-title">{{ __currentStep.headTitle | translate }}</p>
+                    }
+                </div>
+                <app-algo-icon (click)="closeModal()" name="Action/Navigation/Close" class="icon-close cursor-pointer"></app-algo-icon>
+            </div>
+
+            <hr style="margin: 0"/>
+        }
+    </ng-template>
+
+    <ng-template #subHeaderTpl>
+        @if(__currentStep.subHeadTitle) {
+            <div class="sub-head pad-1 std-aligned justify-between">
+                <p class="title pad-x-10px">{{ __currentStep.subHeadTitle | translate }}</p>
+
+                @if(__currentStep.subHeadRef) {
+                    <ng-template [ngTemplateOutlet]="__currentStep.subHeadRef"></ng-template>
+                }
+            </div>
+        }
+    </ng-template>
+}

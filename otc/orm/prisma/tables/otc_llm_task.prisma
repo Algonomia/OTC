@@ -1,0 +1,15 @@
+model OtcAITask {
+    Jurisdiction                 String                 @map("jurisdiction")
+    ObligationType               ObligationTypeId       @map("obligation_type")
+    Group                        String                 @map("group")
+    Indicators                   String[]               @map("indicators")
+    Status                       AiJobStatus            @map("status") @default(PENDING)
+    JobId                        String?                @map("job_id")
+    RetryAfter                   DateTime?              @map("retry_after")
+
+    SourceId                     Int                    @map("source_id")
+    Source                       Source                 @relation(fields: [SourceId], references: [id], onDelete: Restrict)
+
+    @@id([SourceId, Jurisdiction, ObligationType, Group])
+    @@map("otc_ai_task")
+}

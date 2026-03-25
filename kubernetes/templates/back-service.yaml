@@ -1,0 +1,17 @@
+{{- if .Values.back.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.back.service.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    run: back
+spec:
+  ports:
+    - port: {{ .Values.back.service.port }}
+      targetPort: {{ .Values.back.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    run: back
+{{- end }}

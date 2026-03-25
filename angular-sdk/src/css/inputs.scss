@@ -1,0 +1,79 @@
+@mixin input-container {
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    padding: 5px 10px;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 35px;
+    background-color: var(--main-1-05);
+    border: 1px solid var(--main-1);
+    color: var(--main-4);
+    font-size: 14px;
+    transition: border 0.2s ease-in;
+
+    &[type=number] {
+        // max-width: 70px; // TODO : should depend on number of digits
+    }
+
+    &.valid {
+        border-color: var(--OK-3);
+        background-color: var(--OK-0);
+        color: var(--OK-5);
+    }
+
+    &.error {
+        border-color: var(--KO-3);
+        background-color: var(--KO-0);
+        color: var(--KO-5);
+
+        &::placeholder {
+            color: var(--KO-3);
+        }
+    }
+
+    &:focus-visible, &:hover  {
+        outline: none;
+        border-color: var(--main-3);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+    }
+
+    &::placeholder {
+        color: var(--main-1);
+    }
+}
+
+.input-container {
+    @include input-container;
+}
+
+::ng-deep p-datepicker .input-container {
+    @include input-container;
+}
+
+:root {
+    --p-datepicker-input-icon-color: var(--main-3) !important;
+    --p-datepicker-today-background: var(--main-3) !important;
+
+    --p-inputtext-placeholder-color: var(--main-2) !important;
+    --p-content-border-color: var(--main-3) !important;
+    --p-content-hover-background: var(--main-3) !important;
+    --p-inputtext-hover-border-color: var(--main-4) !important;
+    --p-inputtext-focus-border-color: var(--main-4) !important;
+    --p-primary-color: var(--grey-0) !important;
+
+    --p-datepicker-date-selected-color: var(--main-4) !important;
+    --p-datepicker-date-color: var(--grey-0) !important;
+    --p-datepicker-today-color: var(--grey-0) !important;
+    --p-datepicker-week-day-color: var(--grey-0) !important;
+    --p-datepicker-select-month-color: var(--grey-0) !important;
+    --p-datepicker-select-year-color: var(--grey-0) !important;
+    --p-datepicker-header-color: var(--grey-0) !important;
+    --p-datepicker-hover-color: var(--grey-0) !important;
+    --p-datepicker-header-background: var(--main-4) !important;
+    --p-datepicker-panel-background: var(--main-4) !important;
+    --p-datepicker-panel-color: var(--grey-0) !important;
+}

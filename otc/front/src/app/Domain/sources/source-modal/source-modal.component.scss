@@ -1,0 +1,18 @@
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container-modal {
+    color: var(--main-3);
+    font-size: 0.875rem;
+    letter-spacing: 0.8px;
+    line-height: 1.5rem;
+    word-break: break-word;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+}

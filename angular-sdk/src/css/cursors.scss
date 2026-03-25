@@ -1,0 +1,19 @@
+.cursor-default {
+    cursor: default !important;
+}
+
+.cursor-help {
+    cursor: help;
+}
+
+.cursor-grab {
+    cursor: url('../assets/Cursors/Hover grab.svg') 12 10, grab !important;
+}
+
+.cursor-grabbing {
+    cursor: url('../assets/Cursors/Grab.svg') 12 10, grabbing !important;
+}
+
+.cursor-pointer {
+    cursor: url('../assets/Cursors/Pointer.svg') 12 10, pointer !important;
+}

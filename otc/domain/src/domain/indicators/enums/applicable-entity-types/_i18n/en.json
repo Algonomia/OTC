@@ -1,0 +1,26 @@
+{
+    "ObligationDueDateDomain": {
+        "ApplicableEntityTypes": {
+            "Company": {
+                "text": "Company",
+                "info": "Classic corporations & companies limited by shares (Inc.,Ltd.,SA,GmbH, AG) plus LLCs, LLPs, GPs, LPs when the regulation treats them identically to companies for that obligation"
+            },
+            "PE": {
+                "text": "PE",
+                "info": "Permanent Establishment, a foreign branch or construction / service PE that is taxed as part of the head‑office company."
+            },
+            "Partnership": {
+                "text": "Partnership",
+                "info": "Partnerships that remain fiscally transparent / taxed at partner‑level and to which the rule specifically applies or specifically exempts (GP, LP, LLP)."
+            },
+            "TrustFoundation": {
+                "text": "Trust/Foundation",
+                "info": "Trusts, foundations, charities if they are singled out."
+            },
+            "Other": {
+                "text": "Other",
+                "info": "Catch‑all for rare or country‑specific forms, such as co‑operatives, state bodies, joint ventures or anything else explicitly mentioned but not fitting neatly above. Should be specifed in 'Entity Type Details'."
+            }
+        }
+    }
+}

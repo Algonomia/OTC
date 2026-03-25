@@ -1,0 +1,34 @@
+<div style=" height: 100%; position: relative;">
+    <div class="list-items-handler">
+        <div class="flex-wrap gap-10px">
+            <ng-template [ngTemplateOutlet]="listItems"
+                         [ngTemplateOutletContext]="{ list: __list_to_show }">
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="list-items-handler list-tmp" #resizableRef #parent >
+        <div class="flex-wrap gap-10px" #dataContainer >
+            <ng-template [ngTemplateOutlet]="listItems"
+                         [ngTemplateOutletContext]="{ list: __list }">
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+<ng-template #listItems let-list="list">
+    @for (data of list; track i; let i = $index) {
+        <div  #dataRef class="ref">
+            <ng-template [ngTemplateOutlet]="dataContent"
+                         [ngTemplateOutletContext]="{ data: data, idx: i }">
+            </ng-template>
+        </div>
+    }
+    @if (counterTemplate && hidden_items > 0 && __full_list.length > 1) {
+        <div>
+            <ng-template [ngTemplateOutlet]="counterTemplate"
+                         [ngTemplateOutletContext]="{ counter: hidden_items }">
+            </ng-template>
+        </div>
+    }
+</ng-template>

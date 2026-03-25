@@ -1,0 +1,41 @@
+{
+  "name": "@astorage/server",
+  "version": "1.0.0",
+  "description": "File microservice which as REST API to upload and download file",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "dev": "ts-node src/server.ts",
+    "test": "jest"
+  },
+  "author": "Algonomia - Yannick XU <yannick.xu@algonomia.com>",
+  "contributors": [
+    "Algonomia - Youssef BALMA <youssef.balma@algonomia.com>"
+  ],
+  "license": "LGPLv3",
+  "dependencies": {
+    "@algonomia/ts-shared": "file:../../ts-shared",
+    "archiver": "^7.0.1",
+    "better-sqlite3": "^12.6.2",
+    "body-parser": "^2.2.2",
+    "clamscan": "^2.4.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/archiver": "^7.0.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/body-parser": "^1.19.6",
+    "@types/clamscan": "^2.4.1",
+    "@types/cors": "^2.8.19",
+    "@types/jest": "^30.0.0",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^25.2.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

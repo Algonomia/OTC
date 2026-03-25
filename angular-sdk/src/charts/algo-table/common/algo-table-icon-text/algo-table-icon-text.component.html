@@ -1,0 +1,8 @@
+<div>
+    @if (icon) {
+        <app-algo-icon [name]="icon" class="icon"></app-algo-icon>
+    }
+    @if (text) {
+        <span>{{ text | translate }}</span>
+    }
+</div>

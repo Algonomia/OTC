@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>action / toggle / checkbox select invert</title>
+    <g id="action-/-toggle-/-checkbox-select-invert" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M23.376,24.008 C23.856,24.008 24.24,23.624 24.24,23.144 L24.24,12.456 C24.24,11.976 23.856,11.592 23.376,11.592 L12.656,11.592 C12.176,11.592 11.792,11.976 11.792,12.456 L11.792,23.144 C11.792,23.624 12.176,24.008 12.656,24.008 L23.376,24.008 Z M17.264,19.784 C17.072,19.784 16.912,19.72 16.784,19.592 L14.608,17.416 L14.992,17 L17.168,19.208 C17.232,19.24 17.264,19.24 17.328,19.208 L21.296,15.208 L21.712,15.624 L17.712,19.592 C17.584,19.72 17.424,19.784 17.264,19.784 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

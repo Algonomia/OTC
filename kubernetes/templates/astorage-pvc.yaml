@@ -1,0 +1,21 @@
+{{- if .Values.fileMicroservice.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: file-microservice-pvc
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  {{- if .Values.fileMicroservice.persistentVolumeClaim.storageClassName }}
+  storageClassName: {{ .Values.fileMicroservice.persistentVolumeClaim.storageClassName }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.fileMicroservice.persistentVolumeClaim.storage }}
+{{- end }}

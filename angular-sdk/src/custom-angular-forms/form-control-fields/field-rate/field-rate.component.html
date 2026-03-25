@@ -1,0 +1,9 @@
+@if (formControl) {
+    <app-star-rating-form-control
+        [formControl]="formControl"
+        [maxRate]="formControl.algoValidator.meta.maxRate"
+        [required]="formControl.algoValidator.meta.required"
+        [label]="formControl.algoValidator.meta.label"
+    >
+    </app-star-rating-form-control>
+}

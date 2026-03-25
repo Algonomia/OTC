@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>action / control / play circled</title>
+    <g id="action-/-control-/-play-circled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18,26.952 C23.056,26.952 27.152,22.856 27.152,17.8 C27.152,12.744 23.056,8.648 18,8.648 C12.944,8.648 8.848,12.744 8.848,17.8 C8.848,22.856 12.944,26.952 18,26.952 Z M18,26.376 C13.264,26.376 9.424,22.536 9.424,17.8 C9.424,13.064 13.264,9.224 18,9.224 C22.736,9.224 26.576,13.064 26.576,17.8 C26.576,22.536 22.736,26.376 18,26.376 Z M16.176,20.456 L21.04,17.96 C21.168,17.896 21.168,17.704 21.04,17.64 L16.176,15.144 C16.048,15.08 15.92,15.176 15.92,15.304 L15.92,20.264 C15.92,20.424 16.048,20.52 16.176,20.456 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>

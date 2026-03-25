@@ -1,0 +1,17 @@
+@use "../../../css/colors";
+.quit-modal {
+    background-color: #fffbf9;
+    border-radius: 11px;
+    border: 2px solid var(--KO-2);
+
+    .title {
+        color: var(--KO-5);
+        font-family: "Integral UI Bold", sans-serif;
+        font-size: 1.125rem;
+        line-height: 2rem;
+    }
+
+    .text {
+        color: var(--KO-4);
+    }
+}

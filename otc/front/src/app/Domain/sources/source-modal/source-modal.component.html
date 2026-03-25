@@ -1,0 +1,170 @@
+<app-modal-stepper [modalSteps]="modalSteps"></app-modal-stepper>
+
+<ng-template #nameSource>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: 'Action/Navigation/Add',
+                      title: 'OTCFront.Sources.AddNewSource',
+                      bodyTpl: nameSourceContent
+                  }">
+    </ng-container>
+    <ng-template #nameSourceContent>
+        <div class="pad-1">
+            <app-meta-form-group [metaFormGroup]="sourceProvenanceFormGroup"></app-meta-form-group>
+        </div>
+    </ng-template>
+</ng-template>
+
+<ng-template #choiceSource>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: 'Action/Navigation/Add',
+                      title: 'OTCFront.Sources.AddNewSource',
+                      bodyTpl: choiceSourceContent
+                  }">
+    </ng-container>
+    <ng-template #choiceSourceContent>
+        <app-choice-source (next)="choiceTypeSource($event)"></app-choice-source>
+    </ng-template>
+</ng-template>
+
+<ng-template #addSource>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: current_source_type === 'url' ? 'People/Community/Link' : 'System/Storage/CloudAdd',
+                      title: 'OTCFront.Sources.AddNewSource',
+                      bodyTpl: addSourceContent
+                  }">
+    </ng-container>
+    <ng-template #addSourceContent>
+        <ng-template #urlOrFileTpl>
+            @if (current_source_type === 'url') {
+                <app-meta-form-group [metaFormGroup]="urlFormGroup"></app-meta-form-group>
+            } @else {
+                <app-meta-form-group [metaFormGroup]="filesFormGroup"></app-meta-form-group>
+            }
+        </ng-template>
+
+        <ng-template [ngTemplateOutlet]="sectionTpl" [ngTemplateOutletContext]="{content: urlOrFileTpl, title: 'OTCFront.Sources.ByAddingSource'}"></ng-template>
+    </ng-template>
+</ng-template>
+
+<ng-template #obligationConfig>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                      icon: 'Action/Navigation/Add',
+                      title: 'OTCFront.Sources.AddNewSource',
+                      bodyTpl: obligationConfigContent
+                  }">
+    </ng-container>
+    <ng-template #obligationConfigContent>
+        <ng-template #obligationAndJursFormGroupTpl>
+            <app-meta-form-group [metaFormGroup]="obligationJurisdictionFormGroup"></app-meta-form-group>
+        </ng-template>
+
+        <ng-template [ngTemplateOutlet]="sectionTpl" [ngTemplateOutletContext]="{content: obligationAndJursFormGroupTpl, title: 'OTCFront.Sources.SpecifyObligationJurisdiction'}"></ng-template>
+    </ng-template>
+</ng-template>
+
+<ng-template #addValue>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                          icon: 'Action/Navigation/Add',
+                          title: 'OTCFront.Sources.AddNewSource',
+                          bodyTpl: addValueContent
+                      }">
+    </ng-container>
+    <ng-template #addValueContent>
+        <ng-template #valuesFormGroupTpl>
+            <app-meta-form-group [metaFormGroup]="indicatorsFormGroup"></app-meta-form-group>
+        </ng-template>
+
+        <ng-template [ngTemplateOutlet]="sectionTpl" [ngTemplateOutletContext]="{content: valuesFormGroupTpl, title: 'OTCFront.Sources.LastThing'}"></ng-template>
+    </ng-template>
+</ng-template>
+
+<ng-template #done>
+    <ng-container [ngTemplateOutlet]="containerModal"
+                  [ngTemplateOutletContext]="{
+                          icon: 'People/Community/LikeSelect',
+                          title: 'OTCFront.CoreCommon.OTCLovesYou',
+                          bodyTpl: doneContent
+                      }">
+    </ng-container>
+    <ng-template #doneContent>
+        <app-done-step (close)="closeModal()"
+                         [messages]="['OTCFront.CoreCommon.ThanksForCommitment', 'OTCFront.CoreCommon.AdminWillValidate']">
+        </app-done-step>
+    </ng-template>
+</ng-template>
+
+<ng-template #containerModal let-icon="icon" let-title="title" let-bodyTpl="bodyTpl">
+    <div class="container-modal">
+        <ng-container [ngTemplateOutlet]="bodyTpl"></ng-container>
+    </div>
+</ng-template>
+
+<ng-template #closeBtn>
+    <app-button-cancel (click)="closeModal()"></app-button-cancel>
+</ng-template>
+
+<ng-template #submitName>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.NextStep" (click)="nextStepper()"
+                             [disabled_btn]="sourceProvenanceFormGroup.invalid">
+        </app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #submitUrlFile>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+
+        @if (current_source_type === 'url') {
+            <app-button-continue type="submit" text="OTCFront.CoreCommon.NextStep"
+                                 [disabled_btn]="urlFormGroup.invalid" (click)="onSubmitUrl()">
+            </app-button-continue>
+        } @else {
+            <app-button-continue type="submit" text="OTCFront.CoreCommon.NextStep"
+                                 [disabled_btn]="filesFormGroup.invalid" (click)="onSubmitFile()">
+            </app-button-continue>
+        }
+    </div>
+</ng-template>
+
+<ng-template #submitObligations>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+
+        <app-button-continue type="submit" text="OTCFront.CoreCommon.NextStep" (click)="nextStepper()"
+                             [disabled_btn]="obligationJurisdictionFormGroup.invalid">
+        </app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #submitValues>
+    <div class="std-aligned gap-1">
+        <ng-container [ngTemplateOutlet]="closeBtn"></ng-container>
+        <app-button-continue type="submit" [disabled_btn]="!indicatorsFormGroup.valid" (click)="submit()" [text]="'OTCFront.CoreCommon.Submit'"></app-button-continue>
+    </div>
+</ng-template>
+
+<ng-template #gotIt>
+    <div class="std-aligned justify-end">
+        <app-button-got-it (click)="closeModal()"></app-button-got-it>
+    </div>
+</ng-template>
+
+<ng-template #sectionTpl let-title="title" let-content="content">
+    <div class="flex flex-column pad-1 gap-1">
+        <div class="text-container">
+            <p class="text">{{ title | translate }}</p>
+        </div>
+
+        <hr style="margin: 0" />
+
+        <ng-template [ngTemplateOutlet]="content"></ng-template>
+    </div>
+</ng-template>

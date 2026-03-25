@@ -1,0 +1,12 @@
+model OauthAccessToken {
+    accessKey   String   @id @unique @map("access_key")
+    provider    String
+    accessToken String   @map("access_token")
+    expiresAt   DateTime @map("expires_at")
+    createdAt   DateTime @default(now()) @map("created_at")
+    userId      String   @map("user_id")
+
+    user        AuthUser @relation(fields: [userId], references: [id])
+
+    @@map("oauth_access_token")
+}

@@ -1,0 +1,14 @@
+@use "btn-main";
+
+@use '../btn-theme' as theme;
+@use '../btn-mixin';
+
+$map-btn-base: (
+    btn-link-0: theme.$btn-link-0,
+    btn-link-4: theme.$btn-link-4,
+);
+
+.algo-btn {
+    @include btn-mixin.generate-btn-class(btn-main.$map-btn-base);
+}
+

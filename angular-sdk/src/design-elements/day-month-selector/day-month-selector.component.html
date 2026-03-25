@@ -1,0 +1,17 @@
+<div class="std-aligned gap-1">
+    <input class="input-container"
+           type="number"
+           autocomplete="off"
+           [min]="1"
+           [max]="__maxDay"
+           (change)="__changeDayEvent($event)"
+           [value]="value?.day"
+           [placeholder]="(dayPlaceholder ? dayPlaceholder : 'AngularSdk.SubDateForm.ChooseDay') | translate"
+           [class.valid]="showValidation && isValid"
+           [class.error]="showValidation && hasError">
+    <span> / </span>
+    <app-std-menu-overlay-adaptive [sorted]="false"
+                  [selectHandler]="__monthSelectHandler"
+                  [placeholder]="(monthPlaceholder ? monthPlaceholder : 'AngularSdk.SubDateForm.ChooseMonth') | translate">
+    </app-std-menu-overlay-adaptive>
+</div>

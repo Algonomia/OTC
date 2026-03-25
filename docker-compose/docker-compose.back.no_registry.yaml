@@ -1,0 +1,44 @@
+services:
+    server:
+        container_name: back
+        image: tax-calendar-back:latest
+        tty: true
+        environment:
+            DATABASE_URL: postgresql://postgres:postgres@database:5432/postgres?schema=public
+            FILE_SERVICE_URL: http://astorage:3001
+            AI_ENDPOINT_URL: https://otc-microservice:8100/llm
+        ports:
+            - "127.0.0.1:3000:3000"
+        restart: always
+        depends_on:
+            - database
+            - astorage
+
+    database:
+        image: postgres:17
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: postgres
+            POSTGRES_PORT: 5432
+        ports:
+            - "127.0.0.1:6543:5432"
+        volumes:
+            - "./volume:/var/lib/postgresql/data"
+        restart: unless-stopped
+
+    astorage:
+        container_name: astorage
+        image: astorage:latest
+        environment:
+            CORS_ORIGIN: http://localhost:3000
+            HOST: astorage:3001
+            FILE_STORAGE_PATH: /dynamic/media
+            SQLITE_FILE_PATH: /sqlite/sqlite.db
+            LARGE_FILE_THRESHOLD: 50 # 50 MB
+        volumes:
+            - "./data/media:/dynamic/media"
+            - "./data/sqlite:/sqlite"
+        ports:
+            - "127.0.0.1:3001:3001"
+        restart: unless-stopped

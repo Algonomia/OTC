@@ -1,0 +1,21 @@
+<app-form-control-template
+    [inputTpl]="inputTpl"
+    [required]="required"
+    [label]="label"
+    [displayErrors]="formControl.touched"
+    [errors]="formControl.errors"
+>
+</app-form-control-template>
+
+<ng-template #inputTpl>
+    <input class="input-container"
+           type="text"
+           autocomplete="off"
+           [formControl]="formControl"
+           [minlength]="minLength ?? null"
+           [maxlength]="maxLength ?? null"
+           [placeholder]="placeholder ? (placeholder | translate) : ''"
+           [class.valid]="formControl.valid && (formControl.dirty || formControl.touched)"
+           [class.error]="formControl.invalid && (formControl.dirty || formControl.touched)">
+</ng-template>
+

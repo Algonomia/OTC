@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon / waiting for OCR@1x</title>
+    <g id="V4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10" transform="translate(0.500000, 0.500000)" stroke="#4191F0">
+            <circle id="Oval" opacity="0.299446469" cx="9" cy="9" r="9"></circle>
+            <path d="M9,0 C4.02943725,0 0,4.02943725 0,9" id="Oval" stroke-linecap="round"></path>
+            <path d="M14,9.3 C12.8036142,7.3 11.1369475,6.3 9,6.3 C6.86305251,6.3 5.19638585,7.3 4,9.3" id="Oval"></path>
+            <path d="M9,11.2696153 C10.1673104,11.2696153 11.2212522,10.3895669 11.2212522,9 C11.2212522,7.61043306 10.1673104,6.63007138 9,6.63007138 C7.83268965,6.63007138 6.79960862,7.62590164 6.79960862,9 C6.79960862,10.3740984 7.83268965,11.2696153 9,11.2696153 Z" id="Oval" stroke-linecap="round"></path>
+        </g>
+    </g>
+</svg>

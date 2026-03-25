@@ -1,0 +1,42 @@
+<div class="container">
+    @for (data of __data; track data; let i = $index) {
+        <div class="data-container">
+            @if (headerRef) {
+                <ng-template [ngTemplateOutlet]="headerRef" [ngTemplateOutletContext]="{dataWrapper: data}"></ng-template>
+            }
+
+            @for (column of __columns; track column.id) {
+                @if (data.valueLine[column.id]) {
+                    <app-accordion-item [lineTitle]="column.title | translate_arr | async" [itemTpl]="dataTpl"></app-accordion-item>
+
+                    <ng-template #dataTpl>
+                        @if (column.onClickCell | isArray) {
+                            <app-std-action-menu-with-popover [actions]="column.onClickCell" [triggerTpl]="cellTpl" [action_inputs]="[data.line]" menu_theme="dashboard-menu"></app-std-action-menu-with-popover>
+                        } @else {
+                            <ng-template [ngTemplateOutlet]="cellTpl"></ng-template>
+                        }
+                        <ng-template #cellTpl>
+                            <div class="card-value width-100" [class.cursor-pointer]="!!column.onClickCell" (click)="clickCell($event, column, data.line)">
+                                @let renderComp = column.renderComponent | callFuncOrVal:data.line;
+                                @if (renderComp) {
+                                    <app-component-renderer [renderComponent]="renderComp"
+                                                     [renderInputs]="column.renderInputs"
+                                                     [data]="data.line">
+                                    </app-component-renderer>
+                                } @else {
+                                    <div class="box-main-1">
+                                        {{ data.valueLine[column.id] }}
+                                    </div>
+                                }
+                            </div>
+                        </ng-template>
+                    </ng-template>
+                }
+            }
+        </div>
+
+        @if (i < (__data.length - 1)) {
+            <hr class="hr"/>
+        }
+    }
+</div>

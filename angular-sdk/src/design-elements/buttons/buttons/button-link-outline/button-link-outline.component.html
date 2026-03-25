@@ -1,0 +1,12 @@
+<app-href-handler [link]="link" [queryParams]="queryParams" [template]="linkHandler">
+    <ng-template #linkHandler>
+        <app-button btnCssClass="btn-main-1-outline"
+                    [singleIcon]="!text && icon ? 'Action/Arrow/ArrowRight' : ''"
+                    [rightIcon]="text && icon ? 'Action/Arrow/ArrowRight' : ''"
+                    [text]="text"
+                    [disabled]="disabled_btn"
+                    [size_theme]="size_theme"
+                    [rounded]="rounded">
+        </app-button>
+    </ng-template>
+</app-href-handler>

@@ -1,0 +1,11 @@
+<div class="flex flex-column pad-1 gap-1">
+    <div class="text-container">
+        <p class="text">{{ 'OTCFront.Sources.ByAddingSource' | translate }}</p>
+        <p class="text">{{ 'OTCFront.Sources.2WaysAddSource' | translate }}</p>
+    </div>
+
+    <hr style="margin: 0"/>
+
+    <app-big-button text="Click to enter url" icon="People/Community/Link" (click)="emitSourceType('url')"></app-big-button>
+    <app-big-button text="Click to upload file" icon="System/Storage/CloudAdd" (click)="emitSourceType('file')"></app-big-button>
+</div>

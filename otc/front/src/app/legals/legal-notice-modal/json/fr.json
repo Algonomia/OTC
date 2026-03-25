@@ -1,0 +1,78 @@
+[
+    {
+        "title": "⚖\uFE0F Avertissement légal",
+        "text": [
+            "L’Open Tax Calendar et les outils associés sont propulsés par un logiciel open source développé par Algonomia SAS, sous licence GNU AGPL.",
+            "Les points de données fiscales, obligations structurées, scores, ainsi que tous les résultats générés par les modèles d’IA générative sont éditorialement sélectionnés et publiés par Open Tax Society. Ils sont sous licence Creative Commons BY-NC-SA 4.0.",
+            "Open Tax Calendar (OTC) est une base de données collaborative et structurée d’informations publiques sur la conformité fiscale internationale, collectant des données issues de documents accessibles publiquement tels que des publications officielles gouvernementales, des organisations internationales, et des analyses professionnelles ouvertes. Elle est mise à disposition gratuitement, sous licence ouverte pour une réutilisation non commerciale.",
+            "L’utilisation de la plateforme et de ses résultats — y compris les scores de fiabilité, les comparaisons juridictionnelles et les résumés générés par IA — est soumise à nos [Conditions d’utilisation]. Ces résultats sont destinés à une analyse interne, un usage académique ou politique, ou une intégration dans des solutions d’automatisation. Ils ne constituent pas des conseils juridiques, financiers ou fiscaux et doivent être utilisés de manière responsable.",
+            "Toute organisation utilisant la plateforme doit accepter les Conditions d’utilisation, et tout contributeur accepte que ses contributions soient régies par la même licence. OTC ne cible pas les utilisateurs situés aux États-Unis, en Chine, en Russie, ou dans d’autres juridictions restreignant la diffusion ouverte d’informations juridiques ou fiscales. L’utilisation depuis ces lieux se fait à vos propres risques."
+        ]
+    },
+    {
+        "title": "\uD83D\uDCDA Base légale",
+        "text": [
+            "Le cadre juridique et de gouvernance d’OTC repose sur :",
+            [
+                "Code de la propriété intellectuelle français : les données factuelles ne sont pas protégeables par le droit d’auteur (Articles L112-1 et L112-3).",
+                "Directive 96/9/CE (Directive européenne sur les bases de données) : Open Tax Society ne reproduit aucune structure protégée ni extraction substantielle provenant de bases de données propriétaires tierces.",
+                "Licence internationale Creative Commons BY-NC-SA 4.0 : tout le contenu de la base de données est partagé sous cette licence.",
+                "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                "Règlement général sur la protection des données (RGPD) : les données personnelles des utilisateurs sont collectées et stockées de manière sécurisée en France avec le respect complet des droits des utilisateurs.",
+                "Cadre juridique européen anti-SLAPP (Directive 2022/0117) : Open Tax Society se réserve le droit d’agir contre les menaces juridiques abusives ou stratégiques."
+            ]
+        ]
+    },
+    {
+        "title": "\uD83E\uDDE9 Sources de données et disponibilité publique",
+        "text": [
+            "Seules les données provenant de sources publiques, librement accessibles, sont utilisées. Cela inclut :",
+            [
+                "Les calendriers fiscaux gouvernementaux, sites réglementaires ou avis officiels.",
+                "Les organismes internationaux (par exemple, OCDE, Commission européenne).",
+                "Les décisions judiciaires ou administratives rendues publiques.",
+                "Les publications de cabinets professionnels qui n’étaient ni payantes ni confidentielles au moment de l’accès."
+            ],
+            "Les contributeurs doivent vérifier que les sources utilisées sont accessibles publiquement sur le web ouvert. Les contributions citant des contenus confidentiels, payants ou non autorisés seront rejetées.",
+            "Si un éditeur privé ou une entreprise estime que son contenu a été utilisé de manière inappropriée, elle peut contacter otc-contribution@opentaxcalendar.com en fournissant :",
+            [
+                "Une preuve que la source référencée n’était pas publique au moment de la consultation ;",
+                "Une demande de retrait ou de désindexation signée par un représentant légalement habilité."
+            ]
+        ]
+    },
+    {
+        "title": "\uD83D\uDEE1\uFE0F Contributions de la communauté et conditions de licence",
+        "text": [
+            "Toutes les contributions des utilisateurs sont soumises à la licence CC BY-NC-SA 4.0.",
+            [
+                "En contribuant, les utilisateurs affirment avoir le droit de partager ces données.",
+                "Les contributions se limitent à des données structurées (date, pays, type d’obligation) ou des évaluations de fiabilité. Aucun texte libre ou commentaire n’est accepté.",
+                "Les scores de fiabilité et les notes peuvent être générés par intelligence artificielle et analyse automatisée. Ils reflètent des évaluations éditoriales algorithmiques et non des affirmations factuelles.",
+                "Les utilisateurs acceptent que les contributions agrégées puissent être utilisées pour produire des classements ou des comparaisons diffusés sur la plateforme, dans des newsletters, sur les réseaux sociaux ou dans des publications."
+            ],
+            "Les contributeurs restent visibles et crédités (sauf s’ils choisissent de se retirer) mais renoncent au droit d’exclusivité ou de contrôle sur la redistribution. Toute soumission peut être retirée si elle viole la politique de sourcing."
+        ]
+    },
+    {
+        "title": "\uD83E\uDD1D Principaux partenaires",
+        "text": [
+            "Les organisations qui apportent un soutien technique, financier ou en visibilité significatif à la plateforme peuvent être reconnues comme Partenaires Principaux. Leur statut :",
+            [
+                "Fait l’objet d’un examen annuel ;",
+                "Donne une visibilité de marque et la possibilité de citer leur soutien dans leurs propres supports ;",
+                "Ne confère pas de contrôle éditorial sur les données, classements ou méthodes de notation.",
+                "Permet l’utilisation de leurs logos uniquement tant qu’ils sont activement listés comme Partenaire Principal."
+            ],
+            "Les données partagées par les Partenaires Principaux et non autrement disponibles publiquement sont intégrées sous licence CC BY-NC-SA."
+        ]
+    },
+    {
+        "title": "\uD83C\uDF10 Champ d'application territorial",
+        "text": [
+            "OTC est développé, hébergé et régi par le droit français et européen. L’utilisation de la plateforme depuis l’extérieur de l’UE, notamment dans des juridictions telles que les États-Unis, la Chine, la Russie, la Turquie, l’Arabie Saoudite ou d’autres pays avec des régimes de données restrictifs, se fait aux risques juridiques exclusifs de l’utilisateur.",
+            "La plateforme ne s’adresse pas aux résidents de ces pays et ne doit pas être considérée comme une sollicitation, un service ou une offre de conseil dans ces régions.",
+            "Pour toute demande, demande de déréférencement ou correction, contactez : otc-contribution@opentaxcalendar.com."
+        ]
+    }
+]

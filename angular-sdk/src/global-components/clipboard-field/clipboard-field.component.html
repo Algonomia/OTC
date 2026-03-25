@@ -1,0 +1,18 @@
+<div class="flex flex-column gap-5px">
+        <div class="std-aligned gap-1 justify-between">
+            @if (label) {
+                <label class="label-text">{{ label | translate }}</label>
+            }
+
+            <div class="std-aligned copy-container cursor-pointer" (click)="clipboard()">
+                <app-algo-icon class="icon-copy margin-0" weight="Normal" name="System/Filing/Duplicate"></app-algo-icon>
+                <p>{{ 'AngularSdk.CoreCommon.Copy' | translate }}</p>
+            </div>
+        </div>
+
+    @if (text) {
+        <div class="clipboard-field pad-1">
+            {{ text }}
+        </div>
+    }
+</div>

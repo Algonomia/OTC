@@ -1,0 +1,54 @@
+{
+    "ObligationDueDateDomain": {
+        "SourceStatus": {
+            "WaitForUrlSafeBrowsingCheck": {
+                "text": "Waiting for URL safe browsing check",
+                "info": ""
+            },
+            "WaitForUrlMalwareScan": {
+                "text": "Waiting for URL malware scan",
+                "info": ""
+            },
+            "RejectedUrl": {
+                "text": "Rejected URL",
+                "info": ""
+            },
+            "WaitForValidation": {
+                "text": "Waiting for validation",
+                "info": ""
+            },
+            "RejectedByAdmin": {
+                "text": "Rejected by admin",
+                "info": ""
+            },
+            "WaitForScrapping": {
+                "text": "Waiting for scrapping",
+                "info": ""
+            },
+            "UrlNotFound": {
+                "text": "URL not found",
+                "info": ""
+            },
+            "ScanForMalware": {
+                "text": "Scanning for malware",
+                "info": ""
+            },
+            "RejectedByMalwareScan": {
+                "text": "Rejected by malware scan",
+                "info": ""
+            },
+            "WaitForOCR": {
+                "text": "Waiting for OCR",
+                "info": ""
+            },
+            "WaitForAI": {
+                "text": "Waiting for AI",
+                "info": ""
+            },
+            "FullyProcessed": {
+                "text": "Fully processed",
+                "info": ""
+            }
+        }
+    }
+}

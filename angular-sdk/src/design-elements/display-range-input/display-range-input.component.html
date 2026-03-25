@@ -1,0 +1,55 @@
+<div class="range-inputs std-aligned gap-1">
+    <div class="flex-1 range-container">
+        <div class="range-field">
+            <input type="range"
+                   [min]="min"
+                   [max]="max"
+                   [step]="step"
+                   [value]="value"
+                   (input)="onInput($event)"
+                   class="range"
+            />
+        </div>
+        <div class="range-labels">
+            <span class="range-min">{{ min }}</span>
+            <span class="range-max">{{ max }}</span>
+        </div>
+    </div>
+    <div>
+        <div class="std-relative field-number">
+            <div class="spin-incrementation">
+                <app-algo-icon class="cursor-pointer icon"
+                               name="Action/Charet/ChevronUp"
+                               weight="Regular"
+                               (click)="incrementValue()">
+                </app-algo-icon>
+                <app-algo-icon class="cursor-pointer icon"
+                               name="Action/Charet/ChevronDown"
+                               weight="Regular"
+                               (click)="decrementValue()">
+                </app-algo-icon>
+            </div>
+            <input class="input-container"
+                   type="number"
+                   autocomplete="off"
+                   [min]="min"
+                   [max]="max"
+                   [step]="step"
+                   [value]="value"
+                   (input)="onInput($event)"
+                   (blur)="onBlur($event)"
+                   [placeholder]="placeholder ? (placeholder | translate) : ''"
+                   [class.valid]="isValid"
+                   [class.error]="isInvalid"
+            />
+        </div>
+        @if (resettable) {
+            <div class="flex" style="justify-content: flex-end;">
+                <app-algo-icon name="Action/Formatting/Erase" weight="Regular"
+                               class="icon-erase cursor-pointer"
+                               (click)="resetValue()">
+                </app-algo-icon>
+            </div>
+        }
+    </div>
+</div>

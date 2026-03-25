@@ -1,0 +1,9 @@
+<app-button btnCssClass="btn-main-4"
+            [leftIcon]="left_icon && text ? 'Action/Navigation/Add' : ''"
+            [singleIcon]="!text ? 'Action/Navigation/Add' : ''"
+            [rightIcon]="!left_icon && text ? 'Action/Navigation/Add' : ''"
+            [text]="text"
+            [disabled]="disabled_btn"
+            [size_theme]="size_theme"
+            [rounded]="rounded">
+</app-button>

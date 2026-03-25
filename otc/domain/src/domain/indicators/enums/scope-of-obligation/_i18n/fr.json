@@ -1,0 +1,18 @@
+{
+    "ObligationDueDateDomain": {
+        "ScopeOfObligation": {
+            "Group": {
+                "text": "Groupe",
+                "info": "Par exemple, obligations consolidées comme un CbCR global."
+            },
+            "TaxGroup": {
+                "text": "Groupe fiscal",
+                "info": "Par exemple, exigence de regroupement fiscal local."
+            },
+            "Entity": {
+                "text": "Entité",
+                "info": "Par exemple, basée sur l’entité locale (comme un formulaire TP annuel spécifique)."
+            }
+        }
+    }
+}

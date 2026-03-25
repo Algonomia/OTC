@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /about
+Disallow: /dashboard
+Disallow: /sources
+Disallow: /contributions
+Disallow: /api-access
+
+Sitemap: https://opentaxcalendar.com/sitemap.xml

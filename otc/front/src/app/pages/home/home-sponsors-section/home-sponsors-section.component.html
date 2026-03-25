@@ -1,0 +1,9 @@
+<div class="sponsors-section std-aligned justify-between">
+    <div class="std-aligned gap-20px">
+        <p class="sponsors-initiative">{{ 'OTCFront.Home.sponsors.__Initiative' | translate }}</p>
+    </div>
+
+    @if (authLinkedinService.isConnected$ | async) {
+        <app-button-link text="OTCFront.Home.DiscoverData" link="/dashboard" size_theme="Medium" class="cta-discover"></app-button-link>
+    }
+</div>

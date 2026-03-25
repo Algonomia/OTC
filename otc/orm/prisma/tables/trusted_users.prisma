@@ -1,0 +1,6 @@
+model TrustedUser {
+    email                 String  @id @unique
+
+    @@index([email])
+    @@map("trusted_users")
+}

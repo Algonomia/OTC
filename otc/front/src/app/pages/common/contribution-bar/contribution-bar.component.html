@@ -1,0 +1,23 @@
+<app-bar [contentTpl]="content" [rounded]="true" [highlighted]="true" [title]="'OTCFront.ContributionBar.Contribution'" [icon]="'Action/Formatting/Edit'"></app-bar>
+
+<ng-template #content>
+    <app-screen-size-handler [appNormalTemplate]="bigBtns" [appSmallTemplate]="smallBtns"></app-screen-size-handler>
+
+    <ng-template #bigBtns>
+        <ng-template [ngTemplateOutletContext]="{
+            contributionTitle: 'OTCFront.ContributionBar.SpecifyValue',
+            sourceTitle: 'OTCFront.ContributionBar.AddNewSource'
+        }" [ngTemplateOutlet]="btnTpl"></ng-template>
+    </ng-template>
+
+    <ng-template #smallBtns>
+        <ng-template [ngTemplateOutletContext]="{contributionTitle: '', sourceTitle: ''}" [ngTemplateOutlet]="btnTpl"></ng-template>
+    </ng-template>
+
+    <ng-template let-contributionTitle="contributionTitle" let-sourceTitle="sourceTitle" #btnTpl>
+        <div class="std-aligned gap-1">
+            <app-button-edit-outline (click)="openContributionModal()" [left_icon]="true" [text]="contributionTitle"></app-button-edit-outline>
+            <app-button-add (click)="openChoiceSourceModal()" [left_icon]="true" [text]="sourceTitle"></app-button-add>
+        </div>
+    </ng-template>
+</ng-template>

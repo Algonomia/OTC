@@ -1,0 +1,18 @@
+.warning-info {
+    background-color: var(--graph-yellow-1);
+    border:  1px solid var(--graph-yellow-2);
+    padding: 5px 10px;
+    border-radius: 3px;
+
+    .warn-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    p {
+        line-height: 1.25rem;
+        font-size: 0.875rem;
+        font-family: "Integral UI Medium", sans-serif;
+        color: var(--graph-yellow-5);
+    }
+}

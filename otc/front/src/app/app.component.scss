@@ -1,0 +1,19 @@
+@use "css/media";
+
+.header {
+    height: var(--header-height);
+}
+
+.body {
+    height: calc(var(--app-height) - var(--header-height));
+}
+
+@include media.media('tabletL') {
+    .header {
+        height: var(--header-height-mobile);
+    }
+
+    .body {
+        height: calc(var(--app-height) - var(--header-height-mobile));
+    }
+}

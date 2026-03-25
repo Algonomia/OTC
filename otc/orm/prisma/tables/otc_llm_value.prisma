@@ -1,0 +1,23 @@
+model OtcLLMValue {
+    id                           BigInt                 @id @default(autoincrement())
+    Jurisdiction                 String                 @map("jurisdiction")
+    ObligationType               ObligationTypeId       @map("obligation_type_id")
+
+    Source                       Source                 @relation(fields: [SourceId], references: [id], onDelete: Restrict)
+    SourceId                     Int                    @map("source_id")
+
+    Version                      DateTime               @map("version") @default(now())
+    Key                          String                 @map("key")
+    Value                        Json                   @map("value")
+    Notes                        String                 @map("notes") @default("")
+    Reference                    String                 @map("reference") @default("")
+    AdditionalValues             Json?                  @map("additional_values")
+    TagNotes                     String                 @map("tag_notes") @default("")
+    JudgeLLMScore                Float                  @map("judge_llm_score") @default(0)
+    JudgeLLMReasoning            String                 @map("judge_llm_reasoning") @default("")
+
+    ValueRates                   ValueRate[]
+
+    @@index([SourceId, Jurisdiction, ObligationType, Key])
+    @@map("otc_llm_value")
+}

@@ -1,0 +1,23 @@
+@use "../../css/colors";
+.cta {
+    border: 1px solid var(--main-1);
+    border-radius: 12px;
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:  var(--main-2);
+
+    .icon {
+        position: absolute;
+        right: 0;
+        width: 60px;
+        height: 60px;
+    }
+
+    &:hover {
+        border-color: var(--main-2);
+        color:  var(--main-3);
+    }
+}

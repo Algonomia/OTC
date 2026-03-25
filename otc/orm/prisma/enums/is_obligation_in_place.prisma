@@ -1,0 +1,5 @@
+enum IsObligationInPlaceId {
+    InPlace
+    NotEnforced
+    NotExist
+}

@@ -1,0 +1,60 @@
+<div class="panel-container gap-3" [class.row_direction_column]="row_direction_column">
+    @for (panel of __panels; track i; let i = $index) {
+        @if (panel.type === 'panel') {
+            <div class="panel" [class.open]="i === selectedIndex" [class.cursor-pointer]="i !== selectedIndex" (click)="selectPanel(i)">
+                <div class="panel-header">
+                    @if (panel.headerTpl) {
+                        <ng-container *ngTemplateOutlet="panel.headerTpl"></ng-container>
+                    } @else {
+                        <app-algo-icon [name]="panel.icon" class="panel-logo"></app-algo-icon>
+                        <div class="panel-title" [class.vertical]="i !== selectedIndex">{{ panel.title | translate }}</div>
+                    }
+                </div>
+
+                @if (panel.subHeaderTpl && i === selectedIndex) {
+                    <div class="panel-subheader">
+                        <ng-container *ngTemplateOutlet="panel.subHeaderTpl"></ng-container>
+                    </div>
+                }
+
+                @if (i === showContentIndex) {
+                    <div class="panel-content" @opacity>
+                        @if (show_navigation) {
+                            <div style="height: calc(100% - 68px)">
+                                <ng-container *ngTemplateOutlet="panel.contentTpl"></ng-container>
+                            </div>
+                            <div style="height: 68px;">
+                                <ng-container *ngTemplateOutlet="Navigation; context: {i: i}"></ng-container>
+                            </div>
+                        } @else {
+                            <ng-container *ngTemplateOutlet="panel.contentTpl"></ng-container>
+                        }
+                    </div>
+                }
+            </div>
+        } @else if (panel.type === 'image') {
+            <div class="panel-img">
+                <img [src]="panel.path" [alt]="panel.alt"/>
+            </div>
+        }
+    }
+</div>
+
+<ng-template let-i="i" #Navigation>
+    <div class="panel-nav std-aligned justify-between pad-1">
+        <div>
+            @if (i !== 0) {
+                <app-button-navigation (click)="goToPreviousPanelTitle(i); $event.stopPropagation()"
+                                       type="prev" [text]="getPreviousPanelTitle(i)">
+                </app-button-navigation>
+            }
+        </div>
+        <div>
+            @if (i !== __panels.length - 1) {
+                <app-button-navigation (click)="goToNextPanelTitle(i); $event.stopPropagation()"
+                                       type="next" [text]="getNextPanelTitle(i)">
+                </app-button-navigation>
+            }
+        </div>
+    </div>
+</ng-template>

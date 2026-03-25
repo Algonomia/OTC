@@ -1,0 +1,18 @@
+<app-edge-popover [triggerIsOpenTpl]="langButton" [contentTpl]="popover"></app-edge-popover>
+
+<ng-template #langButton>
+    <div class="lang-menu-button std-aligned gap-5px cursor-pointer">
+        <app-country-flag [iso2]="__currentLang === 'en' ? 'gb' : __currentLang" display="iso2"></app-country-flag>
+    </div>
+</ng-template>
+
+<ng-template #popover>
+    <ul class="menu-custom">
+        <li (click)="translate.use('fr')" class="cursor-pointer">
+            <app-country-flag [iso2]="'fr'" display="iso2"></app-country-flag>
+        </li>
+        <li (click)="translate.use('en')" class="cursor-pointer">
+            <app-country-flag [iso2]="'gb'" display="iso2"></app-country-flag>
+        </li>
+    </ul>
+</ng-template>

@@ -1,0 +1,14 @@
+enum SourceStatus {
+    WaitForUrlSafeBrowsingCheck
+    WaitForUrlMalwareScan
+    RejectedUrl
+    WaitForValidation
+    RejectedByAdmin
+    WaitForScrapping
+    UrlNotFound
+    ScanForMalware
+    RejectedByMalwareScan
+    WaitForOCR
+    WaitForAI
+    FullyProcessed
+}

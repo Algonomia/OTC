@@ -1,0 +1,59 @@
+@use "../../../css/media";
+@use "../../../css/colors";
+
+.head {
+    height: 64px;
+
+    .icon-head {
+        width: 32px;
+        height: 32px;
+        background-color: var(--main-4);
+        border-radius: 50px;
+        color: var(--grey-0);
+    }
+
+    .icon-close {
+        position: absolute;
+        right: 5px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.content {
+    height: 100%;
+    overflow: hidden;
+
+    .description-container {
+        height: 60px;
+        justify-content: space-around;
+
+        > p {
+            @include media.media('tablet') {
+                font-size: 0.75rem;
+                line-height: 1.25rem;
+            }
+
+            @include media.media('mobileXL') {
+                font-size: 0.65rem;
+                line-height: 1rem;
+            }
+        }
+    }
+
+    .editor {
+        border: 1px solid var(--main-2);
+        border-radius: 6px;
+        height: calc(100% - 60px);
+
+        .editor-content {
+            height: calc(100% - 65px);
+            overflow: auto;
+        }
+
+        .editor-footer {
+            border-top: 1px solid var(--main-2);
+        }
+    }
+}
+

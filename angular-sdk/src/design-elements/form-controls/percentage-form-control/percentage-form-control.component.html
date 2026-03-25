@@ -1,0 +1,13 @@
+<app-form-control-template [inputTpl]="inputTpl"
+                           [required]="required"
+                           [label]="label"
+                           [displayErrors]="formControls.touched"
+                           [errors]="formControls.errors">
+</app-form-control-template>
+
+<ng-template #inputTpl>
+    <app-display-range-input [formControl]="formControls" [editable]="editable" [placeholder]="placeholder"
+                             [min]="min" [max]="max">
+    </app-display-range-input>
+</ng-template>
+

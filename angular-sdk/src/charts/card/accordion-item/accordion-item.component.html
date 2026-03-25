@@ -1,0 +1,12 @@
+<div class="section-line std-flex">
+    <div class="section-line-title text-wrap-ellipsis">
+        <span class="card-section">{{ lineTitle | translate }}</span>
+    </div>
+    @if (lineTitle) {
+        <span class="dots"></span>
+    }
+
+    <div class="line-value">
+        <ng-template [ngTemplateOutlet]="itemTpl"></ng-template>
+    </div>
+</div>

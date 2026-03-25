@@ -1,0 +1,12 @@
+<div style="display: inline-flex; gap: 10px;">
+    <input class="input-container"
+           type="number"
+           autocomplete="off"
+           [ngModel]="numComplexValue()?.value"
+           (blur)="changeValue($event)"
+    >
+    <app-std-menu [selectHandler]="__dimSelectHandler" [placeholder]="'AngularSdk.EditConstantNumeric.Dimension' | translate"></app-std-menu>
+    @if (__unitLength > 0) {
+        <app-std-menu [selectHandler]="__unitSelectHandler" [placeholder]="'AngularSdk.EditConstantNumeric.Unit' | translate"></app-std-menu>
+    }
+</div>

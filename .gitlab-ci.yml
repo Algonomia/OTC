@@ -1,0 +1,196 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+stages:
+  - prepare
+  - test
+
+default:
+  tags:
+    - shared
+  interruptible: true
+
+.node-cache:
+  cache:
+    - key:
+        files:
+          - ts-shared/package.json
+          - otc/domain/package.json
+      paths:
+        - ts-shared/node_modules/
+        - otc/domain/node_modules/
+      policy: pull
+    - key:
+        files:
+          - otc/back/package.json
+      paths:
+        - otc/back/node_modules/
+      policy: pull
+    - key:
+        files:
+          - otc/front/package.json
+      paths:
+        - otc/front/node_modules/
+      policy: pull
+    - key:
+        files:
+          - astorage/server/package.json
+          - astorage/ts-client/package.json
+      paths:
+        - astorage/server/node_modules/
+        - astorage/ts-client/node_modules/
+      policy: pull
+
+prepare:deps:
+  stage: prepare
+  script:
+    - node --version && npm --version
+    - cd ts-shared && npm ci && npm run build
+    - cd ../otc/domain && npm ci && npm run build
+    - cd ../back && npm ci
+    - cd ../front && npm ci
+    - cd ../../astorage/server && npm ci
+    - cd ../ts-client && npm ci
+  cache:
+    - key:
+        files:
+          - ts-shared/package.json
+          - otc/domain/package.json
+      paths:
+        - ts-shared/node_modules/
+        - otc/domain/node_modules/
+      policy: push
+    - key:
+        files:
+          - otc/back/package.json
+      paths:
+        - otc/back/node_modules/
+      policy: push
+    - key:
+        files:
+          - otc/front/package.json
+      paths:
+        - otc/front/node_modules/
+      policy: push
+    - key:
+        files:
+          - astorage/server/package.json
+          - astorage/ts-client/package.json
+      paths:
+        - astorage/server/node_modules/
+        - astorage/ts-client/node_modules/
+      policy: push
+  artifacts:
+    paths:
+      - ts-shared/dist/
+      - otc/domain/dist/
+    expire_in: 1 hour
+
+test:ts-shared:
+  stage: test
+  needs:
+    - prepare:deps
+  cache:
+    key:
+      files:
+        - ts-shared/package.json
+        - otc/domain/package.json
+    paths:
+      - ts-shared/node_modules/
+      - otc/domain/node_modules/
+    policy: pull
+  script:
+    - cd ts-shared && npm test
+
+test:domain:
+  stage: test
+  needs:
+    - prepare:deps
+  cache:
+    key:
+      files:
+        - ts-shared/package.json
+        - otc/domain/package.json
+    paths:
+      - ts-shared/node_modules/
+      - otc/domain/node_modules/
+    policy: pull
+  script:
+    - cd otc/domain && npm test
+
+test:back:
+  stage: test
+  needs:
+    - prepare:deps
+  extends: .node-cache
+  script:
+    - cd otc/back && npm run test:cov
+  coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+  artifacts:
+    paths:
+      - otc/back/coverage/
+    expire_in: 7 days
+    when: always
+
+test:front:
+  stage: test
+  image: node:22-bullseye
+  needs:
+    - prepare:deps
+  extends: .node-cache
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends chromium && rm -rf /var/lib/apt/lists/*
+    - export CHROME_BIN=$(which chromium)
+  script:
+    - cd otc/front && npx ng test --no-watch --browsers=ChromeHeadless
+  coverage: '/Statements\s*:\s*([\d\.]+)%/'
+  artifacts:
+    paths:
+      - otc/front/coverage/
+    expire_in: 7 days
+    when: always
+
+test:astorage-server:
+  stage: test
+  needs:
+    - prepare:deps
+  cache:
+    - key:
+        files:
+          - ts-shared/package.json
+          - otc/domain/package.json
+      paths:
+        - ts-shared/node_modules/
+      policy: pull
+    - key:
+        files:
+          - astorage/server/package.json
+          - astorage/ts-client/package.json
+      paths:
+        - astorage/server/node_modules/
+      policy: pull
+  script:
+    - cd astorage/server && npm ci && npm test
+
+test:astorage-ts-client:
+  stage: test
+  needs:
+    - prepare:deps
+  cache:
+    - key:
+        files:
+          - ts-shared/package.json
+          - otc/domain/package.json
+      paths:
+        - ts-shared/node_modules/
+      policy: pull
+    - key:
+        files:
+          - astorage/server/package.json
+          - astorage/ts-client/package.json
+      paths:
+        - astorage/ts-client/node_modules/
+      policy: pull
+  script:
+    - cd astorage/ts-client && npm ci && npm test

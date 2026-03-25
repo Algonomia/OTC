@@ -1,0 +1,11 @@
+{
+    "OTCFront": {
+        "JurisdictionPdfExport": {
+            "DocumentName": "{{jurisdiction}}_Obligations_{{date}}.pdf",
+            "HeaderText": "Obligation Due Dates - {{jurisdiction}}",
+            "FooterText": "© Open Tax Calendar {{year}}",
+            "Subject": "Informations sur les obligations de la juridiction pour {{jurisdiction}}",
+            "ExportError": "L'export PDF a échoué. Veuillez réessayer."
+        }
+    }
+}

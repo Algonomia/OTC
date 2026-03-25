@@ -1,0 +1,8 @@
+OBLIGATION CONTEXT ADDENDUM — CbCR (main obligation)
+
+Definition
+- OECD Action 13 Country-by-Country Report: annual group report showing revenue, profit, employees, and taxes by jurisdiction for in-scope MNE groups.
+
+Sub-filings
+- No sub-filings are defined for this obligation in the current mapping.
+- Unless the user prompt explicitly requests a sub-filing, leave additional_values empty.

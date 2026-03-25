@@ -1,0 +1,38 @@
+mlflow:
+  tracking_uri: "${MLFLOW_TRACKING_URI:http://localhost:5000}"
+  experiment_name: "otc_pipeline"
+  artifact_location: "mlflow/artifacts"
+  
+registry:
+  enabled: true
+  default_stage: "Production"
+  cache_enabled: true
+  cache_ttl_minutes: 60
+  cache_directory: "mlflow/registry_cache"
+  
+  prompt_registry:
+    naming_convention: "prompt_{name}"
+    required_metadata:
+      - task_type
+      - schema_version
+      - test_coverage
+    validation:
+      min_length: 50
+      max_length: 10000
+      required_sections:
+        - "instructions"
+        - "output_format"
+  
+  model_registry:
+    enabled: false 
+    naming_convention: "model_{name}"
+    
+  stages:
+    - "Staging"
+    - "Production"
+    - "Archived"
+  
+  auto_archive:
+    enabled: true
+    after_days: 30
+    keep_production_versions: 5

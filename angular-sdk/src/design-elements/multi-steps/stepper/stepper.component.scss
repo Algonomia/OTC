@@ -1,0 +1,15 @@
+@use "../../../css/colors";
+.stepper {
+    gap: 5px;
+
+    .step-circle {
+        width: 5px;
+        height: 5px;
+        border-radius: 50px;
+        background-color: var(--main-2);
+
+        &.active {
+            width: 20px;
+        }
+    }
+}

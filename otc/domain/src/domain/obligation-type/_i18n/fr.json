@@ -1,0 +1,50 @@
+{
+    "ObligationDueDateDomain": {
+        "ObligationType": {
+            "CIT": {
+                "text": "Impôt sur les sociétés",
+                "info": ""
+            },
+            "MasterFile": {
+                "text": "Dossier principal",
+                "info": "Documentation TP au niveau du groupe."
+            },
+            "LocalFile": {
+                "text": "Dossier local",
+                "info": "Documentation TP de l'entité locale."
+            },
+            "AnnualTPForm": {
+                "text": "Formulaire TP annuel",
+                "info": "Déclaration annuelle en matière de prix de transfert."
+            },
+            "CbCR": {
+                "text": "CbCR",
+                "info": "Déclaration pays par pays standard."
+            },
+            "PublicCbCR": {
+                "text": "CbCR public",
+                "info": "Déclaration pays par pays publique."
+            },
+            "CbCRNotification": {
+                "text": "Notification CbCR",
+                "info": ""
+            },
+            "RelatedPartyDisclosure": {
+                "text": "Déclaration des parties liées",
+                "info": ""
+            },
+            "SimplifiedTPDocumentation": {
+                "text": "Documentation TP simplifiée",
+                "info": ""
+            },
+            "MasterFileNotification": {
+                "text": "Notification du fichier maître",
+                "info": ""
+            },
+            "SpecialItemFile": {
+                "text": "Fichier des éléments spécifiques",
+                "info": ""
+            }
+        }
+    }
+}

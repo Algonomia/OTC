@@ -1,0 +1,13 @@
+OBLIGATION CONTEXT ADDENDUM — MasterFile (main obligation)
+
+Definition
+- MasterFile = OECD Action 13 group-level TP documentation (or close equivalent) describing the multinational group, value chain, intangibles, financing, and global allocation.
+
+Possible sub-filing under MasterFile (only if DISTINCT and explicitly required)
+- MasterFileNotification (designated filer notice / procedural notification separate from the Master File content itself)
+
+Rule
+- MasterFileNotification can exist ONLY if MasterFile exists.
+- If the user prompt requests it and the source describes a separate notification requirement, put its extracted values in:
+  additional_values["MasterFileNotification"].
+- Else leave additional_values empty.

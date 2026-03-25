@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>system / data / display off</title>
+    <g id="system-/-data-/-display-off" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(11.000000, 7.343146)" stroke="#142846">
+            <rect id="Rectangle" stroke-width="0.2" fill="#142846" fill-rule="nonzero" x="0" y="15.6568542" width="14" height="3" rx="1"></rect>
+            <line x1="7" y1="0.224742462" x2="7" y2="11.6568542" id="Path-74" stroke-width="0.9" stroke-linejoin="round"></line>
+            <path d="M11,1.65685425 L11,9.15685425 C11,9.43299662 10.7761424,9.65685425 10.5,9.65685425 L3,9.65685425 L3,9.65685425" id="Rectangle" stroke-width="0.9" stroke-linejoin="round" transform="translate(7.000000, 5.656854) scale(1, -1) rotate(45.000000) translate(-7.000000, -5.656854) "></path>
+        </g>
+        <path d="M24,22.9 C24.6075132,22.9 25.1,23.3924868 25.1,24 L25.1,25 C25.1,25.6075132 24.6075132,26.1 24,26.1 L12,26.1 C11.3924868,26.1 10.9,25.6075132 10.9,25 L10.9,24 C10.9,23.3924868 11.3924868,22.9 12,22.9 L24,22.9 Z M17.3282486,7.37850109 C17.6992466,7.00750301 18.3007534,7.00750301 18.6717514,7.37850109 L23.9750523,12.6818019 L23.3386562,13.3181981 L18.449,8.42825253 L18.45,19 L17.55,19 L17.549,8.42925253 L12.6613438,13.3181981 L12.0249477,12.6818019 L17.3282486,7.37850109 Z" id="Shape" fill="#142846" fill-rule="nonzero"></path>
+    </g>
+</svg>
